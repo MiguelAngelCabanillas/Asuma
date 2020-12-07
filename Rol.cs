@@ -53,5 +53,13 @@ namespace Asuma
             }
         }
 
+        public string RolName {
+            get { return this.rolName; }
+        }
+
+        public bool Admin
+        {
+            get { return this.admin; }
+        }
     }
 }
