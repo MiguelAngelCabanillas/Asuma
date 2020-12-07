@@ -45,3 +45,6 @@ C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\bin\Debug\System.Numerics.Vectors
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csproj.CopyComplete
+C:\Users\Manuel\Desktop\ASUMA\Asuma\bin\Debug\Asuma.exe.config
+C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.exe
+C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.pdb
