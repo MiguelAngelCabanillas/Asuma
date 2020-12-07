@@ -41,5 +41,59 @@ namespace Asuma
                 tCode.Visible = false;
             }
         }
+
+        private void bRegister_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string username = tUsername.Text;
+                string email = tEmail.Text;
+                string password = tPassword.Text;
+                string repeatedPassword = tRepeatPassword.Text;
+                string userType = cUserType.Text;
+                string code = lCode.Text;
+                bool terms = cTerms.Checked;
+                if (!terms)
+                {
+                    MessageBox.Show("Debe aceptar los términos y condiciones para continuar");
+                }else if (username.Equals(""))
+                {
+                    MessageBox.Show("Debe introducir un nombre de usuario");
+                }
+                else if (email.Equals(""))
+                {
+                    MessageBox.Show("Debe introducir un email");
+                } 
+                else if (password.Equals(""))
+                {
+                    MessageBox.Show("Debe introducir una contraseña");
+                } 
+                else if (repeatedPassword.Equals(""))
+                {
+                    MessageBox.Show("Debe introducir de nuevo su contraseña");
+                } 
+                else if (userType.Equals(""))
+                {
+                    MessageBox.Show("Debe introducir un tipo de usuario");
+                } 
+                else if (userType.Equals("Usuario") && code.Equals(""))
+                {
+                    MessageBox.Show("Debe introducir su código");
+                } 
+                else if (!password.Equals(repeatedPassword))
+                {
+                    MessageBox.Show("Las contraseñas introducidas no coinciden");
+                }
+                else
+                {
+                    User user = new User(username, password, email, userType);
+                }
+                   
+            }
+            catch(Exception ex)
+            {
+                throw new Error(ex.Message);
+            }
+        }
     }
 }

@@ -38,8 +38,8 @@
             this.lPassword = new System.Windows.Forms.Label();
             this.lRepeatPassword = new System.Windows.Forms.Label();
             this.lUserType = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cTerms = new System.Windows.Forms.CheckBox();
+            this.bRegister = new System.Windows.Forms.Button();
             this.tCode = new System.Windows.Forms.TextBox();
             this.lCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -131,24 +131,25 @@
             this.lUserType.TabIndex = 10;
             this.lUserType.Text = "Tipo de usuario";
             // 
-            // checkBox1
+            // cTerms
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(604, 452);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(454, 21);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Acepto los términos y condiciones de uso y la política de privacidad";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cTerms.AutoSize = true;
+            this.cTerms.Location = new System.Drawing.Point(604, 452);
+            this.cTerms.Name = "cTerms";
+            this.cTerms.Size = new System.Drawing.Size(454, 21);
+            this.cTerms.TabIndex = 11;
+            this.cTerms.Text = "Acepto los términos y condiciones de uso y la política de privacidad";
+            this.cTerms.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // bRegister
             // 
-            this.button1.Location = new System.Drawing.Point(604, 515);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 29);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Registrarse";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bRegister.Location = new System.Drawing.Point(604, 515);
+            this.bRegister.Name = "bRegister";
+            this.bRegister.Size = new System.Drawing.Size(137, 29);
+            this.bRegister.TabIndex = 12;
+            this.bRegister.Text = "Registrarse";
+            this.bRegister.UseVisualStyleBackColor = true;
+            this.bRegister.Click += new System.EventHandler(this.bRegister_Click);
             // 
             // tCode
             // 
@@ -175,8 +176,8 @@
             this.ClientSize = new System.Drawing.Size(1422, 632);
             this.Controls.Add(this.lCode);
             this.Controls.Add(this.tCode);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.bRegister);
+            this.Controls.Add(this.cTerms);
             this.Controls.Add(this.lUserType);
             this.Controls.Add(this.lRepeatPassword);
             this.Controls.Add(this.lPassword);
@@ -207,8 +208,8 @@
         private System.Windows.Forms.Label lPassword;
         private System.Windows.Forms.Label lRepeatPassword;
         private System.Windows.Forms.Label lUserType;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox cTerms;
+        private System.Windows.Forms.Button bRegister;
         private System.Windows.Forms.TextBox tCode;
         private System.Windows.Forms.Label lCode;
     }

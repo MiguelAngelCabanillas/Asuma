@@ -55,10 +55,11 @@ namespace Asuma
                 {
                     throw new Error("El email ya existe");
                 }
+
+
                 this.username = username;
                 this.password = password;
                 this.email = email;
-                //HAY QUE CONTROLAR EL ROL
                 this.rolName = rolName;
                 
 
