@@ -12,8 +12,7 @@ namespace Asuma
         private string username;
         private string password;
         private string email;
-        private string rolName;
-
+        private Rol rol;
 
         public User(string username, string password)
         {
@@ -26,10 +25,12 @@ namespace Asuma
                     this.username = (string)reader[0];
                     this.password = (string)reader[1];
                     this.email = (string)reader[2];
-                    this.rolName = (string)reader[3];
+                    string rolName = (string)reader[3];
+                    this.rol = new Rol(rolName);
                 }
                 if(!this.password.Equals(password)){
-                    username = password = email = rolName = null;
+                    username = password = email = null;
+                    rol = null;
                     throw new Error("Usuario o contraseña incorrecta");
                 }
 
@@ -56,11 +57,9 @@ namespace Asuma
                     throw new Error("El email ya existe");
                 }
 
-
                 this.username = username;
                 this.password = password;
                 this.email = email;
-                this.rolName = rolName;
                 
 
             }catch
@@ -68,6 +67,26 @@ namespace Asuma
                 throw new Error("Error al insertar los datos");
             }
 
+        }
+
+        public string Username
+        {
+            get
+            { return username; }
+        }
+
+        public string Email
+        {
+            get { return email; }
+        }
+        public string Password
+        {
+            get { return password; }
+        }
+
+        public Rol Rol
+        {
+            get { return rol; }
         }
     }
 }
