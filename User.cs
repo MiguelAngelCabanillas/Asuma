@@ -51,20 +51,23 @@ namespace Asuma
                 {
                     throw new Error("El nombre de usuario ya existe");
                 }
+                readerUsername.Close();
                 MySqlDataReader readerEmail = bd.Query("SELECT username FROM user where email = '" + email + "'");
                 if (readerEmail.HasRows)
                 {
                     throw new Error("El email ya existe");
                 }
-
+                readerEmail.Close();
                 this.username = username;
                 this.password = password;
                 this.email = email;
-                
+                this.rol = new Rol(rolName);
 
-            }catch
+                MySqlDataReader writer = bd.Query("INSERT INTO user VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "')");
+                writer.Close();
+            }catch(Exception ex)
             {
-                throw new Error("Error al insertar los datos");
+                throw new Error(ex.Message);
             }
 
         }

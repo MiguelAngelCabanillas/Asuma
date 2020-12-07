@@ -31,6 +31,7 @@ namespace Asuma
                     if (password.Equals((string)reader[0]))
                     {
                         tCheck.Checked = true;
+                        MessageBox.Show("Inicio de sesion realizado con exito");
                     }
                 }
             }

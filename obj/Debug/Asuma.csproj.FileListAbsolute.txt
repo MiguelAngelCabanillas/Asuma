@@ -47,3 +47,4 @@ C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csproj.CoreCompil
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csproj.CopyComplete
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.exe
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.pdb
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csprojAssemblyReference.cache

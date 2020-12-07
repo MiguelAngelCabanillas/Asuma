@@ -46,6 +46,7 @@ namespace Asuma
         {
             try
             {
+                
                 string username = tUsername.Text;
                 string email = tEmail.Text;
                 string password = tPassword.Text;
@@ -87,6 +88,8 @@ namespace Asuma
                 else
                 {
                     User user = new User(username, password, email, userType);
+                    MessageBox.Show("Registro realizado con exito");
+                    this.Visible = false;
                 }
                    
             }

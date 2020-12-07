@@ -10,7 +10,7 @@ namespace Asuma
     class Rol
     {
         private string rolName;
-        private bool admin;
+        private int admin;
         private List<Permission> permisos;
 
         public static List<Rol> ListaRoles()
@@ -33,31 +33,31 @@ namespace Asuma
         public Rol(string rolName)
         {
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT * FROM ROL R WHERE R.ROLNAME = '" + rolName + "';");
+            MySqlDataReader reader = bd.Query("SELECT * FROM rol WHERE rolName = '" + rolName + "';");
             while (reader.Read())
             {
                 this.rolName = (string)reader[0];
-                this.admin = (bool)reader[1];
+                this.admin = (int)reader[1];
             }
         }
 
-        public Rol(string rolName, bool admin)
+        public Rol(string rolName, int admin)
         {
-            BD bd = new BD();
-            MySqlDataReader reader = bd.Query("INSERT INTO ROL VALUES ('" + rolName + "', '" + (admin ? 1 : 0) + "');");
-            while (reader.Read())
-            {
-                this.rolName = rolName;
+          //  BD bd = new BD();
+           // MySqlDataReader reader = bd.Query("INSERT INTO ROL VALUES ('" + rolName + "', '" + (admin ? 1 : 0) + "');");
+            //while (reader.Read())
+            //{
+              //  this.rolName = rolName;
                 this.admin = admin;
                 this.permisos = null;
-            }
+           // }
         }
 
         public string RolName {
             get { return this.rolName; }
         }
 
-        public bool Admin
+        public int Admin
         {
             get { return this.admin; }
         }
