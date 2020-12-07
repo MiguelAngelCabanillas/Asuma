@@ -1,6 +1,6 @@
 ﻿namespace Asuma
 {
-    partial class Form1
+    partial class Inicio
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -32,27 +32,31 @@
             this.tPassword = new System.Windows.Forms.TextBox();
             this.bInicio = new System.Windows.Forms.Button();
             this.tCheck = new System.Windows.Forms.CheckBox();
+            this.bRegistrarse = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tUser
             // 
-            this.tUser.Location = new System.Drawing.Point(533, 128);
+            this.tUser.Location = new System.Drawing.Point(649, 143);
             this.tUser.Name = "tUser";
             this.tUser.Size = new System.Drawing.Size(100, 22);
             this.tUser.TabIndex = 0;
             // 
             // tPassword
             // 
-            this.tPassword.Location = new System.Drawing.Point(533, 201);
+            this.tPassword.Location = new System.Drawing.Point(649, 203);
             this.tPassword.Name = "tPassword";
+            this.tPassword.PasswordChar = '*';
             this.tPassword.Size = new System.Drawing.Size(100, 22);
             this.tPassword.TabIndex = 1;
             // 
             // bInicio
             // 
-            this.bInicio.Location = new System.Drawing.Point(777, 201);
+            this.bInicio.Location = new System.Drawing.Point(465, 292);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(75, 23);
+            this.bInicio.Size = new System.Drawing.Size(135, 30);
             this.bInicio.TabIndex = 2;
             this.bInicio.Text = "Iniciar sesion";
             this.bInicio.UseVisualStyleBackColor = true;
@@ -61,23 +65,54 @@
             // tCheck
             // 
             this.tCheck.AutoSize = true;
-            this.tCheck.Location = new System.Drawing.Point(533, 284);
+            this.tCheck.Location = new System.Drawing.Point(870, 178);
             this.tCheck.Name = "tCheck";
             this.tCheck.Size = new System.Drawing.Size(98, 21);
             this.tCheck.TabIndex = 3;
             this.tCheck.Text = "checkBox1";
             this.tCheck.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // bRegistrarse
+            // 
+            this.bRegistrarse.Location = new System.Drawing.Point(746, 292);
+            this.bRegistrarse.Name = "bRegistrarse";
+            this.bRegistrarse.Size = new System.Drawing.Size(135, 30);
+            this.bRegistrarse.TabIndex = 4;
+            this.bRegistrarse.Text = "Registrarse";
+            this.bRegistrarse.UseVisualStyleBackColor = true;
+            this.bRegistrarse.Click += new System.EventHandler(this.bRegistrarse_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(462, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 17);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Nombre de usuario";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(462, 208);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Contraseña";
+            // 
+            // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1306, 485);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.bRegistrarse);
             this.Controls.Add(this.tCheck);
             this.Controls.Add(this.bInicio);
             this.Controls.Add(this.tPassword);
             this.Controls.Add(this.tUser);
-            this.Name = "Form1";
+            this.Name = "Inicio";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -90,6 +125,9 @@
         private System.Windows.Forms.TextBox tPassword;
         private System.Windows.Forms.Button bInicio;
         private System.Windows.Forms.CheckBox tCheck;
+        private System.Windows.Forms.Button bRegistrarse;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
