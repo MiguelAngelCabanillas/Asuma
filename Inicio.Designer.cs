@@ -35,7 +35,7 @@
             this.bRegistrarse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.BGuest = new System.Windows.Forms.Button();
+            this.bExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tUser
@@ -101,22 +101,22 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Contraseña";
             // 
-            // BGuest
+            // bExit
             // 
-            this.BGuest.Location = new System.Drawing.Point(590, 339);
-            this.BGuest.Name = "BGuest";
-            this.BGuest.Size = new System.Drawing.Size(159, 30);
-            this.BGuest.TabIndex = 7;
-            this.BGuest.Text = "Entrar como invitado";
-            this.BGuest.UseVisualStyleBackColor = true;
-            this.BGuest.Click += new System.EventHandler(this.BGuest_Click);
+            this.bExit.Location = new System.Drawing.Point(1200, 443);
+            this.bExit.Name = "bExit";
+            this.bExit.Size = new System.Drawing.Size(76, 30);
+            this.bExit.TabIndex = 7;
+            this.bExit.Text = "Salir";
+            this.bExit.UseVisualStyleBackColor = true;
+            this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1306, 485);
-            this.Controls.Add(this.BGuest);
+            this.Controls.Add(this.bExit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bRegistrarse);
@@ -140,7 +140,7 @@
         private System.Windows.Forms.Button bRegistrarse;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button BGuest;
+        private System.Windows.Forms.Button bExit;
     }
 }
 

@@ -13,28 +13,29 @@ namespace Asuma
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+        private Principal pr;
+        public Inicio(Principal pr)
         {
             InitializeComponent();
+            this.pr = pr;
         }
 
         private void bInicio_Click(object sender, EventArgs e)
         {
-            string usuario = tUser.Text;
-            string password = tPassword.Text;
-            BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT password from user where username ='" + usuario + "'");
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
-                {
-                    if (password.Equals((string)reader[0]))
-                    {
-                        tCheck.Checked = true;
-                        MessageBox.Show("Inicio de sesion realizado con exito");
-                    }
-                }
+                string usuario = tUser.Text;
+                string password = tPassword.Text;
+                User user = new User(usuario, password);
+                pr.Usuario = user;
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+
         }
 
         private void bRegistrarse_Click(object sender, EventArgs e)
@@ -45,9 +46,9 @@ namespace Asuma
             this.Visible = true;
         }
 
-        private void BGuest_Click(object sender, EventArgs e)
+        private void bExit_Click(object sender, EventArgs e)
         {
-            //ABRIR LA PANTALLA DE INICIO
+            this.Close();
         }
     }
 }

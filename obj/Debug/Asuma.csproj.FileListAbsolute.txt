@@ -94,3 +94,6 @@ C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.MyEvents.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.Properties.Resources.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.Registro.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.csproj.GenerateResource.Cache
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Eventos.resources
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.MyEvents.resources
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Principal.resources
