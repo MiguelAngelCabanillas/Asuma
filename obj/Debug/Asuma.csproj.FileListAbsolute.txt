@@ -72,7 +72,6 @@ C:\Users\danij\Desktop\Asuma\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\danij\Desktop\Asuma\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\danij\Desktop\Asuma\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.csproj.CopyComplete
-C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.MyEvents.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\bin\Debug\Asuma.exe
 C:\Users\Manuel\Desktop\ASUMA\Asuma\bin\Debug\Asuma.pdb
 C:\Users\Manuel\Desktop\ASUMA\Asuma\bin\Debug\MySqlConnector.dll
@@ -94,6 +93,11 @@ C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.MyEvents.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.Properties.Resources.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.Registro.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.csproj.GenerateResource.Cache
+<<<<<<< HEAD
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.Eventos.resources
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.MisEventos.resources
+=======
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Eventos.resources
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.MyEvents.resources
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Principal.resources
+>>>>>>> 1469b0f099c6e650b9a96caadf2f400026001ab3
