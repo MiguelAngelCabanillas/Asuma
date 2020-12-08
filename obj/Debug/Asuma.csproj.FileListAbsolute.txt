@@ -48,3 +48,28 @@ C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csproj.CopyComple
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.exe
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.pdb
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csprojAssemblyReference.cache
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.csprojAssemblyReference.cache
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.Inicio.resources
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.Properties.Resources.resources
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.Registro.resources
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.csproj.GenerateResource.cache
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.csproj.CoreCompileInputs.cache
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.exe
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.pdb
+C:\Users\danij\Desktop\Asuma\bin\Debug\Asuma.exe.config
+C:\Users\danij\Desktop\Asuma\bin\Debug\Asuma.exe
+C:\Users\danij\Desktop\Asuma\bin\Debug\Asuma.pdb
+C:\Users\danij\Desktop\Asuma\bin\Debug\MySqlConnector.dll
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Buffers.dll
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Memory.dll
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\danij\Desktop\Asuma\bin\Debug\MySqlConnector.xml
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Buffers.xml
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Memory.xml
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\danij\Desktop\Asuma\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.csproj.CopyComplete
+C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.MyEvents.resources
