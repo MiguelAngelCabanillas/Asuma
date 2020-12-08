@@ -44,5 +44,10 @@ namespace Asuma
             reg.ShowDialog();
             this.Visible = true;
         }
+
+        private void BGuest_Click(object sender, EventArgs e)
+        {
+            //ABRIR LA PANTALLA DE INICIO
+        }
     }
 }

@@ -77,7 +77,7 @@
             this.cUserType.FormattingEnabled = true;
             this.cUserType.Items.AddRange(new object[] {
             "Usuario",
-            "Profesor",
+            "Docente",
             "ONG"});
             this.cUserType.Location = new System.Drawing.Point(604, 329);
             this.cUserType.Name = "cUserType";
