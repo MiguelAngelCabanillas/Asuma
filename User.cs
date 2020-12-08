@@ -7,19 +7,23 @@ using MySqlConnector;
 
 namespace Asuma
 {
-    class User
+    public class User
     {
         private string username;
         private string password;
         private string email;
         private Rol rol;
-
         public User(string username, string password)
         {
             try
             {
                 BD bd = new BD();
                 MySqlDataReader reader = bd.Query("SELECT * FROM user WHERE username = '" + username + "'");
+                if (!reader.HasRows)
+                {
+                    //bd.closeBD();
+                    throw new Error("Usuario o contraseña incorrecta");
+                }
                 while (reader.Read())
                 {
                     this.username = (string)reader[0];
@@ -28,16 +32,18 @@ namespace Asuma
                     string rolName = (string)reader[3];
                     this.rol = new Rol(rolName);
                 }
-                if(!this.password.Equals(password)){
+                if (!this.password.Equals(password))
+                {
+                    //bd.closeBD();
                     username = password = email = null;
                     rol = null;
                     throw new Error("Usuario o contraseña incorrecta");
                 }
-
+                //bd.closeBD();
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Error("Usuario o contraseña incorrecta");
+                throw new Error(ex.Message);
             }
         }
 

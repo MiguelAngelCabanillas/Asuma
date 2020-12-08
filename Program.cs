@@ -16,7 +16,11 @@ namespace Asuma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new MisEventos());
+=======
+            Application.Run(new Principal(null));
+>>>>>>> 1469b0f099c6e650b9a96caadf2f400026001ab3
         }
     }
 }

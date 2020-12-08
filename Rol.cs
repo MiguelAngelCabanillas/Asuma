@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Asuma
 {
-    class Rol
+    public class Rol
     {
         private string rolName;
         private int admin;
