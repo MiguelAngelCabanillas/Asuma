@@ -47,7 +47,6 @@ C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csproj.CoreCompil
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csproj.CopyComplete
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.exe
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.pdb
-C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csprojAssemblyReference.cache
 C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.csprojAssemblyReference.cache
 C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.Inicio.resources
 C:\Users\danij\Desktop\Asuma\obj\Debug\Asuma.Properties.Resources.resources
@@ -96,3 +95,4 @@ C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.Registro.resources
 C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.csproj.GenerateResource.Cache
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Eventos.resources
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Principal.resources
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.MisEventos.resources
