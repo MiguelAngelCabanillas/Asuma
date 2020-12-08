@@ -1,0 +1,10 @@
+App.config
+Asuma.csproj
+Asuma.v12.suo
+Properties/Resources.Designer.cs
+Properties/Settings.Designer.cs
+bin/Debug/Asuma.exe.config
+bin/Debug/Asuma.vshost.exe.config
+obj/Debug/Asuma.csproj.FileListAbsolute.txt
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Debug/TempPE/
