@@ -17,12 +17,6 @@ namespace Asuma
             InitializeComponent();
         }
 
-        private void Registro_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void lUsername_Click(object sender, EventArgs e)
         {
 

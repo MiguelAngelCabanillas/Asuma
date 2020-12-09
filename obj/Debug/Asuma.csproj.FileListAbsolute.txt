@@ -96,3 +96,5 @@ C:\Users\Manuel\Desktop\ASUMA\Asuma\obj\Debug\Asuma.csproj.GenerateResource.Cach
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Eventos.resources
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.Principal.resources
 C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.MisEventos.resources
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.csprojAssemblyReference.cache
+C:\Users\Miguel Angel\Desktop\Requisitos\Asuma\obj\Debug\Asuma.CrearEvento.resources

@@ -58,7 +58,7 @@ namespace Asuma
             // lUsername
             // 
             this.lUsername.AutoSize = true;
-            this.lUsername.Location = new System.Drawing.Point(144, 49);
+            this.lUsername.Location = new System.Drawing.Point(124, 51);
             this.lUsername.Name = "lUsername";
             this.lUsername.Size = new System.Drawing.Size(73, 17);
             this.lUsername.TabIndex = 1;
@@ -66,6 +66,7 @@ namespace Asuma
             // 
             // menuFlowLayoutPanel
             // 
+            this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.menuFlowLayoutPanel.Controls.Add(this.bNoticias);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
@@ -117,7 +118,7 @@ namespace Asuma
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
             this.pLogo.Location = new System.Drawing.Point(522, 30);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(444, 69);
+            this.pLogo.Size = new System.Drawing.Size(479, 69);
             this.pLogo.TabIndex = 3;
             this.pLogo.TabStop = false;
             this.pLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.pLogo_Paint);

@@ -12,9 +12,13 @@ namespace Asuma
 {
     public partial class MisEventos : Form
     {
-        public MisEventos()
+        private User usuario;
+        public MisEventos(User usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
+            lUsername.Text = "Bienvenido " + usuario.Username;
+            
         }
 
         private void MisEventos_Load(object sender, EventArgs e)

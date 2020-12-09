@@ -190,7 +190,6 @@
             this.Controls.Add(this.tUsername);
             this.Name = "Registro";
             this.Text = "registro";
-            this.Load += new System.EventHandler(this.Registro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

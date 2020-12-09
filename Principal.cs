@@ -42,18 +42,41 @@ namespace Asuma
             if (usuario == null)
             {
                 linitSesion.Visible = true;
-                lSesionIniciada.Visible = false;
+                pUser.Visible = false;
+                lUsername.Visible = false;
+                lSignOut.Visible = false;
             }
             else
             {
                 linitSesion.Visible = false;
-                lSesionIniciada.Visible = true;
+                pUser.Visible = true;
+                lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
+                lSignOut.Visible = true;
             }
         }
 
-        private void lSesionIniciada_Click(object sender, EventArgs e)
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            usuario = null;
+            this.Close();
+        }
 
+        private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+            this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+                Eventos ev = new Eventos(usuario);
+                this.Visible = false;
+                ev.ShowDialog();
+                this.Visible = true;
         }
     }
 }
