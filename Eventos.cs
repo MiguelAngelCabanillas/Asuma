@@ -12,9 +12,11 @@ namespace Asuma
 {
     public partial class Eventos : Form
     {
-        public Eventos()
+        private User usuario;
+        public Eventos(User usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
