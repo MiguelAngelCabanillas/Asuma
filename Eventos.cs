@@ -31,7 +31,7 @@ namespace Asuma
 
         private void bMyEvents_Click(object sender, EventArgs e)
         {
-            if (usuario.Rol.RolName.Equals("Invitado"))
+            if (usuario == null)
             {
                 MessageBox.Show("Debe iniciar sesión para mostrar sus eventos");
             }
@@ -68,6 +68,11 @@ namespace Asuma
             this.usuario = Inicio.usuario;
             actualizar();
             this.Visible = true;
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

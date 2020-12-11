@@ -75,10 +75,11 @@
             // 
             // pLogo
             // 
+            this.pLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(505, 12);
+            this.pLogo.Location = new System.Drawing.Point(508, 12);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(479, 69);
+            this.pLogo.Size = new System.Drawing.Size(528, 69);
             this.pLogo.TabIndex = 25;
             this.pLogo.TabStop = false;
             // 
@@ -210,7 +211,7 @@
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.Location = new System.Drawing.Point(1214, 956);
+            this.button5.Location = new System.Drawing.Point(1226, 936);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 65);
             this.button5.TabIndex = 27;
@@ -239,6 +240,7 @@
             this.lSignOut.TabIndex = 29;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
+            this.lSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSignOut_LinkClicked);
             // 
             // Eventos
             // 
