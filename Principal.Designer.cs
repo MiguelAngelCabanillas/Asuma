@@ -138,6 +138,7 @@
             // 
             // pUser
             // 
+            this.pUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(23, 12);
             this.pUser.Name = "pUser";

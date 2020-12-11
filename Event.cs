@@ -11,7 +11,7 @@ namespace Asuma
     {
         private int id;
         private string eventName;
-        private MySqlDateTime date;
+        private string date;
         private string image;
         private string eventDescription;
         private string organizer;
@@ -23,7 +23,7 @@ namespace Asuma
             while (reader.Read())
             {
                 this.eventName = (string)reader[0];
-                this.date = (MySqlDateTime)reader[1];
+                this.date = (string)reader[1];
                 this.image = (string)reader[2];
                 this.eventDescription = (string)reader[3];
                 this.organizer = (string)reader[4];
@@ -32,7 +32,7 @@ namespace Asuma
             reader.Close();
         }
 
-        public Event(int id, string eventName, MySqlDateTime date, string image, string eventDescription, string organizer)
+        public Event(int id, string eventName, string date, string image, string eventDescription, string organizer)
         {
             BD bd = new BD();
             MySqlDataReader reader = bd.Query("INSERT INTO event VALUES ('" + eventName + "', " + date + ", '"
@@ -49,6 +49,22 @@ namespace Asuma
             }
         }
 
+
+        public static List<Event> listaEventos()
+        {
+            List<Event> lista = new List<Event>();
+            BD bd= new BD();
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event");
+            while (reader.Read())
+            {
+                int id = (int)reader[0];
+                Event e = new Event(id);
+                lista.Add(e);
+            }
+            bd.closeBD();
+            return lista;
+        }
+
         public int ID {
             get { return this.id; }
         }
@@ -58,7 +74,7 @@ namespace Asuma
             get { return this.eventName; }
         }
 
-        public MySqlDateTime Date
+        public string Date
         {
             get { return this.date; }
         }

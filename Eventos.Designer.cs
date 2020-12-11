@@ -48,10 +48,19 @@
             this.button5 = new System.Windows.Forms.Button();
             this.linitSesion = new System.Windows.Forms.LinkLabel();
             this.lSignOut = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tFecha = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.tDescripcion = new System.Windows.Forms.TextBox();
+            this.pImagen = new System.Windows.Forms.PictureBox();
+            this.panelEventos = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pLogo)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pImagen)).BeginInit();
+            this.panelEventos.SuspendLayout();
             this.SuspendLayout();
             // 
             // bMyEvents
@@ -67,9 +76,9 @@
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(2, 840);
+            this.splitter1.Size = new System.Drawing.Size(2, 857);
             this.splitter1.TabIndex = 26;
             this.splitter1.TabStop = false;
             // 
@@ -77,8 +86,8 @@
             // 
             this.pLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(383, 10);
-            this.pLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pLogo.Location = new System.Drawing.Point(385, 10);
+            this.pLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pLogo.Name = "pLogo";
             this.pLogo.Size = new System.Drawing.Size(396, 56);
             this.pLogo.TabIndex = 25;
@@ -86,6 +95,7 @@
             // 
             // menuFlowLayoutPanel
             // 
+            this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.menuFlowLayoutPanel.Controls.Add(this.bNoticias);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
@@ -93,7 +103,7 @@
             this.menuFlowLayoutPanel.Controls.Add(this.flowLayoutPanel1);
             this.menuFlowLayoutPanel.Controls.Add(this.checkBox1);
             this.menuFlowLayoutPanel.Location = new System.Drawing.Point(6, 80);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
             this.menuFlowLayoutPanel.TabIndex = 24;
@@ -102,7 +112,7 @@
             // bNoticias
             // 
             this.bNoticias.Location = new System.Drawing.Point(2, 2);
-            this.bNoticias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bNoticias.Margin = new System.Windows.Forms.Padding(2);
             this.bNoticias.Name = "bNoticias";
             this.bNoticias.Size = new System.Drawing.Size(95, 37);
             this.bNoticias.TabIndex = 0;
@@ -112,7 +122,7 @@
             // bEventos
             // 
             this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(95, 37);
             this.bEventos.TabIndex = 1;
@@ -122,7 +132,7 @@
             // bInfo
             // 
             this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(95, 37);
             this.bInfo.TabIndex = 2;
@@ -132,7 +142,7 @@
             // bContacto
             // 
             this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
             this.bContacto.Name = "bContacto";
             this.bContacto.Size = new System.Drawing.Size(95, 37);
             this.bContacto.TabIndex = 3;
@@ -146,7 +156,7 @@
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 43);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1054, 832);
             this.flowLayoutPanel1.TabIndex = 7;
@@ -154,7 +164,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 37);
             this.button1.TabIndex = 0;
@@ -164,7 +174,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(101, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 37);
             this.button2.TabIndex = 1;
@@ -174,7 +184,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(200, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 37);
             this.button3.TabIndex = 2;
@@ -184,7 +194,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(299, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(95, 37);
             this.button4.TabIndex = 3;
@@ -195,7 +205,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(2, 879);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 8;
@@ -216,7 +226,7 @@
             // 
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(10, 10);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(60, 63);
             this.pUser.TabIndex = 22;
@@ -225,8 +235,8 @@
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.Location = new System.Drawing.Point(924, 752);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Location = new System.Drawing.Point(928, 752);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(74, 53);
             this.button5.TabIndex = 27;
@@ -259,12 +269,83 @@
             this.lSignOut.Text = "Cerrar sesión";
             this.lSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSignOut_LinkClicked);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.tFecha);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.tDescripcion);
+            this.panel1.Controls.Add(this.pImagen);
+            this.panel1.Location = new System.Drawing.Point(18, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1142, 186);
+            this.panel1.TabIndex = 30;
+            // 
+            // tFecha
+            // 
+            this.tFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tFecha.Location = new System.Drawing.Point(233, 159);
+            this.tFecha.Multiline = true;
+            this.tFecha.Name = "tFecha";
+            this.tFecha.ReadOnly = true;
+            this.tFecha.Size = new System.Drawing.Size(216, 24);
+            this.tFecha.TabIndex = 32;
+            this.tFecha.Text = "Fecha del evento: 2020-12-21\r\n\r\n\r\n";
+            this.tFecha.Visible = false;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(230, 28);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(242, 31);
+            this.linkLabel1.TabIndex = 31;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Reparto de comida";
+            this.linkLabel1.Visible = false;
+            // 
+            // tDescripcion
+            // 
+            this.tDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tDescripcion.Location = new System.Drawing.Point(233, 78);
+            this.tDescripcion.Multiline = true;
+            this.tDescripcion.Name = "tDescripcion";
+            this.tDescripcion.ReadOnly = true;
+            this.tDescripcion.Size = new System.Drawing.Size(685, 59);
+            this.tDescripcion.TabIndex = 2;
+            this.tDescripcion.Text = resources.GetString("tDescripcion.Text");
+            this.tDescripcion.Visible = false;
+            // 
+            // pImagen
+            // 
+            this.pImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pImagen.Location = new System.Drawing.Point(59, 28);
+            this.pImagen.Name = "pImagen";
+            this.pImagen.Size = new System.Drawing.Size(115, 127);
+            this.pImagen.TabIndex = 0;
+            this.pImagen.TabStop = false;
+            this.pImagen.Visible = false;
+            // 
+            // panelEventos
+            // 
+            this.panelEventos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelEventos.AutoScroll = true;
+            this.panelEventos.Controls.Add(this.panel1);
+            this.panelEventos.Location = new System.Drawing.Point(62, 176);
+            this.panelEventos.Name = "panelEventos";
+            this.panelEventos.Size = new System.Drawing.Size(1247, 520);
+            this.panelEventos.TabIndex = 31;
+            // 
             // Eventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1008, 857);
+            this.ClientSize = new System.Drawing.Size(1008, 874);
             this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.splitter1);
@@ -283,6 +364,10 @@
             this.menuFlowLayoutPanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pImagen)).EndInit();
+            this.panelEventos.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +393,11 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.LinkLabel linitSesion;
         private System.Windows.Forms.LinkLabel lSignOut;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pImagen;
+        private System.Windows.Forms.TextBox tDescripcion;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Panel panelEventos;
+        private System.Windows.Forms.TextBox tFecha;
     }
 }
