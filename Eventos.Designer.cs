@@ -58,7 +58,7 @@
             // bMyEvents
             // 
             this.bMyEvents.Location = new System.Drawing.Point(439, 708);
-            this.bMyEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMyEvents.Margin = new System.Windows.Forms.Padding(4);
             this.bMyEvents.Name = "bMyEvents";
             this.bMyEvents.Size = new System.Drawing.Size(99, 65);
             this.bMyEvents.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             this.pLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(543, 12);
+            this.pLogo.Location = new System.Drawing.Point(545, 12);
             this.pLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pLogo.Name = "pLogo";
             this.pLogo.Size = new System.Drawing.Size(697, 69);
@@ -227,7 +227,7 @@
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.Location = new System.Drawing.Point(794, 687);
+            this.button5.Location = new System.Drawing.Point(793, 709);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(99, 65);
@@ -284,7 +284,7 @@
             this.Controls.Add(this.bMyEvents);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panelEventos);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Eventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eventos";
