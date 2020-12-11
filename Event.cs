@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Asuma
 {
-    class Event
+    public class Event
     {
         private int id;
         private string eventName;
