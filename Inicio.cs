@@ -14,10 +14,10 @@ namespace Asuma
     public partial class Inicio : Form
     {
         private Principal pr;
-        public Inicio(Principal pr)
+        public static User usuario = null;
+        public Inicio()
         {
             InitializeComponent();
-            this.pr = pr;
         }
 
         private void bInicio_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace Asuma
                 string usuario = tUser.Text;
                 string password = tPassword.Text;
                 User user = new User(usuario, password);
-                pr.Usuario = user;
+                Inicio.usuario = user;
                 this.Close();
             }
             catch (Exception ex)
@@ -49,6 +49,11 @@ namespace Asuma
         private void bExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public static User getUsuario()
+        {
+            return usuario;
         }
     }
 }

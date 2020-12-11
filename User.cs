@@ -97,5 +97,10 @@ namespace Asuma
         {
             get { return rol; }
         }
+
+        public static implicit operator string(User v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

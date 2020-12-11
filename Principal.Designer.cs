@@ -149,7 +149,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 763);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1396, 763);
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.pLogo);
