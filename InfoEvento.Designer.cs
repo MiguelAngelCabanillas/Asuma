@@ -49,6 +49,7 @@ namespace Asuma
             this.lTipoEvento = new System.Windows.Forms.Label();
             this.lTip = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.bSalir = new System.Windows.Forms.Button();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -150,7 +151,6 @@ namespace Asuma
             // pEvento
             // 
             this.pEvento.BackColor = System.Drawing.SystemColors.Control;
-            this.pEvento.Image = ((System.Drawing.Image)(resources.GetObject("pEvento.Image")));
             this.pEvento.Location = new System.Drawing.Point(181, 328);
             this.pEvento.Name = "pEvento";
             this.pEvento.Size = new System.Drawing.Size(355, 313);
@@ -246,12 +246,23 @@ namespace Asuma
             this.splitter1.TabIndex = 19;
             this.splitter1.TabStop = false;
             // 
+            // bSalir
+            // 
+            this.bSalir.Location = new System.Drawing.Point(1237, 803);
+            this.bSalir.Name = "bSalir";
+            this.bSalir.Size = new System.Drawing.Size(108, 42);
+            this.bSalir.TabIndex = 20;
+            this.bSalir.Text = "Salir";
+            this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
+            // 
             // InfoEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2013, 1197);
+            this.Controls.Add(this.bSalir);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.lTipoEvento);
             this.Controls.Add(this.lTip);
@@ -300,5 +311,6 @@ namespace Asuma
         private System.Windows.Forms.Label lTipoEvento;
         private System.Windows.Forms.Label lTip;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Button bSalir;
     }
 }

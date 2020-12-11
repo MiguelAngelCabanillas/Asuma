@@ -25,6 +25,14 @@ namespace Asuma
             Icon icon = new Icon(imagePath,100,100); 
             this.Icon = icon;
 
+            imagen = e.Image;
+            path = Path.GetDirectoryName(Application.StartupPath);
+            pathBueno = path.Substring(0, path.Length - 3);
+            imagePath = pathBueno + "images\\" + imagen;
+            Image image = Image.FromFile(imagePath);
+            pEvento.Image = image;
+
+
             lTitulo.Text = e.EventName;
             tDes.Text = e.EventDescription;
             lOrganizadores.Text = e.Organizer;
@@ -58,6 +66,11 @@ namespace Asuma
         private void pEvento_Paint(object sender, PaintEventArgs e)
         {
             this.pEvento.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

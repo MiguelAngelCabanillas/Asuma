@@ -79,7 +79,7 @@
             // 
             this.pLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(545, 12);
+            this.pLogo.Location = new System.Drawing.Point(547, 12);
             this.pLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pLogo.Name = "pLogo";
             this.pLogo.Size = new System.Drawing.Size(697, 69);
@@ -227,7 +227,7 @@
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.Location = new System.Drawing.Point(793, 709);
+            this.button5.Location = new System.Drawing.Point(798, 698);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(99, 65);

@@ -188,7 +188,12 @@ namespace Asuma
         {
             LinkLabel link = sender as LinkLabel;
             // identify which button was clicked and perform necessary actions
-            MessageBox.Show("SE HA PULSADO EL BOTON: " + link.Name);
+            var id = Int32.Parse(link.Name);
+            Event ev = new Event(id);
+            InfoEvento infoEvento = new InfoEvento(ev);
+            this.Visible = false;
+            infoEvento.ShowDialog();
+            this.Visible = true;
         }
 
 
