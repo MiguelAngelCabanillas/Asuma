@@ -18,9 +18,35 @@ namespace Asuma
             this.usuario = user;
             InitializeComponent();
             actualizar();
-            
+            añadirAlPanel();
         }
 
+        private void añadirAlPanel()
+        {
+            panel1.Controls.Add(pUser);
+            panel1.Controls.Add(lUsername);
+            panel1.Controls.Add(linitSesion);
+            panel1.Controls.Add(lSignOut);
+            panel1.Controls.Add(pASUMA);
+            panel1.Controls.Add(pASM);
+            panel1.Controls.Add(menuFlowLayoutPanel);
+        }
+
+        private void actualizarImagenes() {
+            int tamaño = this.Width;
+            this.pASUMA.Location = new Point((tamaño * 4)/10, pASUMA.Location.Y);
+            this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
+        }
+
+
+        private void actualizarBotones()
+        {
+            this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+        }
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -64,15 +90,6 @@ namespace Asuma
             this.Close();
         }
 
-        private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
-        {
-            this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-        }
-
         private void bEventos_Click(object sender, EventArgs e)
         {
 
@@ -80,6 +97,33 @@ namespace Asuma
                 this.Visible = false;
                 ev.ShowDialog();
                 this.Visible = true;
+        }
+
+        private void pASUMA_Paint(object sender, PaintEventArgs e)
+        {
+            this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pASM_Paint(object sender, PaintEventArgs e)
+        {
+            this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pUser_Paint(object sender, PaintEventArgs e)
+        {
+            this.pUser.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void menuFlowLayoutPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+            actualizarBotones();
+        }
+
+        private void Principal_Resize(object sender, EventArgs e)
+        {
+            panel1.Width = this.Width;
+            actualizarBotones();
+            actualizarImagenes();
         }
     }
 }
