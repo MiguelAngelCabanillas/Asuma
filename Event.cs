@@ -33,22 +33,26 @@ namespace Asuma
             reader.Close();
         }
 
-        public Event(int id, string eventName, string date, string image, string eventDescription, string organizer, string eventCreator)
+        public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator)
         {
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("INSERT INTO event VALUES ('" + eventName + "', " + date + ", '"
-                + image + "', '" + eventDescription + "', + '" + organizer + "', " + id + ", '" + eventCreator + "');");
-            while (reader.Read())
-            {
-                this.id = id;
-                this.eventDescription = eventDescription;
-                this.eventName = eventName;
-                this.date = date;
-                this.image = image;
-                this.eventDescription = eventDescription;
-                this.organizer = organizer;
-                this.eventCreator = eventCreator;
-            }
+            //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
+            //  + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
+            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "')");
+            bd.closeBD();
+            bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT MAX(idEvent) FROM event");
+            reader.Read();
+            this.id = (int)reader[0];
+            bd.closeBD();
+            this.eventDescription = eventDescription;
+            this.eventName = eventName;
+            this.date = date;
+            this.image = image;
+            this.eventDescription = eventDescription;
+            this.organizer = organizer;
+            this.eventCreator = eventCreator;
+            
         }
 
 

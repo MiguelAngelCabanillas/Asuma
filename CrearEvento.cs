@@ -42,5 +42,30 @@ namespace Asuma
                 pImage.Visible = false;
             }
         }
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bCreateEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string eventName = tTitle.Text;
+                string eventDescription = tDescription.Text;
+                DateTime date = tDatePicker.Value;
+                string eventDate = date.ToString();
+                string eventOrganiser = tOrganizer.Text;
+                string eventCreator = usuario.Username;
+                string image = tImage.Text;
+                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+         
+        }
     }
 }

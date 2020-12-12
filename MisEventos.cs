@@ -172,5 +172,13 @@ namespace Asuma
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
         }
+
+        private void bCreateEvent_Click(object sender, EventArgs e)
+        {
+            CrearEvento crearEvento = new CrearEvento(usuario);
+            this.Visible = false;
+            crearEvento.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

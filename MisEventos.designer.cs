@@ -160,6 +160,7 @@
             this.bCreateEvent.TabIndex = 33;
             this.bCreateEvent.Text = "Crear evento";
             this.bCreateEvent.UseVisualStyleBackColor = true;
+            this.bCreateEvent.Click += new System.EventHandler(this.bCreateEvent_Click);
             // 
             // MisEventos
             // 
