@@ -57,7 +57,8 @@
             // 
             // bMyEvents
             // 
-            this.bMyEvents.Location = new System.Drawing.Point(437, 588);
+            this.bMyEvents.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bMyEvents.Location = new System.Drawing.Point(775, 583);
             this.bMyEvents.Name = "bMyEvents";
             this.bMyEvents.Size = new System.Drawing.Size(127, 68);
             this.bMyEvents.TabIndex = 1;
@@ -235,7 +236,7 @@
             // 
             this.panelEventos.AutoScroll = true;
             this.panelEventos.AutoScrollMargin = new System.Drawing.Size(50, 50);
-            this.panelEventos.Location = new System.Drawing.Point(49, 143);
+            this.panelEventos.Location = new System.Drawing.Point(330, 143);
             this.panelEventos.Margin = new System.Windows.Forms.Padding(2);
             this.panelEventos.Name = "panelEventos";
             this.panelEventos.Size = new System.Drawing.Size(935, 422);
@@ -271,6 +272,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1026, 695);
+            this.Controls.Add(this.panelEventos);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.bMyEvents);
@@ -279,7 +281,6 @@
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.linitSesion);
-            this.Controls.Add(this.panelEventos);
             this.Name = "Eventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eventos";

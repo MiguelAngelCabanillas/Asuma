@@ -135,6 +135,7 @@ namespace Asuma
                 pImagen.TabIndex = 0;
                 pImagen.TabStop = false;
                 pImagen.Visible = true;
+                pImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
 
                 TextBox tFecha = new TextBox();
@@ -153,7 +154,7 @@ namespace Asuma
 
                 panel.Size = new Size(1142, 186); //1142 186
 
-                panel.Location = new Point(18, separacion);
+                panel.Location = new Point(50, separacion);
                 panel.Visible = true;
                 panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
@@ -177,14 +178,11 @@ namespace Asuma
                 panel.Controls.Add(tFecha);
                 panel.Controls.Add(descripcion);
                 panelEventos.Controls.Add(panel);
-                panelEventos.Size = new Size(1300, 640);
-                panelEventos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-
-
-                separacion += 300;
+                separacion += 180;
             }
-            
-
+            panelEventos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panelEventos.Size = new Size(1265, 640);
+            //panelEventos.Location = new Point(this.Width - panelEventos.Width/2, panelEventos.Location.Y);
         }
         protected void ltitulo_click(object sender, EventArgs e)
         {
@@ -200,7 +198,7 @@ namespace Asuma
 
         private void bMyEvents_Paint(object sender, PaintEventArgs e)
         {
-            bMyEvents.Location = new Point(bMyEvents.Location.X, this.Height - 250);
+            bMyEvents.Location = new Point(this.Width / 2 - 90, 850);
         }
 
         private void pASUMA_Paint(object sender, PaintEventArgs e)
