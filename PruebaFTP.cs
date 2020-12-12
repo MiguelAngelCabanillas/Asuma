@@ -78,7 +78,15 @@ namespace Asuma
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ftp.Download(seleccionado, Properties.Settings.Default.RutaDescarga/*"C:\\Universidad\\Descargas\\"*/ + seleccionado);
+            if (seleccionado != null)
+            {
+                ftp.Download(seleccionado, Properties.Settings.Default.RutaDescarga/*"C:\\Universidad\\Descargas\\"*/ + seleccionado);
+                MessageBox.Show(seleccionado + " ha sido descargado con exito");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un archivo antes de pulsar el boton de descargar");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
