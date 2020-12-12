@@ -36,15 +36,15 @@ namespace Asuma
         public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator)
         {
             BD bd = new BD();
-            MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
-                + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
+            //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
+            //  + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
+            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "')");
             bd.closeBD();
-
-            BD bdId = new BD();
+            bd = new BD();
             MySqlDataReader reader = bd.Query("SELECT MAX(idEvent) FROM event");
             reader.Read();
-            this.id = (int)reader[0]+1;
-            bdId.closeBD();
+            this.id = (int)reader[0];
+            bd.closeBD();
             this.eventDescription = eventDescription;
             this.eventName = eventName;
             this.date = date;

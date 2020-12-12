@@ -209,7 +209,7 @@
             this.lTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lTitle.AutoSize = true;
             this.lTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitle.Location = new System.Drawing.Point(532, 205);
+            this.lTitle.Location = new System.Drawing.Point(534, 205);
             this.lTitle.Name = "lTitle";
             this.lTitle.Size = new System.Drawing.Size(80, 29);
             this.lTitle.TabIndex = 8;
@@ -218,7 +218,7 @@
             // tTitle
             // 
             this.tTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tTitle.Location = new System.Drawing.Point(627, 212);
+            this.tTitle.Location = new System.Drawing.Point(629, 212);
             this.tTitle.Name = "tTitle";
             this.tTitle.Size = new System.Drawing.Size(164, 22);
             this.tTitle.TabIndex = 9;
@@ -226,7 +226,7 @@
             // tDescription
             // 
             this.tDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tDescription.Location = new System.Drawing.Point(537, 361);
+            this.tDescription.Location = new System.Drawing.Point(539, 361);
             this.tDescription.Name = "tDescription";
             this.tDescription.Size = new System.Drawing.Size(391, 22);
             this.tDescription.TabIndex = 10;
@@ -236,7 +236,7 @@
             this.lDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDescription.AutoSize = true;
             this.lDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDescription.Location = new System.Drawing.Point(532, 307);
+            this.lDescription.Location = new System.Drawing.Point(534, 307);
             this.lDescription.Name = "lDescription";
             this.lDescription.Size = new System.Drawing.Size(147, 29);
             this.lDescription.TabIndex = 11;
@@ -246,7 +246,7 @@
             // 
             this.pImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pImage.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pImage.Location = new System.Drawing.Point(103, 189);
+            this.pImage.Location = new System.Drawing.Point(105, 189);
             this.pImage.Name = "pImage";
             this.pImage.Size = new System.Drawing.Size(305, 291);
             this.pImage.TabIndex = 12;
@@ -256,7 +256,7 @@
             // 
             this.cIncludeImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cIncludeImage.AutoSize = true;
-            this.cIncludeImage.Location = new System.Drawing.Point(185, 504);
+            this.cIncludeImage.Location = new System.Drawing.Point(187, 504);
             this.cIncludeImage.Name = "cIncludeImage";
             this.cIncludeImage.Size = new System.Drawing.Size(117, 21);
             this.cIncludeImage.TabIndex = 13;
@@ -267,7 +267,7 @@
             // tOrganizer
             // 
             this.tOrganizer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tOrganizer.Location = new System.Drawing.Point(336, 592);
+            this.tOrganizer.Location = new System.Drawing.Point(338, 592);
             this.tOrganizer.Name = "tOrganizer";
             this.tOrganizer.Size = new System.Drawing.Size(348, 22);
             this.tOrganizer.TabIndex = 15;
@@ -277,7 +277,7 @@
             this.lOrganizador.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lOrganizador.AutoSize = true;
             this.lOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrganizador.Location = new System.Drawing.Point(160, 585);
+            this.lOrganizador.Location = new System.Drawing.Point(162, 585);
             this.lOrganizador.Name = "lOrganizador";
             this.lOrganizador.Size = new System.Drawing.Size(152, 29);
             this.lOrganizador.TabIndex = 14;
@@ -288,7 +288,7 @@
             this.lDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDate.AutoSize = true;
             this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDate.Location = new System.Drawing.Point(108, 650);
+            this.lDate.Location = new System.Drawing.Point(110, 650);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(204, 29);
             this.lDate.TabIndex = 16;
@@ -298,7 +298,7 @@
             // 
             this.tDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tDatePicker.Location = new System.Drawing.Point(336, 657);
+            this.tDatePicker.Location = new System.Drawing.Point(338, 657);
             this.tDatePicker.Name = "tDatePicker";
             this.tDatePicker.Size = new System.Drawing.Size(348, 22);
             this.tDatePicker.TabIndex = 18;
@@ -317,7 +317,7 @@
             this.lForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lForum.AutoSize = true;
             this.lForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lForum.Location = new System.Drawing.Point(522, 751);
+            this.lForum.Location = new System.Drawing.Point(524, 751);
             this.lForum.Name = "lForum";
             this.lForum.Size = new System.Drawing.Size(70, 29);
             this.lForum.TabIndex = 22;
@@ -327,7 +327,7 @@
             // 
             this.linkForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkForum.AutoSize = true;
-            this.linkForum.Location = new System.Drawing.Point(647, 761);
+            this.linkForum.Location = new System.Drawing.Point(649, 761);
             this.linkForum.Name = "linkForum";
             this.linkForum.Size = new System.Drawing.Size(78, 17);
             this.linkForum.TabIndex = 23;
@@ -339,7 +339,7 @@
             this.lEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lEntries.AutoSize = true;
             this.lEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lEntries.Location = new System.Drawing.Point(478, 828);
+            this.lEntries.Location = new System.Drawing.Point(480, 828);
             this.lEntries.Name = "lEntries";
             this.lEntries.Size = new System.Drawing.Size(114, 29);
             this.lEntries.TabIndex = 24;
@@ -349,7 +349,7 @@
             // 
             this.linkEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkEntries.AutoSize = true;
-            this.linkEntries.Location = new System.Drawing.Point(647, 838);
+            this.linkEntries.Location = new System.Drawing.Point(649, 838);
             this.linkEntries.Name = "linkEntries";
             this.linkEntries.Size = new System.Drawing.Size(102, 17);
             this.linkEntries.TabIndex = 25;
@@ -361,7 +361,7 @@
             this.lVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lVideochat.AutoSize = true;
             this.lVideochat.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lVideochat.Location = new System.Drawing.Point(478, 899);
+            this.lVideochat.Location = new System.Drawing.Point(480, 899);
             this.lVideochat.Name = "lVideochat";
             this.lVideochat.Size = new System.Drawing.Size(126, 29);
             this.lVideochat.TabIndex = 26;
@@ -371,7 +371,7 @@
             // 
             this.linkVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkVideochat.AutoSize = true;
-            this.linkVideochat.Location = new System.Drawing.Point(647, 909);
+            this.linkVideochat.Location = new System.Drawing.Point(649, 909);
             this.linkVideochat.Name = "linkVideochat";
             this.linkVideochat.Size = new System.Drawing.Size(128, 17);
             this.linkVideochat.TabIndex = 27;
@@ -381,7 +381,7 @@
             // bCreateEvent
             // 
             this.bCreateEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bCreateEvent.Location = new System.Drawing.Point(504, 972);
+            this.bCreateEvent.Location = new System.Drawing.Point(506, 972);
             this.bCreateEvent.Name = "bCreateEvent";
             this.bCreateEvent.Size = new System.Drawing.Size(121, 32);
             this.bCreateEvent.TabIndex = 29;
@@ -392,7 +392,7 @@
             // bExit
             // 
             this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bExit.Location = new System.Drawing.Point(707, 972);
+            this.bExit.Location = new System.Drawing.Point(709, 972);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(121, 32);
             this.bExit.TabIndex = 30;
@@ -403,7 +403,7 @@
             // tImage
             // 
             this.tImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tImage.Location = new System.Drawing.Point(148, 531);
+            this.tImage.Location = new System.Drawing.Point(150, 531);
             this.tImage.Name = "tImage";
             this.tImage.Size = new System.Drawing.Size(164, 22);
             this.tImage.TabIndex = 31;
