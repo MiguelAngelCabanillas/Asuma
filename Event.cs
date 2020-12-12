@@ -54,7 +54,7 @@ namespace Asuma
         {
             List<Event> lista = new List<Event>();
             BD bd= new BD();
-            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event");
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event ORDER BY date ASC");
             while (reader.Read())
             {
                 int id = (int)reader[0];
