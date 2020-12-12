@@ -15,7 +15,7 @@ namespace Asuma
 {
     public partial class Eventos : Form
     {
-        private User usuario;
+        private User usuario = null;
         public Eventos(User usuario)
         {
             InitializeComponent();
@@ -42,7 +42,10 @@ namespace Asuma
             }
             else
             {
-                MessageBox.Show("Si eres USUARIO");
+                MisEventos misEventos = new MisEventos(usuario);
+                this.Visible = false;
+                misEventos.ShowDialog();
+                this.Visible = true;
             }
         }
 
@@ -190,7 +193,7 @@ namespace Asuma
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
             Event ev = new Event(id);
-            InfoEvento infoEvento = new InfoEvento(ev);
+            InfoEvento infoEvento = new InfoEvento(ev, usuario);
             this.Visible = false;
             infoEvento.ShowDialog();
             this.Visible = true;

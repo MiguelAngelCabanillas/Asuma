@@ -57,7 +57,7 @@
             // 
             // bMyEvents
             // 
-            this.bMyEvents.Location = new System.Drawing.Point(439, 708);
+            this.bMyEvents.Location = new System.Drawing.Point(549, 709);
             this.bMyEvents.Margin = new System.Windows.Forms.Padding(4);
             this.bMyEvents.Name = "bMyEvents";
             this.bMyEvents.Size = new System.Drawing.Size(99, 65);
@@ -79,7 +79,7 @@
             // 
             this.pLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(547, 12);
+            this.pLogo.Location = new System.Drawing.Point(555, 12);
             this.pLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pLogo.Name = "pLogo";
             this.pLogo.Size = new System.Drawing.Size(697, 69);
@@ -227,7 +227,7 @@
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button5.Location = new System.Drawing.Point(798, 698);
+            this.button5.Location = new System.Drawing.Point(689, 676);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(99, 65);
@@ -274,8 +274,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1344, 806);
-            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.button5);
+            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pLogo);
             this.Controls.Add(this.menuFlowLayoutPanel);

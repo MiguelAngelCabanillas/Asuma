@@ -87,6 +87,12 @@
     <Compile Include="InfoEvento.Designer.cs">
       <DependentUpon>InfoEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="infoEventoInscrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoEventoInscrito.Designer.cs">
+      <DependentUpon>infoEventoInscrito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,7 +102,7 @@
     <Compile Include="MisEventos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisEventos.designer.cs">
+    <Compile Include="MisEventos.Designer.cs">
       <DependentUpon>MisEventos.cs</DependentUpon>
     </Compile>
     <Compile Include="Permission.cs" />
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoEvento.resx">
       <DependentUpon>InfoEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoEventoInscrito.resx">
+      <DependentUpon>infoEventoInscrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

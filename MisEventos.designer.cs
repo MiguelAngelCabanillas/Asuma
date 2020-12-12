@@ -1,5 +1,4 @@
-﻿
-namespace Asuma
+﻿namespace Asuma
 {
     partial class MisEventos
     {
@@ -30,52 +29,60 @@ namespace Asuma
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MisEventos));
-            this.pUser = new System.Windows.Forms.PictureBox();
-            this.lUsername = new System.Windows.Forms.Label();
+            this.pASM = new System.Windows.Forms.PictureBox();
+            this.pASUMA = new System.Windows.Forms.PictureBox();
             this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bNoticias = new System.Windows.Forms.Button();
             this.bEventos = new System.Windows.Forms.Button();
             this.bInfo = new System.Windows.Forms.Button();
             this.bContacto = new System.Windows.Forms.Button();
-            this.pLogo = new System.Windows.Forms.PictureBox();
-            this.bMisEventos = new System.Windows.Forms.Button();
-            this.bCrearEvento = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
+            this.lUsername = new System.Windows.Forms.Label();
+            this.pUser = new System.Windows.Forms.PictureBox();
+            this.panelEventos = new System.Windows.Forms.Panel();
+            this.bCreateEvent = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             this.SuspendLayout();
             // 
-            // pUser
+            // pASM
             // 
-            this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(25, 22);
-            this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(80, 77);
-            this.pUser.TabIndex = 0;
-            this.pUser.TabStop = false;
-            this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
+            this.pASM.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
+            this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
+            this.pASM.Location = new System.Drawing.Point(1359, 19);
+            this.pASM.Name = "pASM";
+            this.pASM.Size = new System.Drawing.Size(351, 139);
+            this.pASM.TabIndex = 14;
+            this.pASM.TabStop = false;
+            this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
             // 
-            // lUsername
+            // pASUMA
             // 
-            this.lUsername.AutoSize = true;
-            this.lUsername.Location = new System.Drawing.Point(124, 51);
-            this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(73, 17);
-            this.lUsername.TabIndex = 1;
-            this.lUsername.Text = "userName";
+            this.pASUMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
+            this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
+            this.pASUMA.Location = new System.Drawing.Point(738, 19);
+            this.pASUMA.Name = "pASUMA";
+            this.pASUMA.Size = new System.Drawing.Size(399, 127);
+            this.pASUMA.TabIndex = 13;
+            this.pASUMA.TabStop = false;
+            this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
             // 
             // menuFlowLayoutPanel
             // 
+            this.menuFlowLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.menuFlowLayoutPanel.Controls.Add(this.bNoticias);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(25, 116);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(29, 174);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1342, 54);
-            this.menuFlowLayoutPanel.TabIndex = 2;
-            this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
+            this.menuFlowLayoutPanel.TabIndex = 12;
+            this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint);
             // 
             // bNoticias
             // 
@@ -113,57 +120,69 @@ namespace Asuma
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
             // 
-            // pLogo
+            // lUsername
             // 
-            this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(522, 30);
-            this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(479, 69);
-            this.pLogo.TabIndex = 3;
-            this.pLogo.TabStop = false;
-            this.pLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.pLogo_Paint);
+            this.lUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lUsername.AutoSize = true;
+            this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lUsername.Location = new System.Drawing.Point(244, 69);
+            this.lUsername.Name = "lUsername";
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
+            this.lUsername.TabIndex = 11;
+            this.lUsername.Text = "userName";
             // 
-            // bMisEventos
+            // pUser
             // 
-            this.bMisEventos.Location = new System.Drawing.Point(25, 586);
-            this.bMisEventos.Name = "bMisEventos";
-            this.bMisEventos.Size = new System.Drawing.Size(148, 43);
-            this.bMisEventos.TabIndex = 4;
-            this.bMisEventos.Text = "Mis Eventos";
-            this.bMisEventos.UseVisualStyleBackColor = true;
-            this.bMisEventos.Paint += new System.Windows.Forms.PaintEventHandler(this.bMisEventos_Paint);
+            this.pUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
+            this.pUser.Location = new System.Drawing.Point(90, 19);
+            this.pUser.Name = "pUser";
+            this.pUser.Size = new System.Drawing.Size(130, 139);
+            this.pUser.TabIndex = 10;
+            this.pUser.TabStop = false;
+            this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             // 
-            // bCrearEvento
+            // panelEventos
             // 
-            this.bCrearEvento.Location = new System.Drawing.Point(1219, 586);
-            this.bCrearEvento.Name = "bCrearEvento";
-            this.bCrearEvento.Size = new System.Drawing.Size(148, 43);
-            this.bCrearEvento.TabIndex = 5;
-            this.bCrearEvento.Text = "Crear Evento";
-            this.bCrearEvento.UseVisualStyleBackColor = true;
-            this.bCrearEvento.Paint += new System.Windows.Forms.PaintEventHandler(this.bCrearEvento_Paint);
+            this.panelEventos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelEventos.AutoScroll = true;
+            this.panelEventos.Location = new System.Drawing.Point(134, 263);
+            this.panelEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelEventos.Name = "panelEventos";
+            this.panelEventos.Size = new System.Drawing.Size(1247, 439);
+            this.panelEventos.TabIndex = 32;
+            // 
+            // bCreateEvent
+            // 
+            this.bCreateEvent.Location = new System.Drawing.Point(781, 798);
+            this.bCreateEvent.Name = "bCreateEvent";
+            this.bCreateEvent.Size = new System.Drawing.Size(173, 67);
+            this.bCreateEvent.TabIndex = 33;
+            this.bCreateEvent.Text = "Crear evento";
+            this.bCreateEvent.UseVisualStyleBackColor = true;
             // 
             // MisEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1391, 658);
-            this.Controls.Add(this.bCrearEvento);
-            this.Controls.Add(this.bMisEventos);
-            this.Controls.Add(this.pLogo);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.bCreateEvent);
+            this.Controls.Add(this.panelEventos);
+            this.Controls.Add(this.pASM);
+            this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.pUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MisEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisEventos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.MisEventos_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MisEventos_Paint);
-            ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             this.menuFlowLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,15 +190,16 @@ namespace Asuma
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pUser;
-        private System.Windows.Forms.Label lUsername;
+        private System.Windows.Forms.PictureBox pASM;
+        private System.Windows.Forms.PictureBox pASUMA;
         private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
         private System.Windows.Forms.Button bNoticias;
         private System.Windows.Forms.Button bEventos;
         private System.Windows.Forms.Button bInfo;
         private System.Windows.Forms.Button bContacto;
-        private System.Windows.Forms.PictureBox pLogo;
-        private System.Windows.Forms.Button bMisEventos;
-        private System.Windows.Forms.Button bCrearEvento;
+        private System.Windows.Forms.Label lUsername;
+        private System.Windows.Forms.PictureBox pUser;
+        private System.Windows.Forms.Panel panelEventos;
+        private System.Windows.Forms.Button bCreateEvent;
     }
 }

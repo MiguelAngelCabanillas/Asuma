@@ -14,7 +14,8 @@ namespace Asuma
     public partial class InfoEvento : Form
     {
         private Event e;
-        public InfoEvento(Event e)
+        private User usuario;
+        public InfoEvento(Event e, User u)
         {
             this.e = e;
             InitializeComponent();
@@ -37,6 +38,17 @@ namespace Asuma
             tDes.Text = e.EventDescription;
             lOrganizadores.Text = e.Organizer;
             lFecha.Text = e.Date;
+
+            this.usuario = u;
+
+            if(usuario == null)
+            {
+                bInscription.Visible = false;
+            }
+            else
+            {
+                bInscription.Visible = true;
+            }
         }
 
         private void pASUMA_Paint(object sender, PaintEventArgs e)
@@ -71,6 +83,11 @@ namespace Asuma
         private void bSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bInscription_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
