@@ -52,10 +52,9 @@
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(322, 64);
-            this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linitSesion.Location = new System.Drawing.Point(429, 79);
             this.linitSesion.Name = "linitSesion";
-            this.linitSesion.Size = new System.Drawing.Size(94, 18);
+            this.linitSesion.Size = new System.Drawing.Size(119, 24);
             this.linitSesion.TabIndex = 0;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
@@ -65,10 +64,9 @@
             // 
             this.lSignOut.AutoSize = true;
             this.lSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(439, 64);
-            this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lSignOut.Location = new System.Drawing.Point(585, 79);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(93, 17);
+            this.lSignOut.Size = new System.Drawing.Size(111, 20);
             this.lSignOut.TabIndex = 8;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -78,10 +76,10 @@
             // 
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(1019, 15);
-            this.pASM.Margin = new System.Windows.Forms.Padding(2);
+            this.pASM.Location = new System.Drawing.Point(1359, 18);
+            this.pASM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pASM.Name = "pASM";
-            this.pASM.Size = new System.Drawing.Size(263, 113);
+            this.pASM.Size = new System.Drawing.Size(351, 139);
             this.pASM.TabIndex = 14;
             this.pASM.TabStop = false;
             this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
@@ -90,10 +88,10 @@
             // 
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(554, 15);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
+            this.pASUMA.Location = new System.Drawing.Point(739, 18);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pASUMA.Name = "pASUMA";
-            this.pASUMA.Size = new System.Drawing.Size(299, 103);
+            this.pASUMA.Size = new System.Drawing.Size(399, 127);
             this.pASUMA.TabIndex = 13;
             this.pASUMA.TabStop = false;
             this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
@@ -105,49 +103,50 @@
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(22, 141);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(29, 174);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
-            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
             this.menuFlowLayoutPanel.TabIndex = 12;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint_1);
             // 
             // bNoticias
             // 
-            this.bNoticias.Location = new System.Drawing.Point(2, 2);
-            this.bNoticias.Margin = new System.Windows.Forms.Padding(2);
+            this.bNoticias.Location = new System.Drawing.Point(3, 2);
+            this.bNoticias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bNoticias.Name = "bNoticias";
-            this.bNoticias.Size = new System.Drawing.Size(95, 37);
+            this.bNoticias.Size = new System.Drawing.Size(127, 46);
             this.bNoticias.TabIndex = 0;
             this.bNoticias.Text = "Noticias";
             this.bNoticias.UseVisualStyleBackColor = true;
             // 
             // bEventos
             // 
-            this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.bEventos.Location = new System.Drawing.Point(136, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
-            this.bEventos.Size = new System.Drawing.Size(95, 37);
+            this.bEventos.Size = new System.Drawing.Size(127, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
+            this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
             // 
             // bInfo
             // 
-            this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.bInfo.Location = new System.Drawing.Point(269, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInfo.Name = "bInfo";
-            this.bInfo.Size = new System.Drawing.Size(95, 37);
+            this.bInfo.Size = new System.Drawing.Size(127, 46);
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
             // 
             // bContacto
             // 
-            this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
+            this.bContacto.Location = new System.Drawing.Point(402, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bContacto.Name = "bContacto";
-            this.bContacto.Size = new System.Drawing.Size(95, 37);
+            this.bContacto.Size = new System.Drawing.Size(127, 46);
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
@@ -156,20 +155,19 @@
             // 
             this.lUsername.AutoSize = true;
             this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lUsername.Location = new System.Drawing.Point(183, 56);
-            this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lUsername.Location = new System.Drawing.Point(244, 69);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(122, 26);
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
             this.lUsername.TabIndex = 11;
             this.lUsername.Text = "userName";
             // 
             // pUser
             // 
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(54, 13);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2);
+            this.pUser.Location = new System.Drawing.Point(72, 16);
+            this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(98, 113);
+            this.pUser.Size = new System.Drawing.Size(131, 139);
             this.pUser.TabIndex = 10;
             this.pUser.TabStop = false;
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
@@ -177,17 +175,18 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.pUser);
-            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Location = new System.Drawing.Point(4, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1435, 669);
+            this.panel1.Size = new System.Drawing.Size(1913, 823);
             this.panel1.TabIndex = 15;
             // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
@@ -195,7 +194,7 @@
             this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";

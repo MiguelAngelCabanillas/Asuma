@@ -33,7 +33,10 @@ namespace Asuma
             }
             else
             {
-                MessageBox.Show("Si eres USUARIO");
+                MisEventos misEventos = new MisEventos(usuario);
+                this.Visible = true;
+                misEventos.ShowDialog();
+                this.Visible = false;
             }
         }
 

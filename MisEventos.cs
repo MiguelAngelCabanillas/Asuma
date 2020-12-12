@@ -18,6 +18,15 @@ namespace Asuma
         {
             this.usuario = usuario;
             InitializeComponent();
+            lUsername.Text = "Bienvenido " + usuario.Username;
+            if (!usuario.Rol.RolName.Equals("Docente"))
+            {
+                bCreateEvent.Visible = false;
+            }
+            else
+            {
+                bCreateEvent.Visible = true;
+            }
             mostrarEventos();
         }
 
