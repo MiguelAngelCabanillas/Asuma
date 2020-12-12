@@ -31,103 +31,119 @@
             this.tUser = new System.Windows.Forms.TextBox();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.bInicio = new System.Windows.Forms.Button();
-            this.tCheck = new System.Windows.Forms.CheckBox();
             this.bRegistrarse = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lUserName = new System.Windows.Forms.Label();
+            this.lPassWord = new System.Windows.Forms.Label();
             this.bExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tUser
             // 
-            this.tUser.Location = new System.Drawing.Point(649, 143);
+            this.tUser.Location = new System.Drawing.Point(258, 73);
+            this.tUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tUser.Name = "tUser";
-            this.tUser.Size = new System.Drawing.Size(100, 22);
+            this.tUser.Size = new System.Drawing.Size(149, 20);
             this.tUser.TabIndex = 0;
             // 
             // tPassword
             // 
-            this.tPassword.Location = new System.Drawing.Point(649, 203);
+            this.tPassword.Location = new System.Drawing.Point(258, 109);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(100, 22);
+            this.tPassword.Size = new System.Drawing.Size(149, 20);
             this.tPassword.TabIndex = 1;
             // 
             // bInicio
             // 
-            this.bInicio.Location = new System.Drawing.Point(465, 292);
+            this.bInicio.Location = new System.Drawing.Point(80, 185);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(135, 30);
+            this.bInicio.Size = new System.Drawing.Size(101, 24);
             this.bInicio.TabIndex = 2;
             this.bInicio.Text = "Iniciar sesion";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
-            // tCheck
-            // 
-            this.tCheck.AutoSize = true;
-            this.tCheck.Location = new System.Drawing.Point(870, 178);
-            this.tCheck.Name = "tCheck";
-            this.tCheck.Size = new System.Drawing.Size(98, 21);
-            this.tCheck.TabIndex = 3;
-            this.tCheck.Text = "checkBox1";
-            this.tCheck.UseVisualStyleBackColor = true;
-            // 
             // bRegistrarse
             // 
-            this.bRegistrarse.Location = new System.Drawing.Point(746, 292);
+            this.bRegistrarse.Location = new System.Drawing.Point(306, 185);
+            this.bRegistrarse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bRegistrarse.Name = "bRegistrarse";
-            this.bRegistrarse.Size = new System.Drawing.Size(135, 30);
+            this.bRegistrarse.Size = new System.Drawing.Size(101, 24);
             this.bRegistrarse.TabIndex = 4;
             this.bRegistrarse.Text = "Registrarse";
             this.bRegistrarse.UseVisualStyleBackColor = true;
             this.bRegistrarse.Click += new System.EventHandler(this.bRegistrarse_Click);
             // 
-            // label1
+            // lUserName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(462, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Nombre de usuario";
+            this.lUserName.AutoSize = true;
+            this.lUserName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lUserName.Location = new System.Drawing.Point(77, 73);
+            this.lUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lUserName.Name = "lUserName";
+            this.lUserName.Size = new System.Drawing.Size(163, 18);
+            this.lUserName.TabIndex = 5;
+            this.lUserName.Text = "Nombre de usuario";
             // 
-            // label2
+            // lPassWord
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(462, 208);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Contraseña";
+            this.lPassWord.AutoSize = true;
+            this.lPassWord.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lPassWord.Location = new System.Drawing.Point(77, 111);
+            this.lPassWord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lPassWord.Name = "lPassWord";
+            this.lPassWord.Size = new System.Drawing.Size(101, 18);
+            this.lPassWord.TabIndex = 6;
+            this.lPassWord.Text = "Contraseña";
             // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(1200, 443);
+            this.bExit.Location = new System.Drawing.Point(424, 266);
+            this.bExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(76, 30);
+            this.bExit.Size = new System.Drawing.Size(57, 24);
             this.bExit.TabIndex = 7;
             this.bExit.Text = "Salir";
             this.bExit.UseVisualStyleBackColor = true;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lUserName);
+            this.panel1.Controls.Add(this.bExit);
+            this.panel1.Controls.Add(this.tUser);
+            this.panel1.Controls.Add(this.bRegistrarse);
+            this.panel1.Controls.Add(this.lPassWord);
+            this.panel1.Controls.Add(this.tPassword);
+            this.panel1.Controls.Add(this.bInicio);
+            this.panel1.Location = new System.Drawing.Point(267, 57);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(483, 292);
+            this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1306, 485);
-            this.Controls.Add(this.bExit);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bRegistrarse);
-            this.Controls.Add(this.tCheck);
-            this.Controls.Add(this.bInicio);
-            this.Controls.Add(this.tPassword);
-            this.Controls.Add(this.tUser);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(980, 394);
+            this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(483, 292);
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Inicio_Load);
+            this.Resize += new System.EventHandler(this.Inicio_Resize);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -136,11 +152,11 @@
         private System.Windows.Forms.TextBox tUser;
         private System.Windows.Forms.TextBox tPassword;
         private System.Windows.Forms.Button bInicio;
-        private System.Windows.Forms.CheckBox tCheck;
         private System.Windows.Forms.Button bRegistrarse;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lUserName;
+        private System.Windows.Forms.Label lPassWord;
         private System.Windows.Forms.Button bExit;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

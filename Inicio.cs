@@ -55,5 +55,20 @@ namespace Asuma
         {
             return usuario;
         }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+           // panel1.Location = new Point(this.Width/2 - panel1.Width/2, this.Height/2 - panel1.Height/2);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, this.Height / 2 - panel1.Height / 2);
+        }
+
+        private void Inicio_Resize(object sender, EventArgs e)
+        {
+            panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, this.Height / 2 - panel1.Height / 2);
+        }
     }
 }
