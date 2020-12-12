@@ -59,7 +59,7 @@ namespace Asuma
             {
                 linitSesion.Visible = false;
                 pUser.Visible = true;
-                lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Text = "Bienvenido, " + usuario.Username;
                 lUsername.Visible = true;
                 lSignOut.Visible = true;
             }
@@ -89,7 +89,7 @@ namespace Asuma
         {
             List<Event> listaEventos = Event.listaEventos();
             int nEventos = listaEventos.Count;
-            int separacion = 100;
+            int separacion = 50;
 
             for (int i = 0; i < nEventos; i++)
             {
@@ -153,7 +153,7 @@ namespace Asuma
 
                 panel.Size = new Size(1142, 186); //1142 186
 
-                panel.Location = new Point(18,separacion);
+                panel.Location = new Point(18, separacion);
                 panel.Visible = true;
                 panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
@@ -180,8 +180,10 @@ namespace Asuma
                 panelEventos.Size = new Size(1300, 640);
                 panelEventos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 
+
                 separacion += 300;
             }
+            
 
         }
         protected void ltitulo_click(object sender, EventArgs e)
@@ -196,8 +198,19 @@ namespace Asuma
             this.Visible = true;
         }
 
+        private void bMyEvents_Paint(object sender, PaintEventArgs e)
+        {
+            bMyEvents.Location = new Point(bMyEvents.Location.X, this.Height - 250);
+        }
 
+        private void pASUMA_Paint(object sender, PaintEventArgs e)
+        {
+            this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
 
-
+        private void pASM_Paint(object sender, PaintEventArgs e)
+        {
+            this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
     }
 }
