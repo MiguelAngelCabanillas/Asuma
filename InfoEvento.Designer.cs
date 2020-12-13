@@ -49,6 +49,8 @@ namespace Asuma
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.bSalir = new System.Windows.Forms.Button();
             this.bInscription = new System.Windows.Forms.Button();
+            this.linitSesion = new System.Windows.Forms.LinkLabel();
+            this.lSignOut = new System.Windows.Forms.LinkLabel();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -64,7 +66,7 @@ namespace Asuma
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
             this.menuFlowLayoutPanel.Location = new System.Drawing.Point(22, 141);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
             this.menuFlowLayoutPanel.TabIndex = 6;
@@ -73,7 +75,7 @@ namespace Asuma
             // bNoticias
             // 
             this.bNoticias.Location = new System.Drawing.Point(2, 2);
-            this.bNoticias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bNoticias.Margin = new System.Windows.Forms.Padding(2);
             this.bNoticias.Name = "bNoticias";
             this.bNoticias.Size = new System.Drawing.Size(95, 37);
             this.bNoticias.TabIndex = 0;
@@ -83,7 +85,7 @@ namespace Asuma
             // bEventos
             // 
             this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(95, 37);
             this.bEventos.TabIndex = 1;
@@ -93,7 +95,7 @@ namespace Asuma
             // bInfo
             // 
             this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(95, 37);
             this.bInfo.TabIndex = 2;
@@ -103,7 +105,7 @@ namespace Asuma
             // bContacto
             // 
             this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
             this.bContacto.Name = "bContacto";
             this.bContacto.Size = new System.Drawing.Size(95, 37);
             this.bContacto.TabIndex = 3;
@@ -125,7 +127,7 @@ namespace Asuma
             // 
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(68, 15);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(98, 113);
             this.pUser.TabIndex = 4;
@@ -137,7 +139,7 @@ namespace Asuma
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
             this.pASUMA.Location = new System.Drawing.Point(554, 15);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(299, 103);
             this.pASUMA.TabIndex = 8;
@@ -149,7 +151,7 @@ namespace Asuma
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
             this.pASM.Location = new System.Drawing.Point(1019, 15);
-            this.pASM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(263, 113);
             this.pASM.TabIndex = 9;
@@ -160,7 +162,7 @@ namespace Asuma
             // 
             this.pEvento.BackColor = System.Drawing.SystemColors.Control;
             this.pEvento.Location = new System.Drawing.Point(123, 267);
-            this.pEvento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pEvento.Margin = new System.Windows.Forms.Padding(2);
             this.pEvento.Name = "pEvento";
             this.pEvento.Size = new System.Drawing.Size(266, 254);
             this.pEvento.TabIndex = 10;
@@ -182,7 +184,7 @@ namespace Asuma
             // 
             this.tDes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tDes.Location = new System.Drawing.Point(492, 311);
-            this.tDes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tDes.Margin = new System.Windows.Forms.Padding(2);
             this.tDes.Multiline = true;
             this.tDes.Name = "tDes";
             this.tDes.ReadOnly = true;
@@ -236,7 +238,7 @@ namespace Asuma
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(2, 857);
             this.splitter1.TabIndex = 19;
@@ -245,9 +247,9 @@ namespace Asuma
             // bSalir
             // 
             this.bSalir.Location = new System.Drawing.Point(308, 728);
-            this.bSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(2);
             this.bSalir.Name = "bSalir";
-            this.bSalir.Size = new System.Drawing.Size(81, 34);
+            this.bSalir.Size = new System.Drawing.Size(127, 68);
             this.bSalir.TabIndex = 20;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
@@ -256,21 +258,48 @@ namespace Asuma
             // bInscription
             // 
             this.bInscription.Location = new System.Drawing.Point(123, 728);
-            this.bInscription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInscription.Margin = new System.Windows.Forms.Padding(2);
             this.bInscription.Name = "bInscription";
-            this.bInscription.Size = new System.Drawing.Size(81, 34);
+            this.bInscription.Size = new System.Drawing.Size(127, 68);
             this.bInscription.TabIndex = 21;
             this.bInscription.Text = "Inscribirse";
             this.bInscription.UseVisualStyleBackColor = true;
             this.bInscription.Click += new System.EventHandler(this.bInscription_Click);
             // 
+            // linitSesion
+            // 
+            this.linitSesion.AutoSize = true;
+            this.linitSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linitSesion.Location = new System.Drawing.Point(372, 64);
+            this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linitSesion.Name = "linitSesion";
+            this.linitSesion.Size = new System.Drawing.Size(94, 18);
+            this.linitSesion.TabIndex = 33;
+            this.linitSesion.TabStop = true;
+            this.linitSesion.Text = "Iniciar sesion";
+            this.linitSesion.Click += new System.EventHandler(this.linitSesion_Click);
+            // 
+            // lSignOut
+            // 
+            this.lSignOut.AutoSize = true;
+            this.lSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSignOut.Location = new System.Drawing.Point(373, 65);
+            this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lSignOut.Name = "lSignOut";
+            this.lSignOut.Size = new System.Drawing.Size(93, 17);
+            this.lSignOut.TabIndex = 34;
+            this.lSignOut.TabStop = true;
+            this.lSignOut.Text = "Cerrar sesión";
+            // 
             // InfoEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.Controls.Add(this.lSignOut);
+            this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.bInscription);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.splitter1);
@@ -286,10 +315,11 @@ namespace Asuma
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.pUser);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InfoEvento";
             this.Text = "InfoEvento";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.InfoEvento_Resize);
             this.menuFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
@@ -320,5 +350,7 @@ namespace Asuma
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button bSalir;
         private System.Windows.Forms.Button bInscription;
+        private System.Windows.Forms.LinkLabel linitSesion;
+        private System.Windows.Forms.LinkLabel lSignOut;
     }
 }
