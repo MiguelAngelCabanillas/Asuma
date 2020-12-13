@@ -234,10 +234,11 @@
             this.bEditEvent.TabIndex = 26;
             this.bEditEvent.Text = "Editar evento";
             this.bEditEvent.UseVisualStyleBackColor = true;
+            this.bEditEvent.Click += new System.EventHandler(this.bEditEvent_Click);
             // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(1750, 996);
+            this.bExit.Location = new System.Drawing.Point(1801, 1006);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(111, 37);
             this.bExit.TabIndex = 27;

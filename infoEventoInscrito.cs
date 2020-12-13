@@ -61,6 +61,14 @@ namespace Asuma
         {
             Environment.Exit(Environment.ExitCode);
         }
+
+        private void bEditEvent_Click(object sender, EventArgs e)
+        {
+            EditarEvento editarEvento = new EditarEvento(evento);
+            this.Visible = false;
+            editarEvento.ShowDialog();
+            this.Visible = true;
+        }
     }
 
 

@@ -45,6 +45,8 @@ namespace Asuma
             reader.Read();
             this.id = (int)reader[0];
             bd.closeBD();
+            bd = new BD();
+            MySqlDataReader writer2 = bd.Query("INSERT INTO inscription VALUES ('" + eventCreator + "', " + id + ")");
             this.eventDescription = eventDescription;
             this.eventName = eventName;
             this.date = date;

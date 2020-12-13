@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySqlConnector;
 
 namespace Asuma
 {
@@ -31,17 +32,6 @@ namespace Asuma
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if(cIncludeImage.Checked == true)
-            {
-                pImage.Visible = true;
-            }
-            else
-            {
-                pImage.Visible = false;
-            }
-        }
 
         private void bExit_Click(object sender, EventArgs e)
         {
@@ -60,6 +50,9 @@ namespace Asuma
                 string eventCreator = usuario.Username;
                 string image = tImage.Text;
                 Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
+                MessageBox.Show("Evento creado con exito");
+                this.Close();
+
             }
             catch(Exception ex)
             {
