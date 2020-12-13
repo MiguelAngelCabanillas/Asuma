@@ -64,7 +64,7 @@
             // 
             this.lSignOut.AutoSize = true;
             this.lSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(585, 79);
+            this.lSignOut.Location = new System.Drawing.Point(580, 81);
             this.lSignOut.Name = "lSignOut";
             this.lSignOut.Size = new System.Drawing.Size(111, 20);
             this.lSignOut.TabIndex = 8;
@@ -175,8 +175,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.pUser);
+            this.panel1.Controls.Add(this.lSignOut);
             this.panel1.Location = new System.Drawing.Point(4, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1913, 823);
             this.panel1.TabIndex = 15;
@@ -191,7 +192,6 @@
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.lUsername);
-            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -205,6 +205,7 @@
             this.menuFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

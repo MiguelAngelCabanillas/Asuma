@@ -86,8 +86,7 @@ namespace Asuma
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Se puede hacer que cierre solo sesion y siga en la plataforma
-            usuario = null;
-            this.Close();
+            Environment.Exit(Environment.ExitCode);
         }
 
         private void bEventos_Click(object sender, EventArgs e)

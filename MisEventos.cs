@@ -169,9 +169,9 @@ namespace Asuma
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
             Event ev = new Event(id);
-            InfoEvento infoEvento = new InfoEvento(ev, usuario);
+            InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             this.Visible = false;
-            infoEvento.ShowDialog();
+            infoEventoInscrito.ShowDialog();
             this.Visible = true;
         }
 

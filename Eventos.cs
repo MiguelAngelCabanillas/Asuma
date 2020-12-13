@@ -70,7 +70,7 @@ namespace Asuma
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            Environment.Exit(Environment.ExitCode);
         }
 
         private void label2_Click(object sender, EventArgs e)

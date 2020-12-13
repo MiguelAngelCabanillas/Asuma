@@ -73,10 +73,10 @@
             // pLogo
             // 
             this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(378, 10);
-            this.pLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pLogo.Location = new System.Drawing.Point(504, 12);
+            this.pLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(359, 56);
+            this.pLogo.Size = new System.Drawing.Size(479, 69);
             this.pLogo.TabIndex = 7;
             this.pLogo.TabStop = false;
             // 
@@ -88,49 +88,49 @@
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
             this.menuFlowLayoutPanel.Controls.Add(this.flowLayoutPanel1);
             this.menuFlowLayoutPanel.Controls.Add(this.checkBox1);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(5, 80);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(7, 98);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
-            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
             this.menuFlowLayoutPanel.TabIndex = 6;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint);
             // 
             // bNoticias
             // 
-            this.bNoticias.Location = new System.Drawing.Point(2, 2);
-            this.bNoticias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bNoticias.Location = new System.Drawing.Point(3, 2);
+            this.bNoticias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bNoticias.Name = "bNoticias";
-            this.bNoticias.Size = new System.Drawing.Size(95, 37);
+            this.bNoticias.Size = new System.Drawing.Size(127, 46);
             this.bNoticias.TabIndex = 0;
             this.bNoticias.Text = "Noticias";
             this.bNoticias.UseVisualStyleBackColor = true;
             // 
             // bEventos
             // 
-            this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bEventos.Location = new System.Drawing.Point(136, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
-            this.bEventos.Size = new System.Drawing.Size(95, 37);
+            this.bEventos.Size = new System.Drawing.Size(127, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
             // 
             // bInfo
             // 
-            this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInfo.Location = new System.Drawing.Point(269, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInfo.Name = "bInfo";
-            this.bInfo.Size = new System.Drawing.Size(95, 37);
+            this.bInfo.Size = new System.Drawing.Size(127, 46);
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
             // 
             // bContacto
             // 
-            this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bContacto.Location = new System.Drawing.Point(402, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bContacto.Name = "bContacto";
-            this.bContacto.Size = new System.Drawing.Size(95, 37);
+            this.bContacto.Size = new System.Drawing.Size(127, 46);
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
@@ -141,48 +141,48 @@
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 43);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 52);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1054, 832);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1405, 1024);
             this.flowLayoutPanel1.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(3, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 37);
+            this.button1.Size = new System.Drawing.Size(127, 46);
             this.button1.TabIndex = 0;
             this.button1.Text = "Noticias";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(101, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(136, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 37);
+            this.button2.Size = new System.Drawing.Size(127, 46);
             this.button2.TabIndex = 1;
             this.button2.Text = "Eventos";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(200, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(269, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(95, 37);
+            this.button3.Size = new System.Drawing.Size(127, 46);
             this.button3.TabIndex = 2;
             this.button3.Text = "Información";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(299, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(402, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 37);
+            this.button4.Size = new System.Drawing.Size(127, 46);
             this.button4.TabIndex = 3;
             this.button4.Text = "Contacto";
             this.button4.UseVisualStyleBackColor = true;
@@ -190,10 +190,10 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(2, 879);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Location = new System.Drawing.Point(3, 1080);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
+            this.checkBox1.Size = new System.Drawing.Size(98, 21);
             this.checkBox1.TabIndex = 8;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -201,20 +201,19 @@
             // lUsername
             // 
             this.lUsername.AutoSize = true;
-            this.lUsername.Location = new System.Drawing.Point(92, 37);
-            this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lUsername.Location = new System.Drawing.Point(123, 46);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(55, 13);
+            this.lUsername.Size = new System.Drawing.Size(73, 17);
             this.lUsername.TabIndex = 5;
             this.lUsername.Text = "userName";
             // 
             // pUser
             // 
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(10, 10);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pUser.Location = new System.Drawing.Point(13, 12);
+            this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(60, 63);
+            this.pUser.Size = new System.Drawing.Size(80, 78);
             this.pUser.TabIndex = 4;
             this.pUser.TabStop = false;
             // 
@@ -223,29 +222,28 @@
             this.lTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lTitle.AutoSize = true;
             this.lTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitle.Location = new System.Drawing.Point(405, 167);
-            this.lTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lTitle.Location = new System.Drawing.Point(542, 206);
             this.lTitle.Name = "lTitle";
-            this.lTitle.Size = new System.Drawing.Size(61, 24);
+            this.lTitle.Size = new System.Drawing.Size(80, 29);
             this.lTitle.TabIndex = 8;
             this.lTitle.Text = "Título:";
             // 
             // tTitle
             // 
             this.tTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tTitle.Location = new System.Drawing.Point(476, 172);
-            this.tTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tTitle.Location = new System.Drawing.Point(637, 212);
+            this.tTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tTitle.Name = "tTitle";
-            this.tTitle.Size = new System.Drawing.Size(124, 20);
+            this.tTitle.Size = new System.Drawing.Size(164, 22);
             this.tTitle.TabIndex = 9;
             // 
             // tDescription
             // 
             this.tDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tDescription.Location = new System.Drawing.Point(408, 293);
-            this.tDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tDescription.Location = new System.Drawing.Point(546, 361);
+            this.tDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDescription.Name = "tDescription";
-            this.tDescription.Size = new System.Drawing.Size(294, 20);
+            this.tDescription.Size = new System.Drawing.Size(391, 22);
             this.tDescription.TabIndex = 10;
             // 
             // lDescription
@@ -253,10 +251,9 @@
             this.lDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDescription.AutoSize = true;
             this.lDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDescription.Location = new System.Drawing.Point(405, 249);
-            this.lDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lDescription.Location = new System.Drawing.Point(542, 306);
             this.lDescription.Name = "lDescription";
-            this.lDescription.Size = new System.Drawing.Size(115, 24);
+            this.lDescription.Size = new System.Drawing.Size(147, 29);
             this.lDescription.TabIndex = 11;
             this.lDescription.Text = "Descripción:";
             // 
@@ -264,10 +261,10 @@
             // 
             this.pImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pImage.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pImage.Location = new System.Drawing.Point(83, 154);
-            this.pImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pImage.Location = new System.Drawing.Point(113, 190);
+            this.pImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pImage.Name = "pImage";
-            this.pImage.Size = new System.Drawing.Size(229, 236);
+            this.pImage.Size = new System.Drawing.Size(305, 290);
             this.pImage.TabIndex = 12;
             this.pImage.TabStop = false;
             // 
@@ -275,10 +272,10 @@
             // 
             this.cIncludeImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cIncludeImage.AutoSize = true;
-            this.cIncludeImage.Location = new System.Drawing.Point(144, 410);
-            this.cIncludeImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cIncludeImage.Location = new System.Drawing.Point(194, 505);
+            this.cIncludeImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cIncludeImage.Name = "cIncludeImage";
-            this.cIncludeImage.Size = new System.Drawing.Size(91, 17);
+            this.cIncludeImage.Size = new System.Drawing.Size(117, 21);
             this.cIncludeImage.TabIndex = 13;
             this.cIncludeImage.Text = "Incluir imagen";
             this.cIncludeImage.UseVisualStyleBackColor = true;
@@ -287,10 +284,10 @@
             // tOrganizer
             // 
             this.tOrganizer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tOrganizer.Location = new System.Drawing.Point(257, 481);
-            this.tOrganizer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tOrganizer.Location = new System.Drawing.Point(345, 592);
+            this.tOrganizer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tOrganizer.Name = "tOrganizer";
-            this.tOrganizer.Size = new System.Drawing.Size(262, 20);
+            this.tOrganizer.Size = new System.Drawing.Size(348, 22);
             this.tOrganizer.TabIndex = 15;
             // 
             // lOrganizador
@@ -298,10 +295,9 @@
             this.lOrganizador.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lOrganizador.AutoSize = true;
             this.lOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrganizador.Location = new System.Drawing.Point(125, 475);
-            this.lOrganizador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lOrganizador.Location = new System.Drawing.Point(169, 585);
             this.lOrganizador.Name = "lOrganizador";
-            this.lOrganizador.Size = new System.Drawing.Size(119, 24);
+            this.lOrganizador.Size = new System.Drawing.Size(152, 29);
             this.lOrganizador.TabIndex = 14;
             this.lOrganizador.Text = "Organizador:";
             // 
@@ -310,10 +306,9 @@
             this.lDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDate.AutoSize = true;
             this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDate.Location = new System.Drawing.Point(87, 528);
-            this.lDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lDate.Location = new System.Drawing.Point(118, 650);
             this.lDate.Name = "lDate";
-            this.lDate.Size = new System.Drawing.Size(162, 24);
+            this.lDate.Size = new System.Drawing.Size(204, 29);
             this.lDate.TabIndex = 16;
             this.lDate.Text = "Fecha del evento:";
             // 
@@ -321,19 +316,19 @@
             // 
             this.tDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tDatePicker.Location = new System.Drawing.Point(257, 534);
-            this.tDatePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tDatePicker.Location = new System.Drawing.Point(345, 657);
+            this.tDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDatePicker.Name = "tDatePicker";
-            this.tDatePicker.Size = new System.Drawing.Size(262, 20);
+            this.tDatePicker.Size = new System.Drawing.Size(348, 22);
             this.tDatePicker.TabIndex = 18;
             this.tDatePicker.Value = new System.DateTime(2020, 12, 9, 0, 0, 0, 0);
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(2, 845);
+            this.splitter1.Size = new System.Drawing.Size(3, 1040);
             this.splitter1.TabIndex = 21;
             this.splitter1.TabStop = false;
             // 
@@ -342,10 +337,9 @@
             this.lForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lForum.AutoSize = true;
             this.lForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lForum.Location = new System.Drawing.Point(397, 610);
-            this.lForum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lForum.Location = new System.Drawing.Point(531, 751);
             this.lForum.Name = "lForum";
-            this.lForum.Size = new System.Drawing.Size(55, 24);
+            this.lForum.Size = new System.Drawing.Size(70, 29);
             this.lForum.TabIndex = 22;
             this.lForum.Text = "Foro:";
             // 
@@ -353,10 +347,9 @@
             // 
             this.linkForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkForum.AutoSize = true;
-            this.linkForum.Location = new System.Drawing.Point(491, 618);
-            this.linkForum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkForum.Location = new System.Drawing.Point(657, 761);
             this.linkForum.Name = "linkForum";
-            this.linkForum.Size = new System.Drawing.Size(58, 13);
+            this.linkForum.Size = new System.Drawing.Size(78, 17);
             this.linkForum.TabIndex = 23;
             this.linkForum.TabStop = true;
             this.linkForum.Text = "Añadir foro";
@@ -366,10 +359,9 @@
             this.lEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lEntries.AutoSize = true;
             this.lEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lEntries.Location = new System.Drawing.Point(364, 673);
-            this.lEntries.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lEntries.Location = new System.Drawing.Point(487, 828);
             this.lEntries.Name = "lEntries";
-            this.lEntries.Size = new System.Drawing.Size(89, 24);
+            this.lEntries.Size = new System.Drawing.Size(114, 29);
             this.lEntries.TabIndex = 24;
             this.lEntries.Text = "Entradas:";
             // 
@@ -377,10 +369,9 @@
             // 
             this.linkEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkEntries.AutoSize = true;
-            this.linkEntries.Location = new System.Drawing.Point(491, 681);
-            this.linkEntries.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkEntries.Location = new System.Drawing.Point(657, 838);
             this.linkEntries.Name = "linkEntries";
-            this.linkEntries.Size = new System.Drawing.Size(76, 13);
+            this.linkEntries.Size = new System.Drawing.Size(102, 17);
             this.linkEntries.TabIndex = 25;
             this.linkEntries.TabStop = true;
             this.linkEntries.Text = "Añadir entrada";
@@ -390,10 +381,9 @@
             this.lVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lVideochat.AutoSize = true;
             this.lVideochat.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lVideochat.Location = new System.Drawing.Point(364, 730);
-            this.lVideochat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lVideochat.Location = new System.Drawing.Point(487, 898);
             this.lVideochat.Name = "lVideochat";
-            this.lVideochat.Size = new System.Drawing.Size(100, 24);
+            this.lVideochat.Size = new System.Drawing.Size(126, 29);
             this.lVideochat.TabIndex = 26;
             this.lVideochat.Text = "Videochat:";
             // 
@@ -401,10 +391,9 @@
             // 
             this.linkVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkVideochat.AutoSize = true;
-            this.linkVideochat.Location = new System.Drawing.Point(491, 739);
-            this.linkVideochat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkVideochat.Location = new System.Drawing.Point(657, 910);
             this.linkVideochat.Name = "linkVideochat";
-            this.linkVideochat.Size = new System.Drawing.Size(99, 13);
+            this.linkVideochat.Size = new System.Drawing.Size(128, 17);
             this.linkVideochat.TabIndex = 27;
             this.linkVideochat.TabStop = true;
             this.linkVideochat.Text = "Enlace a videochat";
@@ -412,10 +401,10 @@
             // bCreateEvent
             // 
             this.bCreateEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bCreateEvent.Location = new System.Drawing.Point(383, 790);
-            this.bCreateEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bCreateEvent.Location = new System.Drawing.Point(513, 972);
+            this.bCreateEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bCreateEvent.Name = "bCreateEvent";
-            this.bCreateEvent.Size = new System.Drawing.Size(91, 26);
+            this.bCreateEvent.Size = new System.Drawing.Size(121, 32);
             this.bCreateEvent.TabIndex = 29;
             this.bCreateEvent.Text = "Crear evento";
             this.bCreateEvent.UseVisualStyleBackColor = true;
@@ -424,10 +413,10 @@
             // bExit
             // 
             this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bExit.Location = new System.Drawing.Point(536, 790);
-            this.bExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bExit.Location = new System.Drawing.Point(717, 972);
+            this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(91, 26);
+            this.bExit.Size = new System.Drawing.Size(121, 32);
             this.bExit.TabIndex = 30;
             this.bExit.Text = "Salir";
             this.bExit.UseVisualStyleBackColor = true;
@@ -436,18 +425,18 @@
             // tImage
             // 
             this.tImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tImage.Location = new System.Drawing.Point(117, 431);
-            this.tImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tImage.Location = new System.Drawing.Point(158, 530);
+            this.tImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tImage.Name = "tImage";
-            this.tImage.Size = new System.Drawing.Size(124, 20);
+            this.tImage.Size = new System.Drawing.Size(164, 22);
             this.tImage.TabIndex = 31;
             // 
             // CrearEvento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1008, 862);
+            this.ClientSize = new System.Drawing.Size(1344, 1061);
             this.Controls.Add(this.tImage);
             this.Controls.Add(this.tTitle);
             this.Controls.Add(this.bExit);
@@ -472,7 +461,7 @@
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.pUser);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CrearEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CrearEvento";

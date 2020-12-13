@@ -19,6 +19,7 @@ namespace Asuma
             this.evento = e;
             this.usuario = u;
             InitializeComponent();
+            lUsername.Text = "Bienvenido " + usuario.Username;
             if (e.EventCreator.Equals(u.Username)){
                 bEditEvent.Visible = true;
             }
@@ -49,6 +50,16 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+        }
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
     }
 
