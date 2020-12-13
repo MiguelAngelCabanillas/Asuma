@@ -51,7 +51,7 @@ namespace Asuma
             List<Event> listaEventos = Event.listaEventosUsuario(usuario);
             List<int> listaCreados = Event.listaEventosCreados(usuario);
             int nEventos = listaEventos.Count;
-            int separacion = 100;
+            int separacion = 50;
             Event aux;
             for (int i = 0; i < nEventos; i++)
             {
@@ -78,16 +78,16 @@ namespace Asuma
                 ltitulo.Text = eventName;
                 ltitulo.Size = new Size(292, 38);
                 ltitulo.AutoSize = true;
-                ltitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 if (listaCreados.Contains(aux.ID))
                 {
-                    ltitulo.LinkColor = System.Drawing.Color.Red;
+                    ltitulo.LinkColor = Color.Red;
                 }
                 else
                 {
-                    ltitulo.LinkColor = System.Drawing.Color.Black;
+                    ltitulo.LinkColor = Color.Black;
                 }
-                ltitulo.Location = new System.Drawing.Point(230, 18);
+                ltitulo.Location = new Point(230, 18);
                 ltitulo.Name = id.ToString();
                 ltitulo.TabIndex = 31;
                 ltitulo.TabStop = true;
@@ -98,8 +98,8 @@ namespace Asuma
 
 
                 PictureBox pImagen = new PictureBox();
-                pImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
-                pImagen.Location = new System.Drawing.Point(59, 28);
+                pImagen.BackColor = SystemColors.ActiveCaption;
+                pImagen.Location = new Point(59, 28);
                 pImagen.Name = "pImagen";
 
                 string path = Path.GetDirectoryName(Application.StartupPath);
@@ -108,7 +108,7 @@ namespace Asuma
                 Image image = Image.FromFile(imagePath);
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-                pImagen.Size = new System.Drawing.Size(115, 127);
+                pImagen.Size = new Size(115, 127);
                 pImagen.TabIndex = 0;
                 pImagen.TabStop = false;
                 pImagen.Visible = true;
@@ -117,13 +117,13 @@ namespace Asuma
 
                 TextBox tFecha = new TextBox();
                 tFecha.Text = "Fecha del evento: " + eventDate;
-                tFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-                tFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                tFecha.Location = new System.Drawing.Point(900, 145);
+                tFecha.BorderStyle = BorderStyle.None;
+                tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                tFecha.Location = new Point(900, 145);
                 tFecha.Multiline = true;
                 tFecha.Name = "tFecha";
                 tFecha.ReadOnly = true;
-                tFecha.Size = new System.Drawing.Size(216, 24);
+                tFecha.Size = new Size(216, 24);
                 tFecha.TabIndex = 32;
                 tFecha.Visible = true;
 
@@ -131,36 +131,33 @@ namespace Asuma
 
                 panel.Size = new Size(1142, 186); //1142 186
 
-                panel.Location = new Point(18, separacion);
+                panel.Location = new Point(50, separacion);
                 panel.Visible = true;
-                panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                panel.BorderStyle = BorderStyle.FixedSingle;
 
 
                 TextBox descripcion = new TextBox();
                 descripcion.Text = eventDescription;
-                descripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-                descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                descripcion.Location = new System.Drawing.Point(233, 68);
+                descripcion.BorderStyle = BorderStyle.None;
+                descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                descripcion.Location = new Point(233, 68);
                 descripcion.Multiline = true;
                 descripcion.Name = "tDescripcion";
                 descripcion.ReadOnly = true;
-                descripcion.Size = new System.Drawing.Size(panel.Width / 2, panel.Height / 2); //685,59
+                descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
                 descripcion.TabIndex = 2;
                 descripcion.Visible = true;
-
-
 
                 panel.Controls.Add(ltitulo);
                 panel.Controls.Add(pImagen);
                 panel.Controls.Add(tFecha);
                 panel.Controls.Add(descripcion);
                 panelEventos.Controls.Add(panel);
-                panelEventos.Size = new Size(1300, 640);
-                panelEventos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-
-                separacion += 300;
+                separacion += 180;
             }
 
+            panelEventos.BorderStyle = BorderStyle.FixedSingle;
+            panelEventos.Size = new Size(1265, 640);
         }
 
         protected void ltitulo_click(object sender, EventArgs e)
@@ -177,6 +174,9 @@ namespace Asuma
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
+            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+
+            this.menuFlowLayoutPanel.Location = new Point(15, menuFlowLayoutPanel.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -190,6 +190,39 @@ namespace Asuma
             this.Visible = false;
             crearEvento.ShowDialog();
             this.Visible = true;
+        }
+
+        private void MisEventos_Resize(object sender, EventArgs e)
+        {
+            actualizarElementos();
+        }
+
+        private void actualizarElementos()
+        {
+            this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+
+            this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
+            this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
+
+            panelEventos.Width = menuFlowLayoutPanel.Width - 40;
+            panelEventos.Height = (this.Height * 6) / 10;
+            panelEventos.Location = new Point(this.Width / 2 - panelEventos.Width / 2, this.menuFlowLayoutPanel.Location.Y + 50);
+
+            foreach (Control c in panelEventos.Controls)
+            {
+                c.Width = panelEventos.Width - 120;
+            }
+
+            bCreateEvent.Location = new Point(((this.Width * 5) / 10)-bCreateEvent.Width/2, (int)((this.Height * 8.5) / 10));
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }
