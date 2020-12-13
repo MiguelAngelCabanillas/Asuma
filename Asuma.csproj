@@ -88,11 +88,11 @@
     <Compile Include="InfoEvento.Designer.cs">
       <DependentUpon>InfoEvento.cs</DependentUpon>
     </Compile>
-    <Compile Include="infoEventoInscrito.cs">
+    <Compile Include="InfoEventoInscrito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="infoEventoInscrito.Designer.cs">
-      <DependentUpon>infoEventoInscrito.cs</DependentUpon>
+    <Compile Include="InfoEventoInscrito.Designer.cs">
+      <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="InfoEvento.resx">
       <DependentUpon>InfoEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="infoEventoInscrito.resx">
-      <DependentUpon>infoEventoInscrito.cs</DependentUpon>
+    <EmbeddedResource Include="InfoEventoInscrito.resx">
+      <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

@@ -24,7 +24,6 @@ namespace Asuma
             panelEventos.SendToBack();
             mostrarEventos();
         }
-
         private void bMyEvents_Click(object sender, EventArgs e)
         {
             if (usuario == null)
@@ -218,10 +217,43 @@ namespace Asuma
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
             Event ev = new Event(id);
-            InfoEvento infoEvento = new InfoEvento(ev,null);
-            this.Visible = false;
-            infoEvento.ShowDialog();
-            this.Visible = true;
+
+            if (usuario == null) {
+                InfoEvento infoEvento = new InfoEvento(ev,null);
+                this.Visible = false;
+                infoEvento.ShowDialog();
+                this.Visible = true;
+            } else {
+                Boolean found = false;
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT idEvent FROM inscription WHERE userName = '" + this.usuario.Username + "';");
+                if (reader.HasRows) {
+                    while (reader.Read() && !found)
+                    {
+                        int idEvent = (int)reader[0];
+                        if (idEvent == ev.ID)
+                        {
+                            found = true;
+                            InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                            this.Visible = false;
+                            infoEvento.ShowDialog();
+                            this.Visible = true;
+                        }
+                    }
+                    if (!found)
+                    {
+                        InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                        this.Visible = false;
+                        infoEvento.ShowDialog();
+                        this.Visible = true;
+                    }
+                } else {
+                    InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                    this.Visible = false;
+                    infoEvento.ShowDialog();
+                    this.Visible = true;
+                }
+            }
         }
 
         private void pUser_Paint(object sender, PaintEventArgs e)

@@ -101,6 +101,7 @@ namespace Asuma
                 pImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
                 pImagen.Location = new System.Drawing.Point(59, 28);
                 pImagen.Name = "pImagen";
+
                 string path = Path.GetDirectoryName(Application.StartupPath);
                 string pathBueno = path.Substring(0, path.Length - 3);
                 string imagePath = pathBueno + "images\\" + imagen;
@@ -111,6 +112,7 @@ namespace Asuma
                 pImagen.TabIndex = 0;
                 pImagen.TabStop = false;
                 pImagen.Visible = true;
+                pImagen.BorderStyle = BorderStyle.FixedSingle;
 
 
                 TextBox tFecha = new TextBox();

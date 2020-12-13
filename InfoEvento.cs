@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,11 @@ namespace Asuma
 {
     public partial class InfoEvento : Form
     {
-        private Event e;
+        private Event ev;
         private User usuario;
         public InfoEvento(Event e, User u)
         {
-            this.e = e;
+            this.ev = e;
             InitializeComponent();
             string imagen = "asuma2.ico";
             string path = Path.GetDirectoryName(Application.StartupPath);
@@ -78,6 +79,7 @@ namespace Asuma
         private void pEvento_Paint(object sender, PaintEventArgs e)
         {
             this.pEvento.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pEvento.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void bSalir_Click(object sender, EventArgs e)
@@ -87,7 +89,22 @@ namespace Asuma
 
         private void bInscription_Click(object sender, EventArgs e)
         {
-
+            if (this.usuario == null)
+            {
+                MessageBox.Show("Debe iniciar sesión para inscribirse en un evento");
+            }
+            else
+            {
+                try
+                {
+                    BD bd = new BD();
+                    MySqlDataReader reader = bd.Query("INSERT INTO inscription VALUES ('" + this.usuario.Username + "', " + ev.ID + ");");
+                    reader.Read();
+                    MessageBox.Show("Inscripción realizada con éxito.");
+                    this.Close();
+                }
+                catch { MessageBox.Show("Error al formular la inscripción"); }
+            }
         }
     }
 }

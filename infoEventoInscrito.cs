@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Asuma
 {
-    public partial class infoEventoInscrito : Form
+    public partial class InfoEventoInscrito : Form
     {
         private Event evento;
         private User usuario;
-        public infoEventoInscrito(Event e, User u)
+        public InfoEventoInscrito(Event e, User u)
         {
             this.evento = e;
             this.usuario = u;
