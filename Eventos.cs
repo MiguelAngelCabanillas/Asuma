@@ -73,11 +73,6 @@ namespace Asuma
             Environment.Exit(Environment.ExitCode);
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void mostrarEventos()
         {
             List<Event> listaEventos = Event.listaEventos();
@@ -186,6 +181,9 @@ namespace Asuma
         }
         private void actualizarImagenes()
         {
+            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
+
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);

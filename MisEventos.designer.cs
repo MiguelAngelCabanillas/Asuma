@@ -40,6 +40,7 @@
             this.pUser = new System.Windows.Forms.PictureBox();
             this.panelEventos = new System.Windows.Forms.Panel();
             this.bCreateEvent = new System.Windows.Forms.Button();
+            this.lSignOut = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
@@ -135,7 +136,7 @@
             // 
             this.pUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(90, 19);
+            this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(130, 139);
             this.pUser.TabIndex = 10;
@@ -149,7 +150,7 @@
             this.panelEventos.Location = new System.Drawing.Point(134, 263);
             this.panelEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelEventos.Name = "panelEventos";
-            this.panelEventos.Size = new System.Drawing.Size(1247, 439);
+            this.panelEventos.Size = new System.Drawing.Size(1200, 439);
             this.panelEventos.TabIndex = 32;
             // 
             // bCreateEvent
@@ -162,12 +163,25 @@
             this.bCreateEvent.UseVisualStyleBackColor = true;
             this.bCreateEvent.Click += new System.EventHandler(this.bCreateEvent_Click);
             // 
+            // lSignOut
+            // 
+            this.lSignOut.AutoSize = true;
+            this.lSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSignOut.Location = new System.Drawing.Point(246, 117);
+            this.lSignOut.Name = "lSignOut";
+            this.lSignOut.Size = new System.Drawing.Size(111, 20);
+            this.lSignOut.TabIndex = 34;
+            this.lSignOut.TabStop = true;
+            this.lSignOut.Text = "Cerrar sesión";
+            this.lSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSignOut_LinkClicked);
+            // 
             // MisEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.bCreateEvent);
             this.Controls.Add(this.panelEventos);
             this.Controls.Add(this.pASM);
@@ -180,6 +194,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisEventos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.MisEventos_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             this.menuFlowLayoutPanel.ResumeLayout(false);
@@ -202,5 +217,6 @@
         private System.Windows.Forms.PictureBox pUser;
         private System.Windows.Forms.Panel panelEventos;
         private System.Windows.Forms.Button bCreateEvent;
+        private System.Windows.Forms.LinkLabel lSignOut;
     }
 }
