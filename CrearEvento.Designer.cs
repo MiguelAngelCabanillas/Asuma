@@ -46,7 +46,6 @@
             this.tDescription = new System.Windows.Forms.TextBox();
             this.lDescription = new System.Windows.Forms.Label();
             this.pImage = new System.Windows.Forms.PictureBox();
-            this.cIncludeImage = new System.Windows.Forms.CheckBox();
             this.tOrganizer = new System.Windows.Forms.TextBox();
             this.lOrganizador = new System.Windows.Forms.Label();
             this.lDate = new System.Windows.Forms.Label();
@@ -254,19 +253,6 @@
             this.pImage.TabIndex = 12;
             this.pImage.TabStop = false;
             // 
-            // cIncludeImage
-            // 
-            this.cIncludeImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cIncludeImage.AutoSize = true;
-            this.cIncludeImage.Location = new System.Drawing.Point(103, 320);
-            this.cIncludeImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cIncludeImage.Name = "cIncludeImage";
-            this.cIncludeImage.Size = new System.Drawing.Size(117, 21);
-            this.cIncludeImage.TabIndex = 13;
-            this.cIncludeImage.Text = "Incluir imagen";
-            this.cIncludeImage.UseVisualStyleBackColor = true;
-            this.cIncludeImage.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // tOrganizer
             // 
             this.tOrganizer.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -455,7 +441,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.pImage);
-            this.panel1.Controls.Add(this.cIncludeImage);
             this.panel1.Controls.Add(this.tImage);
             this.panel1.Controls.Add(this.lOrganizador);
             this.panel1.Controls.Add(this.bExit);
@@ -523,7 +508,6 @@
         private System.Windows.Forms.TextBox tDescription;
         private System.Windows.Forms.Label lDescription;
         private System.Windows.Forms.PictureBox pImage;
-        private System.Windows.Forms.CheckBox cIncludeImage;
         private System.Windows.Forms.TextBox tOrganizer;
         private System.Windows.Forms.Label lOrganizador;
         private System.Windows.Forms.Label lDate;
