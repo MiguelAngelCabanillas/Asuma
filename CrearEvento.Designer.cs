@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearEvento));
-            this.pLogo = new System.Windows.Forms.PictureBox();
             this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bNoticias = new System.Windows.Forms.Button();
             this.bEventos = new System.Windows.Forms.Button();
@@ -41,7 +40,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.lUsername = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.PictureBox();
             this.lTitle = new System.Windows.Forms.Label();
             this.tTitle = new System.Windows.Forms.TextBox();
@@ -62,22 +60,18 @@
             this.bCreateEvent = new System.Windows.Forms.Button();
             this.bExit = new System.Windows.Forms.Button();
             this.tImage = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pLogo)).BeginInit();
+            this.lUsername = new System.Windows.Forms.Label();
+            this.pASM = new System.Windows.Forms.PictureBox();
+            this.pASUMA = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuFlowLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pLogo
-            // 
-            this.pLogo.Image = ((System.Drawing.Image)(resources.GetObject("pLogo.Image")));
-            this.pLogo.Location = new System.Drawing.Point(504, 12);
-            this.pLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pLogo.Name = "pLogo";
-            this.pLogo.Size = new System.Drawing.Size(479, 69);
-            this.pLogo.TabIndex = 7;
-            this.pLogo.TabStop = false;
             // 
             // menuFlowLayoutPanel
             // 
@@ -87,7 +81,7 @@
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
             this.menuFlowLayoutPanel.Controls.Add(this.flowLayoutPanel1);
             this.menuFlowLayoutPanel.Controls.Add(this.checkBox1);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(7, 98);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(29, 174);
             this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
@@ -197,31 +191,23 @@
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // lUsername
-            // 
-            this.lUsername.AutoSize = true;
-            this.lUsername.Location = new System.Drawing.Point(123, 46);
-            this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(73, 17);
-            this.lUsername.TabIndex = 5;
-            this.lUsername.Text = "userName";
-            // 
             // pUser
             // 
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(13, 12);
+            this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(80, 78);
+            this.pUser.Size = new System.Drawing.Size(130, 139);
             this.pUser.TabIndex = 4;
             this.pUser.TabStop = false;
+            this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             // 
             // lTitle
             // 
             this.lTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lTitle.AutoSize = true;
             this.lTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitle.Location = new System.Drawing.Point(546, 206);
+            this.lTitle.Location = new System.Drawing.Point(537, 40);
             this.lTitle.Name = "lTitle";
             this.lTitle.Size = new System.Drawing.Size(80, 29);
             this.lTitle.TabIndex = 8;
@@ -230,19 +216,19 @@
             // tTitle
             // 
             this.tTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tTitle.Location = new System.Drawing.Point(641, 212);
+            this.tTitle.Location = new System.Drawing.Point(638, 47);
             this.tTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tTitle.Name = "tTitle";
-            this.tTitle.Size = new System.Drawing.Size(164, 22);
+            this.tTitle.Size = new System.Drawing.Size(226, 22);
             this.tTitle.TabIndex = 9;
             // 
             // tDescription
             // 
             this.tDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tDescription.Location = new System.Drawing.Point(550, 361);
+            this.tDescription.Location = new System.Drawing.Point(542, 197);
             this.tDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDescription.Name = "tDescription";
-            this.tDescription.Size = new System.Drawing.Size(391, 22);
+            this.tDescription.Size = new System.Drawing.Size(453, 22);
             this.tDescription.TabIndex = 10;
             // 
             // lDescription
@@ -250,7 +236,7 @@
             this.lDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDescription.AutoSize = true;
             this.lDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDescription.Location = new System.Drawing.Point(546, 306);
+            this.lDescription.Location = new System.Drawing.Point(537, 140);
             this.lDescription.Name = "lDescription";
             this.lDescription.Size = new System.Drawing.Size(147, 29);
             this.lDescription.TabIndex = 11;
@@ -260,20 +246,20 @@
             // 
             this.pImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pImage.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pImage.Location = new System.Drawing.Point(117, 190);
+            this.pImage.Location = new System.Drawing.Point(103, 0);
             this.pImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pImage.Name = "pImage";
-            this.pImage.Size = new System.Drawing.Size(305, 290);
+            this.pImage.Size = new System.Drawing.Size(367, 290);
             this.pImage.TabIndex = 12;
             this.pImage.TabStop = false;
             // 
             // tOrganizer
             // 
             this.tOrganizer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tOrganizer.Location = new System.Drawing.Point(349, 592);
+            this.tOrganizer.Location = new System.Drawing.Point(444, 418);
             this.tOrganizer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tOrganizer.Name = "tOrganizer";
-            this.tOrganizer.Size = new System.Drawing.Size(348, 22);
+            this.tOrganizer.Size = new System.Drawing.Size(410, 22);
             this.tOrganizer.TabIndex = 15;
             // 
             // lOrganizador
@@ -281,7 +267,7 @@
             this.lOrganizador.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lOrganizador.AutoSize = true;
             this.lOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lOrganizador.Location = new System.Drawing.Point(173, 585);
+            this.lOrganizador.Location = new System.Drawing.Point(180, 411);
             this.lOrganizador.Name = "lOrganizador";
             this.lOrganizador.Size = new System.Drawing.Size(152, 29);
             this.lOrganizador.TabIndex = 14;
@@ -292,7 +278,7 @@
             this.lDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDate.AutoSize = true;
             this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lDate.Location = new System.Drawing.Point(122, 650);
+            this.lDate.Location = new System.Drawing.Point(180, 473);
             this.lDate.Name = "lDate";
             this.lDate.Size = new System.Drawing.Size(204, 29);
             this.lDate.TabIndex = 16;
@@ -302,10 +288,10 @@
             // 
             this.tDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tDatePicker.Location = new System.Drawing.Point(349, 657);
+            this.tDatePicker.Location = new System.Drawing.Point(444, 478);
             this.tDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDatePicker.Name = "tDatePicker";
-            this.tDatePicker.Size = new System.Drawing.Size(348, 22);
+            this.tDatePicker.Size = new System.Drawing.Size(410, 22);
             this.tDatePicker.TabIndex = 18;
             this.tDatePicker.Value = new System.DateTime(2020, 12, 9, 0, 0, 0, 0);
             // 
@@ -314,7 +300,7 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 1040);
+            this.splitter1.Size = new System.Drawing.Size(3, 1164);
             this.splitter1.TabIndex = 21;
             this.splitter1.TabStop = false;
             // 
@@ -323,7 +309,7 @@
             this.lForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lForum.AutoSize = true;
             this.lForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lForum.Location = new System.Drawing.Point(535, 751);
+            this.lForum.Location = new System.Drawing.Point(348, 537);
             this.lForum.Name = "lForum";
             this.lForum.Size = new System.Drawing.Size(70, 29);
             this.lForum.TabIndex = 22;
@@ -333,7 +319,7 @@
             // 
             this.linkForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkForum.AutoSize = true;
-            this.linkForum.Location = new System.Drawing.Point(661, 761);
+            this.linkForum.Location = new System.Drawing.Point(518, 547);
             this.linkForum.Name = "linkForum";
             this.linkForum.Size = new System.Drawing.Size(78, 17);
             this.linkForum.TabIndex = 23;
@@ -345,7 +331,7 @@
             this.lEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lEntries.AutoSize = true;
             this.lEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lEntries.Location = new System.Drawing.Point(491, 828);
+            this.lEntries.Location = new System.Drawing.Point(348, 594);
             this.lEntries.Name = "lEntries";
             this.lEntries.Size = new System.Drawing.Size(114, 29);
             this.lEntries.TabIndex = 24;
@@ -355,7 +341,7 @@
             // 
             this.linkEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkEntries.AutoSize = true;
-            this.linkEntries.Location = new System.Drawing.Point(661, 838);
+            this.linkEntries.Location = new System.Drawing.Point(518, 604);
             this.linkEntries.Name = "linkEntries";
             this.linkEntries.Size = new System.Drawing.Size(102, 17);
             this.linkEntries.TabIndex = 25;
@@ -367,7 +353,7 @@
             this.lVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lVideochat.AutoSize = true;
             this.lVideochat.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lVideochat.Location = new System.Drawing.Point(491, 898);
+            this.lVideochat.Location = new System.Drawing.Point(348, 654);
             this.lVideochat.Name = "lVideochat";
             this.lVideochat.Size = new System.Drawing.Size(126, 29);
             this.lVideochat.TabIndex = 26;
@@ -377,7 +363,7 @@
             // 
             this.linkVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkVideochat.AutoSize = true;
-            this.linkVideochat.Location = new System.Drawing.Point(661, 910);
+            this.linkVideochat.Location = new System.Drawing.Point(518, 666);
             this.linkVideochat.Name = "linkVideochat";
             this.linkVideochat.Size = new System.Drawing.Size(128, 17);
             this.linkVideochat.TabIndex = 27;
@@ -387,10 +373,10 @@
             // bCreateEvent
             // 
             this.bCreateEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bCreateEvent.Location = new System.Drawing.Point(517, 972);
+            this.bCreateEvent.Location = new System.Drawing.Point(103, 762);
             this.bCreateEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bCreateEvent.Name = "bCreateEvent";
-            this.bCreateEvent.Size = new System.Drawing.Size(121, 32);
+            this.bCreateEvent.Size = new System.Drawing.Size(183, 32);
             this.bCreateEvent.TabIndex = 29;
             this.bCreateEvent.Text = "Crear evento";
             this.bCreateEvent.UseVisualStyleBackColor = true;
@@ -399,10 +385,10 @@
             // bExit
             // 
             this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bExit.Location = new System.Drawing.Point(721, 972);
+            this.bExit.Location = new System.Drawing.Point(739, 762);
             this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(121, 32);
+            this.bExit.Size = new System.Drawing.Size(183, 32);
             this.bExit.TabIndex = 30;
             this.bExit.Text = "Salir";
             this.bExit.UseVisualStyleBackColor = true;
@@ -411,65 +397,111 @@
             // tImage
             // 
             this.tImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tImage.Location = new System.Drawing.Point(162, 506);
+            this.tImage.Location = new System.Drawing.Point(103, 362);
             this.tImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tImage.Name = "tImage";
-            this.tImage.Size = new System.Drawing.Size(164, 22);
+            this.tImage.Size = new System.Drawing.Size(226, 22);
             this.tImage.TabIndex = 31;
+            // 
+            // lUsername
+            // 
+            this.lUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lUsername.AutoSize = true;
+            this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lUsername.Location = new System.Drawing.Point(244, 69);
+            this.lUsername.Name = "lUsername";
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
+            this.lUsername.TabIndex = 32;
+            this.lUsername.Text = "userName";
+            // 
+            // pASM
+            // 
+            this.pASM.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
+            this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
+            this.pASM.Location = new System.Drawing.Point(1359, 19);
+            this.pASM.Name = "pASM";
+            this.pASM.Size = new System.Drawing.Size(351, 139);
+            this.pASM.TabIndex = 34;
+            this.pASM.TabStop = false;
+            this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
+            // 
+            // pASUMA
+            // 
+            this.pASUMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
+            this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
+            this.pASUMA.Location = new System.Drawing.Point(738, 19);
+            this.pASUMA.Name = "pASUMA";
+            this.pASUMA.Size = new System.Drawing.Size(399, 127);
+            this.pASUMA.TabIndex = 33;
+            this.pASUMA.TabStop = false;
+            this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pImage);
+            this.panel1.Controls.Add(this.tImage);
+            this.panel1.Controls.Add(this.lOrganizador);
+            this.panel1.Controls.Add(this.bExit);
+            this.panel1.Controls.Add(this.tTitle);
+            this.panel1.Controls.Add(this.bCreateEvent);
+            this.panel1.Controls.Add(this.tOrganizer);
+            this.panel1.Controls.Add(this.linkVideochat);
+            this.panel1.Controls.Add(this.lDate);
+            this.panel1.Controls.Add(this.lVideochat);
+            this.panel1.Controls.Add(this.lForum);
+            this.panel1.Controls.Add(this.linkEntries);
+            this.panel1.Controls.Add(this.lTitle);
+            this.panel1.Controls.Add(this.lEntries);
+            this.panel1.Controls.Add(this.tDatePicker);
+            this.panel1.Controls.Add(this.linkForum);
+            this.panel1.Controls.Add(this.lDescription);
+            this.panel1.Controls.Add(this.tDescription);
+            this.panel1.Location = new System.Drawing.Point(388, 266);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 796);
+            this.panel1.TabIndex = 35;
             // 
             // CrearEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1344, 1061);
-            this.Controls.Add(this.tImage);
-            this.Controls.Add(this.tTitle);
-            this.Controls.Add(this.bExit);
-            this.Controls.Add(this.bCreateEvent);
-            this.Controls.Add(this.linkVideochat);
-            this.Controls.Add(this.lVideochat);
-            this.Controls.Add(this.linkEntries);
-            this.Controls.Add(this.lEntries);
-            this.Controls.Add(this.linkForum);
-            this.Controls.Add(this.lForum);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.tDatePicker);
-            this.Controls.Add(this.lDate);
-            this.Controls.Add(this.tOrganizer);
-            this.Controls.Add(this.lOrganizador);
-            this.Controls.Add(this.pImage);
-            this.Controls.Add(this.lDescription);
-            this.Controls.Add(this.tDescription);
-            this.Controls.Add(this.lTitle);
-            this.Controls.Add(this.pLogo);
-            this.Controls.Add(this.menuFlowLayoutPanel);
+            this.ClientSize = new System.Drawing.Size(1742, 1164);
+            this.Controls.Add(this.pASM);
+            this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.lUsername);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.pUser);
+            this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CrearEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CrearEvento";
-            ((System.ComponentModel.ISupportInitialize)(this.pLogo)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.CrearEvento_Resize);
             this.menuFlowLayoutPanel.ResumeLayout(false);
             this.menuFlowLayoutPanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pLogo;
         private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
         private System.Windows.Forms.Button bNoticias;
         private System.Windows.Forms.Button bEventos;
         private System.Windows.Forms.Button bInfo;
         private System.Windows.Forms.Button bContacto;
-        private System.Windows.Forms.Label lUsername;
         private System.Windows.Forms.PictureBox pUser;
         private System.Windows.Forms.Label lTitle;
         private System.Windows.Forms.TextBox tTitle;
@@ -496,5 +528,9 @@
         private System.Windows.Forms.Button bCreateEvent;
         private System.Windows.Forms.Button bExit;
         private System.Windows.Forms.TextBox tImage;
+        private System.Windows.Forms.Label lUsername;
+        private System.Windows.Forms.PictureBox pASM;
+        private System.Windows.Forms.PictureBox pASUMA;
+        private System.Windows.Forms.Panel panel1;
     }
 }
