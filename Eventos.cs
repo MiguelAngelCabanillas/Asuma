@@ -33,9 +33,8 @@ namespace Asuma
             else
             {
                 MisEventos misEventos = new MisEventos(usuario);
-                this.Visible = true;
-                misEventos.ShowDialog();
-                this.Visible = false;
+                misEventos.Show();
+                this.Close();
             }
         }
 
@@ -52,7 +51,7 @@ namespace Asuma
             {
                 linitSesion.Visible = false;
                 pUser.Visible = true;
-                lUsername.Text = "Bienvenido, " + usuario.Username;
+                lUsername.Text = "Bienvenido " + usuario.Username;
                 lUsername.Visible = true;
                 lSignOut.Visible = true;
             }
@@ -60,6 +59,7 @@ namespace Asuma
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
             this.Visible = false;
             init.ShowDialog();
@@ -75,6 +75,7 @@ namespace Asuma
 
         public void mostrarEventos()
         {
+            panelEventos.Controls.Clear();
             List<Event> listaEventos = Event.listaEventos();
             int nEventos = listaEventos.Count;
             int separacion = 50;
@@ -174,7 +175,7 @@ namespace Asuma
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -217,6 +218,7 @@ namespace Asuma
             Event ev = new Event(id);
 
             if (usuario == null) {
+                Cursor.Current = Cursors.WaitCursor;
                 InfoEvento infoEvento = new InfoEvento(ev,null);
                 this.Visible = false;
                 infoEvento.ShowDialog();
@@ -232,6 +234,7 @@ namespace Asuma
                         if (idEvent == ev.ID)
                         {
                             found = true;
+                            Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
                             this.Visible = false;
                             infoEvento.ShowDialog();
@@ -240,12 +243,14 @@ namespace Asuma
                     }
                     if (!found)
                     {
+                        Cursor.Current = Cursors.WaitCursor;
                         InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                         this.Visible = false;
                         infoEvento.ShowDialog();
                         this.Visible = true;
                     }
                 } else {
+                    Cursor.Current = Cursors.WaitCursor;
                     InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                     this.Visible = false;
                     infoEvento.ShowDialog();
@@ -280,6 +285,24 @@ namespace Asuma
         private void panelEventos_Resize(object sender, EventArgs e)
         {
             actualizarEventos();
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            this.Close();
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos eventos = new Eventos(usuario);
+            eventos.Show();
+            this.Close();
+            //mostrarEventos();
+            //actualizarEventos();
         }
     }
 }

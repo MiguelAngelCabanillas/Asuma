@@ -91,7 +91,7 @@
             this.bNoticias.Name = "bNoticias";
             this.bNoticias.Size = new System.Drawing.Size(127, 45);
             this.bNoticias.TabIndex = 0;
-            this.bNoticias.Text = "Noticias";
+            this.bNoticias.Text = "Inicio";
             this.bNoticias.UseVisualStyleBackColor = true;
             // 
             // bEventos

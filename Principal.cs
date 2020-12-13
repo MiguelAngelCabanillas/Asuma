@@ -19,6 +19,7 @@ namespace Asuma
             InitializeComponent();
             actualizar();
             añadirAlPanel();
+            this.ActiveControl = bInicio;
         }
 
         private void añadirAlPanel()
@@ -42,7 +43,7 @@ namespace Asuma
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -91,11 +92,11 @@ namespace Asuma
 
         private void bEventos_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
 
-                Eventos ev = new Eventos(usuario);
-                this.Visible = false;
-                ev.ShowDialog();
-                this.Visible = true;
+            this.Visible = false;
         }
 
         private void pASUMA_Paint(object sender, PaintEventArgs e)
