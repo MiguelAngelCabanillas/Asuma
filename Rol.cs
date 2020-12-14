@@ -26,6 +26,8 @@ namespace Asuma
                     lista.Add(new Rol(r));
                 }
             }
+            reader.Close();
+            bd.closeBD();
             
             return lista;
         }
@@ -39,6 +41,9 @@ namespace Asuma
                 this.rolName = (string)reader[0];
                 this.admin = (int)reader[1];
             }
+            reader.Close();
+            bd.closeBD();
+
         }
 
         public Rol(string rolName, int admin)

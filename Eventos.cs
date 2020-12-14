@@ -218,9 +218,9 @@ namespace Asuma
             var id = Int32.Parse(link.Name);
             Event ev = new Event(id);
 
-            if (usuario == null) {
-
-                /*
+            if (usuario == null)
+            {
+               
                 Cursor.Current = Cursors.WaitCursor;
                 InfoEvento infoEvento = new InfoEvento(ev,null);
                 this.Visible = false;
@@ -229,38 +229,45 @@ namespace Asuma
                 actualizar();
                 this.Visible = true;
 
-                */
-
+               
+                /*
                 Cursor.Current = Cursors.WaitCursor;
                 InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                 infoEvento.Show();
                 this.Close();
-            } else {
+                */
+            }
+            else
+            {
                 Boolean found = false;
                 BD bd = new BD();
                 MySqlDataReader reader = bd.Query("SELECT idEvent FROM inscription WHERE userName = '" + this.usuario.Username + "';");
-                if (reader.HasRows) {
+                if (reader.HasRows)
+                {
                     while (reader.Read() && !found)
                     {
                         int idEvent = (int)reader[0];
                         if (idEvent == ev.ID)
                         {
                             found = true;
-                            /*
+                            
                             Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
                             this.Visible = false;
                             infoEvento.ShowDialog();
                             this.Visible = true;
-                            */
 
+                            /*
                             Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
                             infoEvento.Show();
                             this.Close();
+                            */
 
                         }
                     }
+                    reader.Close();
+                    bd.closeBD();
                     if (!found)
                     {
                         /*
@@ -279,7 +286,9 @@ namespace Asuma
                         this.Close();
 
                     }
-                } else {
+                }
+                else
+                {
                     /*
                     Cursor.Current = Cursors.WaitCursor;
                     InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
@@ -298,6 +307,7 @@ namespace Asuma
                 }
             }
         }
+
 
         private void pUser_Paint(object sender, PaintEventArgs e)
         {

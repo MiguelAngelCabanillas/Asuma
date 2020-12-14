@@ -166,16 +166,18 @@ namespace Asuma
             LinkLabel link = sender as LinkLabel;
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
+           
             Event ev = new Event(id);
-            InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
-            infoEventoInscrito.Show();
-            this.Close();
             /*
+           InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
+           infoEventoInscrito.Show();
+           this.Close();
+           */
+
             InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             this.Visible = false;
             infoEventoInscrito.ShowDialog();
             this.Visible = true;
-            */
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -194,8 +196,17 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             CrearEvento crearEvento = new CrearEvento(usuario);
+            /*
             crearEvento.Show();
-            this.Close();
+            this.Close();           
+            */
+
+            this.Visible = false;
+            crearEvento.ShowDialog();
+            this.Visible = true;
+
+            
+
         }
 
         private void MisEventos_Resize(object sender, EventArgs e)

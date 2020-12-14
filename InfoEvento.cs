@@ -109,7 +109,8 @@ namespace Asuma
                 {
                     BD bd = new BD();
                     MySqlDataReader reader = bd.Query("INSERT INTO inscription VALUES ('" + this.usuario.Username + "', " + ev.ID + ");");
-                    reader.Read();
+                    reader.Close();
+                    bd.closeBD();
                     MessageBox.Show("Inscripción realizada con éxito.");
                     this.Close();
                 }

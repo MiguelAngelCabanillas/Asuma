@@ -28,10 +28,13 @@ namespace Asuma
         }
         private void bExit_Click(object sender, EventArgs e)
         {
-   
+            
             Cursor.Current = Cursors.WaitCursor;
+            /*
             InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
             ei.Show();
+            this.Close();
+            */
             this.Close();
         }
 
@@ -50,6 +53,9 @@ namespace Asuma
                 InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
                 ei.Show();
                 this.Close();
+                writer.Close();
+                bd.closeBD();
+                
                
             }catch(Exception ex)
             {
@@ -70,9 +76,6 @@ namespace Asuma
             tOrganizer.Text = evento.Organizer;
             DateTime date = DateTime.Parse(evento.Date);
             tDatePicker.Value = date;
-
-
-
         }
 
         private void bDeleteEvent_Click(object sender, EventArgs e)
@@ -81,6 +84,8 @@ namespace Asuma
             {
                 BD bd = new BD();
                 MySqlDataReader writer = bd.Query("DELETE FROM event WHERE idEvent = " + evento.ID);
+                writer.Close();
+                bd.closeBD();
                 MessageBox.Show("Evento eliminado con éxito");
                 this.Close();
             }catch(Exception ex)
