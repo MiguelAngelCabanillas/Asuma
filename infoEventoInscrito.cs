@@ -53,9 +53,13 @@ namespace Asuma
 
         private void bExit_Click(object sender, EventArgs e)
         {
+
             Cursor.Current = Cursors.WaitCursor;
+            /*
             Eventos ev = new Eventos(usuario);
             ev.Show();
+            this.Close();
+            */
             this.Close();
         }
 

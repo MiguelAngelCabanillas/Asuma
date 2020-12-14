@@ -105,7 +105,27 @@ namespace Asuma
                 string path = Path.GetDirectoryName(Application.StartupPath);
                 string pathBueno = path.Substring(0, path.Length - 3);
                 string imagePath = pathBueno + "images\\" + imagen;
-                Image image = Image.FromFile(imagePath);
+                Image image;
+                if (FTPClient.ftpOn)
+                {
+                    try
+                    {
+                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).EventName + "/", "Prueba", "");
+                        byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                        using (var ms = new MemoryStream(byteArrayIn))
+                        {
+                            image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        image = null;
+                    }
+
+
+                }
+                else { image = Image.FromFile(imagePath); }
+
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                 pImagen.Size = new Size(115, 127);
@@ -166,16 +186,18 @@ namespace Asuma
             LinkLabel link = sender as LinkLabel;
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
+           
             Event ev = new Event(id);
-            /*InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
-            infoEventoInscrito.Show();
-            this.Close();*/
-            
+            /*
+           InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
+           infoEventoInscrito.Show();
+           this.Close();
+           */
+
             InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             this.Visible = false;
             infoEventoInscrito.ShowDialog();
             this.Visible = true;
-            
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -194,8 +216,17 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             CrearEvento crearEvento = new CrearEvento(usuario);
+            /*
             crearEvento.Show();
-            this.Close();
+            this.Close();           
+            */
+
+            this.Visible = false;
+            crearEvento.ShowDialog();
+            this.Visible = true;
+
+            
+
         }
 
         private void MisEventos_Resize(object sender, EventArgs e)
