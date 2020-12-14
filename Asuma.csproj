@@ -88,6 +88,13 @@
       <DependentUpon>Eventos.cs</DependentUpon>
     </Compile>
     <Compile Include="FTPClient.cs" />
+    <Compile Include="FormForo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForo.Designer.cs">
+      <DependentUpon>FormForo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forum.cs" />
     <Compile Include="InfoEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +135,12 @@
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs" />
+    <Compile Include="Tema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tema.Designer.cs">
+      <DependentUpon>Tema.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
@@ -137,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Eventos.resx">
       <DependentUpon>Eventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForo.resx">
+      <DependentUpon>FormForo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoEvento.resx">
       <DependentUpon>InfoEvento.cs</DependentUpon>
@@ -164,6 +180,9 @@
     </Compile>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tema.resx">
+      <DependentUpon>Tema.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
