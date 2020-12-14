@@ -79,9 +79,9 @@ namespace Asuma
                 Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
                 MessageBox.Show("Evento creado con exito");
                 MisEventos misEventos = new MisEventos(usuario);
+                new Forum(evento);
                 misEventos.Show();
                 this.Close();
-
             }
             catch(Exception ex)
             {

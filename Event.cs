@@ -16,6 +16,7 @@ namespace Asuma
         private string eventDescription;
         private string organizer;
         private string eventCreator;
+        private Forum _foro; 
         public Event(int id)
         {
             BD bd = new BD();
@@ -54,7 +55,6 @@ namespace Asuma
             this.eventDescription = eventDescription;
             this.organizer = organizer;
             this.eventCreator = eventCreator;
-            
         }
 
 
