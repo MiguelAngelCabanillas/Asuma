@@ -42,6 +42,7 @@ namespace Asuma
 
         private void actualizarBotones()
         {
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;

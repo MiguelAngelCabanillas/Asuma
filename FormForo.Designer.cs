@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormForo));
             this.lTitulo = new System.Windows.Forms.Label();
             this.bAñadirTema = new System.Windows.Forms.Button();
             this.listaTemas = new System.Windows.Forms.ListBox();
@@ -40,18 +41,20 @@ namespace Asuma
             // 
             this.lTitulo.AutoSize = true;
             this.lTitulo.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitulo.Location = new System.Drawing.Point(54, 38);
+            this.lTitulo.Location = new System.Drawing.Point(72, 47);
+            this.lTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(283, 25);
+            this.lTitulo.Size = new System.Drawing.Size(367, 32);
             this.lTitulo.TabIndex = 0;
             this.lTitulo.Text = "Titulo/Nombre del foro";
             // 
             // bAñadirTema
             // 
             this.bAñadirTema.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAñadirTema.Location = new System.Drawing.Point(59, 106);
+            this.bAñadirTema.Location = new System.Drawing.Point(79, 130);
+            this.bAñadirTema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bAñadirTema.Name = "bAñadirTema";
-            this.bAñadirTema.Size = new System.Drawing.Size(310, 23);
+            this.bAñadirTema.Size = new System.Drawing.Size(413, 28);
             this.bAñadirTema.TabIndex = 1;
             this.bAñadirTema.Text = "Añadir un nuevo debate al foro\r\n";
             this.bAñadirTema.UseVisualStyleBackColor = true;
@@ -61,10 +64,11 @@ namespace Asuma
             // 
             this.listaTemas.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaTemas.FormattingEnabled = true;
-            this.listaTemas.ItemHeight = 23;
-            this.listaTemas.Location = new System.Drawing.Point(59, 194);
+            this.listaTemas.ItemHeight = 16;
+            this.listaTemas.Location = new System.Drawing.Point(79, 213);
+            this.listaTemas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listaTemas.Name = "listaTemas";
-            this.listaTemas.Size = new System.Drawing.Size(892, 418);
+            this.listaTemas.Size = new System.Drawing.Size(1188, 532);
             this.listaTemas.TabIndex = 3;
             // 
             // tituloTema
@@ -95,6 +99,8 @@ namespace Asuma
             this.Controls.Add(this.listaTemas);
             this.Controls.Add(this.bAñadirTema);
             this.Controls.Add(this.lTitulo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormForo";
             this.Text = "Foro";
             this.Load += new System.EventHandler(this.Foro_Load);

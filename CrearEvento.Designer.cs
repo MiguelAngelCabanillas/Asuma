@@ -502,6 +502,7 @@
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CrearEvento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

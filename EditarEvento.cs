@@ -17,6 +17,7 @@ namespace Asuma
         public Event evento;
         public User usuario;
         private Forum foro;
+        private string imagen = "";
         public EditarEvento(Event e, User usuario)
         {
             this.evento = e;
@@ -149,9 +150,20 @@ namespace Asuma
                 this.Close();
                 writer.Close();
                 bd.closeBD();
-                
-               
-            }catch(Exception ex)
+
+                if (FTPClient.ftpOn)
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                    try
+                    {
+                        ftp.MakeFtpDirectory("eventos/" + evento.ID);
+                    }
+                    catch (Exception ex) { }
+                    ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
+                }
+
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -165,6 +177,8 @@ namespace Asuma
                 MySqlDataReader writer = bd.Query("DELETE FROM event WHERE idEvent = " + evento.ID);
                 writer.Close();
                 bd.closeBD();
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                ftp.DeleteFTPDirectory("eventos/" + evento.ID + "/");
                 MessageBox.Show("Evento eliminado con éxito");
                 this.Close();
             }catch(Exception ex)
@@ -215,6 +229,38 @@ namespace Asuma
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void bEscogerImg_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            char[] separadores = { '\\' };
+            switch (openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.')[openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.').Length - 1])
+            {
+                case "png":
+                case "PNG":
+                case "jpg":
+                case "JPG":
+                case "jpeg":
+                case "JPEG":
+                    //ftp.UploadFile(openFileDialog1.FileName, "eventos/" + tTitle.Text + "/image.png"); //+ 
+
+                    // Get file extension
+                    //openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.')[openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.').Length-1]);
+                    pImage.Image = (Image)(new Bitmap(Image.FromFile(openFileDialog1.FileName), pImage.Size));
+                    imagen = openFileDialog1.FileName;
+
+
+                    //MessageBox.Show("Se ha subido correctamente el archivo " + openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1]);
+                    break;
+                default:
+                    MessageBox.Show("Formatos compatibles: .png, .PNG, .jpg, .JPG, .jpeg, .JPEG");
+                    break;
             }
         }
     }

@@ -58,6 +58,8 @@
             this.bConfirmEvent = new System.Windows.Forms.Button();
             this.bDeleteEvent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bEscogerImg = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
@@ -393,6 +395,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.bEscogerImg);
             this.panel1.Controls.Add(this.pImage);
             this.panel1.Controls.Add(this.bDeleteEvent);
             this.panel1.Controls.Add(this.lTitulo);
@@ -416,6 +419,22 @@
             this.panel1.Size = new System.Drawing.Size(1000, 796);
             this.panel1.TabIndex = 52;
             // 
+            // bEscogerImg
+            // 
+            this.bEscogerImg.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bEscogerImg.Location = new System.Drawing.Point(104, 304);
+            this.bEscogerImg.Name = "bEscogerImg";
+            this.bEscogerImg.Size = new System.Drawing.Size(225, 42);
+            this.bEscogerImg.TabIndex = 53;
+            this.bEscogerImg.Text = "Escoger imagen";
+            this.bEscogerImg.UseVisualStyleBackColor = true;
+            this.bEscogerImg.Click += new System.EventHandler(this.bEscogerImg_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
             // EditarEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,6 +448,7 @@
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.menuFlowLayoutPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditarEvento";
             this.Text = "EditarEvento";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -477,5 +497,7 @@
         private System.Windows.Forms.Button bConfirmEvent;
         private System.Windows.Forms.Button bDeleteEvent;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button bEscogerImg;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
