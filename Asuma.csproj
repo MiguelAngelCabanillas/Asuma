@@ -87,6 +87,7 @@
     <Compile Include="Eventos.Designer.cs">
       <DependentUpon>Eventos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTPClient.cs" />
     <Compile Include="InfoEvento.cs">
       <SubType>Form</SubType>
     </Compile>

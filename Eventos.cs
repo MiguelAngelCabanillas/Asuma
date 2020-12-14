@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySqlConnector;
 using System.Resources;
 using System.IO;
+using System.Net;
 
 namespace Asuma
 {
@@ -83,7 +84,6 @@ namespace Asuma
 
             for (int i = 0; i < nEventos; i++)
             {
-
                 string eventName = listaEventos.ElementAt(i).EventName;
                 string eventDate = listaEventos.ElementAt(i).Date;
                 string eventDescription = listaEventos.ElementAt(i).EventDescription;
@@ -115,10 +115,32 @@ namespace Asuma
                 pImagen.BackColor = SystemColors.ActiveCaption;
                 pImagen.Location = new Point(59, 28);
                 pImagen.Name = "pImagen";
+                
                 string path = Path.GetDirectoryName(Application.StartupPath);
                 string pathBueno = path.Substring(0, path.Length - 3);
                 string imagePath = pathBueno + "images\\" + imagen;
-                Image image = Image.FromFile(imagePath);
+
+                Image image;
+                if (FTPClient.ftpOn)
+                {
+                    try
+                    {
+                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).EventName + "/", "Prueba", "");
+                        byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                        using (var ms = new MemoryStream(byteArrayIn))
+                        {
+                            image = Image.FromStream(ms);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        image = null;
+                    }
+                    
+
+                }
+                else { image = Image.FromFile(imagePath); }
+                
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                 pImagen.Size = new Size(115, 127);
