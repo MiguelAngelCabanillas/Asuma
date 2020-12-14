@@ -186,11 +186,7 @@ namespace Asuma
 
         private void bEscogerImg_Click(object sender, EventArgs e)
         {
-            if (tTitle.Text == "")
-            {
-                MessageBox.Show("Introduzca antes un título al evento");
-            }
-            else { openFileDialog1.ShowDialog(); }
+            openFileDialog1.ShowDialog();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)

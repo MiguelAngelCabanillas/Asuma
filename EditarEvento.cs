@@ -31,11 +31,32 @@ namespace Asuma
             DateTime date = DateTime.Parse(evento.Date);
             tDatePicker.Value = date;
 
+            //Image image = Image.FromFile(imagePath);
             tImage.Text = evento.Image;
             string path = Path.GetDirectoryName(Application.StartupPath);
             string pathBueno = path.Substring(0, path.Length - 3);
             string imagePath = pathBueno + "images\\" + evento.Image;
-            Image image = Image.FromFile(imagePath);
+            Image image;
+            if (FTPClient.ftpOn)
+            {
+                try
+                {
+                    FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/", "Prueba", "");
+                    byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                    using (var ms = new MemoryStream(byteArrayIn))
+                    {
+                        image = Image.FromStream(ms);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    image = null;
+                }
+
+
+            }
+            else { image = Image.FromFile(imagePath); }
+
             pImage.Image = image;
             pImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
