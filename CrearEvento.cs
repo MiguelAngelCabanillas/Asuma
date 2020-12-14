@@ -101,13 +101,16 @@ namespace Asuma
                 string eventCreator = usuario.Username;
                 string image = "comida.jpg";
                 Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                try
+                if (FTPClient.ftpOn)
                 {
-                    ftp.MakeFtpDirectory("eventos/" + evento.ID);
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                    try
+                    {
+                        ftp.MakeFtpDirectory("eventos/" + evento.ID);
+                    }
+                    catch (Exception ex) { }
+                    ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
                 }
-                catch (Exception ex) { }
-                ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
                 // imagePath.Substring(0, imagePath.LastIndexOf("/")
 
                 MessageBox.Show("Evento creado con exito");
@@ -115,11 +118,11 @@ namespace Asuma
                 misEventos.Show();
                 this.Close();
 
-                 }
-                 catch(Exception ex)
-                 {
-                     MessageBox.Show(ex.Message);
-                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CrearEvento_Resize(object sender, EventArgs e)
