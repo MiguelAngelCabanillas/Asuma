@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.tUser = new System.Windows.Forms.TextBox();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.bInicio = new System.Windows.Forms.Button();
@@ -139,13 +140,14 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1307, 485);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(638, 349);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Inicio de sesión";
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.Resize += new System.EventHandler(this.Inicio_Resize);
             this.panel1.ResumeLayout(false);

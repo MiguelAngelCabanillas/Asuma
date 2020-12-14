@@ -12,6 +12,7 @@ namespace Asuma
     {
 
         public static bool ftpOn = false;
+        public static bool ftpBackupOn = false;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
 
@@ -83,12 +84,12 @@ namespace Asuma
                 streamIn.CopyTo(streamOut);
             }
 
-           /* StreamWriter writer = new StreamWriter(destination);
-            writer.Write(reader.ReadToEnd());*/
+            /* StreamWriter writer = new StreamWriter(destination);
+             writer.Write(reader.ReadToEnd());*/
 
-           // writer.Close();
-           /* reader.Close();
-            response.Close();*/
+            // writer.Close();
+            /* reader.Close();
+             response.Close();*/
         }
 
         public byte[] DownloadFileBytesInArray(string filename)
@@ -159,7 +160,7 @@ namespace Asuma
             {
                 Console.WriteLine(resp.StatusCode);
             }
-            
+
 
 
             /*FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(_remoteHost + directory);
@@ -207,6 +208,6 @@ namespace Asuma
             sr.Close();
             datastream.Close();
             response.Close();
-        } 
+        }
     }
 }

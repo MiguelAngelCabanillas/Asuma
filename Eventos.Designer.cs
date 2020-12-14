@@ -217,6 +217,7 @@
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panelEventos);
             this.Controls.Add(this.bMyEvents);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Eventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

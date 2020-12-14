@@ -152,7 +152,7 @@ namespace Asuma
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
-            this.linitSesion.Location = new Point((tamaño * 3) / 10, linitSesion.Location.Y);
+            //this.linitSesion.Location = new Point((tamaño * 3) / 10, linitSesion.Location.Y);
             //this.lSignOut.Location = new Point((tamaño * 3) / 10, lSignOut.Location.Y);
             this.pEvento.Location = new Point((tamaño * 2) / 10, pEvento.Location.Y);
         }
@@ -161,6 +161,7 @@ namespace Asuma
         {
             int anchura = this.Width;
             int altura = this.Height;
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.lTitulo.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y);
             this.tDes.Location = new Point((int)((anchura * 4.5) / 10), tDes.Location.Y);
             this.lOrg.Location = new Point((anchura * 2) / 10, lOrg.Location.Y);

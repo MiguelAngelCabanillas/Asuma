@@ -136,11 +136,22 @@ namespace Asuma
                     {
                         image = null;
                     }
-                    
+
 
                 }
+                else if (FTPClient.ftpBackupOn)
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                    try
+                    {
+                        ftp.MakeFtpDirectory("eventos/" + listaEventos.ElementAt(i).ID);
+                    }
+                    catch (Exception ex) { }
+                    ftp.UploadFile(imagePath, "eventos/" + listaEventos.ElementAt(i).ID + "/image.png");
+                    image = Image.FromFile(imagePath);
+                }
                 else { image = Image.FromFile(imagePath); }
-                
+
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                 pImagen.Size = new Size(115, 127);

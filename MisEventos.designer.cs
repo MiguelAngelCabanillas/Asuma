@@ -197,6 +197,7 @@
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.pUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MisEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisEventos";
