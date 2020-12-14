@@ -110,7 +110,7 @@ namespace Asuma
                 {
                     try
                     {
-                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).EventName + "/", "Prueba", "");
+                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).ID + "/", "Prueba", "");
                         byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
                         using (var ms = new MemoryStream(byteArrayIn))
                         {
