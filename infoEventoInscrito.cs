@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using MySqlConnector;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Asuma
     {
         private Event evento;
         private User usuario;
+        private Forum foro;
         public InfoEventoInscrito(Event e, User u)
         {
             this.evento = e;
@@ -142,6 +144,7 @@ namespace Asuma
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
             this.bEditEvent.Location = new Point((anchura * 2) / 10, bEditEvent.Location.Y);
+            this.linkForum.Location = new Point((anchura * 3) / 10, linkForum.Location.Y);
             this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
         }
 
@@ -166,6 +169,29 @@ namespace Asuma
             Eventos ev = new Eventos(usuario);
             ev.Show();
             this.Close();
+        }
+
+        private void linkForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormForo formularioForo = new FormForo(foro, usuario);
+            formularioForo.ShowDialog();
+        }
+
+        private void InfoEventoInscrito_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT forumID FROM forum WHERE eventID = " + evento.ID + ";");
+                reader.Read();
+                foro = new Forum((int)reader[0]);
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

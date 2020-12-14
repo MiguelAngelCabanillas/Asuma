@@ -197,7 +197,7 @@ namespace Asuma
 
         private void linkForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormForo formularioForo = new FormForo(foro);
+            FormForo formularioForo = new FormForo(foro, usuario);
             formularioForo.ShowDialog();
         }
 

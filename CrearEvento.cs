@@ -101,6 +101,7 @@ namespace Asuma
                 string eventCreator = usuario.Username;
                 string image = "comida.jpg";
                 Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
+                new Forum(evento);
                 if (FTPClient.ftpOn)
                 {
                     FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
