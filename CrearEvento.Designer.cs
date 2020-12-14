@@ -62,7 +62,9 @@
             this.pASM = new System.Windows.Forms.PictureBox();
             this.pASUMA = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bEscogerImg = new System.Windows.Forms.Button();
             this.lSignOut = new System.Windows.Forms.LinkLabel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuFlowLayoutPanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
@@ -410,7 +412,6 @@
             // 
             // lUsername
             // 
-            this.lUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lUsername.AutoSize = true;
             this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lUsername.Location = new System.Drawing.Point(174, 56);
@@ -464,11 +465,22 @@
             this.panel1.Controls.Add(this.tDatePicker);
             this.panel1.Controls.Add(this.lDescription);
             this.panel1.Controls.Add(this.tDescription);
-            this.panel1.Location = new System.Drawing.Point(291, 216);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Controls.Add(this.bEscogerImg);
+            this.panel1.Location = new System.Drawing.Point(388, 266);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(750, 647);
             this.panel1.TabIndex = 35;
+            // 
+            // bEscogerImg
+            // 
+            this.bEscogerImg.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bEscogerImg.Location = new System.Drawing.Point(103, 304);
+            this.bEscogerImg.Name = "bEscogerImg";
+            this.bEscogerImg.Size = new System.Drawing.Size(225, 42);
+            this.bEscogerImg.TabIndex = 32;
+            this.bEscogerImg.Text = "Escoger imagen";
+            this.bEscogerImg.UseVisualStyleBackColor = true;
+            this.bEscogerImg.Click += new System.EventHandler(this.bEscogerImg_Click);
             // 
             // lSignOut
             // 
@@ -482,6 +494,11 @@
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
             this.lSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSignOut_LinkClicked);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // CrearEvento
             // 
@@ -552,5 +569,7 @@
         private System.Windows.Forms.PictureBox pASUMA;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel lSignOut;
+        private System.Windows.Forms.Button bEscogerImg;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

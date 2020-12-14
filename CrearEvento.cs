@@ -15,6 +15,7 @@ namespace Asuma
     public partial class CrearEvento : Form
     {
         private User usuario;
+        private string imagen = "";
         public CrearEvento(User usuario)
         {
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace Asuma
 
         private void bCreateEvent_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
+            /*Cursor.Current = Cursors.WaitCursor;
             try
             {
                 string eventName = tTitle.Text;
@@ -86,8 +87,39 @@ namespace Asuma
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-         
+            }*/
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                string eventName = tTitle.Text;
+                string eventDescription = tDescription.Text;
+                DateTime date = tDatePicker.Value;
+
+                string[] aux = date.ToString().Split(' ');
+                string eventDate = aux[0];
+                string eventOrganiser = tOrganizer.Text;
+                string eventCreator = usuario.Username;
+                string image = "comida.jpg";
+                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                try
+                {
+                    ftp.MakeFtpDirectory("eventos/" + evento.ID);
+                }
+                catch (Exception ex) { }
+                ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
+                // imagePath.Substring(0, imagePath.LastIndexOf("/")
+
+                MessageBox.Show("Evento creado con exito");
+                MisEventos misEventos = new MisEventos(usuario);
+                misEventos.Show();
+                this.Close();
+
+                 }
+                 catch(Exception ex)
+                 {
+                     MessageBox.Show(ex.Message);
+                 }
         }
 
         private void CrearEvento_Resize(object sender, EventArgs e)
@@ -99,6 +131,7 @@ namespace Asuma
         {
             this.pUser.Location = new Point(72,16);
             this.lUsername.Location = new Point(pUser.Location.X+120, pUser.Location.Y+40);
+            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -149,6 +182,42 @@ namespace Asuma
 
             }
             
+        }
+
+        private void bEscogerImg_Click(object sender, EventArgs e)
+        {
+            if (tTitle.Text == "")
+            {
+                MessageBox.Show("Introduzca antes un título al evento");
+            }
+            else { openFileDialog1.ShowDialog(); }
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            char[] separadores = { '\\' };
+            switch (openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.')[openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.').Length - 1])
+            {
+                case "png":
+                case "PNG":
+                case "jpg":
+                case "JPG":
+                case "jpeg":
+                case "JPEG":
+                    //ftp.UploadFile(openFileDialog1.FileName, "eventos/" + tTitle.Text + "/image.png"); //+ 
+
+                    // Get file extension
+                    //openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.')[openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.').Length-1]);
+                    pImage.Image = (Image)(new Bitmap(Image.FromFile(openFileDialog1.FileName), pImage.Size));
+                    imagen = openFileDialog1.FileName;
+
+
+                    //MessageBox.Show("Se ha subido correctamente el archivo " + openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1]);
+                    break;
+                default:
+                    MessageBox.Show("Formatos compatibles: .png, .PNG, .jpg, .JPG, .jpeg, .JPEG");
+                    break;
+            }
         }
     }
 }

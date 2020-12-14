@@ -32,6 +32,7 @@ namespace Asuma
                 this.eventCreator = (string)reader[6];
             }
             reader.Close();
+            bd.closeBD();
         }
 
         public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator)
@@ -40,12 +41,17 @@ namespace Asuma
             //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
             //  + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
             MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "')");
+            writer.Close();
             bd.closeBD();
+
             bd = new BD();
             MySqlDataReader reader = bd.Query("SELECT MAX(idEvent) FROM event");
             reader.Read();
             this.id = (int)reader[0];
+            reader.Close();
             bd.closeBD();
+
+
             bd = new BD();
             MySqlDataReader writer2 = bd.Query("INSERT INTO inscription VALUES ('" + eventCreator + "', " + id + ")");
             this.eventDescription = eventDescription;
@@ -55,22 +61,26 @@ namespace Asuma
             this.eventDescription = eventDescription;
             this.organizer = organizer;
             this.eventCreator = eventCreator;
+
+            writer2.Close();
+            bd.closeBD();
         }
 
 
         public static List<Event> listaEventos()
         {
             List<Event> lista = new List<Event>();
-            BD bd= new BD();
+            BD bd = new BD();
             MySqlDataReader reader = bd.Query("SELECT idEvent FROM event ORDER BY date ASC");
-            while (reader.Read())
-            {
-                int id = (int)reader[0];
-                Event e = new Event(id);
-                lista.Add(e);
-            }
+                while (reader.Read())
+                {
+                    int id = (int)reader[0];
+                    Event e = new Event(id);
+                    lista.Add(e);
+                }
+            reader.Close();
             bd.closeBD();
-            return lista;
+            return lista;   
         }
 
         public static List<Event> listaEventosUsuario(User usuario)
@@ -84,6 +94,7 @@ namespace Asuma
                 Event e = new Event(id);
                 lista.Add(e);
             }
+            reader.Close();
             bd.closeBD();
             return lista;
         }
@@ -99,6 +110,7 @@ namespace Asuma
                 //Event e = new Event(id);
                 lista.Add(id);
             }
+            reader.Close();
             bd.closeBD();
             return lista;
         }

@@ -88,6 +88,8 @@ namespace Asuma
                     {
                         reader.Read();
                         string roleName = (string)reader[1];
+                        reader.Close();
+                        bd.closeBD();
                         if (userType.Equals(roleName))
                         {
                             User user = new User(username, password, email, userType);

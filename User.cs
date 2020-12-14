@@ -30,6 +30,8 @@ namespace Asuma
                 this.email = (string)reader[2];
                 string rolName = (string)reader[3];
                 this.rol = new Rol(rolName);
+                reader.Close();
+                bd.closeBD();
                 
                 if (!this.password.Equals(password))
                 {
@@ -57,6 +59,7 @@ namespace Asuma
                     throw new Error("El nombre de usuario ya existe");
                 }
                 readerUsername.Close();
+
                 MySqlDataReader readerEmail = bd.Query("SELECT username FROM user where email = '" + email + "'");
                 if (readerEmail.HasRows)
                 {
@@ -70,6 +73,8 @@ namespace Asuma
 
                 MySqlDataReader writer = bd.Query("INSERT INTO user VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "')");
                 writer.Close();
+                bd.closeBD();
+
             }catch(Exception ex)
             {
                 throw new Error(ex.Message);

@@ -53,9 +53,13 @@ namespace Asuma
 
         private void bExit_Click(object sender, EventArgs e)
         {
+
             Cursor.Current = Cursors.WaitCursor;
+            /*
             Eventos ev = new Eventos(usuario);
             ev.Show();
+            this.Close();
+            */
             this.Close();
         }
 
@@ -110,6 +114,7 @@ namespace Asuma
         {
             int anchura = this.Width;
             int altura = this.Height;
+            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
             this.lTitulo.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y);
             this.tDes.Location = new Point((int)((anchura * 4.5) / 10), tDes.Location.Y);
             this.lOrg.Location = new Point((anchura * 2) / 10, lOrg.Location.Y);

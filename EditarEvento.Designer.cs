@@ -50,7 +50,6 @@
             this.lDate = new System.Windows.Forms.Label();
             this.tOrganizer = new System.Windows.Forms.TextBox();
             this.lOrganizador = new System.Windows.Forms.Label();
-            this.cIncludeImage = new System.Windows.Forms.CheckBox();
             this.pImage = new System.Windows.Forms.PictureBox();
             this.lDescription = new System.Windows.Forms.Label();
             this.tDescription = new System.Windows.Forms.TextBox();
@@ -58,11 +57,13 @@
             this.bConfirmEvent = new System.Windows.Forms.Button();
             this.bDeleteEvent = new System.Windows.Forms.Button();
             this.bForo = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pASUMA
@@ -75,6 +76,7 @@
             this.pASUMA.Size = new System.Drawing.Size(299, 103);
             this.pASUMA.TabIndex = 19;
             this.pASUMA.TabStop = false;
+            this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
             // 
             // lSignOut
             // 
@@ -108,6 +110,7 @@
             this.pUser.Size = new System.Drawing.Size(98, 113);
             this.pUser.TabIndex = 16;
             this.pUser.TabStop = false;
+            this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             // 
             // pASM
             // 
@@ -119,6 +122,7 @@
             this.pASM.Size = new System.Drawing.Size(263, 113);
             this.pASM.TabIndex = 20;
             this.pASM.TabStop = false;
+            this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
             // 
             // menuFlowLayoutPanel
             // 
@@ -132,6 +136,7 @@
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
             this.menuFlowLayoutPanel.TabIndex = 18;
+            this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint);
             // 
             // bInicio
             // 
@@ -310,18 +315,6 @@
             this.lOrganizador.TabIndex = 37;
             this.lOrganizador.Text = "Organizador:";
             // 
-            // cIncludeImage
-            // 
-            this.cIncludeImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cIncludeImage.AutoSize = true;
-            this.cIncludeImage.Location = new System.Drawing.Point(480, 500);
-            this.cIncludeImage.Margin = new System.Windows.Forms.Padding(2);
-            this.cIncludeImage.Name = "cIncludeImage";
-            this.cIncludeImage.Size = new System.Drawing.Size(91, 17);
-            this.cIncludeImage.TabIndex = 36;
-            this.cIncludeImage.Text = "Incluir imagen";
-            this.cIncludeImage.UseVisualStyleBackColor = true;
-            // 
             // pImage
             // 
             this.pImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -395,6 +388,32 @@
             this.bDeleteEvent.UseVisualStyleBackColor = true;
             this.bDeleteEvent.Click += new System.EventHandler(this.bDeleteEvent_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pImage);
+            this.panel1.Controls.Add(this.bDeleteEvent);
+            this.panel1.Controls.Add(this.lTitulo);
+            this.panel1.Controls.Add(this.bExit);
+            this.panel1.Controls.Add(this.bConfirmEvent);
+            this.panel1.Controls.Add(this.tTitle);
+            this.panel1.Controls.Add(this.tImage);
+            this.panel1.Controls.Add(this.linkVideochat);
+            this.panel1.Controls.Add(this.lDescription);
+            this.panel1.Controls.Add(this.lVideochat);
+            this.panel1.Controls.Add(this.tDescription);
+            this.panel1.Controls.Add(this.linkEntries);
+            this.panel1.Controls.Add(this.lOrganizador);
+            this.panel1.Controls.Add(this.lEntries);
+            this.panel1.Controls.Add(this.tOrganizer);
+            this.panel1.Controls.Add(this.linkForum);
+            this.panel1.Controls.Add(this.lDate);
+            this.panel1.Controls.Add(this.lForum);
+            this.panel1.Controls.Add(this.tDatePicker);
+            this.panel1.Location = new System.Drawing.Point(388, 266);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 796);
+            this.panel1.TabIndex = 52;
+            // 
             // bForo
             // 
             this.bForo.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -413,25 +432,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1421, 862);
-            this.Controls.Add(this.bForo);
-            this.Controls.Add(this.bDeleteEvent);
-            this.Controls.Add(this.bConfirmEvent);
-            this.Controls.Add(this.lTitulo);
-            this.Controls.Add(this.tImage);
-            this.Controls.Add(this.tTitle);
-            this.Controls.Add(this.bExit);
-            this.Controls.Add(this.linkVideochat);
-            this.Controls.Add(this.lVideochat);
-            this.Controls.Add(this.linkEntries);
-            this.Controls.Add(this.lEntries);
-            this.Controls.Add(this.tDatePicker);
-            this.Controls.Add(this.lDate);
-            this.Controls.Add(this.tOrganizer);
-            this.Controls.Add(this.lOrganizador);
-            this.Controls.Add(this.cIncludeImage);
-            this.Controls.Add(this.pImage);
-            this.Controls.Add(this.lDescription);
+            this.ClientSize = new System.Drawing.Size(1895, 1174);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tDescription);
             this.Controls.Add(this.tDescription);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.lSignOut);
@@ -441,14 +444,17 @@
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditarEvento";
+            this.Resize += new System.EventHandler(this.EditarEvento_Resize);
+            this.Load += new System.EventHandler(this.EditarEvento_Load);
             this.Text = "EditarEvento";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.EditarEvento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
             this.menuFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pImage)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -477,13 +483,13 @@
         private System.Windows.Forms.Label lDate;
         private System.Windows.Forms.TextBox tOrganizer;
         private System.Windows.Forms.Label lOrganizador;
-        private System.Windows.Forms.CheckBox cIncludeImage;
         private System.Windows.Forms.PictureBox pImage;
         private System.Windows.Forms.Label lDescription;
         private System.Windows.Forms.TextBox tDescription;
         private System.Windows.Forms.Label lTitulo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button bForo;
         private System.Windows.Forms.Button bConfirmEvent;
         private System.Windows.Forms.Button bDeleteEvent;
-        private System.Windows.Forms.Button bForo;
     }
 }
