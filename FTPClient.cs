@@ -11,7 +11,7 @@ namespace Asuma
     public class FTPClient
     {
 
-        public static bool ftpOn = true;
+        public static bool ftpOn = false;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
 

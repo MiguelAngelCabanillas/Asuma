@@ -47,7 +47,6 @@
             this.linkEntries = new System.Windows.Forms.LinkLabel();
             this.lEntries = new System.Windows.Forms.Label();
             this.linkForum = new System.Windows.Forms.LinkLabel();
-            this.lForum = new System.Windows.Forms.Label();
             this.tDatePicker = new System.Windows.Forms.DateTimePicker();
             this.lDate = new System.Windows.Forms.Label();
             this.tOrganizer = new System.Windows.Forms.TextBox();
@@ -267,24 +266,14 @@
             // 
             this.linkForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkForum.AutoSize = true;
-            this.linkForum.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkForum.Location = new System.Drawing.Point(518, 547);
+            this.linkForum.Font = new System.Drawing.Font("Verdana", 13.8F);
+            this.linkForum.Location = new System.Drawing.Point(460, 537);
             this.linkForum.Name = "linkForum";
-            this.linkForum.Size = new System.Drawing.Size(87, 17);
+            this.linkForum.Size = new System.Drawing.Size(66, 29);
             this.linkForum.TabIndex = 42;
             this.linkForum.TabStop = true;
-            this.linkForum.Text = "Añadir foro";
-            // 
-            // lForum
-            // 
-            this.lForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lForum.AutoSize = true;
-            this.lForum.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lForum.Location = new System.Drawing.Point(400, 537);
-            this.lForum.Name = "lForum";
-            this.lForum.Size = new System.Drawing.Size(77, 29);
-            this.lForum.TabIndex = 41;
-            this.lForum.Text = "Foro:";
+            this.linkForum.Text = "Foro";
+            this.linkForum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkForum_LinkClicked);
             // 
             // tDatePicker
             // 
@@ -421,7 +410,6 @@
             this.panel1.Controls.Add(this.tOrganizer);
             this.panel1.Controls.Add(this.linkForum);
             this.panel1.Controls.Add(this.lDate);
-            this.panel1.Controls.Add(this.lForum);
             this.panel1.Controls.Add(this.tDatePicker);
             this.panel1.Location = new System.Drawing.Point(388, 266);
             this.panel1.Name = "panel1";
@@ -444,6 +432,7 @@
             this.Name = "EditarEvento";
             this.Text = "EditarEvento";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.EditarEvento_Load);
             this.Resize += new System.EventHandler(this.EditarEvento_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
@@ -477,7 +466,6 @@
         private System.Windows.Forms.LinkLabel linkEntries;
         private System.Windows.Forms.Label lEntries;
         private System.Windows.Forms.LinkLabel linkForum;
-        private System.Windows.Forms.Label lForum;
         private System.Windows.Forms.DateTimePicker tDatePicker;
         private System.Windows.Forms.Label lDate;
         private System.Windows.Forms.TextBox tOrganizer;

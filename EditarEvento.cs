@@ -16,6 +16,7 @@ namespace Asuma
     {
         public Event evento;
         public User usuario;
+        private Forum foro;
         public EditarEvento(Event e, User usuario)
         {
             this.evento = e;
@@ -192,6 +193,29 @@ namespace Asuma
         private void EditarEvento_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+        }
+
+        private void linkForum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormForo formularioForo = new FormForo(foro);
+            formularioForo.ShowDialog();
+        }
+
+        private void EditarEvento_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT forumID FROM forum WHERE eventID = " + evento.ID + ";");
+                reader.Read();
+                foro = new Forum((int)reader[0]);
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
