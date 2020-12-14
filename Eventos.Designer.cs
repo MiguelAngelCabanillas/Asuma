@@ -51,6 +51,7 @@
             // bMyEvents
             // 
             this.bMyEvents.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bMyEvents.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMyEvents.Location = new System.Drawing.Point(1469, 718);
             this.bMyEvents.Margin = new System.Windows.Forms.Padding(4);
             this.bMyEvents.Name = "bMyEvents";
@@ -108,7 +109,7 @@
             // 
             // menuFlowLayoutPanel
             // 
-            this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.menuFlowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
             this.menuFlowLayoutPanel.Controls.Add(this.bInicio);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);

@@ -35,7 +35,7 @@
             this.pUser = new System.Windows.Forms.PictureBox();
             this.pASM = new System.Windows.Forms.PictureBox();
             this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bNoticias = new System.Windows.Forms.Button();
+            this.bInicio = new System.Windows.Forms.Button();
             this.bEventos = new System.Windows.Forms.Button();
             this.bInfo = new System.Windows.Forms.Button();
             this.bContacto = new System.Windows.Forms.Button();
@@ -80,10 +80,10 @@
             // lSignOut
             // 
             this.lSignOut.AutoSize = true;
-            this.lSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(580, 81);
+            this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSignOut.Location = new System.Drawing.Point(246, 117);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(111, 20);
+            this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 15;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -122,7 +122,7 @@
             // menuFlowLayoutPanel
             // 
             this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.menuFlowLayoutPanel.Controls.Add(this.bNoticias);
+            this.menuFlowLayoutPanel.Controls.Add(this.bInicio);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
@@ -132,18 +132,21 @@
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
             this.menuFlowLayoutPanel.TabIndex = 18;
             // 
-            // bNoticias
+            // bInicio
             // 
-            this.bNoticias.Location = new System.Drawing.Point(3, 2);
-            this.bNoticias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bNoticias.Name = "bNoticias";
-            this.bNoticias.Size = new System.Drawing.Size(127, 46);
-            this.bNoticias.TabIndex = 0;
-            this.bNoticias.Text = "Noticias";
-            this.bNoticias.UseVisualStyleBackColor = true;
+            this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInicio.Location = new System.Drawing.Point(3, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bInicio.Name = "bInicio";
+            this.bInicio.Size = new System.Drawing.Size(127, 46);
+            this.bInicio.TabIndex = 0;
+            this.bInicio.Text = "Inicio";
+            this.bInicio.UseVisualStyleBackColor = true;
+            this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos
             // 
+            this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(136, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
@@ -151,9 +154,11 @@
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
+            this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
             // 
             // bInfo
             // 
+            this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInfo.Location = new System.Drawing.Point(269, 2);
             this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInfo.Name = "bInfo";
@@ -164,6 +169,7 @@
             // 
             // bContacto
             // 
+            this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bContacto.Location = new System.Drawing.Point(402, 2);
             this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bContacto.Name = "bContacto";
@@ -175,24 +181,28 @@
             // tImage
             // 
             this.tImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tImage.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tImage.Location = new System.Drawing.Point(626, 641);
             this.tImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tImage.Name = "tImage";
-            this.tImage.Size = new System.Drawing.Size(164, 22);
+            this.tImage.Size = new System.Drawing.Size(164, 23);
             this.tImage.TabIndex = 48;
             // 
             // tTitle
             // 
             this.tTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tTitle.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tTitle.Location = new System.Drawing.Point(1180, 338);
             this.tTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tTitle.MaxLength = 40;
             this.tTitle.Name = "tTitle";
-            this.tTitle.Size = new System.Drawing.Size(190, 22);
+            this.tTitle.Size = new System.Drawing.Size(190, 23);
             this.tTitle.TabIndex = 32;
             // 
             // bExit
             // 
             this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bExit.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExit.Location = new System.Drawing.Point(1134, 1096);
             this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";
@@ -206,9 +216,10 @@
             // 
             this.linkVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkVideochat.AutoSize = true;
+            this.linkVideochat.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkVideochat.Location = new System.Drawing.Point(1125, 1021);
             this.linkVideochat.Name = "linkVideochat";
-            this.linkVideochat.Size = new System.Drawing.Size(128, 17);
+            this.linkVideochat.Size = new System.Drawing.Size(137, 17);
             this.linkVideochat.TabIndex = 46;
             this.linkVideochat.TabStop = true;
             this.linkVideochat.Text = "Enlace a videochat";
@@ -217,10 +228,10 @@
             // 
             this.lVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lVideochat.AutoSize = true;
-            this.lVideochat.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lVideochat.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lVideochat.Location = new System.Drawing.Point(955, 1009);
             this.lVideochat.Name = "lVideochat";
-            this.lVideochat.Size = new System.Drawing.Size(126, 29);
+            this.lVideochat.Size = new System.Drawing.Size(141, 29);
             this.lVideochat.TabIndex = 45;
             this.lVideochat.Text = "Videochat:";
             // 
@@ -228,9 +239,10 @@
             // 
             this.linkEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkEntries.AutoSize = true;
+            this.linkEntries.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkEntries.Location = new System.Drawing.Point(1125, 949);
             this.linkEntries.Name = "linkEntries";
-            this.linkEntries.Size = new System.Drawing.Size(102, 17);
+            this.linkEntries.Size = new System.Drawing.Size(112, 17);
             this.linkEntries.TabIndex = 44;
             this.linkEntries.TabStop = true;
             this.linkEntries.Text = "Añadir entrada";
@@ -239,10 +251,10 @@
             // 
             this.lEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lEntries.AutoSize = true;
-            this.lEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lEntries.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lEntries.Location = new System.Drawing.Point(955, 939);
             this.lEntries.Name = "lEntries";
-            this.lEntries.Size = new System.Drawing.Size(114, 29);
+            this.lEntries.Size = new System.Drawing.Size(129, 29);
             this.lEntries.TabIndex = 43;
             this.lEntries.Text = "Entradas:";
             // 
@@ -250,9 +262,10 @@
             // 
             this.linkForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkForum.AutoSize = true;
+            this.linkForum.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkForum.Location = new System.Drawing.Point(1125, 872);
             this.linkForum.Name = "linkForum";
-            this.linkForum.Size = new System.Drawing.Size(78, 17);
+            this.linkForum.Size = new System.Drawing.Size(87, 17);
             this.linkForum.TabIndex = 42;
             this.linkForum.TabStop = true;
             this.linkForum.Text = "Añadir foro";
@@ -261,10 +274,10 @@
             // 
             this.lForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lForum.AutoSize = true;
-            this.lForum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lForum.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lForum.Location = new System.Drawing.Point(999, 862);
             this.lForum.Name = "lForum";
-            this.lForum.Size = new System.Drawing.Size(70, 29);
+            this.lForum.Size = new System.Drawing.Size(77, 29);
             this.lForum.TabIndex = 41;
             this.lForum.Text = "Foro:";
             // 
@@ -272,10 +285,11 @@
             // 
             this.tDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tDatePicker.Location = new System.Drawing.Point(813, 768);
+            this.tDatePicker.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tDatePicker.Location = new System.Drawing.Point(825, 767);
             this.tDatePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDatePicker.Name = "tDatePicker";
-            this.tDatePicker.Size = new System.Drawing.Size(348, 22);
+            this.tDatePicker.Size = new System.Drawing.Size(348, 23);
             this.tDatePicker.TabIndex = 40;
             this.tDatePicker.Value = new System.DateTime(2020, 12, 9, 0, 0, 0, 0);
             // 
@@ -283,30 +297,32 @@
             // 
             this.lDate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDate.AutoSize = true;
-            this.lDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lDate.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lDate.Location = new System.Drawing.Point(586, 761);
             this.lDate.Name = "lDate";
-            this.lDate.Size = new System.Drawing.Size(204, 29);
+            this.lDate.Size = new System.Drawing.Size(225, 29);
             this.lDate.TabIndex = 39;
             this.lDate.Text = "Fecha del evento:";
             // 
             // tOrganizer
             // 
             this.tOrganizer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tOrganizer.Location = new System.Drawing.Point(813, 703);
+            this.tOrganizer.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tOrganizer.Location = new System.Drawing.Point(825, 703);
             this.tOrganizer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tOrganizer.MaxLength = 40;
             this.tOrganizer.Name = "tOrganizer";
-            this.tOrganizer.Size = new System.Drawing.Size(348, 22);
+            this.tOrganizer.Size = new System.Drawing.Size(348, 23);
             this.tOrganizer.TabIndex = 38;
             // 
             // lOrganizador
             // 
             this.lOrganizador.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lOrganizador.AutoSize = true;
-            this.lOrganizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lOrganizador.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lOrganizador.Location = new System.Drawing.Point(637, 696);
             this.lOrganizador.Name = "lOrganizador";
-            this.lOrganizador.Size = new System.Drawing.Size(152, 29);
+            this.lOrganizador.Size = new System.Drawing.Size(170, 29);
             this.lOrganizador.TabIndex = 37;
             this.lOrganizador.Text = "Organizador:";
             // 
@@ -337,41 +353,44 @@
             // 
             this.lDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lDescription.AutoSize = true;
-            this.lDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lDescription.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lDescription.Location = new System.Drawing.Point(1010, 417);
             this.lDescription.Name = "lDescription";
-            this.lDescription.Size = new System.Drawing.Size(147, 29);
+            this.lDescription.Size = new System.Drawing.Size(163, 29);
             this.lDescription.TabIndex = 34;
             this.lDescription.Text = "Descripción:";
             // 
             // tDescription
             // 
             this.tDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tDescription.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tDescription.Location = new System.Drawing.Point(1014, 472);
             this.tDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tDescription.MaxLength = 300;
             this.tDescription.Multiline = true;
             this.tDescription.Name = "tDescription";
-            this.tDescription.Size = new System.Drawing.Size(391, 119);
+            this.tDescription.Size = new System.Drawing.Size(391, 80);
             this.tDescription.TabIndex = 33;
             // 
             // lTitulo
             // 
             this.lTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lTitulo.AutoSize = true;
-            this.lTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitulo.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitulo.Location = new System.Drawing.Point(1074, 331);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(80, 29);
+            this.lTitulo.Size = new System.Drawing.Size(90, 29);
             this.lTitulo.TabIndex = 49;
             this.lTitulo.Text = "Titulo:";
             // 
             // bConfirmEvent
             // 
             this.bConfirmEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bConfirmEvent.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bConfirmEvent.Location = new System.Drawing.Point(931, 1096);
             this.bConfirmEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bConfirmEvent.Name = "bConfirmEvent";
-            this.bConfirmEvent.Size = new System.Drawing.Size(138, 32);
+            this.bConfirmEvent.Size = new System.Drawing.Size(153, 32);
             this.bConfirmEvent.TabIndex = 50;
             this.bConfirmEvent.Text = "Confirmar cambios";
             this.bConfirmEvent.UseVisualStyleBackColor = true;
@@ -380,6 +399,7 @@
             // bDeleteEvent
             // 
             this.bDeleteEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bDeleteEvent.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bDeleteEvent.Location = new System.Drawing.Point(1400, 934);
             this.bDeleteEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bDeleteEvent.Name = "bDeleteEvent";
@@ -442,7 +462,7 @@
         private System.Windows.Forms.PictureBox pUser;
         private System.Windows.Forms.PictureBox pASM;
         private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
-        private System.Windows.Forms.Button bNoticias;
+        private System.Windows.Forms.Button bInicio;
         private System.Windows.Forms.Button bEventos;
         private System.Windows.Forms.Button bInfo;
         private System.Windows.Forms.Button bContacto;

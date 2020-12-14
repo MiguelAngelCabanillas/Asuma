@@ -162,14 +162,20 @@ namespace Asuma
 
         protected void ltitulo_click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             LinkLabel link = sender as LinkLabel;
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
             Event ev = new Event(id);
             InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
+            infoEventoInscrito.Show();
+            this.Close();
+            /*
+            InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             this.Visible = false;
             infoEventoInscrito.ShowDialog();
             this.Visible = true;
+            */
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -178,7 +184,7 @@ namespace Asuma
 
             this.menuFlowLayoutPanel.Location = new Point(15, menuFlowLayoutPanel.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -186,10 +192,10 @@ namespace Asuma
 
         private void bCreateEvent_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             CrearEvento crearEvento = new CrearEvento(usuario);
-            this.Visible = false;
-            crearEvento.ShowDialog();
-            this.Visible = true;
+            crearEvento.Show();
+            this.Close();
         }
 
         private void MisEventos_Resize(object sender, EventArgs e)
@@ -200,7 +206,7 @@ namespace Asuma
         private void actualizarElementos()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -223,6 +229,22 @@ namespace Asuma
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Environment.Exit(Environment.ExitCode);
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            this.Visible = false;
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Visible = false;
         }
     }
 }

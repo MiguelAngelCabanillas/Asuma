@@ -32,6 +32,7 @@ namespace Asuma
             }
             else
             {
+                Cursor.Current = Cursors.WaitCursor;
                 MisEventos misEventos = new MisEventos(usuario);
                 misEventos.Show();
                 this.Close();
@@ -192,7 +193,7 @@ namespace Asuma
 
         private void actualizarBotonMisEventos()
         {
-            bMyEvents.Location = new Point((this.Width * 5) / 10, (int)((this.Height * 8.5) / 10));
+            bMyEvents.Location = new Point(((this.Width * 5) / 10) - bMyEvents.Width / 2, (int)((this.Height * 8.5) / 10));
         }
 
         private void actualizarPanelEventos()
@@ -218,11 +219,22 @@ namespace Asuma
             Event ev = new Event(id);
 
             if (usuario == null) {
+
+                /*
                 Cursor.Current = Cursors.WaitCursor;
                 InfoEvento infoEvento = new InfoEvento(ev,null);
                 this.Visible = false;
                 infoEvento.ShowDialog();
+                usuario = infoEvento.Usuario;
+                actualizar();
                 this.Visible = true;
+
+                */
+
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                infoEvento.Show();
+                this.Close();
             } else {
                 Boolean found = false;
                 BD bd = new BD();
@@ -234,27 +246,55 @@ namespace Asuma
                         if (idEvent == ev.ID)
                         {
                             found = true;
+                            /*
                             Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
                             this.Visible = false;
                             infoEvento.ShowDialog();
                             this.Visible = true;
+                            */
+
+                            Cursor.Current = Cursors.WaitCursor;
+                            InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                            infoEvento.Show();
+                            this.Close();
+
                         }
                     }
                     if (!found)
                     {
+                        /*
                         Cursor.Current = Cursors.WaitCursor;
                         InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                         this.Visible = false;
                         infoEvento.ShowDialog();
+                        usuario = infoEvento.Usuario;
+                        actualizar();
                         this.Visible = true;
+                        */
+
+                        Cursor.Current = Cursors.WaitCursor;
+                        InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                        infoEvento.Show();
+                        this.Close();
+
                     }
                 } else {
+                    /*
                     Cursor.Current = Cursors.WaitCursor;
                     InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                     this.Visible = false;
                     infoEvento.ShowDialog();
+                    usuario = infoEvento.Usuario;
+                    actualizar();
                     this.Visible = true;
+                    */
+
+
+                    Cursor.Current = Cursors.WaitCursor;
+                    InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                    infoEvento.Show();
+                    this.Close();
                 }
             }
         }
@@ -301,8 +341,6 @@ namespace Asuma
             Eventos eventos = new Eventos(usuario);
             eventos.Show();
             this.Close();
-            //mostrarEventos();
-            //actualizarEventos();
         }
     }
 }

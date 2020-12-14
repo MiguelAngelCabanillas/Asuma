@@ -32,7 +32,7 @@
             this.pASM = new System.Windows.Forms.PictureBox();
             this.pASUMA = new System.Windows.Forms.PictureBox();
             this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bNoticias = new System.Windows.Forms.Button();
+            this.bInicio = new System.Windows.Forms.Button();
             this.bEventos = new System.Windows.Forms.Button();
             this.bInfo = new System.Windows.Forms.Button();
             this.bContacto = new System.Windows.Forms.Button();
@@ -75,7 +75,7 @@
             // 
             this.menuFlowLayoutPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.menuFlowLayoutPanel.Controls.Add(this.bNoticias);
+            this.menuFlowLayoutPanel.Controls.Add(this.bInicio);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
@@ -85,26 +85,31 @@
             this.menuFlowLayoutPanel.TabIndex = 12;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint);
             // 
-            // bNoticias
+            // bInicio
             // 
-            this.bNoticias.Location = new System.Drawing.Point(3, 3);
-            this.bNoticias.Name = "bNoticias";
-            this.bNoticias.Size = new System.Drawing.Size(127, 45);
-            this.bNoticias.TabIndex = 0;
-            this.bNoticias.Text = "Inicio";
-            this.bNoticias.UseVisualStyleBackColor = true;
+            this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInicio.Location = new System.Drawing.Point(3, 3);
+            this.bInicio.Name = "bInicio";
+            this.bInicio.Size = new System.Drawing.Size(127, 45);
+            this.bInicio.TabIndex = 0;
+            this.bInicio.Text = "Inicio";
+            this.bInicio.UseVisualStyleBackColor = true;
+            this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos
             // 
+            this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(136, 3);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(127, 45);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
+            this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
             // 
             // bInfo
             // 
+            this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInfo.Location = new System.Drawing.Point(269, 3);
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(127, 45);
@@ -114,6 +119,7 @@
             // 
             // bContacto
             // 
+            this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bContacto.Location = new System.Drawing.Point(402, 3);
             this.bContacto.Name = "bContacto";
             this.bContacto.Size = new System.Drawing.Size(127, 45);
@@ -155,6 +161,7 @@
             // 
             // bCreateEvent
             // 
+            this.bCreateEvent.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bCreateEvent.Location = new System.Drawing.Point(781, 798);
             this.bCreateEvent.Name = "bCreateEvent";
             this.bCreateEvent.Size = new System.Drawing.Size(173, 67);
@@ -209,7 +216,7 @@
         private System.Windows.Forms.PictureBox pASM;
         private System.Windows.Forms.PictureBox pASUMA;
         private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
-        private System.Windows.Forms.Button bNoticias;
+        private System.Windows.Forms.Button bInicio;
         private System.Windows.Forms.Button bEventos;
         private System.Windows.Forms.Button bInfo;
         private System.Windows.Forms.Button bContacto;

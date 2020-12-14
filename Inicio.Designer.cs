@@ -41,25 +41,28 @@
             // 
             // tUser
             // 
+            this.tUser.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tUser.Location = new System.Drawing.Point(344, 90);
             this.tUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tUser.Name = "tUser";
-            this.tUser.Size = new System.Drawing.Size(197, 22);
+            this.tUser.Size = new System.Drawing.Size(197, 23);
             this.tUser.TabIndex = 0;
             this.tUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tUser_KeyPress);
             // 
             // tPassword
             // 
+            this.tPassword.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tPassword.Location = new System.Drawing.Point(344, 134);
             this.tPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(197, 22);
+            this.tPassword.Size = new System.Drawing.Size(197, 23);
             this.tPassword.TabIndex = 1;
             this.tPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tPassword_KeyPress);
             // 
             // bInicio
             // 
+            this.bInicio.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInicio.Location = new System.Drawing.Point(107, 228);
             this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInicio.Name = "bInicio";
@@ -71,6 +74,7 @@
             // 
             // bRegistrarse
             // 
+            this.bRegistrarse.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bRegistrarse.Location = new System.Drawing.Point(408, 228);
             this.bRegistrarse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bRegistrarse.Name = "bRegistrarse";
@@ -102,6 +106,7 @@
             // 
             // bExit
             // 
+            this.bExit.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bExit.Location = new System.Drawing.Point(565, 327);
             this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";

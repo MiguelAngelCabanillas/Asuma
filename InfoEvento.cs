@@ -44,10 +44,18 @@ namespace Asuma
 
             if(usuario == null)
             {
+                lUsername.Visible = false;
+                pUser.Visible = false;
+                linitSesion.Visible = true;
+                lSignOut.Visible = false;
                 bInscription.Visible = false;
             }
             else
             {
+                pUser.Visible = true;
+                lUsername.Text = "Bienvenido " + usuario.Username;
+                linitSesion.Visible = false;
+                lSignOut.Visible = true;
                 bInscription.Visible = true;
             }
         }
@@ -80,7 +88,13 @@ namespace Asuma
 
         private void bSalir_Click(object sender, EventArgs e)
         {
+
+            
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
             this.Close();
+            
         }
 
         private void bInscription_Click(object sender, EventArgs e)
@@ -118,7 +132,7 @@ namespace Asuma
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
             this.linitSesion.Location = new Point((tamaño * 3) / 10, linitSesion.Location.Y);
-            this.lSignOut.Location = new Point((tamaño * 3) / 10, lSignOut.Location.Y);
+            //this.lSignOut.Location = new Point((tamaño * 3) / 10, lSignOut.Location.Y);
             this.pEvento.Location = new Point((tamaño * 2) / 10, pEvento.Location.Y);
         }
 
@@ -170,6 +184,11 @@ namespace Asuma
             this.usuario = Inicio.usuario;
             actualizar();
             this.Visible = true;
+        }
+
+        public User Usuario
+        {
+            get { return usuario; }
         }
     }
 }

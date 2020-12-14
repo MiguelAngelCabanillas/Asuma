@@ -57,6 +57,7 @@ namespace Asuma
             this.Usuario = Inicio.usuario;
             actualizar();
             this.Visible = true;
+            this.ActiveControl = bInicio;
         }
 
         public User Usuario
@@ -95,7 +96,6 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-
             this.Visible = false;
         }
 

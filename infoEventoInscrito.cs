@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace Asuma
             {
                 bEditEvent.Visible = false;
             }
+
+            actualizar();
         }
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
@@ -50,6 +53,9 @@ namespace Asuma
 
         private void bExit_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
             this.Close();
         }
 
@@ -60,16 +66,32 @@ namespace Asuma
 
         private void bEditEvent_Click(object sender, EventArgs e)
         {
-            EditarEvento editarEvento = new EditarEvento(evento);
+            Cursor.Current = Cursors.WaitCursor;
+            EditarEvento ed = new EditarEvento(evento,usuario);
             this.Visible = false;
-            editarEvento.ShowDialog();
+            ed.ShowDialog();
             this.Visible = true;
+        }
+
+        private void actualizar()
+        {
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + evento.Image;
+            Image image = Image.FromFile(imagePath);
+            pEvento.Image = image;
+            pEvento.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            lTitulo.Text = evento.EventName;
+            tDes.Text = evento.EventDescription;
+            lOrganizadores.Text = evento.Organizer;
+            lFecha.Text = evento.Date;
         }
 
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 40;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -103,6 +125,22 @@ namespace Asuma
             actualizarBotones();
             actualizarImagenes();
             actualizarLabels();
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            this.Close();
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Close();
         }
     }
 }

@@ -15,9 +15,11 @@ namespace Asuma
     public partial class EditarEvento : Form
     {
         public Event evento;
-        public EditarEvento(Event e)
+        public User usuario;
+        public EditarEvento(Event e, User usuario)
         {
             this.evento = e;
+            this.usuario = usuario;
             InitializeComponent();
             actualizar();
             tDescription.AutoSize = false;
@@ -26,7 +28,11 @@ namespace Asuma
         }
         private void bExit_Click(object sender, EventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+   
+            Cursor.Current = Cursors.WaitCursor;
+            InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
+            ei.Show();
+            this.Close();
         }
 
         private void bConfirmEvent_Click(object sender, EventArgs e)
@@ -41,6 +47,10 @@ namespace Asuma
                 BD bd = new BD();
                 MySqlDataReader writer = bd.Query("UPDATE event SET eventName = '" + title + "', date = '" + date + "', image = '" + image + "', eventDescription = '" + description + "', organizer = '" + organizer + "' WHERE idEvent = " + evento.ID);
                 MessageBox.Show("Se ha editado el evento correctamente");
+                InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
+                ei.Show();
+                this.Close();
+               
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -77,6 +87,23 @@ namespace Asuma
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            this.Close();
+
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Close();
         }
     }
 }
