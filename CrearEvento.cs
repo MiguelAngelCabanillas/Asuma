@@ -67,5 +67,40 @@ namespace Asuma
             }
          
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (tTitle.Text == "") {
+                MessageBox.Show("Introduzca antes un título al evento");
+            }
+            else { openFileDialog1.ShowDialog();}
+            
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+
+            char[] separadores = { '\\' };
+
+
+            try
+            {
+                ftp.MakeFtpDirectory("eventos/" + tTitle.Text);
+                MessageBox.Show("Se ha creado el directorio");
+            }
+            catch (Exception ex)
+            {
+            }
+
+
+            ftp.UploadFile(openFileDialog1.FileName, "eventos/" + tTitle.Text + "/image.png"); //+ 
+                // Get file extension
+                //openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.')[openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1].Split('.').Length-1]);
+            pImage.Image = Image.FromFile(openFileDialog1.FileName);
+
+            MessageBox.Show("Se ha subido correctamente el archivo " + openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1]);
+
+        }
     }
 }
