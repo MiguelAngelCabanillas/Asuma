@@ -405,9 +405,7 @@
             this.panel1.Controls.Add(this.lOrganizador);
             this.panel1.Controls.Add(this.lEntries);
             this.panel1.Controls.Add(this.tOrganizer);
-            this.panel1.Controls.Add(this.linkForum);
             this.panel1.Controls.Add(this.lDate);
-            this.panel1.Controls.Add(this.lForum);
             this.panel1.Controls.Add(this.tDatePicker);
             this.panel1.Location = new System.Drawing.Point(388, 266);
             this.panel1.Name = "panel1";
