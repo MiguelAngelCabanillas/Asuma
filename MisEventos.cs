@@ -167,15 +167,15 @@ namespace Asuma
             // identify which button was clicked and perform necessary actions
             var id = Int32.Parse(link.Name);
             Event ev = new Event(id);
-            InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
+            /*InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             infoEventoInscrito.Show();
-            this.Close();
-            /*
+            this.Close();*/
+            
             InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             this.Visible = false;
             infoEventoInscrito.ShowDialog();
             this.Visible = true;
-            */
+            
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)

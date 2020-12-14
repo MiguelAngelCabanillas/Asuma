@@ -21,11 +21,83 @@ namespace Asuma
             this.evento = e;
             this.usuario = usuario;
             InitializeComponent();
-            actualizar();
             tDescription.AutoSize = false;
             tDescription.Height = 80;
-            tDescription.MaxLength = 300;
+            lUsername.Text = "Bienvenido " + usuario.Username;
+            tTitle.Text = evento.EventName;
+            tDescription.Text = evento.EventDescription;
+            tOrganizer.Text = evento.Organizer;
+            DateTime date = DateTime.Parse(evento.Date);
+            tDatePicker.Value = date;
+
+            tImage.Text = evento.Image;
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + evento.Image;
+            Image image = Image.FromFile(imagePath);
+            pImage.Image = image;
+            pImage.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            actualizarElementos();
         }
+
+        private void pASUMA_Paint(object sender, PaintEventArgs e)
+        {
+            //this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
+            this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pASM_Paint(object sender, PaintEventArgs e)
+        {
+            //this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
+            this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pUser_Paint(object sender, PaintEventArgs e)
+        {
+            this.pUser.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+            this.menuFlowLayoutPanel.Location = new Point(15, menuFlowLayoutPanel.Location.Y);
+            this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+        }
+
+        private void actualizarElementos()
+        {
+            /*tTitle.Text = evento.EventName;
+            tDescription.Text = evento.EventDescription;
+            tImage.Text = evento.Image;
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + evento.Image;
+            Image image = Image.FromFile(imagePath);
+            pImage.Image = image;
+            tOrganizer.Text = evento.Organizer;
+            DateTime date = DateTime.Parse(evento.Date);
+            tDatePicker.Value = date;*/
+            this.pUser.Location = new Point(72, 16);
+            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            this.lUsername.Location = new Point(pUser.Location.X + 120, pUser.Location.Y + 40);
+            this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+
+            this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
+            this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
+
+            this.panel1.Location = new Point(this.bInicio.Location.X + 100, this.menuFlowLayoutPanel.Location.Y + 80);
+            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width, this.Height - this.menuFlowLayoutPanel.Location.Y - 30);
+
+        }
+
         private void bExit_Click(object sender, EventArgs e)
         {
    
@@ -57,24 +129,6 @@ namespace Asuma
             }
         }
 
-        private void actualizar()
-        {
-            tTitle.Text = evento.EventName;
-            tDescription.Text = evento.EventDescription;
-            tImage.Text = evento.Image;
-            string path = Path.GetDirectoryName(Application.StartupPath);
-            string pathBueno = path.Substring(0, path.Length - 3);
-            string imagePath = pathBueno + "images\\" + evento.Image;
-            Image image = Image.FromFile(imagePath);
-            pImage.Image = image;
-            tOrganizer.Text = evento.Organizer;
-            DateTime date = DateTime.Parse(evento.Date);
-            tDatePicker.Value = date;
-
-
-
-        }
-
         private void bDeleteEvent_Click(object sender, EventArgs e)
         {
             try
@@ -104,6 +158,11 @@ namespace Asuma
             Eventos ev = new Eventos(usuario);
             ev.Show();
             this.Close();
+        }
+
+        private void EditarEvento_Resize(object sender, EventArgs e)
+        {
+            actualizarElementos();
         }
     }
 }
