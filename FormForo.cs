@@ -17,5 +17,11 @@ namespace Asuma
         {
             lTitulo.Text = _foro.evento.EventName;
         }
+
+        private void bAñadirTema_Click(object sender, EventArgs e)
+        {
+            string cmd = "OJUUUUUUUUUUUUU";
+            listaTemas.Items.Add(cmd);
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace Asuma
         {
             this.lTitulo = new System.Windows.Forms.Label();
             this.bAñadirTema = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.listaTemas = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lTitulo
@@ -53,28 +53,25 @@ namespace Asuma
             this.bAñadirTema.TabIndex = 1;
             this.bAñadirTema.Text = "Añadir un nuevo debate al foro\r\n";
             this.bAñadirTema.UseVisualStyleBackColor = true;
+            this.bAñadirTema.Click += new System.EventHandler(this.bAñadirTema_Click);
             // 
-            // tableLayoutPanel1
+            // listaTemas
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(59, 167);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 455);
-            this.tableLayoutPanel1.TabIndex = 2;
+            this.listaTemas.FormattingEnabled = true;
+            this.listaTemas.Location = new System.Drawing.Point(59, 173);
+            this.listaTemas.Name = "listaTemas";
+            this.listaTemas.Size = new System.Drawing.Size(892, 433);
+            this.listaTemas.TabIndex = 3;
             // 
-            // Foro
+            // FormForo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 660);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.listaTemas);
             this.Controls.Add(this.bAñadirTema);
             this.Controls.Add(this.lTitulo);
-            this.Name = "Foro";
+            this.Name = "FormForo";
             this.Text = "Foro";
             this.Load += new System.EventHandler(this.Foro_Load);
             this.ResumeLayout(false);
@@ -86,6 +83,6 @@ namespace Asuma
 
         private System.Windows.Forms.Label lTitulo;
         private System.Windows.Forms.Button bAñadirTema;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ListBox listaTemas;
     }
 }

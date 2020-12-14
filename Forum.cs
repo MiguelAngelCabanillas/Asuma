@@ -33,11 +33,11 @@ namespace Asuma
             try
             {
                 BD bd = new BD();
-                MySqlDataReader writer = bd.Query("INSERT INTO forum "+/*(`eventID`)*/" VALUES("+ 1 +", "+ evento.ID +")");
+                MySqlDataReader writer = bd.Query("INSERT INTO forum (`eventID`) VALUES("+ evento.ID +")");
                 writer.Read();
                 _evento = evento;
                 writer.Close();
-                MySqlDataReader reader = bd.Query("SELECT MAX(eventID) FROM event");
+                MySqlDataReader reader = bd.Query("SELECT MAX(eventID) FROM forum");
                 reader.Read();
                 _idForo = (int)reader[0];
                 reader.Close();
