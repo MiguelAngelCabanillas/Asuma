@@ -24,14 +24,13 @@ namespace Asuma
                     //bd.closeBD();
                     throw new Error("Usuario o contraseña incorrecta");
                 }
-                while (reader.Read())
-                {
-                    this.username = (string)reader[0];
-                    this.password = (string)reader[1];
-                    this.email = (string)reader[2];
-                    string rolName = (string)reader[3];
-                    this.rol = new Rol(rolName);
-                }
+                reader.Read();
+                this.username = (string)reader[0];
+                this.password = (string)reader[1];
+                this.email = (string)reader[2];
+                string rolName = (string)reader[3];
+                this.rol = new Rol(rolName);
+                
                 if (!this.password.Equals(password))
                 {
                     //bd.closeBD();

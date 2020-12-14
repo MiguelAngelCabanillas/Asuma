@@ -34,7 +34,7 @@
             this.pASM = new System.Windows.Forms.PictureBox();
             this.pASUMA = new System.Windows.Forms.PictureBox();
             this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.bNoticias = new System.Windows.Forms.Button();
+            this.bInicio = new System.Windows.Forms.Button();
             this.bEventos = new System.Windows.Forms.Button();
             this.bInfo = new System.Windows.Forms.Button();
             this.bContacto = new System.Windows.Forms.Button();
@@ -51,10 +51,10 @@
             // linitSesion
             // 
             this.linitSesion.AutoSize = true;
-            this.linitSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linitSesion.Location = new System.Drawing.Point(429, 79);
             this.linitSesion.Name = "linitSesion";
-            this.linitSesion.Size = new System.Drawing.Size(119, 24);
+            this.linitSesion.Size = new System.Drawing.Size(146, 25);
             this.linitSesion.TabIndex = 0;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
@@ -63,10 +63,10 @@
             // lSignOut
             // 
             this.lSignOut.AutoSize = true;
-            this.lSignOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(585, 79);
+            this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lSignOut.Location = new System.Drawing.Point(246, 117);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(111, 20);
+            this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 8;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -99,7 +99,7 @@
             // menuFlowLayoutPanel
             // 
             this.menuFlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
-            this.menuFlowLayoutPanel.Controls.Add(this.bNoticias);
+            this.menuFlowLayoutPanel.Controls.Add(this.bInicio);
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
@@ -110,18 +110,21 @@
             this.menuFlowLayoutPanel.TabIndex = 12;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint_1);
             // 
-            // bNoticias
+            // bInicio
             // 
-            this.bNoticias.Location = new System.Drawing.Point(3, 2);
-            this.bNoticias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bNoticias.Name = "bNoticias";
-            this.bNoticias.Size = new System.Drawing.Size(127, 46);
-            this.bNoticias.TabIndex = 0;
-            this.bNoticias.Text = "Noticias";
-            this.bNoticias.UseVisualStyleBackColor = true;
+            this.bInicio.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInicio.Location = new System.Drawing.Point(3, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bInicio.Name = "bInicio";
+            this.bInicio.Size = new System.Drawing.Size(127, 46);
+            this.bInicio.TabIndex = 0;
+            this.bInicio.Text = "Inicio";
+            this.bInicio.UseVisualStyleBackColor = false;
             // 
             // bEventos
             // 
+            this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(136, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
@@ -133,6 +136,7 @@
             // 
             // bInfo
             // 
+            this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInfo.Location = new System.Drawing.Point(269, 2);
             this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInfo.Name = "bInfo";
@@ -143,6 +147,7 @@
             // 
             // bContacto
             // 
+            this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bContacto.Location = new System.Drawing.Point(402, 2);
             this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bContacto.Name = "bContacto";
@@ -175,8 +180,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.pUser);
+            this.panel1.Controls.Add(this.lSignOut);
             this.panel1.Location = new System.Drawing.Point(4, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1913, 823);
             this.panel1.TabIndex = 15;
@@ -191,7 +197,6 @@
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.lUsername);
-            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -205,6 +210,7 @@
             this.menuFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,7 +223,7 @@
         private System.Windows.Forms.PictureBox pASM;
         private System.Windows.Forms.PictureBox pASUMA;
         private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
-        private System.Windows.Forms.Button bNoticias;
+        private System.Windows.Forms.Button bInicio;
         private System.Windows.Forms.Button bEventos;
         private System.Windows.Forms.Button bInfo;
         private System.Windows.Forms.Button bContacto;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Asuma
 {
-    class Permission
+    public class Permission
     {
         private Rol rol;
         private string pantalla;

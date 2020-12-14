@@ -61,5 +61,10 @@ namespace Asuma
         {
             get { return this.admin; }
         }
+
+        public List<Permission> Permisos
+        {
+            get { return this.permisos; }
+        }
     }
 }

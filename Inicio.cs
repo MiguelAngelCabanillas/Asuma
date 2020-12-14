@@ -70,5 +70,22 @@ namespace Asuma
         {
             panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, this.Height / 2 - panel1.Height / 2);
         }
+
+
+        private void tPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                bInicio.PerformClick();
+            }
+        }
+
+        private void tUser_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                bInicio.PerformClick();
+            }
+        }
     }
 }

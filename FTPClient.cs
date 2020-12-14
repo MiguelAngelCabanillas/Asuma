@@ -10,6 +10,8 @@ namespace Asuma
 {
     public class FTPClient
     {
+
+        public static bool ftpOn = true;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
 
@@ -89,6 +91,15 @@ namespace Asuma
             response.Close();*/
         }
 
+        public byte[] DownloadFileBytesInArray(string filename)
+        {
+            WebClient client = new WebClient();
+            string url = _remoteHost + filename;
+            client.Credentials = new NetworkCredential(_remoteUser, _remotePass);
+            byte[] contents = client.DownloadData(url);
+            return contents;
+        }
+
         /// <summary>
         /// Remove a file from the server.
         /// </summary>
@@ -137,20 +148,6 @@ namespace Asuma
             sourceStream.Close();
         }
 
-        public bool DoesFtpDirectoryExist(string dirPath)
-        {
-            try
-            {
-                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + dirPath);
-                request.Method = WebRequestMethods.Ftp.ListDirectory;
-                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-                return true;
-            }
-            catch (WebException ex)
-            {
-                return false;
-            }
-        }
 
         public void MakeFtpDirectory(string directory)
         {

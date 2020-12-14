@@ -41,27 +41,32 @@
             // 
             // tUser
             // 
-            this.tUser.Location = new System.Drawing.Point(258, 73);
-            this.tUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tUser.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tUser.Location = new System.Drawing.Point(344, 90);
+            this.tUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tUser.Name = "tUser";
-            this.tUser.Size = new System.Drawing.Size(149, 20);
+            this.tUser.Size = new System.Drawing.Size(197, 23);
             this.tUser.TabIndex = 0;
+            this.tUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tUser_KeyPress);
             // 
             // tPassword
             // 
-            this.tPassword.Location = new System.Drawing.Point(258, 109);
-            this.tPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tPassword.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tPassword.Location = new System.Drawing.Point(344, 134);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(149, 20);
+            this.tPassword.Size = new System.Drawing.Size(197, 23);
             this.tPassword.TabIndex = 1;
+            this.tPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tPassword_KeyPress);
             // 
             // bInicio
             // 
-            this.bInicio.Location = new System.Drawing.Point(80, 185);
-            this.bInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInicio.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInicio.Location = new System.Drawing.Point(107, 228);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(101, 24);
+            this.bInicio.Size = new System.Drawing.Size(135, 30);
             this.bInicio.TabIndex = 2;
             this.bInicio.Text = "Iniciar sesion";
             this.bInicio.UseVisualStyleBackColor = true;
@@ -69,10 +74,11 @@
             // 
             // bRegistrarse
             // 
-            this.bRegistrarse.Location = new System.Drawing.Point(306, 185);
-            this.bRegistrarse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bRegistrarse.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bRegistrarse.Location = new System.Drawing.Point(408, 228);
+            this.bRegistrarse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bRegistrarse.Name = "bRegistrarse";
-            this.bRegistrarse.Size = new System.Drawing.Size(101, 24);
+            this.bRegistrarse.Size = new System.Drawing.Size(135, 30);
             this.bRegistrarse.TabIndex = 4;
             this.bRegistrarse.Text = "Registrarse";
             this.bRegistrarse.UseVisualStyleBackColor = true;
@@ -82,10 +88,9 @@
             // 
             this.lUserName.AutoSize = true;
             this.lUserName.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lUserName.Location = new System.Drawing.Point(77, 73);
-            this.lUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lUserName.Location = new System.Drawing.Point(103, 90);
             this.lUserName.Name = "lUserName";
-            this.lUserName.Size = new System.Drawing.Size(163, 18);
+            this.lUserName.Size = new System.Drawing.Size(204, 25);
             this.lUserName.TabIndex = 5;
             this.lUserName.Text = "Nombre de usuario";
             // 
@@ -93,19 +98,19 @@
             // 
             this.lPassWord.AutoSize = true;
             this.lPassWord.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPassWord.Location = new System.Drawing.Point(77, 111);
-            this.lPassWord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lPassWord.Location = new System.Drawing.Point(103, 137);
             this.lPassWord.Name = "lPassWord";
-            this.lPassWord.Size = new System.Drawing.Size(101, 18);
+            this.lPassWord.Size = new System.Drawing.Size(127, 25);
             this.lPassWord.TabIndex = 6;
             this.lPassWord.Text = "Contraseña";
             // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(424, 266);
-            this.bExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bExit.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Location = new System.Drawing.Point(565, 327);
+            this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(57, 24);
+            this.bExit.Size = new System.Drawing.Size(76, 30);
             this.bExit.TabIndex = 7;
             this.bExit.Text = "Salir";
             this.bExit.UseVisualStyleBackColor = true;
@@ -120,22 +125,24 @@
             this.panel1.Controls.Add(this.lPassWord);
             this.panel1.Controls.Add(this.tPassword);
             this.panel1.Controls.Add(this.bInicio);
-            this.panel1.Location = new System.Drawing.Point(267, 57);
+            this.panel1.Location = new System.Drawing.Point(356, 70);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(483, 292);
+            this.panel1.Size = new System.Drawing.Size(644, 359);
             this.panel1.TabIndex = 8;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(980, 394);
+            this.ClientSize = new System.Drawing.Size(1307, 485);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(483, 292);
+            this.MinimumSize = new System.Drawing.Size(638, 349);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

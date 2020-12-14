@@ -19,6 +19,7 @@ namespace Asuma
             InitializeComponent();
             actualizar();
             añadirAlPanel();
+            this.ActiveControl = bInicio;
         }
 
         private void añadirAlPanel()
@@ -42,7 +43,7 @@ namespace Asuma
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -56,6 +57,7 @@ namespace Asuma
             this.Usuario = Inicio.usuario;
             actualizar();
             this.Visible = true;
+            this.ActiveControl = bInicio;
         }
 
         public User Usuario
@@ -86,17 +88,15 @@ namespace Asuma
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Se puede hacer que cierre solo sesion y siga en la plataforma
-            usuario = null;
-            this.Close();
+            Environment.Exit(Environment.ExitCode);
         }
 
         private void bEventos_Click(object sender, EventArgs e)
         {
-
-                Eventos ev = new Eventos(usuario);
-                this.Visible = false;
-                ev.ShowDialog();
-                this.Visible = true;
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Visible = false;
         }
 
         private void pASUMA_Paint(object sender, PaintEventArgs e)
