@@ -14,6 +14,7 @@ namespace Asuma
     public partial class MisEventos : Form
     {
         private User usuario;
+        public Boolean isClosed = false;
         public MisEventos(User usuario)
         {
             this.usuario = usuario;
@@ -196,8 +197,16 @@ namespace Asuma
 
             InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
             this.Visible = false;
+            infoEventoInscrito.Owner = this;
             infoEventoInscrito.ShowDialog();
-            this.Visible = true;
+            if(!this.isClosed)
+            {
+                this.Visible = true;
+                panelEventos.Controls.Clear();
+                mostrarEventos();
+            }
+           
+            
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -267,7 +276,7 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
-            this.Visible = false;
+            this.Close();
         }
 
         private void bEventos_Click(object sender, EventArgs e)
@@ -276,6 +285,11 @@ namespace Asuma
             Eventos ev = new Eventos(usuario);
             ev.Show();
             this.Visible = false;
+        }
+
+        private void MisEventos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            isClosed = true;
         }
     }
 }

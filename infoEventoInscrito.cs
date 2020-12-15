@@ -17,10 +17,13 @@ namespace Asuma
         private Event evento;
         private User usuario;
         private Forum foro;
+        public bool isClosed = false;
+
         public InfoEventoInscrito(Event e, User u)
         {
             this.evento = e;
             this.usuario = u;
+
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
             if (e.EventCreator.Equals(u.Username)){
@@ -74,9 +77,13 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             EditarEvento ed = new EditarEvento(evento,usuario);
+            ed.Owner = this;
             this.Visible = false;
             ed.ShowDialog();
-            this.Visible = true;
+            if (!isClosed)
+            {
+                this.Visible = true;
+            }
         }
 
         private void actualizar()
@@ -160,7 +167,10 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
+            //misEventos.Close();
+            this.Owner.Close();
             this.Close();
+            
         }
 
         private void bEventos_Click(object sender, EventArgs e)
@@ -168,6 +178,7 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
+            this.Owner.Close();
             this.Close();
         }
 
@@ -192,6 +203,11 @@ namespace Asuma
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void InfoEventoInscrito_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            isClosed = true;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Asuma
     public partial class Eventos : Form
     {
         private User usuario;
+        private bool isClosed = false;
         public Eventos(User usuario)
         {
             InitializeComponent();
@@ -286,9 +287,14 @@ namespace Asuma
                             
                             Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                            infoEvento.Owner = this;
                             this.Visible = false;
                             infoEvento.ShowDialog();
-                            this.Visible = true;
+                            if (!isClosed)
+                            {
+                                this.Visible = true;
+                            }
+                            
 
                             /*
                             Cursor.Current = Cursors.WaitCursor;
@@ -315,8 +321,13 @@ namespace Asuma
 
                         Cursor.Current = Cursors.WaitCursor;
                         InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                        infoEvento.Show();
-                        this.Close();
+                        infoEvento.Owner = this;
+                        this.Visible = false;
+                        infoEvento.ShowDialog();
+                        if (!isClosed)
+                        {
+                            this.Visible = true;
+                        }
 
                     }
                 }
@@ -335,8 +346,13 @@ namespace Asuma
 
                     Cursor.Current = Cursors.WaitCursor;
                     InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                    infoEvento.Show();
-                    this.Close();
+                    infoEvento.Owner = this;
+                    this.Visible = false;
+                    infoEvento.ShowDialog();
+                    if (!isClosed)
+                    {
+                        this.Visible = true;
+                    }
                 }
             }
         }
@@ -384,6 +400,12 @@ namespace Asuma
             Eventos eventos = new Eventos(usuario);
             eventos.Show();
             this.Close();
+           
+        }
+
+        private void Eventos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            isClosed = true;
         }
     }
 }

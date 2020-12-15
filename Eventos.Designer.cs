@@ -223,6 +223,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eventos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Eventos_FormClosing);
             this.Resize += new System.EventHandler(this.Eventos_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();

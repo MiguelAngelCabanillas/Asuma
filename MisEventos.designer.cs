@@ -202,6 +202,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MisEventos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MisEventos_FormClosing);
             this.Resize += new System.EventHandler(this.MisEventos_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();

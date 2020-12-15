@@ -145,11 +145,10 @@ namespace Asuma
                 BD bd = new BD();
                 MySqlDataReader writer = bd.Query("UPDATE event SET eventName = '" + title + "', date = '" + date + "', image = '" + image + "', eventDescription = '" + description + "', organizer = '" + organizer + "' WHERE idEvent = " + evento.ID);
                 MessageBox.Show("Se ha editado el evento correctamente");
-                InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
-                ei.Show();
-                this.Close();
                 writer.Close();
                 bd.closeBD();
+                this.Owner.Close();
+                this.Close();
 
                 if (FTPClient.ftpOn)
                 {
@@ -165,7 +164,7 @@ namespace Asuma
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
             }
         }
 
@@ -180,7 +179,9 @@ namespace Asuma
                 FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
                 ftp.DeleteFTPDirectory("eventos/" + evento.ID + "/");
                 MessageBox.Show("Evento eliminado con éxito");
+                this.Owner.Close();
                 this.Close();
+
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -192,6 +193,7 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
+            this.Owner.Owner.Close();
             this.Close();
 
         }
@@ -201,6 +203,7 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
+            this.Owner.Owner.Close();
             this.Close();
         }
 
