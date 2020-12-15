@@ -108,13 +108,8 @@ namespace Asuma
 
         private void bSalir_Click(object sender, EventArgs e)
         {
-
-            
             Cursor.Current = Cursors.WaitCursor;
-            Eventos ev = new Eventos(usuario);
-            ev.Show();
             this.Close();
-            
         }
 
         private void bInscription_Click(object sender, EventArgs e)
@@ -141,7 +136,7 @@ namespace Asuma
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 40;
-            this.bNoticias.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -211,6 +206,26 @@ namespace Asuma
         public User Usuario
         {
             get { return usuario; }
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            //misEventos.Close();
+            this.Owner.Close();
+            this.Close();
+
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Owner.Close();
+            this.Close();
         }
     }
 }
