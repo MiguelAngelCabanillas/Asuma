@@ -192,12 +192,12 @@ namespace Asuma
         {
             try
             {
-                BD bd = new BD();
-                MySqlDataReader reader = bd.Query("SELECT forumID FROM forum WHERE eventID = " + evento.ID + ";");
-                reader.Read();
-                foro = new Forum((int)reader[0]);
-                reader.Close();
-                bd.closeBD();
+               // BD bd = new BD();
+                //MySqlDataReader reader = bd.Query("SELECT eventID FROM forum WHERE eventID = " + evento.ID + ";");
+                //reader.Read();
+                foro = new Forum(evento.ID);
+               // reader.Close();
+                //bd.closeBD();
             }
             catch (Exception ex)
             {
