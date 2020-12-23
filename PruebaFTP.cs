@@ -13,19 +13,35 @@ namespace Asuma
     public partial class PruebaFTP : Form
     {
         FTPClient ftp;
+        Event evento;
         string seleccionado;
+        List<String> subdirectorios;
 
-        public PruebaFTP()
+        public PruebaFTP(Event evento, string carpeta)
         {
             InitializeComponent();
-            ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+            this.evento = evento;
+            ftp = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/files/" + carpeta + "/", "Prueba", "");
+            this.subdirectorios = ftp.FTPSubdirectories("");
+
         }
 
         private void PruebaFTP_Load(object sender, EventArgs e)
         {
-            List<string> archivos = ftp.DirectoryListing();
-            var result = archivos.Select(s => new { value = s }).ToList();
+            //Selector de archivos
+             List<string> archivos = ftp.DirectoryListing();
+             foreach (string directorio in subdirectorios)
+             {
+                 archivos.Remove(directorio);
+             }
+
+            var result = archivos.Select(s => new { Nombre = s , Tamaño = Commons.LongToBytesMagnitude(ftp.GetFileDownloadSize(s)) }).ToList();
             dataGridView1.DataSource = result;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
+            //Selector de carpetas
+             /* var result = subdirectorios.Select(s => new { Carpeta = s }).ToList();
+            dataGridView1.DataSource = result;*/
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -103,8 +119,27 @@ namespace Asuma
             MessageBox.Show("Se ha subido correctamente el archivo " + openFileDialog1.FileName.Split(separadores)[openFileDialog1.FileName.Split(separadores).Length - 1]);
 
             List<string> archivos = ftp.DirectoryListing();
-            var result = archivos.Select(s => new { value = s }).ToList();
+            var result = archivos.Select(s => new { Nombre = s, Tamaño = Commons.LongToBytesMagnitude(ftp.GetFileDownloadSize(s)) }).ToList();
             dataGridView1.DataSource = result;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void bVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            /*if (seleccionado != null)
+            {
+                ftp.DeleteFileFromServer(seleccionado);
+                MessageBox.Show("El programa ha terminado de descargar " + seleccionado + " correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione antes un archivo que descargar.");
+            }*/
         }
 
 

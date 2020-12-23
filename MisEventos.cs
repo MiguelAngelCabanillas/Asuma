@@ -225,6 +225,7 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             CrearEvento crearEvento = new CrearEvento(usuario);
+            crearEvento.Owner = this;
             /*
             crearEvento.Show();
             this.Close();           
@@ -232,7 +233,11 @@ namespace Asuma
 
             this.Visible = false;
             crearEvento.ShowDialog();
-            this.Visible = true;
+            if (!this.isClosed)
+            {
+                this.Visible = true;
+            }
+            
 
             
 

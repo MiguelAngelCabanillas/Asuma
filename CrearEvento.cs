@@ -108,6 +108,7 @@ namespace Asuma
                     try
                     {
                         ftp.MakeFtpDirectory("eventos/" + evento.ID);
+                        ftp.MakeFtpDirectory("eventos/" + evento.ID + "/files");
                     }
                     catch (Exception ex) { }
                     ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
@@ -117,12 +118,13 @@ namespace Asuma
                 MessageBox.Show("Evento creado con exito");
                 MisEventos misEventos = new MisEventos(usuario);
                 misEventos.Show();
+                this.Owner.Close();
                 this.Close();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               // MessageBox.Show(ex.Message);
             }
         }
 
