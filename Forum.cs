@@ -16,7 +16,7 @@ namespace Asuma
             try
             {
                 BD bd = new BD();
-                MySqlDataReader reader = bd.Query("SELECT * FROM forum WHERE forumID = " + idForo + ";");
+                MySqlDataReader reader = bd.Query("SELECT * FROM forum WHERE eventID = " + idForo + ";");
                 reader.Read();
                 _idForo = (int)reader[0];
                 _evento = new Event((int)reader[1]);

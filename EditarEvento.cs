@@ -184,7 +184,7 @@ namespace Asuma
 
             }catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               // MessageBox.Show(ex.Message);
             }
         }
 
@@ -231,7 +231,7 @@ namespace Asuma
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+               // MessageBox.Show(ex.Message);
             }
         }
 
@@ -265,6 +265,12 @@ namespace Asuma
                     MessageBox.Show("Formatos compatibles: .png, .PNG, .jpg, .JPG, .jpeg, .JPEG");
                     break;
             }
+        }
+
+        private void linkVideochat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Directorios pftp = new Directorios(evento);
+            pftp.ShowDialog();
         }
     }
 }

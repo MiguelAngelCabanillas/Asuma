@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="Commons.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +129,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Directorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directorios.Designer.cs">
+      <DependentUpon>Directorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaFTP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaFTP.Designer.cs">
+      <DependentUpon>PruebaFTP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,12 +148,7 @@
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs" />
-    <Compile Include="Tema.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tema.Designer.cs">
-      <DependentUpon>Tema.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Tema.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
@@ -178,11 +186,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Directorios.resx">
+      <DependentUpon>Directorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PruebaFTP.resx">
+      <DependentUpon>PruebaFTP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tema.resx">
-      <DependentUpon>Tema.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

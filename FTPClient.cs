@@ -38,6 +38,11 @@ namespace Asuma
             return DirectoryListing(string.Empty);
         }
 
+        public void NavigateTo(string directory)
+        {
+            _remoteHost += directory;
+        }
+
         /// <summary>
         /// List files and folders in a given folder on the server
         /// </summary>
@@ -90,6 +95,18 @@ namespace Asuma
             // writer.Close();
             /* reader.Close();
              response.Close();*/
+        }
+
+        public float GetFileDownloadSize(string filename)
+        {
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(_remoteHost + filename);
+            request.Credentials = new NetworkCredential(_remoteUser, _remotePass);
+            request.Method = WebRequestMethods.Ftp.GetFileSize;
+
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            float size = response.ContentLength;
+            response.Close();
+            return size;
         }
 
         public byte[] DownloadFileBytesInArray(string filename)
@@ -192,9 +209,15 @@ namespace Asuma
 
             List<string> filesList = DirectoryListing(directory);
 
+            foreach(string subdirectory in FTPSubdirectories(directory)){
+                DeleteFTPDirectory(directory + "/" + subdirectory + "/" );
+                filesList.Remove(subdirectory);
+            }
+
+            char[] delimitadores = { '/' };
             foreach (string file in filesList)
             {
-                DeleteFTPFile(directory + file);
+                DeleteFTPFile(directory + "/" + file.Split(delimitadores)[file.Split(delimitadores).Length-1]);
             }
 
             clsRequest.Method = WebRequestMethods.Ftp.RemoveDirectory;
@@ -208,6 +231,30 @@ namespace Asuma
             sr.Close();
             datastream.Close();
             response.Close();
+        }
+
+        public List<string> FTPSubdirectories(string path)
+        {
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + path);
+            request.Credentials = new System.Net.NetworkCredential(_remoteUser, _remotePass);
+            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            Stream responseStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(responseStream);
+
+            string directoryRaw = null;
+            List<string> directorios = new List<string>();
+            char[] split = {' '};
+            try { while (reader.Peek() != -1) {
+                directoryRaw = reader.ReadLine();
+                if (directoryRaw[0] == 'd')
+                {
+                    directorios.Add(directoryRaw.Split(split)[directoryRaw.Split(split).Length-1]/*.Replace("_", " ")*/);
+                }
+            } }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            return directorios;
         }
     }
 }
