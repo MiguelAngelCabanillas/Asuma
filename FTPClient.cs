@@ -10,6 +10,9 @@ namespace Asuma
 {
     public class FTPClient
     {
+
+        public static bool ftpOn = true;
+        public static bool ftpBackupOn = false;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
 
@@ -33,6 +36,11 @@ namespace Asuma
         public List<string> DirectoryListing()
         {
             return DirectoryListing(string.Empty);
+        }
+
+        public void NavigateTo(string directory)
+        {
+            _remoteHost += directory;
         }
 
         /// <summary>
@@ -81,12 +89,33 @@ namespace Asuma
                 streamIn.CopyTo(streamOut);
             }
 
-           /* StreamWriter writer = new StreamWriter(destination);
-            writer.Write(reader.ReadToEnd());*/
+            /* StreamWriter writer = new StreamWriter(destination);
+             writer.Write(reader.ReadToEnd());*/
 
-           // writer.Close();
-           /* reader.Close();
-            response.Close();*/
+            // writer.Close();
+            /* reader.Close();
+             response.Close();*/
+        }
+
+        public float GetFileDownloadSize(string filename)
+        {
+            FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(_remoteHost + filename);
+            request.Credentials = new NetworkCredential(_remoteUser, _remotePass);
+            request.Method = WebRequestMethods.Ftp.GetFileSize;
+
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            float size = response.ContentLength;
+            response.Close();
+            return size;
+        }
+
+        public byte[] DownloadFileBytesInArray(string filename)
+        {
+            WebClient client = new WebClient();
+            string url = _remoteHost + filename;
+            client.Credentials = new NetworkCredential(_remoteUser, _remotePass);
+            byte[] contents = client.DownloadData(url);
+            return contents;
         }
 
         /// <summary>
@@ -135,6 +164,97 @@ namespace Asuma
             /**response.Close();
             requestStream.Close();*/
             sourceStream.Close();
+        }
+
+
+        public void MakeFtpDirectory(string directory)
+        {
+
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + directory);
+            request.Credentials = new NetworkCredential("Prueba", "");
+            request.Method = WebRequestMethods.Ftp.MakeDirectory;
+            using (var resp = (FtpWebResponse)request.GetResponse())
+            {
+                Console.WriteLine(resp.StatusCode);
+            }
+
+
+
+            /*FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(_remoteHost + directory);
+            request.Method = WebRequestMethods.Ftp.MakeDirectory;
+            request.Credentials = new NetworkCredential(_remoteUser, _remotePass);*/
+        }
+
+        public void DeleteFTPFile(string destination)
+        {
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + destination);
+            request.Credentials = new System.Net.NetworkCredential(_remoteUser, _remotePass);
+            request.Method = WebRequestMethods.Ftp.DeleteFile;
+
+            string result = string.Empty;
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            long size = response.ContentLength;
+            Stream datastream = response.GetResponseStream();
+            StreamReader sr = new StreamReader(datastream);
+            result = sr.ReadToEnd();
+            sr.Close();
+            datastream.Close();
+            response.Close();
+        }
+
+        public void DeleteFTPDirectory(string directory)
+        {
+            FtpWebRequest clsRequest = (System.Net.FtpWebRequest)WebRequest.Create(_remoteHost + directory);
+            clsRequest.Credentials = new System.Net.NetworkCredential(_remoteUser, _remotePass);
+
+            List<string> filesList = DirectoryListing(directory);
+
+            foreach(string subdirectory in FTPSubdirectories(directory)){
+                DeleteFTPDirectory(directory + "/" + subdirectory + "/" );
+                filesList.Remove(subdirectory);
+            }
+
+            char[] delimitadores = { '/' };
+            foreach (string file in filesList)
+            {
+                DeleteFTPFile(directory + "/" + file.Split(delimitadores)[file.Split(delimitadores).Length-1]);
+            }
+
+            clsRequest.Method = WebRequestMethods.Ftp.RemoveDirectory;
+
+            string result = string.Empty;
+            FtpWebResponse response = (FtpWebResponse)clsRequest.GetResponse();
+            long size = response.ContentLength;
+            Stream datastream = response.GetResponseStream();
+            StreamReader sr = new StreamReader(datastream);
+            result = sr.ReadToEnd();
+            sr.Close();
+            datastream.Close();
+            response.Close();
+        }
+
+        public List<string> FTPSubdirectories(string path)
+        {
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + path);
+            request.Credentials = new System.Net.NetworkCredential(_remoteUser, _remotePass);
+            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            Stream responseStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(responseStream);
+
+            string directoryRaw = null;
+            List<string> directorios = new List<string>();
+            char[] split = {' '};
+            try { while (reader.Peek() != -1) {
+                directoryRaw = reader.ReadLine();
+                if (directoryRaw[0] == 'd')
+                {
+                    directorios.Add(directoryRaw.Split(split)[directoryRaw.Split(split).Length-1]/*.Replace("_", " ")*/);
+                }
+            } }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            return directorios;
         }
     }
 }

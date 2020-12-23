@@ -67,11 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="Commons.cs" />
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrearEvento.Designer.cs">
       <DependentUpon>CrearEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarEvento.Designer.cs">
+      <DependentUpon>EditarEvento.cs</DependentUpon>
     </Compile>
     <Compile Include="Error.cs" />
     <Compile Include="Event.cs" />
@@ -82,6 +89,28 @@
       <DependentUpon>Eventos.cs</DependentUpon>
     </Compile>
     <Compile Include="FTPClient.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="FormForo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForo.Designer.cs">
+      <DependentUpon>FormForo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forum.cs" />
+    <Compile Include="InfoEvento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoEvento.Designer.cs">
+      <DependentUpon>InfoEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoEventoInscrito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoEventoInscrito.Designer.cs">
+      <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
+    </Compile>
+>>>>>>> exp
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,7 +120,7 @@
     <Compile Include="MisEventos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisEventos.designer.cs">
+    <Compile Include="MisEventos.Designer.cs">
       <DependentUpon>MisEventos.cs</DependentUpon>
     </Compile>
     <Compile Include="Permission.cs" />
@@ -103,6 +132,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Directorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Directorios.Designer.cs">
+      <DependentUpon>Directorios.cs</DependentUpon>
+    </Compile>
+>>>>>>> exp
     <Compile Include="PruebaFTP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,12 +154,25 @@
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs" />
+    <Compile Include="Tema.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditarEvento.resx">
+      <DependentUpon>EditarEvento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Eventos.resx">
       <DependentUpon>Eventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForo.resx">
+      <DependentUpon>FormForo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoEvento.resx">
+      <DependentUpon>InfoEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoEventoInscrito.resx">
+      <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -141,6 +192,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="Directorios.resx">
+      <DependentUpon>Directorios.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> exp
     <EmbeddedResource Include="PruebaFTP.resx">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
     </EmbeddedResource>

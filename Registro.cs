@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySqlConnector;
 
 namespace Asuma
 {
@@ -46,7 +47,7 @@ namespace Asuma
                 string password = tPassword.Text;
                 string repeatedPassword = tRepeatPassword.Text;
                 string userType = cUserType.Text;
-                string code = lCode.Text;
+                string code = tCode.Text;
                 bool terms = cTerms.Checked;
                 if (!terms)
                 {
@@ -71,7 +72,7 @@ namespace Asuma
                 {
                     MessageBox.Show("Debe introducir un tipo de usuario");
                 } 
-                else if (userType.Equals("Usuario") && code.Equals(""))
+                else if (!userType.Equals("Usuario") && code.Equals(""))
                 {
                     MessageBox.Show("Debe introducir su código");
                 } 
@@ -79,13 +80,34 @@ namespace Asuma
                 {
                     MessageBox.Show("Las contraseñas introducidas no coinciden");
                 }
+                else if(userType.Equals("Docente") || userType.Equals("ONG"))
+                {
+                    BD bd = new BD();
+                    MySqlDataReader reader = bd.Query("SELECT * FROM codes WHERE code = '" + code + "'");
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        string roleName = (string)reader[1];
+                        reader.Close();
+                        bd.closeBD();
+                        if (userType.Equals(roleName))
+                        {
+                            User user = new User(username, password, email, userType);
+                            MessageBox.Show("Registro realizado con exito");
+                            this.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Codigo introducido incorrecto");
+                    }
+                }
                 else
                 {
                     User user = new User(username, password, email, userType);
                     MessageBox.Show("Registro realizado con exito");
                     this.Visible = false;
-                }
-                   
+                }                
             }
             catch(Exception ex)
             {

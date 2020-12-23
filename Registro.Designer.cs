@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registro));
             this.tUsername = new System.Windows.Forms.TextBox();
             this.tEmail = new System.Windows.Forms.TextBox();
             this.tPassword = new System.Windows.Forms.TextBox();
@@ -48,28 +49,30 @@
             // 
             this.tUsername.Location = new System.Drawing.Point(604, 103);
             this.tUsername.Name = "tUsername";
-            this.tUsername.Size = new System.Drawing.Size(277, 22);
+            this.tUsername.Size = new System.Drawing.Size(277, 23);
             this.tUsername.TabIndex = 0;
             // 
             // tEmail
             // 
             this.tEmail.Location = new System.Drawing.Point(604, 160);
             this.tEmail.Name = "tEmail";
-            this.tEmail.Size = new System.Drawing.Size(277, 22);
+            this.tEmail.Size = new System.Drawing.Size(277, 23);
             this.tEmail.TabIndex = 1;
             // 
             // tPassword
             // 
             this.tPassword.Location = new System.Drawing.Point(604, 224);
             this.tPassword.Name = "tPassword";
-            this.tPassword.Size = new System.Drawing.Size(171, 22);
+            this.tPassword.PasswordChar = '*';
+            this.tPassword.Size = new System.Drawing.Size(171, 23);
             this.tPassword.TabIndex = 2;
             // 
             // tRepeatPassword
             // 
             this.tRepeatPassword.Location = new System.Drawing.Point(604, 272);
             this.tRepeatPassword.Name = "tRepeatPassword";
-            this.tRepeatPassword.Size = new System.Drawing.Size(171, 22);
+            this.tRepeatPassword.PasswordChar = '*';
+            this.tRepeatPassword.Size = new System.Drawing.Size(171, 23);
             this.tRepeatPassword.TabIndex = 3;
             // 
             // cUserType
@@ -88,9 +91,10 @@
             // lUsername
             // 
             this.lUsername.AutoSize = true;
+            this.lUsername.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lUsername.Location = new System.Drawing.Point(397, 103);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(129, 17);
+            this.lUsername.Size = new System.Drawing.Size(142, 17);
             this.lUsername.TabIndex = 6;
             this.lUsername.Text = "Nombre de usuario";
             this.lUsername.Click += new System.EventHandler(this.lUsername_Click);
@@ -98,36 +102,40 @@
             // lEmail
             // 
             this.lEmail.AutoSize = true;
+            this.lEmail.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lEmail.Location = new System.Drawing.Point(484, 163);
             this.lEmail.Name = "lEmail";
-            this.lEmail.Size = new System.Drawing.Size(42, 17);
+            this.lEmail.Size = new System.Drawing.Size(44, 17);
             this.lEmail.TabIndex = 7;
             this.lEmail.Text = "Email";
             // 
             // lPassword
             // 
             this.lPassword.AutoSize = true;
+            this.lPassword.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lPassword.Location = new System.Drawing.Point(445, 224);
             this.lPassword.Name = "lPassword";
-            this.lPassword.Size = new System.Drawing.Size(81, 17);
+            this.lPassword.Size = new System.Drawing.Size(89, 17);
             this.lPassword.TabIndex = 8;
             this.lPassword.Text = "Contraseña";
             // 
             // lRepeatPassword
             // 
             this.lRepeatPassword.AutoSize = true;
+            this.lRepeatPassword.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lRepeatPassword.Location = new System.Drawing.Point(397, 277);
             this.lRepeatPassword.Name = "lRepeatPassword";
-            this.lRepeatPassword.Size = new System.Drawing.Size(139, 17);
+            this.lRepeatPassword.Size = new System.Drawing.Size(151, 17);
             this.lRepeatPassword.TabIndex = 9;
             this.lRepeatPassword.Text = "Repita la contraseña";
             // 
             // lUserType
             // 
             this.lUserType.AutoSize = true;
+            this.lUserType.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lUserType.Location = new System.Drawing.Point(419, 336);
             this.lUserType.Name = "lUserType";
-            this.lUserType.Size = new System.Drawing.Size(107, 17);
+            this.lUserType.Size = new System.Drawing.Size(117, 17);
             this.lUserType.TabIndex = 10;
             this.lUserType.Text = "Tipo de usuario";
             // 
@@ -136,7 +144,7 @@
             this.cTerms.AutoSize = true;
             this.cTerms.Location = new System.Drawing.Point(604, 452);
             this.cTerms.Name = "cTerms";
-            this.cTerms.Size = new System.Drawing.Size(454, 21);
+            this.cTerms.Size = new System.Drawing.Size(502, 21);
             this.cTerms.TabIndex = 11;
             this.cTerms.Text = "Acepto los términos y condiciones de uso y la política de privacidad";
             this.cTerms.UseVisualStyleBackColor = true;
@@ -155,16 +163,17 @@
             // 
             this.tCode.Location = new System.Drawing.Point(604, 390);
             this.tCode.Name = "tCode";
-            this.tCode.Size = new System.Drawing.Size(171, 22);
+            this.tCode.Size = new System.Drawing.Size(171, 23);
             this.tCode.TabIndex = 13;
             this.tCode.Visible = false;
             // 
             // lCode
             // 
             this.lCode.AutoSize = true;
+            this.lCode.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lCode.Location = new System.Drawing.Point(387, 395);
             this.lCode.Name = "lCode";
-            this.lCode.Size = new System.Drawing.Size(139, 17);
+            this.lCode.Size = new System.Drawing.Size(157, 17);
             this.lCode.TabIndex = 14;
             this.lCode.Text = "Introduzca su código";
             this.lCode.Visible = false;
@@ -188,8 +197,10 @@
             this.Controls.Add(this.tPassword);
             this.Controls.Add(this.tEmail);
             this.Controls.Add(this.tUsername);
+            this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Registro";
-            this.Text = "registro";
+            this.Text = "Registro";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Asuma
 {
-    class Permission
+    public class Permission
     {
         private Rol rol;
         private string pantalla;
@@ -25,6 +25,8 @@ namespace Asuma
                     list.Add(new Permission(rol, pantalla));
                 }
             }
+            reader.Close();
+            bd.closeBD();
             return list;
         }
 
@@ -37,6 +39,8 @@ namespace Asuma
                 this.rol = new Rol((string)reader[0]);
                 this.pantalla = (string)reader[1];
             }
+            reader.Close();
+            bd.closeBD();
         }
 
         public Rol Rol

@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace Asuma
 {
-    class Event
+    public class Event
     {
         private int id;
         private string eventName;
-        private MySqlDateTime date;
+        private string date;
         private string image;
         private string eventDescription;
         private string organizer;
-
+        private string eventCreator;
+        private Forum _foro; 
         public Event(int id)
         {
             BD bd = new BD();
@@ -23,31 +24,97 @@ namespace Asuma
             while (reader.Read())
             {
                 this.eventName = (string)reader[0];
-                this.date = (MySqlDateTime)reader[1];
+                this.date = (string)reader[1];
                 this.image = (string)reader[2];
                 this.eventDescription = (string)reader[3];
                 this.organizer = (string)reader[4];
                 this.id = (int)reader[5];
+                this.eventCreator = (string)reader[6];
             }
             reader.Close();
+            bd.closeBD();
         }
 
-        public Event(int id, string eventName, MySqlDateTime date, string image, string eventDescription, string organizer)
+        public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator)
         {
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("INSERT INTO event VALUES ('" + eventName + "', " + date + ", '"
-                + image + "', '" + eventDescription + "', + '" + organizer + "', " + id + ");");
+            //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
+            //  + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
+            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "')");
+            writer.Close();
+            bd.closeBD();
+
+            bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT MAX(idEvent) FROM event");
+            reader.Read();
+            this.id = (int)reader[0];
+            reader.Close();
+            bd.closeBD();
+
+
+            bd = new BD();
+            MySqlDataReader writer2 = bd.Query("INSERT INTO inscription VALUES ('" + eventCreator + "', " + id + ")");
+            this.eventDescription = eventDescription;
+            this.eventName = eventName;
+            this.date = date;
+            this.image = image;
+            this.eventDescription = eventDescription;
+            this.organizer = organizer;
+            this.eventCreator = eventCreator;
+
+            writer2.Close();
+            bd.closeBD();
+        }
+
+
+        public static List<Event> listaEventos()
+        {
+            List<Event> lista = new List<Event>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event ORDER BY date ASC");
+                while (reader.Read())
+                {
+                    int id = (int)reader[0];
+                    Event e = new Event(id);
+                    lista.Add(e);
+                }
+            reader.Close();
+            bd.closeBD();
+            return lista;   
+        }
+
+        public static List<Event> listaEventosUsuario(User usuario)
+        {
+            List<Event> lista = new List<Event>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM inscription WHERE userName = '" + usuario.Username + "'");
             while (reader.Read())
             {
-                this.id = id;
-                this.eventDescription = eventDescription;
-                this.eventName = eventName;
-                this.date = date;
-                this.image = image;
-                this.eventDescription = eventDescription;
-                this.organizer = organizer;
+                int id = (int)reader[0];
+                Event e = new Event(id);
+                lista.Add(e);
             }
+            reader.Close();
+            bd.closeBD();
+            return lista;
         }
+
+        public static List<int> listaEventosCreados(User usuario)
+        {
+            List<int> lista = new List<int>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event WHERE eventCreator = '" + usuario.Username + "'");
+            while (reader.Read())
+            {
+                int id = (int)reader[0];
+                //Event e = new Event(id);
+                lista.Add(id);
+            }
+            reader.Close();
+            bd.closeBD();
+            return lista;
+        }
+
 
         public int ID {
             get { return this.id; }
@@ -58,7 +125,7 @@ namespace Asuma
             get { return this.eventName; }
         }
 
-        public MySqlDateTime Date
+        public string Date
         {
             get { return this.date; }
         }
@@ -76,6 +143,11 @@ namespace Asuma
         public string Organizer
         {
             get { return this.organizer; }
+        }
+
+        public string EventCreator
+        {
+            get { return this.eventCreator; }
         }
     }
 }

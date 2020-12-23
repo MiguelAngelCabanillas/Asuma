@@ -33,6 +33,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button2 = new System.Windows.Forms.Button();
+            this.bVolver = new System.Windows.Forms.Button();
+            this.bEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             // 
             // bArchivo
             // 
-            this.bArchivo.Location = new System.Drawing.Point(88, 272);
+            this.bArchivo.Location = new System.Drawing.Point(48, 273);
             this.bArchivo.Name = "bArchivo";
             this.bArchivo.Size = new System.Drawing.Size(286, 20);
             this.bArchivo.TabIndex = 1;
@@ -55,11 +57,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(401, 272);
+            this.button1.Location = new System.Drawing.Point(340, 271);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(82, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
+            this.button1.Text = "Descargar archivo";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -70,19 +72,41 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(88, 299);
+            this.button2.Location = new System.Drawing.Point(48, 301);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(388, 23);
+            this.button2.Size = new System.Drawing.Size(372, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
+            this.button2.Text = "Subir archivo";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // bVolver
+            // 
+            this.bVolver.Location = new System.Drawing.Point(439, 301);
+            this.bVolver.Name = "bVolver";
+            this.bVolver.Size = new System.Drawing.Size(75, 23);
+            this.bVolver.TabIndex = 4;
+            this.bVolver.Text = "Volver";
+            this.bVolver.UseVisualStyleBackColor = true;
+            this.bVolver.Click += new System.EventHandler(this.bVolver_Click);
+            // 
+            // bEliminar
+            // 
+            this.bEliminar.Location = new System.Drawing.Point(432, 271);
+            this.bEliminar.Name = "bEliminar";
+            this.bEliminar.Size = new System.Drawing.Size(82, 23);
+            this.bEliminar.TabIndex = 5;
+            this.bEliminar.Text = "Eliminar";
+            this.bEliminar.UseVisualStyleBackColor = true;
+            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
             // 
             // PruebaFTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 328);
+            this.Controls.Add(this.bEliminar);
+            this.Controls.Add(this.bVolver);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bArchivo);
@@ -103,5 +127,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bVolver;
+        private System.Windows.Forms.Button bEliminar;
     }
 }

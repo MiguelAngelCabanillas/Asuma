@@ -24,14 +24,15 @@ namespace Asuma
                     //bd.closeBD();
                     throw new Error("Usuario o contraseña incorrecta");
                 }
-                while (reader.Read())
-                {
-                    this.username = (string)reader[0];
-                    this.password = (string)reader[1];
-                    this.email = (string)reader[2];
-                    string rolName = (string)reader[3];
-                    this.rol = new Rol(rolName);
-                }
+                reader.Read();
+                this.username = (string)reader[0];
+                this.password = (string)reader[1];
+                this.email = (string)reader[2];
+                string rolName = (string)reader[3];
+                this.rol = new Rol(rolName);
+                reader.Close();
+                bd.closeBD();
+                
                 if (!this.password.Equals(password))
                 {
                     //bd.closeBD();
@@ -58,6 +59,7 @@ namespace Asuma
                     throw new Error("El nombre de usuario ya existe");
                 }
                 readerUsername.Close();
+
                 MySqlDataReader readerEmail = bd.Query("SELECT username FROM user where email = '" + email + "'");
                 if (readerEmail.HasRows)
                 {
@@ -71,6 +73,8 @@ namespace Asuma
 
                 MySqlDataReader writer = bd.Query("INSERT INTO user VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "')");
                 writer.Close();
+                bd.closeBD();
+
             }catch(Exception ex)
             {
                 throw new Error(ex.Message);
@@ -96,6 +100,11 @@ namespace Asuma
         public Rol Rol
         {
             get { return rol; }
+        }
+
+        public static implicit operator string(User v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
