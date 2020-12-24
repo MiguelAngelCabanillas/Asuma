@@ -76,5 +76,19 @@ namespace Asuma
             reader.Close();
             bd.closeBD();
         }
+
+        private void listaTemas_DoubleClick(object sender, EventArgs e)
+        {
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT t.topicID FROM topic t WHERE t.title = '" + listaTemas.SelectedItem.ToString() + "' AND t.forumID = " + this.foro.ID + ";");
+            reader.Read();
+            int temaID = ((int)reader[0]);
+            reader.Close();
+            bd.closeBD();
+            Mensajes mensajes = new Mensajes(this.usuario, temaID);
+            this.Visible = false;
+            mensajes.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

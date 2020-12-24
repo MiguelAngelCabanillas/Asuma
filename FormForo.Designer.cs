@@ -70,6 +70,7 @@ namespace Asuma
             this.listaTemas.Name = "listaTemas";
             this.listaTemas.Size = new System.Drawing.Size(928, 395);
             this.listaTemas.TabIndex = 3;
+            this.listaTemas.DoubleClick += new System.EventHandler(this.listaTemas_DoubleClick);
             // 
             // tituloTema
             // 
