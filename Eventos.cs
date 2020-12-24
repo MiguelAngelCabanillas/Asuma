@@ -75,6 +75,7 @@ namespace Asuma
                     string eventDate = listaEventos.ElementAt(i).Date;
                     string eventDescription = listaEventos.ElementAt(i).EventDescription;
                     string imagen = listaEventos.ElementAt(i).Image;
+                    bool tipo = listaEventos.ElementAt(i).Tipo;
                     int id = listaEventos.ElementAt(i).ID;
 
                     Panel panel = new Panel();
@@ -181,12 +182,29 @@ namespace Asuma
                     descripcion.TabIndex = 2;
                     descripcion.Visible = true;
 
-
+                    TextBox tTipo = new TextBox();
+                    if (tipo == true)
+                    {
+                        tTipo.Text = "Tipo de evento: Curso";
+                    }
+                    else
+                    {
+                        tTipo.Text = "Tipo de evento: Actividad";
+                    }
+                    tTipo.BorderStyle = BorderStyle.None;
+                    tTipo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tTipo.Location = new Point(900, 100);
+                    tTipo.Name = "tTipo";
+                    tTipo.ReadOnly = true;
+                    tTipo.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
+                    tTipo.TabIndex = 40;
+                    tTipo.Visible = true;
 
                     panel.Controls.Add(ltitulo);
                     panel.Controls.Add(pImagen);
                     panel.Controls.Add(tFecha);
                     panel.Controls.Add(descripcion);
+                    panel.Controls.Add(tTipo);
                     panelEventos.Controls.Add(panel);
                     separacion += 180;
                 }
@@ -544,7 +562,6 @@ namespace Asuma
             mostrarEventos(cbFiltro.SelectedIndex);
             actualizarPanelEventos();
         }
-
     }
         #endregion
 }

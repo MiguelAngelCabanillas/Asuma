@@ -63,11 +63,11 @@
             this.lbMensajes.HorizontalScrollbar = true;
             this.lbMensajes.ItemHeight = 16;
             this.lbMensajes.Location = new System.Drawing.Point(107, 95);
-            this.lbMensajes.Margin = new System.Windows.Forms.Padding(4);
+            this.lbMensajes.Margin = new System.Windows.Forms.Padding(0);
             this.lbMensajes.Name = "lbMensajes";
             this.lbMensajes.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lbMensajes.Size = new System.Drawing.Size(800, 372);
-            this.lbMensajes.TabIndex = 4;
+            this.lbMensajes.TabIndex = 0;
             // 
             // label1
             // 

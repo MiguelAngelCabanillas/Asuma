@@ -16,6 +16,7 @@ namespace Asuma
         private string eventDescription;
         private string organizer;
         private string eventCreator;
+        private bool tipo;
         private Forum _foro; 
         public Event(int id)
         {
@@ -30,12 +31,13 @@ namespace Asuma
                 this.organizer = (string)reader[4];
                 this.id = (int)reader[5];
                 this.eventCreator = (string)reader[6];
+                this.tipo = (bool)reader[7];
             }
             reader.Close();
             bd.closeBD();
         }
 
-        public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator)
+        public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator, bool tipo)
         {
             BD bd = new BD();
             //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
@@ -61,6 +63,7 @@ namespace Asuma
             this.eventDescription = eventDescription;
             this.organizer = organizer;
             this.eventCreator = eventCreator;
+            this.tipo = tipo;
 
             writer2.Close();
             bd.closeBD();
@@ -180,6 +183,11 @@ namespace Asuma
         public string EventCreator
         {
             get { return this.eventCreator; }
+        }
+
+        public bool Tipo
+        {
+            get { return this.tipo; }
         }
     }
 }

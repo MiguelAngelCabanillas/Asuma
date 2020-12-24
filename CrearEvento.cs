@@ -151,7 +151,8 @@ namespace Asuma
                 string eventOrganiser = tOrganizer.Text;
                 string eventCreator = usuario.Username;
                 string image = "comida.jpg";
-                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
+                //ADVERTENCIA: HAY QUE CONTROLAR ESTO AL INSERTAR EVENTO
+                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator, true);
                 new Forum(evento);
                 if (FTPClient.ftpOn)
                 {
