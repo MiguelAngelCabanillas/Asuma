@@ -89,6 +89,8 @@
       <DependentUpon>Eventos.cs</DependentUpon>
     </Compile>
     <Compile Include="FTPClient.cs" />
+<<<<<<< HEAD
+=======
     <Compile Include="FormForo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +110,7 @@
     <Compile Include="InfoEventoInscrito.Designer.cs">
       <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </Compile>
+>>>>>>> exp
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,12 +138,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+=======
     <Compile Include="Directorios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Directorios.Designer.cs">
       <DependentUpon>Directorios.cs</DependentUpon>
     </Compile>
+>>>>>>> exp
     <Compile Include="PruebaFTP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,9 +201,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
     <EmbeddedResource Include="Directorios.resx">
       <DependentUpon>Directorios.cs</DependentUpon>
     </EmbeddedResource>
+>>>>>>> exp
     <EmbeddedResource Include="PruebaFTP.resx">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
     </EmbeddedResource>
