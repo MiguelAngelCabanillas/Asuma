@@ -86,9 +86,7 @@ namespace Asuma
             reader.Close();
             bd.closeBD();
             Mensajes mensajes = new Mensajes(this.usuario, temaID, listaTemas.SelectedItem.ToString());
-            this.Visible = false;
             mensajes.ShowDialog();
-            this.Visible = true;
         }
     }
 }

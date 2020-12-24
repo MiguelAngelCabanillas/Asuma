@@ -26,7 +26,6 @@ namespace Asuma
 
         private void Mensajes_Load(object sender, EventArgs e)
         {
-
             actualizarMensajes();
         }
 
@@ -94,6 +93,11 @@ namespace Asuma
         private void label1_Paint(object sender, PaintEventArgs e)
         {
             label1.Text = "TEMA: " + this.titulo;
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

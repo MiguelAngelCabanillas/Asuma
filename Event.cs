@@ -83,6 +83,38 @@ namespace Asuma
             return lista;   
         }
 
+        public static List<Event> listaActividades()
+        {
+            List<Event> lista = new List<Event>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event WHERE type = 0 ORDER BY date ASC");
+            while (reader.Read())
+            {
+                int id = (int)reader[0];
+                Event e = new Event(id);
+                lista.Add(e);
+            }
+            reader.Close();
+            bd.closeBD();
+            return lista;
+        }
+
+        public static List<Event> listaCursos()
+        {
+            List<Event> lista = new List<Event>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event WHERE type = 1 ORDER BY date ASC");
+            while (reader.Read())
+            {
+                int id = (int)reader[0];
+                Event e = new Event(id);
+                lista.Add(e);
+            }
+            reader.Close();
+            bd.closeBD();
+            return lista;
+        }
+
         public static List<Event> listaEventosUsuario(User usuario)
         {
             List<Event> lista = new List<Event>();
