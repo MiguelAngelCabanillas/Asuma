@@ -260,6 +260,7 @@
             // 
             // cbFiltro
             // 
+            this.cbFiltro.BackColor = System.Drawing.Color.White;
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Location = new System.Drawing.Point(1192, 563);

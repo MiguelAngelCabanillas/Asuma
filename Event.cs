@@ -134,6 +134,38 @@ namespace Asuma
             return lista;
         }
 
+        public static List<Event> listaActividadesUsuario(User usuario)
+        {
+            List<Event> lista = new List<Event>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT i.idEvent FROM inscription i inner join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "' AND e.type = 0;");
+            while (reader.Read())
+            {
+                int id = (int)reader[0];
+                Event e = new Event(id);
+                lista.Add(e);
+            }
+            reader.Close();
+            bd.closeBD();
+            return lista;
+        }
+
+        public static List<Event> listaCursosUsuario(User usuario)
+        {
+            List<Event> lista = new List<Event>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT i.idEvent FROM inscription i inner join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "' AND e.type = 1;");
+            while (reader.Read())
+            {
+                int id = (int)reader[0];
+                Event e = new Event(id);
+                lista.Add(e);
+            }
+            reader.Close();
+            bd.closeBD();
+            return lista;
+        }
+
         public static List<int> listaEventosCreados(User usuario)
         {
             List<int> lista = new List<int>();
