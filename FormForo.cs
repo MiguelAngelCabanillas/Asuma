@@ -85,7 +85,7 @@ namespace Asuma
             int temaID = ((int)reader[0]);
             reader.Close();
             bd.closeBD();
-            Mensajes mensajes = new Mensajes(this.usuario, temaID);
+            Mensajes mensajes = new Mensajes(this.usuario, temaID, listaTemas.SelectedItem.ToString());
             this.Visible = false;
             mensajes.ShowDialog();
             this.Visible = true;

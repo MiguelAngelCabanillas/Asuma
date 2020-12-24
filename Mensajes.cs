@@ -15,17 +15,19 @@ namespace Asuma
     {
         private User usuario;
         private int temaID;
-        public Mensajes(User usuario, int temaID)
+        private string titulo;
+        public Mensajes(User usuario, int temaID, string titulo)
         {
             this.usuario = usuario;
             this.temaID = temaID;
+            this.titulo = titulo.ToUpper();
             InitializeComponent();
         }
 
         private void Mensajes_Load(object sender, EventArgs e)
         {
+
             actualizarMensajes();
-            lbMensajes.ForeColor = Color.Black;
         }
 
         public void actualizarMensajes()
@@ -39,7 +41,7 @@ namespace Asuma
                     string user = (string)reader[0];
                     string mensaje = (string)reader[1];
                     string date = (string)reader[2];
-                    lbMensajes.Items.Add(user + ": " + mensaje + " (" + date + ")");
+                    lbMensajes.Items.Add("> " + user + ": " + mensaje + " (" + date + ")");
                 }
                 reader.Close();
                 bd.closeBD();
@@ -50,7 +52,7 @@ namespace Asuma
             }
         }
 
-        private void bEnviar_Click(object sender, EventArgs e)
+        private void enviarMensaje()
         {
             try
             {
@@ -66,7 +68,7 @@ namespace Asuma
                     reader.Read();
                     reader.Close();
                     bd.closeBD();
-                    lbMensajes.Items.Add(this.usuario.Username + ": " + tbMensaje.Text + " (" + date + ")");
+                    lbMensajes.Items.Add("> " + this.usuario.Username + ": " + tbMensaje.Text + " (" + date + ")");
                     tbMensaje.Clear();
                 }
             }
@@ -74,6 +76,24 @@ namespace Asuma
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void bEnviar_Click(object sender, EventArgs e)
+        {
+            enviarMensaje();
+        }
+
+        private void tbMensaje_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                enviarMensaje();
+            }
+        }
+
+        private void label1_Paint(object sender, PaintEventArgs e)
+        {
+            label1.Text = "TEMA: " + this.titulo;
         }
     }
 }
