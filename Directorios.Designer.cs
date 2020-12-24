@@ -67,7 +67,7 @@
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(439, 301);
+            this.bVolver.Location = new System.Drawing.Point(439, 273);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(82, 23);
             this.bVolver.TabIndex = 3;
@@ -94,9 +94,9 @@
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(439, 270);
+            this.bBorrar.Location = new System.Drawing.Point(439, 300);
             this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(82, 23);
+            this.bBorrar.Size = new System.Drawing.Size(82, 21);
             this.bBorrar.TabIndex = 6;
             this.bBorrar.Text = "Borrar carpeta";
             this.bBorrar.UseVisualStyleBackColor = true;

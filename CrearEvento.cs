@@ -14,10 +14,17 @@ namespace Asuma
 {
     public partial class CrearEvento : Form
     {
+        private bool mouseInPanel = false;
+        private Timer hideTimer;
+
         private User usuario;
         private string imagen = "";
+
+        #region Creacion del frame
         public CrearEvento(User usuario)
         {
+            hideTimer = new Timer { Interval = 100 };
+            hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
             tDescription.AutoSize = false;
@@ -25,8 +32,11 @@ namespace Asuma
             pImage.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizarElementos();
+            actualizar();
         }
+        #endregion
 
+        #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
             //this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
@@ -44,6 +54,23 @@ namespace Asuma
             this.pUser.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
+        public void actualizar()
+        {
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                }
+                catch (Exception ex)
+                {
+                    pUser.Image = null;
+                }
+                pUser.Visible = true;
+                lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
+                lSignOut.Visible = true;
+        }
+
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
             this.menuFlowLayoutPanel.Location = new Point(15, menuFlowLayoutPanel.Location.Y);
@@ -54,7 +81,31 @@ namespace Asuma
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
         }
 
+        private void CrearEvento_Resize(object sender, EventArgs e)
+        {
+            actualizarElementos();
+        }
 
+        private void actualizarElementos()
+        {
+            this.pUser.Location = new Point(72,16);
+            this.lUsername.Location = new Point(pUser.Location.X+120, pUser.Location.Y+40);
+            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+
+            this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
+            this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
+
+            this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
+            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
+        }
+        #endregion
+
+        #region Logica del form
         private void bExit_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -118,37 +169,17 @@ namespace Asuma
                 MessageBox.Show("Evento creado con exito");
                 MisEventos misEventos = new MisEventos(usuario);
                 misEventos.Show();
-                this.Owner.Close();
+                if (this.Owner != null)
+                {
+                    this.Owner.Close();
+                }
                 this.Close();
 
             }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.Message);
+                // MessageBox.Show(ex.Message);
             }
-        }
-
-        private void CrearEvento_Resize(object sender, EventArgs e)
-        {
-            actualizarElementos();
-        }
-
-        private void actualizarElementos()
-        {
-            this.pUser.Location = new Point(72,16);
-            this.lUsername.Location = new Point(pUser.Location.X+120, pUser.Location.Y+40);
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
-            this.menuFlowLayoutPanel.Width = this.Width - 25;
-            this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-
-            this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
-            this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
-
-            this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
-            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -221,5 +252,81 @@ namespace Asuma
                     break;
             }
         }
+        #endregion
+
+        #region Desplegable de mi perfil
+        private void pPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            mouseInPanel = false;
+            hideTimer.Start();
+        }
+
+        private void hidePanel(object sender, EventArgs e)
+        {
+            hideTimer.Stop();
+            if (!mouseInPanel)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void pUser_MouseClick(object sender, EventArgs e)
+        {
+            if (usuario != null)
+            {
+                mouseInPanel = true;
+                pUser.SendToBack();
+                pPerfil.Visible = true;
+            }
+            else
+            {
+                pUser.Visible = false;
+            }
+            /* pUser.Visible = false;
+             lUsername.Visible = false;*/
+        }
+
+        private void bPerfil_MouseEnter(object sender, EventArgs e)
+        {
+            pPerfil.Visible = true;
+            mouseInPanel = true;
+            hideTimer.Stop();
+        }
+
+        private void bPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            hideTimer.Start();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (usuario != null)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void bPerfil_Click(object sender, EventArgs e)
+        {
+            MiPerfil frame = new MiPerfil(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
+        }
+
+        private void bMensajes_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

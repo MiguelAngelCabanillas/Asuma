@@ -13,6 +13,7 @@ namespace Asuma
         private string password;
         private string email;
         private Rol rol;
+        private int id;
         public User(string username, string password)
         {
             try
@@ -29,6 +30,7 @@ namespace Asuma
                 this.password = (string)reader[1];
                 this.email = (string)reader[2];
                 string rolName = (string)reader[3];
+                this.id = (int)reader[4];
                 this.rol = new Rol(rolName);
                 reader.Close();
                 bd.closeBD();
@@ -38,13 +40,14 @@ namespace Asuma
                     //bd.closeBD();
                     username = password = email = null;
                     rol = null;
+                    id = -1;
                     throw new Error("Usuario o contraseña incorrecta");
                 }
                 //bd.closeBD();
             }
             catch (Exception ex)
             {
-                throw new Error(ex.Message);
+               throw new Error(ex.Message);
             }
         }
 
@@ -66,12 +69,18 @@ namespace Asuma
                     throw new Error("El email ya existe");
                 }
                 readerEmail.Close();
+
+                MySqlDataReader readerId = bd.Query("SELECT max(id) FROM user");
+                readerId.Read();
+                this.id = (int)readerId[0] + 1;
+                readerId.Close();
+
                 this.username = username;
                 this.password = password;
                 this.email = email;
                 this.rol = new Rol(rolName);
 
-                MySqlDataReader writer = bd.Query("INSERT INTO user VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "')");
+                MySqlDataReader writer = bd.Query("INSERT INTO user VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "', " + id + ")");
                 writer.Close();
                 bd.closeBD();
 
@@ -84,13 +93,27 @@ namespace Asuma
 
         public string Username
         {
-            get
-            { return username; }
+            get { return username; }
+            set {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET username = '" + value + "' WHERE id = " + id + ";");
+                writer.Close();
+                bd.closeBD();
+                this.username = value;
+            }
         }
 
         public string Email
         {
             get { return email; }
+            set
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET email = '" + value + "' WHERE id = " + id + ";");
+                writer.Close();
+                bd.closeBD();
+                this.username = value;
+            }
         }
         public string Password
         {
@@ -100,6 +123,22 @@ namespace Asuma
         public Rol Rol
         {
             get { return rol; }
+        }
+
+        public int Id
+        {
+            get { return id; }
+        }
+
+        public void borrarUsuario(User usuario)
+        {
+            if(usuario.Rol.Admin == 1 || usuario.id == this.id)
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("DELETE FROM user WHERE id = " + this.id + ";");
+                writer.Close();
+                bd.closeBD();
+            }
         }
 
         public static implicit operator string(User v)

@@ -15,11 +15,14 @@ namespace Asuma
     {
         private User usuario;
         public Boolean isClosed = false;
+
+        #region Creacion del form
         public MisEventos(User usuario)
         {
             this.usuario = usuario;
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
+            actualizar();
             if (!usuario.Rol.RolName.Equals("Docente"))
             {
                 bCreateEvent.Visible = false;
@@ -30,7 +33,9 @@ namespace Asuma
             }
             mostrarEventos();
         }
+        #endregion
 
+        #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -46,6 +51,22 @@ namespace Asuma
             this.pUser.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
+        public void actualizar()
+        {
+            try
+            {
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+            }
+            catch (Exception ex)
+            {
+                pUser.Image = null;
+            }
+            pUser.Visible = true;
+            lUsername.Text = "Bienvenido " + usuario.Username;
+            lUsername.Visible = true;
+            lSignOut.Visible = true;
+        }
 
         public void mostrarEventos()
         {
@@ -112,11 +133,12 @@ namespace Asuma
                     try
                     {
                         FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).ID + "/", "Prueba", "");
-                        byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                        /*byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
                         using (var ms = new MemoryStream(byteArrayIn))
                         {
                             image = Image.FromStream(ms);
-                        }
+                        }*/
+                        image = ftpClient.DownloadPngAsImage("image.png", pImagen.Size);
                     }
                     catch (Exception ex)
                     {
@@ -181,34 +203,6 @@ namespace Asuma
             panelEventos.Size = new Size(1265, 640);
         }
 
-        protected void ltitulo_click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            LinkLabel link = sender as LinkLabel;
-            // identify which button was clicked and perform necessary actions
-            var id = Int32.Parse(link.Name);
-           
-            Event ev = new Event(id);
-            /*
-           InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
-           infoEventoInscrito.Show();
-           this.Close();
-           */
-
-            InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
-            this.Visible = false;
-            infoEventoInscrito.Owner = this;
-            infoEventoInscrito.ShowDialog();
-            if(!this.isClosed)
-            {
-                this.Visible = true;
-                panelEventos.Controls.Clear();
-                mostrarEventos();
-            }
-           
-            
-        }
-
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
             lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
@@ -220,28 +214,7 @@ namespace Asuma
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
         }
-
-        private void bCreateEvent_Click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            CrearEvento crearEvento = new CrearEvento(usuario);
-            crearEvento.Owner = this;
-            /*
-            crearEvento.Show();
-            this.Close();           
-            */
-
-            this.Visible = false;
-            crearEvento.ShowDialog();
-            if (!this.isClosed)
-            {
-                this.Visible = true;
-            }
-            
-
-            
-
-        }
+        
 
         private void MisEventos_Resize(object sender, EventArgs e)
         {
@@ -270,6 +243,54 @@ namespace Asuma
 
             bCreateEvent.Location = new Point(((this.Width * 5) / 10)-bCreateEvent.Width/2, (int)((this.Height * 8.5) / 10));
         }
+        #endregion
+
+        #region Logica del Form
+        protected void ltitulo_click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            LinkLabel link = sender as LinkLabel;
+            // identify which button was clicked and perform necessary actions
+            var id = Int32.Parse(link.Name);
+
+            Event ev = new Event(id);
+            /*
+           InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
+           infoEventoInscrito.Show();
+           this.Close();
+           */
+
+            InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
+            this.Visible = false;
+            infoEventoInscrito.Owner = this;
+            infoEventoInscrito.ShowDialog();
+            if (!this.isClosed)
+            {
+                actualizar();
+                this.Visible = true;
+                panelEventos.Controls.Clear();
+                mostrarEventos();
+            }
+        }
+
+        private void bCreateEvent_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            CrearEvento crearEvento = new CrearEvento(usuario);
+            crearEvento.Owner = this;
+            /*
+            crearEvento.Show();
+            this.Close();           
+            */
+
+            this.Visible = false;
+            crearEvento.ShowDialog();
+            if (!this.isClosed)
+            {
+                actualizar();
+                this.Visible = true;
+            }
+        }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -297,4 +318,9 @@ namespace Asuma
             isClosed = true;
         }
     }
+        #endregion
+
+        #region Desplegable del perfil
+    //Por implementar
+    #endregion
 }

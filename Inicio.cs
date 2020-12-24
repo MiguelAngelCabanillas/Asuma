@@ -14,9 +14,10 @@ namespace Asuma
     public partial class Inicio : Form
     {
         private Principal pr;
-        public static User usuario = null;
+        public static User usuario;
         public Inicio()
         {
+            usuario = null;
             InitializeComponent();
         }
 

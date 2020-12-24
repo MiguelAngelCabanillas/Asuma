@@ -20,6 +20,7 @@ namespace Asuma
             s += size;
             switch (i)
             {
+                case -1:
                 case 0: s += " B";
                     break;
                 case 1: s += " KB";

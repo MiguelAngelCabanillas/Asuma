@@ -17,9 +17,15 @@ namespace Asuma
     public partial class Eventos : Form
     {
         private User usuario;
+        private bool mouseInPanel = false;
+        private Timer hideTimer;
         private bool isClosed = false;
+
+        #region Creacion del frame
         public Eventos(User usuario)
         {
+            hideTimer = new Timer { Interval = 100 };
+            hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
@@ -39,41 +45,6 @@ namespace Asuma
                 misEventos.Show();
                 this.Close();
             }
-        }
-
-        public void actualizar()
-        {
-            if (usuario == null)
-            {
-                linitSesion.Visible = true;
-                pUser.Visible = false;
-                lUsername.Visible = false;
-                lSignOut.Visible = false;
-            }
-            else
-            {
-                linitSesion.Visible = false;
-                pUser.Visible = true;
-                lUsername.Text = "Bienvenido " + usuario.Username;
-                lUsername.Visible = true;
-                lSignOut.Visible = true;
-            }
-        }
-
-        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            Inicio init = new Inicio();
-            this.Visible = false;
-            init.ShowDialog();
-            this.usuario = Inicio.usuario;
-            actualizar();
-            this.Visible = true;
-        }
-
-        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Environment.Exit(Environment.ExitCode);
         }
 
         public void mostrarEventos()
@@ -116,7 +87,7 @@ namespace Asuma
                 pImagen.BackColor = SystemColors.ActiveCaption;
                 pImagen.Location = new Point(59, 28);
                 pImagen.Name = "pImagen";
-                
+
                 string path = Path.GetDirectoryName(Application.StartupPath);
                 string pathBueno = path.Substring(0, path.Length - 3);
                 string imagePath = pathBueno + "images\\" + imagen;
@@ -207,6 +178,54 @@ namespace Asuma
             panelEventos.BorderStyle = BorderStyle.FixedSingle;
             panelEventos.Size = new Size(1265, 640);
         }
+        #endregion
+
+        #region GUIs
+        public void actualizar()
+        {
+            if (usuario == null)
+            {
+                linitSesion.Visible = true;
+                pUser.Visible = false;
+                lUsername.Visible = false;
+                lSignOut.Visible = false;
+            }
+            else
+            {
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                }
+                catch (Exception ex)
+                {
+                    pUser.Image = null;
+                }
+                linitSesion.Visible = false;
+                pUser.Visible = true;
+                lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
+                lSignOut.Visible = true;
+            }
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            this.Visible = false;
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
+        }
+
+        
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 25;
@@ -245,6 +264,36 @@ namespace Asuma
             }
         }
 
+        private void pUser_Paint(object sender, PaintEventArgs e)
+        {
+            this.pUser.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pASUMA_Paint(object sender, PaintEventArgs e)
+        {
+            this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pASM_Paint(object sender, PaintEventArgs e)
+        {
+            this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void Eventos_Resize(object sender, EventArgs e)
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarBotonMisEventos();
+            actualizarPanelEventos();
+        }
+
+        private void panelEventos_Resize(object sender, EventArgs e)
+        {
+            actualizarEventos();
+        }
+        #endregion
+
+        #region Logica del formulario
         protected void ltitulo_click(object sender, EventArgs e)
         {
             LinkLabel link = sender as LinkLabel;
@@ -254,16 +303,16 @@ namespace Asuma
 
             if (usuario == null)
             {
-               
+
                 Cursor.Current = Cursors.WaitCursor;
-                InfoEvento infoEvento = new InfoEvento(ev,null);
+                InfoEvento infoEvento = new InfoEvento(ev, null);
                 this.Visible = false;
                 infoEvento.ShowDialog();
                 usuario = infoEvento.Usuario;
                 actualizar();
                 this.Visible = true;
 
-               
+
                 /*
                 Cursor.Current = Cursors.WaitCursor;
                 InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
@@ -284,7 +333,7 @@ namespace Asuma
                         if (idEvent == ev.ID)
                         {
                             found = true;
-                            
+
                             Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
                             infoEvento.Owner = this;
@@ -292,9 +341,10 @@ namespace Asuma
                             infoEvento.ShowDialog();
                             if (!isClosed)
                             {
+                                actualizar();
                                 this.Visible = true;
                             }
-                            
+
 
                             /*
                             Cursor.Current = Cursors.WaitCursor;
@@ -326,6 +376,7 @@ namespace Asuma
                         infoEvento.ShowDialog();
                         if (!isClosed)
                         {
+                            actualizar();
                             this.Visible = true;
                         }
 
@@ -357,35 +408,6 @@ namespace Asuma
             }
         }
 
-
-        private void pUser_Paint(object sender, PaintEventArgs e)
-        {
-            this.pUser.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        private void pASUMA_Paint(object sender, PaintEventArgs e)
-        {
-            this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        private void pASM_Paint(object sender, PaintEventArgs e)
-        {
-            this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
-        }
-
-        private void Eventos_Resize(object sender, EventArgs e)
-        {
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarBotonMisEventos();
-            actualizarPanelEventos();
-        }
-
-        private void panelEventos_Resize(object sender, EventArgs e)
-        {
-            actualizarEventos();
-        }
-
         private void bInicio_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -403,9 +425,91 @@ namespace Asuma
            
         }
 
+
         private void Eventos_FormClosing(object sender, FormClosingEventArgs e)
         {
             isClosed = true;
         }
+        #endregion
+
+        #region Desplegable de mi perfil
+        private void pPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            mouseInPanel = false;
+            hideTimer.Start();
+        }
+
+        private void hidePanel(object sender, EventArgs e)
+        {
+            hideTimer.Stop();
+            if (!mouseInPanel)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void pUser_MouseClick(object sender, EventArgs e)
+        {
+            if (usuario != null)
+            {
+                mouseInPanel = true;
+                pUser.SendToBack();
+                pPerfil.Visible = true;
+            }
+            else
+            {
+                pUser.Visible = false;
+            }
+            /* pUser.Visible = false;
+             lUsername.Visible = false;*/
+        }
+
+        private void bPerfil_MouseEnter(object sender, EventArgs e)
+        {
+            pPerfil.Visible = true;
+            mouseInPanel = true;
+            hideTimer.Stop();
+        }
+
+        private void bPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            hideTimer.Start();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (usuario != null)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        
+        private void bPerfil_Click(object sender, EventArgs e)
+        {
+            MiPerfil frame = new MiPerfil(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            actualizar();
+            this.Visible = true;
+        }
+
+        private void bMensajes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void setUser(User usuario)
+        {
+            this.usuario = usuario;
+        }
     }
+        #endregion
 }

@@ -13,14 +13,28 @@ namespace Asuma
     public partial class PruebaFTP : Form
     {
         FTPClient ftp;
+        User usuario;
         Event evento;
+        string carpeta;
         string seleccionado;
         List<String> subdirectorios;
 
-        public PruebaFTP(Event evento, string carpeta)
+        public PruebaFTP(User usuario, Event evento, string carpeta)
         {
             InitializeComponent();
             this.evento = evento;
+            this.carpeta = carpeta;
+            this.usuario = usuario;
+            if (evento.EventCreator == usuario.Username)
+            {
+                bEliminar.Visible = true;
+                bSubir.Visible = true;
+            }
+            else
+            {
+                bEliminar.Visible = false;
+                bSubir.Visible = false;
+            }
             ftp = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/files/" + carpeta + "/", "Prueba", "");
             this.subdirectorios = ftp.FTPSubdirectories("");
 
@@ -38,6 +52,7 @@ namespace Asuma
             var result = archivos.Select(s => new { Nombre = s , Tamaño = Commons.LongToBytesMagnitude(ftp.GetFileDownloadSize(s)) }).ToList();
             dataGridView1.DataSource = result;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            MostrarSeleccionado();
             
             //Selector de carpetas
              /* var result = subdirectorios.Select(s => new { Carpeta = s }).ToList();
@@ -98,6 +113,7 @@ namespace Asuma
             {
                 ftp.Download(seleccionado, Properties.Settings.Default.RutaDescarga/*"C:\\Universidad\\Descargas\\"*/ + seleccionado);
                 MessageBox.Show("El programa ha terminado de descargar " + seleccionado + " correctamente.");
+                MostrarSeleccionado();
             }
             else
             {
@@ -131,15 +147,26 @@ namespace Asuma
 
         private void bEliminar_Click(object sender, EventArgs e)
         {
-            /*if (seleccionado != null)
+            if (seleccionado != null)
             {
                 ftp.DeleteFileFromServer(seleccionado);
-                MessageBox.Show("El programa ha terminado de descargar " + seleccionado + " correctamente.");
+                MessageBox.Show("El programa ha eliminado " + seleccionado);
+                List<string> archivos = ftp.DirectoryListing();
+                foreach (string directorio in subdirectorios)
+                {
+                    archivos.Remove(directorio);
+                }
+
+                var result = archivos.Select(s => new { Nombre = s, Tamaño = Commons.LongToBytesMagnitude(ftp.GetFileDownloadSize(s)) }).ToList();
+                dataGridView1.DataSource = result;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                seleccionado = null;
+                MostrarSeleccionado();
             }
             else
             {
                 MessageBox.Show("Seleccione antes un archivo que descargar.");
-            }*/
+            }
         }
 
 

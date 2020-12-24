@@ -14,11 +14,18 @@ namespace Asuma
 {
     public partial class InfoEvento : Form
     {
+        private bool mouseInPanel = false;
+        private Timer hideTimer;
         private Event ev;
         private User usuario;
+
+        #region Creacion del frame
         public InfoEvento(Event e, User u)
         {
+            hideTimer = new Timer { Interval = 100 };
+            hideTimer.Tick += hidePanel;
             this.ev = e;
+            this.usuario = u;
             InitializeComponent();
             string imagen = "asuma2.ico";
             string path = Path.GetDirectoryName(Application.StartupPath);
@@ -27,6 +34,7 @@ namespace Asuma
             Icon icon = new Icon(imagePath,100,100); 
             this.Icon = icon;
 
+            actualizar();
             imagen = e.Image;
             path = Path.GetDirectoryName(Application.StartupPath);
             pathBueno = path.Substring(0, path.Length - 3);
@@ -60,7 +68,6 @@ namespace Asuma
             lOrganizadores.Text = e.Organizer;
             lFecha.Text = e.Date;
 
-            this.usuario = u;
 
             if(usuario == null)
             {
@@ -79,7 +86,9 @@ namespace Asuma
                 bInscription.Visible = true;
             }
         }
+        #endregion
 
+        #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -104,33 +113,6 @@ namespace Asuma
         {
             this.pEvento.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pEvento.BorderStyle = BorderStyle.FixedSingle;
-        }
-
-        private void bSalir_Click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            this.Close();
-        }
-
-        private void bInscription_Click(object sender, EventArgs e)
-        {
-            if (this.usuario == null)
-            {
-                MessageBox.Show("Debe iniciar sesión para inscribirse en un evento");
-            }
-            else
-            {
-                try
-                {
-                    BD bd = new BD();
-                    MySqlDataReader reader = bd.Query("INSERT INTO inscription VALUES ('" + this.usuario.Username + "', " + ev.ID + ");");
-                    reader.Close();
-                    bd.closeBD();
-                    MessageBox.Show("Inscripción realizada con éxito.");
-                    this.Close();
-                }
-                catch { MessageBox.Show("Error al formular la inscripción"); }
-            }
         }
 
         private void actualizarBotones()
@@ -178,18 +160,57 @@ namespace Asuma
         {
             if (usuario == null)
             {
-                linitSesion.Visible = true;
-                pUser.Visible = false;
                 lUsername.Visible = false;
+                pUser.Visible = false;
+                linitSesion.Visible = true;
                 lSignOut.Visible = false;
+                bInscription.Visible = false;
             }
             else
             {
-                linitSesion.Visible = false;
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                }
+                catch (Exception ex)
+                {
+                    pUser.Image = null;
+                }
                 pUser.Visible = true;
-                lUsername.Text = "Bienvenido, " + usuario.Username;
-                lUsername.Visible = true;
+                lUsername.Text = "Bienvenido " + usuario.Username;
+                linitSesion.Visible = false;
                 lSignOut.Visible = true;
+                bInscription.Visible = true;
+            }
+        }
+        #endregion
+
+        #region Logica del form
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            this.Close();
+        }
+
+        private void bInscription_Click(object sender, EventArgs e)
+        {
+            if (this.usuario == null)
+            {
+                MessageBox.Show("Debe iniciar sesión para inscribirse en un evento");
+            }
+            else
+            {
+                try
+                {
+                    BD bd = new BD();
+                    MySqlDataReader reader = bd.Query("INSERT INTO inscription VALUES ('" + this.usuario.Username + "', " + ev.ID + ");");
+                    reader.Close();
+                    bd.closeBD();
+                    MessageBox.Show("Inscripción realizada con éxito.");
+                    this.Close();
+                }
+                catch { MessageBox.Show("Error al formular la inscripción"); }
             }
         }
 
@@ -214,7 +235,10 @@ namespace Asuma
             Principal p = new Principal(usuario);
             p.Show();
             //misEventos.Close();
-            this.Owner.Close();
+            if (this.Owner != null)
+            {
+                this.Owner.Close();
+            }
             this.Close();
 
         }
@@ -224,8 +248,87 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-            this.Owner.Close();
+            if (this.Owner != null)
+            {
+                this.Owner.Close();
+            }
             this.Close();
         }
+        #endregion
+
+        #region Desplegable de mi perfil
+        private void pPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            mouseInPanel = false;
+            hideTimer.Start();
+        }
+
+        private void hidePanel(object sender, EventArgs e)
+        {
+            hideTimer.Stop();
+            if (!mouseInPanel)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void pUser_MouseClick(object sender, EventArgs e)
+        {
+            if (usuario != null)
+            {
+                mouseInPanel = true;
+                pUser.SendToBack();
+                pPerfil.Visible = true;
+            }
+            else
+            {
+                pUser.Visible = false;
+            }
+            /* pUser.Visible = false;
+             lUsername.Visible = false;*/
+        }
+
+        private void bPerfil_MouseEnter(object sender, EventArgs e)
+        {
+            pPerfil.Visible = true;
+            mouseInPanel = true;
+            hideTimer.Stop();
+        }
+
+        private void bPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            hideTimer.Start();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (usuario != null)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void bPerfil_Click(object sender, EventArgs e)
+        {
+            MiPerfil frame = new MiPerfil(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
+        }
+
+        private void bMensajes_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

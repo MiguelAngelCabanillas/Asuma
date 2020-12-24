@@ -14,13 +14,19 @@ namespace Asuma
 {
     public partial class InfoEventoInscrito : Form
     {
+        private bool mouseInPanel = false;
+        private Timer hideTimer;
+
         private Event evento;
         private User usuario;
         private Forum foro;
         public bool isClosed = false;
 
+        #region Creacion del frame
         public InfoEventoInscrito(Event e, User u)
         {
+            hideTimer = new Timer { Interval = 100 };
+            hideTimer.Tick += hidePanel;
             this.evento = e;
             this.usuario = u;
 
@@ -36,6 +42,9 @@ namespace Asuma
 
             actualizar();
         }
+        #endregion
+
+        #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -56,38 +65,21 @@ namespace Asuma
             actualizarBotones();
         }
 
-        private void bExit_Click(object sender, EventArgs e)
-        {
-
-            Cursor.Current = Cursors.WaitCursor;
-            /*
-            Eventos ev = new Eventos(usuario);
-            ev.Show();
-            this.Close();
-            */
-            this.Close();
-        }
-
-        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Environment.Exit(Environment.ExitCode);
-        }
-
-        private void bEditEvent_Click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            EditarEvento ed = new EditarEvento(evento,usuario);
-            ed.Owner = this;
-            this.Visible = false;
-            ed.ShowDialog();
-            if (!isClosed)
-            {
-                this.Visible = true;
-            }
-        }
-
         private void actualizar()
         {
+            try
+            {
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+            }
+            catch (Exception ex)
+            {
+                pUser.Image = null;
+            }
+            pUser.Visible = true;
+            lUsername.Text = "Bienvenido " + usuario.Username;
+            lUsername.Visible = true;
+            lSignOut.Visible = true;
             string path = Path.GetDirectoryName(Application.StartupPath);
             string pathBueno = path.Substring(0, path.Length - 3);
             string imagePath = pathBueno + "images\\" + evento.Image;
@@ -98,11 +90,13 @@ namespace Asuma
                 try
                 {
                     FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/", "Prueba", "");
-                    byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                    image = ftpClient.DownloadPngAsImage("image.png", pEvento.Size);
+                    /*byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
                     using (var ms = new MemoryStream(byteArrayIn))
                     {
                         image = Image.FromStream(ms);
-                    }
+                    }*/
+
                 }
                 catch (Exception ex)
                 {
@@ -161,6 +155,40 @@ namespace Asuma
             actualizarImagenes();
             actualizarLabels();
         }
+        #endregion
+
+
+        #region Logica del formulario
+        private void bExit_Click(object sender, EventArgs e)
+        {
+
+            Cursor.Current = Cursors.WaitCursor;
+            /*
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Close();
+            */
+            this.Close();
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
+        }
+
+        private void bEditEvent_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            EditarEvento ed = new EditarEvento(evento, usuario);
+            ed.Owner = this;
+            this.Visible = false;
+            ed.ShowDialog();
+            if (!isClosed)
+            {
+                actualizar();
+                this.Visible = true;
+            }
+        }
 
         private void bInicio_Click(object sender, EventArgs e)
         {
@@ -168,7 +196,10 @@ namespace Asuma
             Principal p = new Principal(usuario);
             p.Show();
             //misEventos.Close();
-            this.Owner.Close();
+            if (this.Owner != null)
+            {
+                this.Owner.Close();
+            }
             this.Close();
             
         }
@@ -178,7 +209,10 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-            this.Owner.Close();
+            if (this.Owner != null)
+            {
+                this.Owner.Close();
+            }
             this.Close();
         }
 
@@ -209,5 +243,81 @@ namespace Asuma
         {
             isClosed = true;
         }
+        #endregion
+
+        #region Desplegable de mi perfil
+        private void pPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            mouseInPanel = false;
+            hideTimer.Start();
+        }
+
+        private void hidePanel(object sender, EventArgs e)
+        {
+            hideTimer.Stop();
+            if (!mouseInPanel)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void pUser_MouseClick(object sender, EventArgs e)
+        {
+            if (usuario != null)
+            {
+                mouseInPanel = true;
+                pUser.SendToBack();
+                pPerfil.Visible = true;
+            }
+            else
+            {
+                pUser.Visible = false;
+            }
+            /* pUser.Visible = false;
+             lUsername.Visible = false;*/
+        }
+
+        private void bPerfil_MouseEnter(object sender, EventArgs e)
+        {
+            pPerfil.Visible = true;
+            mouseInPanel = true;
+            hideTimer.Stop();
+        }
+
+        private void bPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            hideTimer.Start();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (usuario != null)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void bPerfil_Click(object sender, EventArgs e)
+        {
+            MiPerfil frame = new MiPerfil(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
+        }
+
+        private void bMensajes_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using System.Drawing;
 
 namespace Asuma
 {
@@ -116,6 +117,17 @@ namespace Asuma
             client.Credentials = new NetworkCredential(_remoteUser, _remotePass);
             byte[] contents = client.DownloadData(url);
             return contents;
+        }
+
+        public Image DownloadPngAsImage(string filename, Size size)
+        {
+            byte[] imagen = DownloadFileBytesInArray("image.png");
+            Image image;
+            using (var ms = new MemoryStream(imagen))
+            {
+                image = Image.FromStream(ms);
+            }
+            return (Image)(new Bitmap(image, size));
         }
 
         /// <summary>
