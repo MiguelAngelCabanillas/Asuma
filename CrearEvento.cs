@@ -56,6 +56,8 @@ namespace Asuma
 
         public void actualizar()
         {
+            if (FTPClient.ftpOn)
+            {
                 try
                 {
                     FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
@@ -63,8 +65,14 @@ namespace Asuma
                 }
                 catch (Exception ex)
                 {
+                    FTPClient.ftpOn = false;
                     pUser.Image = null;
                 }
+            }
+            else
+            {
+                pUser.Image = null;
+            }
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
                 lUsername.Visible = true;
