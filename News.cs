@@ -7,7 +7,7 @@ using MySqlConnector;
 
 namespace Asuma
 {
-    class News
+    public class News
     {
         private int id;
         private string name;
@@ -21,10 +21,11 @@ namespace Asuma
             MySqlDataReader reader = bd.Query("SELECT * FROM news WHERE id = " + id + ";");
             while (reader.Read())
             {
-                this.name = (string)reader[0];
-                this.description = (string)reader[1];
-                this.date = (string)reader[2];
-                this.image = (string)reader[3];
+                this.id = (int)reader[0];
+                this.name = (string)reader[1];
+                this.description = (string)reader[2];
+                this.date = (string)reader[3];
+                this.image = (string)reader[4];
             }
             reader.Close();
             bd.closeBD();
