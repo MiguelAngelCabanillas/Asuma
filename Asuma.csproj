@@ -68,6 +68,12 @@
   <ItemGroup>
     <Compile Include="BD.cs" />
     <Compile Include="Commons.cs" />
+    <Compile Include="Contacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacto.Designer.cs">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,7 @@
     <Compile Include="EditarEvento.Designer.cs">
       <DependentUpon>EditarEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Email.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Eventos.cs">
@@ -156,6 +163,9 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Tema.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Contacto.resx">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
