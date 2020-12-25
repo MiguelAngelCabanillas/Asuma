@@ -133,6 +133,12 @@
     <Compile Include="MisEventos.Designer.cs">
       <DependentUpon>MisEventos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacion.Designer.cs">
+      <DependentUpon>Notificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Permission.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MisEventos.resx">
       <DependentUpon>MisEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacion.resx">
+      <DependentUpon>Notificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

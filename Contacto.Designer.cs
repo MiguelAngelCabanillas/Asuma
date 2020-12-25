@@ -1,7 +1,7 @@
 ﻿
 namespace Asuma
 {
-    partial class Contacto
+    partial class bFoto
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contacto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bFoto));
             this.lReason = new System.Windows.Forms.Label();
             this.lMessage = new System.Windows.Forms.Label();
             this.cReason = new System.Windows.Forms.ComboBox();
@@ -50,6 +50,8 @@ namespace Asuma
             this.lName = new System.Windows.Forms.Label();
             this.tName = new System.Windows.Forms.TextBox();
             this.bNotificar = new System.Windows.Forms.Button();
+            this.bNotificarGui = new System.Windows.Forms.Button();
+            this.bRecuperacion = new System.Windows.Forms.Button();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -95,9 +97,10 @@ namespace Asuma
             this.tMessage.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tMessage.Location = new System.Drawing.Point(843, 587);
             this.tMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tMessage.MaxLength = 300;
+            this.tMessage.MaxLength = 0;
             this.tMessage.Multiline = true;
             this.tMessage.Name = "tMessage";
+            this.tMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tMessage.Size = new System.Drawing.Size(453, 174);
             this.tMessage.TabIndex = 11;
             this.tMessage.Text = "\r\n";
@@ -271,7 +274,7 @@ namespace Asuma
             // 
             // bNotificar
             // 
-            this.bNotificar.Location = new System.Drawing.Point(81, 381);
+            this.bNotificar.Location = new System.Drawing.Point(139, 381);
             this.bNotificar.Name = "bNotificar";
             this.bNotificar.Size = new System.Drawing.Size(131, 46);
             this.bNotificar.TabIndex = 39;
@@ -279,13 +282,34 @@ namespace Asuma
             this.bNotificar.UseVisualStyleBackColor = true;
             this.bNotificar.Click += new System.EventHandler(this.bNotificar_Click);
             // 
-            // Contacto
+            // bNotificarGui
+            // 
+            this.bNotificarGui.Location = new System.Drawing.Point(139, 494);
+            this.bNotificarGui.Name = "bNotificarGui";
+            this.bNotificarGui.Size = new System.Drawing.Size(131, 46);
+            this.bNotificarGui.TabIndex = 40;
+            this.bNotificarGui.Text = "Notificar con GUI";
+            this.bNotificarGui.UseVisualStyleBackColor = true;
+            this.bNotificarGui.Click += new System.EventHandler(this.bNotificarGui_Click);
+            // 
+            // bRecuperacion
+            // 
+            this.bRecuperacion.Location = new System.Drawing.Point(139, 601);
+            this.bRecuperacion.Name = "bRecuperacion";
+            this.bRecuperacion.Size = new System.Drawing.Size(131, 46);
+            this.bRecuperacion.TabIndex = 41;
+            this.bRecuperacion.Text = "Recuperacion contraseña";
+            this.bRecuperacion.UseVisualStyleBackColor = true;
+            // 
+            // bFoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.bRecuperacion);
+            this.Controls.Add(this.bNotificarGui);
             this.Controls.Add(this.bNotificar);
             this.Controls.Add(this.tName);
             this.Controls.Add(this.lName);
@@ -302,7 +326,7 @@ namespace Asuma
             this.Controls.Add(this.cReason);
             this.Controls.Add(this.lMessage);
             this.Controls.Add(this.lReason);
-            this.Name = "Contacto";
+            this.Name = "bFoto";
             this.Text = "Contacto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Resize += new System.EventHandler(this.Contacto_Resize);
@@ -337,5 +361,7 @@ namespace Asuma
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.TextBox tName;
         private System.Windows.Forms.Button bNotificar;
+        private System.Windows.Forms.Button bNotificarGui;
+        private System.Windows.Forms.Button bRecuperacion;
     }
 }

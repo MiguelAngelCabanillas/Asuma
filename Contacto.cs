@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Asuma
 {
-    public partial class Contacto : Form
+    public partial class bFoto : Form
     {
         private User usuario;
-        public Contacto(User usuario)
+        public bFoto(User usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
@@ -23,26 +23,7 @@ namespace Asuma
             tMessage.Text = "He aquí un mensaje de prueba para ver como funciona el correo electrónico y sus funcionalidades, y como conectarlo con gmail y similares. UN SALUDO Y FELIZ NAVIDAD";
         }
 
-        private void tSend_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if(tName.Text.Trim(' ').Equals("") || cReason.SelectedItem == null || tMessage.Text.Trim(' ').Equals(""))
-                {
-                    MessageBox.Show("Debe rellenar todos los campos");
-                }
-                else
-                {
-                    Email email = new Email();
-                    email.sendEmailToAdmin(tName.Text, usuario.Email, cReason.Text, tMessage.Text);
-                    MessageBox.Show("Mensaje enviado correctamente");
-                }
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-        }
+      
 
 
         private void actualizarImagenes()
@@ -120,6 +101,28 @@ namespace Asuma
             actualizarImagenes();
         }
 
+        private void tSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tName.Text.Trim(' ').Equals("") || cReason.SelectedItem == null || tMessage.Text.Trim(' ').Equals(""))
+                {
+                    MessageBox.Show("Debe rellenar todos los campos");
+                }
+                else
+                {
+                    Email email = new Email();
+                    email.sendEmailToAdmin(tName.Text, usuario.Email, cReason.Text, tMessage.Text);
+                    MessageBox.Show("Mensaje enviado correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
         private void bNotificar_Click(object sender, EventArgs e)
         {
             try
@@ -135,6 +138,15 @@ namespace Asuma
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void bNotificarGui_Click(object sender, EventArgs e)
+        {
+            Notificacion n = new Notificacion();
+            this.Visible = false;
+            n.Owner = this;
+            n.ShowDialog();
+            this.Visible = true;
         }
     }
 }
