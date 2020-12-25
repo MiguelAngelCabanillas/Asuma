@@ -91,6 +91,21 @@ namespace Asuma
 
         }
 
+        public static List<string> listaEmailsUsuariosEnEvento(Event e)
+        {
+            List<string> listaEmails = new List<string>();
+            string aux;
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT email FROM user WHERE username IN (SELECT userName FROM inscription WHERE idEvent = " + e.ID + ")");
+            while (reader.Read())
+            {
+                aux = (string)reader[0];
+                listaEmails.Add(aux);
+            }
+
+            return listaEmails;
+        }
+
         public string Username
         {
             get { return username; }

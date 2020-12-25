@@ -120,5 +120,21 @@ namespace Asuma
             actualizarImagenes();
         }
 
+        private void bNotificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> listaEmails = User.listaEmailsUsuariosEnEvento(new Event(61));
+                Email email = new Email();
+                string asunto = "Recordatorio de subida de actividad";
+                string cuerpo = "Buenos días, os envio esta notificación para recordaros que debeis terminar y enviar a tiempo la tarea que teniamos acordada para esta semana, espero que la entregueis todos. Un saludo";
+                email.sendEmailTo(listaEmails, asunto, cuerpo, new Event(61).EventName);
+                MessageBox.Show("Notificación enviada con éxito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

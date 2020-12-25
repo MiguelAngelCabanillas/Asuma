@@ -18,7 +18,8 @@ namespace Asuma
             Application.SetCompatibleTextRenderingDefault(false);
             User s = new User("docente1", "d");
             Application.Run(new Contacto(s));
-            
+            //Application.Run(new Principal(null));
+
         }
     }
 }

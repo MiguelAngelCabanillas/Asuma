@@ -49,6 +49,7 @@ namespace Asuma
             this.pUser = new System.Windows.Forms.PictureBox();
             this.lName = new System.Windows.Forms.Label();
             this.tName = new System.Windows.Forms.TextBox();
+            this.bNotificar = new System.Windows.Forms.Button();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -268,6 +269,16 @@ namespace Asuma
             this.tName.Size = new System.Drawing.Size(231, 28);
             this.tName.TabIndex = 38;
             // 
+            // bNotificar
+            // 
+            this.bNotificar.Location = new System.Drawing.Point(81, 381);
+            this.bNotificar.Name = "bNotificar";
+            this.bNotificar.Size = new System.Drawing.Size(131, 46);
+            this.bNotificar.TabIndex = 39;
+            this.bNotificar.Text = "Notificar usuarios";
+            this.bNotificar.UseVisualStyleBackColor = true;
+            this.bNotificar.Click += new System.EventHandler(this.bNotificar_Click);
+            // 
             // Contacto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -275,6 +286,7 @@ namespace Asuma
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.bNotificar);
             this.Controls.Add(this.tName);
             this.Controls.Add(this.lName);
             this.Controls.Add(this.lSignOut);
@@ -324,5 +336,6 @@ namespace Asuma
         private System.Windows.Forms.PictureBox pUser;
         private System.Windows.Forms.Label lName;
         private System.Windows.Forms.TextBox tName;
+        private System.Windows.Forms.Button bNotificar;
     }
 }

@@ -37,7 +37,7 @@ namespace Asuma
                 smtp.Send(mail);
         }
 
-        public void sendEmailTo(string[] destinatarios, string asunto, string cuerpo)
+        public void sendEmailTo(List<string> destinatarios, string asunto, string cuerpo, string nombreEvento)
         {
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");
@@ -48,6 +48,10 @@ namespace Asuma
             mail.Subject = asunto;
             mail.IsBodyHtml = true;
             string mensaje = cuerpo;
+            mensaje = nombreEvento + ":" + "<br/><br/><br/>" + mensaje + "<br/><br/><br/>" + "Notificación enviada a través de la plataforma";
+            mail.Body = mensaje;
+
+            smtp.Send(mail);
         }
     }
 }
