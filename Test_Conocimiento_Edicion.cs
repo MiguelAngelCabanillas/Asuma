@@ -15,12 +15,14 @@ namespace Asuma
         int id;
         SortedDictionary<int, String> nombrePreguntas;
         SortedDictionary<int, String[]> listasRespuestas;
+        SortedDictionary<int, Button> botonesDinamicos;
         public Test_Conocimiento_Edicion()
         {
             InitializeComponent();
             id = 0;
             nombrePreguntas = new SortedDictionary<int, string>();
             listasRespuestas = new SortedDictionary<int, string[]>();
+            botonesDinamicos = new SortedDictionary<int, Button>();
         }
 
         private void bAñadir_Respuesta_Click(object sender, EventArgs e)
@@ -44,35 +46,42 @@ namespace Asuma
 
         private void bAñadir_Pregunta_Click(object sender, EventArgs e)
         {
-            String pregunta = textBoxPregunta.Text.Trim();
-
-            mostrarErrores(pregunta);
-
-            if ((pregunta != "") && (checkedListBoxQ1.Items.Count > 0) && hayAlgunaRespuestaCorrecta())
+            if (nombrePreguntas.Count <= 18)
             {
-                nombrePreguntas.Add(id, pregunta);
+                String pregunta = textBoxPregunta.Text.Trim();
 
-                List<String> respuestas = new List<string>();
+                mostrarErrores(pregunta);
 
-                foreach (String item in checkedListBoxQ1.Items)
-                {   
-                    respuestas.Add(item);
+                if ((pregunta != "") && (checkedListBoxQ1.Items.Count > 0)
+                    && hayUnaUnicaRespuestaCorrecta())
+                {
+                    nombrePreguntas.Add(id, pregunta);
+
+                    List<String> respuestas = new List<string>();
+
+                    foreach (String item in checkedListBoxQ1.Items)
+                    {   
+                        respuestas.Add(item);
+                    }
+
+                    listasRespuestas.Add(id, respuestas.ToArray());
+
+                    Button P_id = new Button { Name = "P" + id, Text = "P" + id };
+                    botonesDinamicos.Add(id, P_id);
+                    P_id.Click += new EventHandler(P_id_Click);     
+                    flowLayoutPanel1.Controls.Add(P_id);
+
+                    resetPregunta();
+
+                    id++;
                 }
-
-                listasRespuestas.Add(id, respuestas.ToArray());
-
-                Button P_id = new Button { Name = "P" + id, Text = "P" + id };
-                P_id.Click += new EventHandler(P_id_Click);     
-                flowLayoutPanel1.Controls.Add(P_id);
-
-                resetPregunta();
-
-                textBoxRespuesta.Text = "Respuesta0";
-                radioButtonCorrecta.Checked = false;
-
-                id++;
+            }
+            else
+            {
+                MessageBox.Show("No se pueden crear más preguntas");
             }
         }
+
         protected void P_id_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -86,25 +95,29 @@ namespace Asuma
             checkedListBoxQ1.Items.Clear();
             checkedListBoxQ1.Items.AddRange(respuestasP);
         }
+
         private void resetPregunta()
         {
-            int cont = nombrePreguntas.Count;
-            textBoxPregunta.Text = "Pregunta" + cont;
-            lQ1.Text = "Pregunta" + cont;
+            textBoxPregunta.Text = "Pregunta" + id;
+            lQ1.Text = "Pregunta" + id + ":";
             checkedListBoxQ1.Items.Clear();
+            textBoxRespuesta.Text = "Respuesta0";
+            radioButtonCorrecta.Checked = false;
         }
-        private Boolean hayAlgunaRespuestaCorrecta()
+
+        private Boolean hayUnaUnicaRespuestaCorrecta()
         {
-            Boolean res = false;
+            int cont = 0;
             foreach (String item in checkedListBoxQ1.Items)
             {
                 if (item.Contains("*"))
                 {
-                    res = true;
+                    cont++;
                 }
             }
-            return res;
+            return cont == 1;
         }
+
         private void mostrarErrores(String pregunta)
         {
             if (pregunta == "")
@@ -117,11 +130,12 @@ namespace Asuma
                 MessageBox.Show("No hay ninguna respuesta");
             }
 
-            if (!hayAlgunaRespuestaCorrecta())
+            if (!hayUnaUnicaRespuestaCorrecta())
             {
-                MessageBox.Show("No hay ninguna respuesta correcta");
-            }
+                MessageBox.Show("Debe haber una única respuesta correcta");
+            }           
         }
+
         private void bEliminar_Respuesta_Click(object sender, EventArgs e)
         {
             if (checkedListBoxQ1.CheckedItems.Count > 0)
@@ -129,30 +143,10 @@ namespace Asuma
                 //Solo va a tener uno seleccionado por el _ItemCheck
                 System.Collections.IEnumerator it = checkedListBoxQ1.CheckedItems.GetEnumerator();
                 it.MoveNext();
-                int index = checkedListBoxQ1.Items.IndexOf(it.Current);
                 checkedListBoxQ1.Items.Remove(it.Current);
-
-                int id_P = int.Parse(lQ1.Text.Replace("Pregunta", "").Replace(":", ""));
-                String[] respuestasP;
-                List<String> aux = new List<string>();
-
-                if(listasRespuestas.TryGetValue(id_P, out respuestasP))
-                {
-                    System.Collections.IEnumerator it_P = respuestasP.GetEnumerator();
-                    int i = 0;
-                    while (it_P.MoveNext())
-                    {
-                        if (i != index)
-                        {
-                            aux.Add((String)it_P.Current);
-                        }
-                        i++;
-                    }
-                    listasRespuestas.Remove(id_P);
-                    listasRespuestas.Add(id_P, aux.ToArray());
-                }
             }
         }
+
         private void checkedListBoxQ1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             //Este Codigo solo permite seleccionar un check
@@ -173,6 +167,67 @@ namespace Asuma
 
                 return;
             }
+        }
+
+        private void bActualizarPregunta_Click(object sender, EventArgs e)
+        {
+            String pregunta = textBoxPregunta.Text.Trim();
+            int id_P = int.Parse(lQ1.Text.Replace("Pregunta", "").Replace(":", ""));
+
+            mostrarErrores(pregunta);
+
+            if (!nombrePreguntas.ContainsKey(id_P))
+            {
+                MessageBox.Show("No se puede actualizar una pregunta que no esta añadida");
+            }
+
+            if ((pregunta != "") && (checkedListBoxQ1.Items.Count > 0) 
+                && hayUnaUnicaRespuestaCorrecta() && nombrePreguntas.ContainsKey(id_P))
+            {
+                nombrePreguntas.Remove(id_P);
+                nombrePreguntas.Add(id_P, pregunta);
+
+                List<String> respuestas = new List<string>();
+
+                foreach (String item in checkedListBoxQ1.Items)
+                {
+                    respuestas.Add(item);
+                }
+
+                listasRespuestas.Remove(id_P);
+                listasRespuestas.Add(id_P, respuestas.ToArray());
+
+                resetPregunta();
+            }
+        }
+
+        private void bEliminarPregunta_Click(object sender, EventArgs e)
+        {
+            int id_P = int.Parse(lQ1.Text.Replace("Pregunta", "").Replace(":", ""));
+
+            if (!nombrePreguntas.ContainsKey(id_P))
+            {
+                MessageBox.Show("No se puede eliminar una pregunta que no esta añadida");
+            }
+            else
+            {
+                nombrePreguntas.Remove(id_P);
+                listasRespuestas.Remove(id_P);
+                Button aux = new Button();
+                botonesDinamicos.TryGetValue(id_P, out aux);
+                aux.Enabled = false;
+                aux.Visible = false;
+                aux.Dispose();
+                botonesDinamicos.Remove(id_P);
+
+                resetPregunta();
+            }
+        }
+
+        private void bFinalizar_Test_Click(object sender, EventArgs e)
+        {
+            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, listasRespuestas);
+            aux.Show();
         }
     }
 }

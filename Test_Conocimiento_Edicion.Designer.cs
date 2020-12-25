@@ -42,6 +42,7 @@ namespace Asuma
             this.textBoxRespuesta = new System.Windows.Forms.TextBox();
             this.radioButtonCorrecta = new System.Windows.Forms.RadioButton();
             this.bEliminar_Respuesta = new System.Windows.Forms.Button();
+            this.bActualizarPregunta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkedListBoxQ1
@@ -104,27 +105,29 @@ namespace Asuma
             // bFinalizar_Test
             // 
             this.bFinalizar_Test.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bFinalizar_Test.Location = new System.Drawing.Point(44, 367);
+            this.bFinalizar_Test.Location = new System.Drawing.Point(12, 367);
             this.bFinalizar_Test.Name = "bFinalizar_Test";
             this.bFinalizar_Test.Size = new System.Drawing.Size(195, 28);
             this.bFinalizar_Test.TabIndex = 16;
             this.bFinalizar_Test.Text = "Finalizar Test";
             this.bFinalizar_Test.UseVisualStyleBackColor = true;
+            this.bFinalizar_Test.Click += new System.EventHandler(this.bFinalizar_Test_Click);
             // 
             // bEliminarPregunta
             // 
             this.bEliminarPregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEliminarPregunta.Location = new System.Drawing.Point(348, 367);
+            this.bEliminarPregunta.Location = new System.Drawing.Point(228, 367);
             this.bEliminarPregunta.Name = "bEliminarPregunta";
             this.bEliminarPregunta.Size = new System.Drawing.Size(195, 28);
             this.bEliminarPregunta.TabIndex = 17;
             this.bEliminarPregunta.Text = "Eliminar Pregunta";
             this.bEliminarPregunta.UseVisualStyleBackColor = true;
+            this.bEliminarPregunta.Click += new System.EventHandler(this.bEliminarPregunta_Click);
             // 
             // bAñadir_Pregunta
             // 
             this.bAñadir_Pregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAñadir_Pregunta.Location = new System.Drawing.Point(640, 367);
+            this.bAñadir_Pregunta.Location = new System.Drawing.Point(446, 367);
             this.bAñadir_Pregunta.Name = "bAñadir_Pregunta";
             this.bAñadir_Pregunta.Size = new System.Drawing.Size(195, 28);
             this.bAñadir_Pregunta.TabIndex = 18;
@@ -173,11 +176,23 @@ namespace Asuma
             this.bEliminar_Respuesta.UseVisualStyleBackColor = true;
             this.bEliminar_Respuesta.Click += new System.EventHandler(this.bEliminar_Respuesta_Click);
             // 
+            // bActualizarPregunta
+            // 
+            this.bActualizarPregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bActualizarPregunta.Location = new System.Drawing.Point(664, 367);
+            this.bActualizarPregunta.Name = "bActualizarPregunta";
+            this.bActualizarPregunta.Size = new System.Drawing.Size(195, 28);
+            this.bActualizarPregunta.TabIndex = 23;
+            this.bActualizarPregunta.Text = "Actualizar Pregunta";
+            this.bActualizarPregunta.UseVisualStyleBackColor = true;
+            this.bActualizarPregunta.Click += new System.EventHandler(this.bActualizarPregunta_Click);
+            // 
             // Test_Conocimiento_Edicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 450);
+            this.Controls.Add(this.bActualizarPregunta);
             this.Controls.Add(this.bEliminar_Respuesta);
             this.Controls.Add(this.radioButtonCorrecta);
             this.Controls.Add(this.textBoxRespuesta);
@@ -212,5 +227,6 @@ namespace Asuma
         private System.Windows.Forms.TextBox textBoxRespuesta;
         private System.Windows.Forms.RadioButton radioButtonCorrecta;
         private System.Windows.Forms.Button bEliminar_Respuesta;
+        private System.Windows.Forms.Button bActualizarPregunta;
     }
 }
