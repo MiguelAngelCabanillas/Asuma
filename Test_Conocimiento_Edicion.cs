@@ -16,6 +16,7 @@ namespace Asuma
         SortedDictionary<int, String> nombrePreguntas;
         SortedDictionary<int, String[]> listasRespuestas;
         SortedDictionary<int, Button> botonesDinamicos;
+        SortedDictionary<int, List<String>> RespuestasCorrectas;
         public Test_Conocimiento_Edicion()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace Asuma
             nombrePreguntas = new SortedDictionary<int, string>();
             listasRespuestas = new SortedDictionary<int, string[]>();
             botonesDinamicos = new SortedDictionary<int, Button>();
+            RespuestasCorrectas = new SortedDictionary<int, List<string>>();
         }
 
         private void bAñadir_Respuesta_Click(object sender, EventArgs e)
@@ -226,8 +228,38 @@ namespace Asuma
 
         private void bFinalizar_Test_Click(object sender, EventArgs e)
         {
-            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, listasRespuestas, checkBoxSelecM.Checked);
+            SortedDictionary<int, String[]> Respuestas = RespuestasPurgadas();
+            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, Respuestas, RespuestasCorrectas, checkBoxSelecM.Checked);
             aux.Show();
+        }
+
+        private SortedDictionary<int, String[]> RespuestasPurgadas()
+        {
+            SortedDictionary<int, String[]> listasRespuestasPurgadas = new SortedDictionary<int, string[]>();
+            int id_P;
+            String[] respuestas;
+            foreach (KeyValuePair<int, String[]> aux in listasRespuestas)
+            {
+                id_P = aux.Key;
+                respuestas = aux.Value;
+                String[] respuestasPurgadas = new String[respuestas.Length];
+                List<String> resCorrectas = new List<string>();
+                for (int i = 0; i < respuestas.Length; i++)
+                {
+                    if (respuestas[i].Contains("*"))
+                    {
+                        respuestasPurgadas[i] = respuestas[i].Replace("*", "");
+                        resCorrectas.Add(respuestasPurgadas[i]);
+                    }
+                    else
+                    {
+                        respuestasPurgadas[i] = respuestas[i];
+                    }
+                }
+                RespuestasCorrectas.Add(id_P, resCorrectas);
+                listasRespuestasPurgadas.Add(id_P, respuestasPurgadas);
+            }
+            return listasRespuestasPurgadas;
         }
     }
 }

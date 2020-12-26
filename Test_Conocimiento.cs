@@ -14,14 +14,22 @@ namespace Asuma
     {
         SortedDictionary<int, String> nombrePreguntas;
         SortedDictionary<int, String[]> listaRespuestas;
+        SortedDictionary<int, CheckedListBox> Respuestas_Resultado;
+        SortedDictionary<int, Label> Label_Resultado;
+        SortedDictionary<int, List<String>> respuestasCorrectas;
         Boolean seleccionMultiple;
         public Test_Conocimiento(SortedDictionary<int, String> nombrePreguntas,
                                  SortedDictionary<int, String[]> listaRespuestas,
+                                 SortedDictionary<int, List<string>> respuestasCorrectas,
                                  Boolean seleccionMultiple)
         {
             this.nombrePreguntas = nombrePreguntas;
             this.listaRespuestas = listaRespuestas;
             this.seleccionMultiple = seleccionMultiple;
+            this.respuestasCorrectas = respuestasCorrectas;
+            this.Respuestas_Resultado = new SortedDictionary<int, CheckedListBox>();
+            this.Label_Resultado = new SortedDictionary<int, Label>();
+
             InitializeComponent();
             mostrarPreguntasyRespuestas();
         }
@@ -97,61 +105,48 @@ namespace Asuma
                 panel.Controls.Add(ResPregunta);
                 panelPregyRes.Controls.Add(panel);
                 separacion += 180;
+
+                Respuestas_Resultado.Add(id_Pregunta, respuestasPregunta);
+                Label_Resultado.Add(id_Pregunta, ResPregunta);
             }
         }
         private void check()
         {
-            /*
-            
-              switch (seleccion)
+            int contG = 0;
+            int id_P;
+            List<String> respuestasC;
+            Label labelRes;
+            foreach (var item in Respuestas_Resultado)
             {
-                case 1:
-                    if (this.opcion3.Checked == true)
+                id_P = item.Key;
+                respuestasCorrectas.TryGetValue(id_P, out respuestasC);
+                int cont = 0;
+                foreach (var aux in respuestasC)
+                {                   
+                    if (item.Value.CheckedItems.Contains(aux))
                     {
-                        resultado++;
+                        cont++;
+                        contG++;
                     }
-                    pregunta2();
-                    Limpiar();
-                    break;
-             
-            int cont = 0;
-            String R1 = "Respuesta 1 (Correcta)";
-            String R2 = "Respuesta 2 (Correcta)";
-            String R3 = "Respuesta 3 (Correcta)";
-            if (checkedListBoxQ1.CheckedItems.Contains(R3)){
-                lResQ1.Text = "Respuesta Correcta";
-                cont += 1;
+                }
+                Label_Resultado.TryGetValue(id_P, out labelRes);
+                if (cont == respuestasC.Count)
+                {                  
+                    labelRes.Text = "Correcta";
+                }
+                else
+                {                   
+                    labelRes.Text = "Incorrecta";
+                }
+            }
+            if (contG >= 5)
+            {
+                MessageBox.Show("Has superado el test");
             }
             else
             {
-                lResQ1.Text = "Respuesta Incorrecta";
+                MessageBox.Show("Intentalo de nuevo");
             }
-
-            if (checkedListBoxQ2.CheckedItems.Contains(R1))
-            {
-                lResQ2.Text = "Respuesta Correcta";
-                cont += 1;
-            }
-            else
-            {
-                lResQ2.Text = "Respuesta Incorrecta";
-            }
-
-            if (checkedListBoxQ3.CheckedItems.Contains(R2))
-            {
-                lResQ3.Text = "Respuesta Correcta";
-                cont += 1;
-            }
-            else
-            {
-                lResQ3.Text = "Respuesta Incorrecta";
-            }
-
-            if (cont >= 2)
-            {
-                MessageBox.Show("Ole to tu polla");
-            }
-            */
         }
 
         private void bEnviar_Click(object sender, EventArgs e)
