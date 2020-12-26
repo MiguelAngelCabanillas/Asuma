@@ -42,7 +42,7 @@ namespace Asuma
             BD bd = new BD();
             //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
             //  + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
-            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "')");
+            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`, `type`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "', " + (tipo ? 1 : 0) + ");");
             writer.Close();
             bd.closeBD();
 
