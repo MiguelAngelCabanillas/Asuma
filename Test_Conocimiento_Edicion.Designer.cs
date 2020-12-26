@@ -40,9 +40,10 @@ namespace Asuma
             this.bAñadir_Pregunta = new System.Windows.Forms.Button();
             this.bAñadir_Respuesta = new System.Windows.Forms.Button();
             this.textBoxRespuesta = new System.Windows.Forms.TextBox();
-            this.radioButtonCorrecta = new System.Windows.Forms.RadioButton();
             this.bEliminar_Respuesta = new System.Windows.Forms.Button();
             this.bActualizarPregunta = new System.Windows.Forms.Button();
+            this.checkBoxSelecM = new System.Windows.Forms.CheckBox();
+            this.checkBoxCorrecta = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkedListBoxQ1
@@ -154,17 +155,6 @@ namespace Asuma
             this.textBoxRespuesta.TabIndex = 20;
             this.textBoxRespuesta.Text = "Respuesta0";
             // 
-            // radioButtonCorrecta
-            // 
-            this.radioButtonCorrecta.AutoSize = true;
-            this.radioButtonCorrecta.Location = new System.Drawing.Point(816, 227);
-            this.radioButtonCorrecta.Name = "radioButtonCorrecta";
-            this.radioButtonCorrecta.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonCorrecta.TabIndex = 21;
-            this.radioButtonCorrecta.TabStop = true;
-            this.radioButtonCorrecta.Text = "Correcta";
-            this.radioButtonCorrecta.UseVisualStyleBackColor = true;
-            // 
             // bEliminar_Respuesta
             // 
             this.bEliminar_Respuesta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,14 +177,37 @@ namespace Asuma
             this.bActualizarPregunta.UseVisualStyleBackColor = true;
             this.bActualizarPregunta.Click += new System.EventHandler(this.bActualizarPregunta_Click);
             // 
+            // checkBoxSelecM
+            // 
+            this.checkBoxSelecM.AutoSize = true;
+            this.checkBoxSelecM.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxSelecM.Location = new System.Drawing.Point(44, 64);
+            this.checkBoxSelecM.Name = "checkBoxSelecM";
+            this.checkBoxSelecM.Size = new System.Drawing.Size(136, 18);
+            this.checkBoxSelecM.TabIndex = 25;
+            this.checkBoxSelecM.Text = "Selección Múltiple";
+            this.checkBoxSelecM.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxCorrecta
+            // 
+            this.checkBoxCorrecta.AutoSize = true;
+            this.checkBoxCorrecta.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCorrecta.Location = new System.Drawing.Point(805, 226);
+            this.checkBoxCorrecta.Name = "checkBoxCorrecta";
+            this.checkBoxCorrecta.Size = new System.Drawing.Size(80, 18);
+            this.checkBoxCorrecta.TabIndex = 26;
+            this.checkBoxCorrecta.Text = "Correcta";
+            this.checkBoxCorrecta.UseVisualStyleBackColor = true;
+            // 
             // Test_Conocimiento_Edicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 450);
+            this.Controls.Add(this.checkBoxCorrecta);
+            this.Controls.Add(this.checkBoxSelecM);
             this.Controls.Add(this.bActualizarPregunta);
             this.Controls.Add(this.bEliminar_Respuesta);
-            this.Controls.Add(this.radioButtonCorrecta);
             this.Controls.Add(this.textBoxRespuesta);
             this.Controls.Add(this.bAñadir_Respuesta);
             this.Controls.Add(this.bAñadir_Pregunta);
@@ -225,8 +238,9 @@ namespace Asuma
         private System.Windows.Forms.Button bAñadir_Pregunta;
         private System.Windows.Forms.Button bAñadir_Respuesta;
         private System.Windows.Forms.TextBox textBoxRespuesta;
-        private System.Windows.Forms.RadioButton radioButtonCorrecta;
         private System.Windows.Forms.Button bEliminar_Respuesta;
         private System.Windows.Forms.Button bActualizarPregunta;
+        private System.Windows.Forms.CheckBox checkBoxSelecM;
+        private System.Windows.Forms.CheckBox checkBoxCorrecta;
     }
 }

@@ -69,9 +69,10 @@ namespace Asuma
             // 
             this.panelPregyRes.AutoScroll = true;
             this.panelPregyRes.AutoScrollMargin = new System.Drawing.Size(50, 50);
-            this.panelPregyRes.Location = new System.Drawing.Point(16, 57);
+            this.panelPregyRes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelPregyRes.Location = new System.Drawing.Point(12, 57);
             this.panelPregyRes.Name = "panelPregyRes";
-            this.panelPregyRes.Size = new System.Drawing.Size(876, 435);
+            this.panelPregyRes.Size = new System.Drawing.Size(880, 435);
             this.panelPregyRes.TabIndex = 12;
             // 
             // Test_Conocimiento

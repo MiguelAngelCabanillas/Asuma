@@ -14,15 +14,15 @@ namespace Asuma
     {
         SortedDictionary<int, String> nombrePreguntas;
         SortedDictionary<int, String[]> listaRespuestas;
+        Boolean seleccionMultiple;
         public Test_Conocimiento(SortedDictionary<int, String> nombrePreguntas,
-                                 SortedDictionary<int, String[]> listaRespuestas)
+                                 SortedDictionary<int, String[]> listaRespuestas,
+                                 Boolean seleccionMultiple)
         {
             this.nombrePreguntas = nombrePreguntas;
             this.listaRespuestas = listaRespuestas;
+            this.seleccionMultiple = seleccionMultiple;
             InitializeComponent();
-            //añadirRespuestasQ1();
-            //añadirRespuestasQ2();
-            //añadirRespuestasQ3();
             mostrarPreguntasyRespuestas();
         }
 
@@ -69,6 +69,10 @@ namespace Asuma
                 respuestasPregunta.Location = new Point(16, 40);
                 respuestasPregunta.Size = new Size(510, 87);
                 respuestasPregunta.TabIndex = 3;
+                if (!seleccionMultiple)
+                {
+                    respuestasPregunta.ItemCheck += new ItemCheckEventHandler(checkedListBox_ItemCheck);
+                }
 
                 //------------------
 
@@ -95,44 +99,6 @@ namespace Asuma
                 separacion += 180;
             }
         }
-
-        private void añadirRespuestasQ1()
-        {
-            /*
-            String R1 = "Respuesta 1";
-            String R2 = "Respuesta 2";
-            String R3 = "Respuesta 3 (Correcta)";
-            String[] respuestasQ1 = { R1, R2, R3};
-            checkedListBoxQ1.Items.AddRange(respuestasQ1);
-            // Changes the selection mode from double-click to single click.
-            checkedListBoxQ1.CheckOnClick = true;
-            */
-        }
-        private void añadirRespuestasQ2()
-        {
-            /*
-            String R1 = "Respuesta 1 (Correcta)";
-            String R2 = "Respuesta 2";
-            String R3 = "Respuesta 3";
-            String[] respuestasQ2 = { R1, R2, R3 };
-            checkedListBoxQ2.Items.AddRange(respuestasQ2);
-            // Changes the selection mode from double-click to single click.
-            checkedListBoxQ2.CheckOnClick = true;
-            */
-        }
-        private void añadirRespuestasQ3()
-        {
-            /*
-            String R1 = "Respuesta 1";
-            String R2 = "Respuesta 2 (Correcta)";
-            String R3 = "Respuesta 3";
-            String[] respuestasQ3 = { R1, R2, R3 };
-            checkedListBoxQ3.Items.AddRange(respuestasQ3);
-            // Changes the selection mode from double-click to single click.
-            checkedListBoxQ3.CheckOnClick = true;
-            */
-        }
-
         private void check()
         {
             /*
@@ -193,11 +159,12 @@ namespace Asuma
             check();
         }
 
-        private void checkedListBoxQ1_ItemCheck(object sender, ItemCheckEventArgs e)
+        protected void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            /*
+            CheckedListBox checkedlistbox = sender as CheckedListBox;
+
             //Este Codigo solo permite seleccionar un check
-            if (checkedListBoxQ1.CheckedItems.Count == 1)
+            if (checkedlistbox.CheckedItems.Count == 1)
             {
                 Boolean isCheckedItemBeingUnchecked = (e.CurrentValue == CheckState.Checked);
                 if (isCheckedItemBeingUnchecked)
@@ -206,15 +173,13 @@ namespace Asuma
                 }
                 else
                 {
-                    Int32 checkedItemIndex = checkedListBoxQ1.CheckedIndices[0];
-                    checkedListBoxQ1.ItemCheck -= checkedListBoxQ1_ItemCheck;
-                    checkedListBoxQ1.SetItemChecked(checkedItemIndex, false);
-                    checkedListBoxQ1.ItemCheck += checkedListBoxQ1_ItemCheck;
+                    Int32 checkedItemIndex = checkedlistbox.CheckedIndices[0];
+                    checkedlistbox.ItemCheck -= checkedListBox_ItemCheck;
+                    checkedlistbox.SetItemChecked(checkedItemIndex, false);
+                    checkedlistbox.ItemCheck += checkedListBox_ItemCheck;
                 }
-
                 return;
-            }
-            */
+            }        
         }
     }
 }

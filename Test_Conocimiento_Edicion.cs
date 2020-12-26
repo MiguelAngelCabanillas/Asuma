@@ -29,12 +29,12 @@ namespace Asuma
         {
             int cont;
             String respuesta = textBoxRespuesta.Text.Trim();
-            Boolean correcta = radioButtonCorrecta.Checked;
+            Boolean correcta = checkBoxCorrecta.Checked;
             String asterisco = "";
             if (correcta) 
             {
                 asterisco = "*";
-                radioButtonCorrecta.Checked = false;
+                checkBoxCorrecta.Checked = false;
             }
             if(respuesta != "")
             {
@@ -102,7 +102,7 @@ namespace Asuma
             lQ1.Text = "Pregunta" + id + ":";
             checkedListBoxQ1.Items.Clear();
             textBoxRespuesta.Text = "Respuesta0";
-            radioButtonCorrecta.Checked = false;
+            checkBoxCorrecta.Checked = false;
         }
 
         private Boolean hayUnaUnicaRespuestaCorrecta()
@@ -226,7 +226,7 @@ namespace Asuma
 
         private void bFinalizar_Test_Click(object sender, EventArgs e)
         {
-            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, listasRespuestas);
+            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, listasRespuestas, checkBoxSelecM.Checked);
             aux.Show();
         }
     }
