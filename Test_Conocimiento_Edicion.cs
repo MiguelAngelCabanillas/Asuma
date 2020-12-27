@@ -21,9 +21,13 @@ namespace Asuma
         {
             InitializeComponent();
             id = 0;
+            //Id -> Nombre de la pregunta
             nombrePreguntas = new SortedDictionary<int, string>();
-            listasRespuestas = new SortedDictionary<int, string[]>();
+            //Id -> Boton de cada pregunta
             botonesDinamicos = new SortedDictionary<int, Button>();
+            //Id -> Todas las respuestas dadas por el docente para luego convertirlo en un checkListBox
+            listasRespuestas = new SortedDictionary<int, string[]>();
+            //Id -> Las respuestas correctas a la pregunta (por si es seleccion multiple)
             RespuestasCorrectas = new SortedDictionary<int, List<string>>();
         }
 
@@ -55,7 +59,7 @@ namespace Asuma
                 mostrarErrores(pregunta);
 
                 if ((pregunta != "") && (checkedListBoxQ1.Items.Count > 0)
-                    && hayUnaUnicaRespuestaCorrecta())
+                    && (hayUnaUnicaRespuestaCorrecta() || checkBoxSelecM.Checked))
                 {
                     nombrePreguntas.Add(id, pregunta);
 
@@ -86,6 +90,7 @@ namespace Asuma
 
         protected void P_id_Click(object sender, EventArgs e)
         {
+            //Actualiza la informacion mostrada dependiendo de la pregunta
             Button button = sender as Button;
             int id_P = int.Parse(button.Text.Replace("P", ""));
             String nameP = "";
@@ -100,6 +105,7 @@ namespace Asuma
 
         private void resetPregunta()
         {
+            //Reset de los componentes al actualizar, añadir, o eliminar una pregunta
             textBoxPregunta.Text = "Pregunta" + id;
             lQ1.Text = "Pregunta" + id + ":";
             checkedListBoxQ1.Items.Clear();
@@ -132,7 +138,7 @@ namespace Asuma
                 MessageBox.Show("No hay ninguna respuesta");
             }
 
-            if (!hayUnaUnicaRespuestaCorrecta())
+            if (!hayUnaUnicaRespuestaCorrecta() && !checkBoxSelecM.Checked)
             {
                 MessageBox.Show("Debe haber una única respuesta correcta");
             }           
@@ -184,7 +190,8 @@ namespace Asuma
             }
 
             if ((pregunta != "") && (checkedListBoxQ1.Items.Count > 0) 
-                && hayUnaUnicaRespuestaCorrecta() && nombrePreguntas.ContainsKey(id_P))
+                && (hayUnaUnicaRespuestaCorrecta() || checkBoxSelecM.Checked) &&
+                nombrePreguntas.ContainsKey(id_P))
             {
                 nombrePreguntas.Remove(id_P);
                 nombrePreguntas.Add(id_P, pregunta);
@@ -235,6 +242,8 @@ namespace Asuma
 
         private SortedDictionary<int, String[]> RespuestasPurgadas()
         {
+            //Este codigo elimina los asteriscos de las respuestas correctas
+            //Tambien las añade a la lista de respuestas correctas
             SortedDictionary<int, String[]> listasRespuestasPurgadas = new SortedDictionary<int, string[]>();
             int id_P;
             String[] respuestas;
