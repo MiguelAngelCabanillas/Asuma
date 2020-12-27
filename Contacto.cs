@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Asuma
 {
-    public partial class bFoto : Form
+    public partial class Contacto : Form
     {
         private User usuario;
-        public bFoto(User usuario)
+        public Contacto(User usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
@@ -131,7 +131,7 @@ namespace Asuma
                 Email email = new Email();
                 string asunto = "Recordatorio de subida de actividad";
                 string cuerpo = "Buenos días, os envio esta notificación para recordaros que debeis terminar y enviar a tiempo la tarea que teniamos acordada para esta semana, espero que la entregueis todos. Un saludo";
-                email.sendEmailTo(listaEmails, asunto, cuerpo, new Event(61).EventName);
+                email.sendEmailToVarious(listaEmails, asunto, cuerpo, new Event(61).EventName);
                 MessageBox.Show("Notificación enviada con éxito");
             }
             catch (Exception ex)
@@ -146,6 +146,15 @@ namespace Asuma
             this.Visible = false;
             n.Owner = this;
             n.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void bRecuperacion_Click(object sender, EventArgs e)
+        {
+            Recuperacion r = new Recuperacion();
+            this.Visible = false;
+            r.Owner = this;
+            r.ShowDialog();
             this.Visible = true;
         }
     }

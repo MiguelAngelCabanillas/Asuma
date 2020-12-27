@@ -1,7 +1,7 @@
 ﻿
 namespace Asuma
 {
-    partial class bFoto
+    partial class Contacto
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(bFoto));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Contacto));
             this.lReason = new System.Windows.Forms.Label();
             this.lMessage = new System.Windows.Forms.Label();
             this.cReason = new System.Windows.Forms.ComboBox();
@@ -300,8 +300,9 @@ namespace Asuma
             this.bRecuperacion.TabIndex = 41;
             this.bRecuperacion.Text = "Recuperacion contraseña";
             this.bRecuperacion.UseVisualStyleBackColor = true;
+            this.bRecuperacion.Click += new System.EventHandler(this.bRecuperacion_Click);
             // 
-            // bFoto
+            // Contacto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -326,7 +327,7 @@ namespace Asuma
             this.Controls.Add(this.cReason);
             this.Controls.Add(this.lMessage);
             this.Controls.Add(this.lReason);
-            this.Name = "bFoto";
+            this.Name = "Contacto";
             this.Text = "Contacto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Resize += new System.EventHandler(this.Contacto_Resize);

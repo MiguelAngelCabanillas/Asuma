@@ -91,6 +91,7 @@ namespace Asuma
 
         }
 
+
         public static List<string> listaEmailsUsuariosEnEvento(Event e)
         {
             List<string> listaEmails = new List<string>();
@@ -102,8 +103,32 @@ namespace Asuma
                 aux = (string)reader[0];
                 listaEmails.Add(aux);
             }
+            reader.Close();
+            bd.closeBD();
 
             return listaEmails;
+        }
+
+        public static bool buscarUsuarioRecuperacion(string nombreUsuario, string email)
+        {
+            bool existe = false;
+            try
+            {
+                
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT id FROM user WHERE username = '" + nombreUsuario + "' AND email = '" + email + "'");
+                if (reader.HasRows)
+                {
+                    existe = true;
+                }
+                reader.Close();
+                bd.closeBD();
+                
+            } catch(Exception ex){
+
+            }
+            return existe;
+
         }
 
         public string Username
@@ -155,6 +180,23 @@ namespace Asuma
                 bd.closeBD();
             }
         }
+
+        public static void insertarToken(string username, string email, string token)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET recoveryToken = '" + token + "' WHERE username = '" + username + "' AND email = '" + email + "';");
+                writer.Close();
+                bd.closeBD();
+            }
+            catch (Exception)
+            {
+
+            }
+         
+        }
+ 
 
         public static implicit operator string(User v)
         {
