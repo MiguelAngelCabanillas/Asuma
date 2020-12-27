@@ -132,6 +132,12 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaParticipantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaParticipantes.Designer.cs">
+      <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MiPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaParticipantes.resx">
+      <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiPerfil.resx">
       <DependentUpon>MiPerfil.cs</DependentUpon>
