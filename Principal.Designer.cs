@@ -41,6 +41,7 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bCrearNoticia = new System.Windows.Forms.Button();
             this.pNoticias = new System.Windows.Forms.Panel();
             this.pPerfil = new System.Windows.Forms.Panel();
             this.bMensajes = new System.Windows.Forms.Button();
@@ -185,6 +186,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.bCrearNoticia);
             this.panel1.Controls.Add(this.pNoticias);
             this.panel1.Controls.Add(this.pPerfil);
             this.panel1.Controls.Add(this.lSignOut);
@@ -192,9 +194,19 @@
             this.panel1.Location = new System.Drawing.Point(4, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1913, 1040);
+            this.panel1.Size = new System.Drawing.Size(1913, 1095);
             this.panel1.TabIndex = 15;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            // 
+            // bCrearNoticia
+            // 
+            this.bCrearNoticia.Location = new System.Drawing.Point(661, 853);
+            this.bCrearNoticia.Name = "bCrearNoticia";
+            this.bCrearNoticia.Size = new System.Drawing.Size(166, 77);
+            this.bCrearNoticia.TabIndex = 13;
+            this.bCrearNoticia.Text = "Crear Noticia";
+            this.bCrearNoticia.UseVisualStyleBackColor = true;
+            this.bCrearNoticia.Click += new System.EventHandler(this.bCrearNoticia_Click);
             // 
             // pNoticias
             // 
@@ -202,7 +214,7 @@
             this.pNoticias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pNoticias.Location = new System.Drawing.Point(25, 251);
             this.pNoticias.Name = "pNoticias";
-            this.pNoticias.Size = new System.Drawing.Size(1341, 519);
+            this.pNoticias.Size = new System.Drawing.Size(800, 519);
             this.pNoticias.TabIndex = 12;
             this.pNoticias.Resize += new System.EventHandler(this.pNoticias_Resize);
             // 
@@ -264,6 +276,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Resize += new System.EventHandler(this.Principal_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
@@ -295,5 +308,6 @@
         private System.Windows.Forms.Button bMensajes;
         private System.Windows.Forms.Button bPerfil;
         private System.Windows.Forms.Panel pNoticias;
+        private System.Windows.Forms.Button bCrearNoticia;
     }
 }

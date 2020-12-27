@@ -71,6 +71,7 @@ namespace Asuma
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 58;
             this.pPerfil.Visible = false;
+            this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
             // 
             // bMensajes
             // 
@@ -81,6 +82,7 @@ namespace Asuma
             this.bMensajes.TabIndex = 1;
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
+            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
             // 
             // bPerfil
             // 
@@ -91,6 +93,9 @@ namespace Asuma
             this.bPerfil.TabIndex = 0;
             this.bPerfil.Text = "Mi perfil";
             this.bPerfil.UseVisualStyleBackColor = true;
+            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
+            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
             // bExit
             // 
@@ -131,7 +136,7 @@ namespace Asuma
             // 
             this.lFecha.AutoSize = true;
             this.lFecha.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lFecha.Location = new System.Drawing.Point(342, 742);
+            this.lFecha.Location = new System.Drawing.Point(421, 740);
             this.lFecha.Name = "lFecha";
             this.lFecha.Size = new System.Drawing.Size(134, 25);
             this.lFecha.TabIndex = 54;
@@ -143,9 +148,9 @@ namespace Asuma
             this.lFec.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lFec.Location = new System.Drawing.Point(58, 734);
             this.lFec.Name = "lFec";
-            this.lFec.Size = new System.Drawing.Size(270, 34);
+            this.lFec.Size = new System.Drawing.Size(296, 34);
             this.lFec.TabIndex = 53;
-            this.lFec.Text = "Fecha del evento:";
+            this.lFec.Text = "Fecha de la noticia:";
             // 
             // tDes
             // 
@@ -282,6 +287,7 @@ namespace Asuma
             this.pUser.Size = new System.Drawing.Size(131, 139);
             this.pUser.TabIndex = 45;
             this.pUser.TabStop = false;
+            this.pUser.Click += new System.EventHandler(this.pUser_MouseClick);
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             // 
             // linitSesion
@@ -322,6 +328,7 @@ namespace Asuma
             this.Text = "InfoNoticia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InfoNoticia_FormClosing);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             this.Resize += new System.EventHandler(this.InfoNoticia_Resize);
             this.pPerfil.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pNoticia)).EndInit();

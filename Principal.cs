@@ -16,6 +16,7 @@ namespace Asuma
         private User usuario;
         private bool mouseInPanel = false;
         private Timer hideTimer;
+        public Boolean isClosed = false;
 
         #region Creacion del form
         public Principal(User user)
@@ -60,11 +61,11 @@ namespace Asuma
 
                 LinkLabel ltitulo = new LinkLabel();
                 ltitulo.Text = newsName;
-                ltitulo.Size = new Size(292, 38);
+                ltitulo.Size = new Size(200, 30);
                 ltitulo.AutoSize = true;
                 ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 ltitulo.LinkColor = Color.Black;
-                ltitulo.Location = new Point(230, 18);
+                ltitulo.Location = new Point(230, 15);
                 ltitulo.Name = newsId.ToString();
                 ltitulo.TabIndex = 31;
                 ltitulo.TabStop = true;
@@ -76,7 +77,7 @@ namespace Asuma
 
                 PictureBox pImagen = new PictureBox();
                 pImagen.BackColor = SystemColors.ActiveCaption;
-                pImagen.Location = new Point(59, 28);
+                //pImagen.Location = new Point(60, panel.Height/2 - pImagen.Height/2);
                 pImagen.Name = "pImagen";
 
                 string path = Path.GetDirectoryName(Application.StartupPath);
@@ -117,7 +118,7 @@ namespace Asuma
 
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-                pImagen.Size = new Size(115, 127);
+                pImagen.Size = new Size(150,150);//115,127
                 pImagen.TabIndex = 0;
                 pImagen.TabStop = false;
                 pImagen.Visible = true;
@@ -128,32 +129,34 @@ namespace Asuma
                 tFecha.Text = "Fecha de la noticia: " + newsDate;
                 tFecha.BorderStyle = BorderStyle.None;
                 tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                tFecha.Location = new Point(900, 145);
+                tFecha.Location = new Point(240, 145);//900,130
                 tFecha.Multiline = true;
                 tFecha.Name = "tFecha";
                 tFecha.ReadOnly = true;
-                tFecha.Size = new Size(216, 24);
+                tFecha.Size = new Size(300, 30);//216,30
                 tFecha.TabIndex = 32;
                 tFecha.Visible = true;
 
 
 
-                panel.Size = new Size(1142, 186); //1142 186
+                panel.Size = new Size(400, 185);
 
                 panel.Location = new Point(50, separacion);
                 panel.Visible = true;
                 panel.BorderStyle = BorderStyle.FixedSingle;
+                pImagen.Location = new Point(40, panel.Height / 2 - pImagen.Height / 2);
+
 
 
                 TextBox descripcion = new TextBox();
                 descripcion.Text = newsDescription;
                 descripcion.BorderStyle = BorderStyle.None;
                 descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                descripcion.Location = new Point(233, 68);
+                descripcion.Location = new Point(240, 60);
                 descripcion.Multiline = true;
                 descripcion.Name = "tDescripcion";
                 descripcion.ReadOnly = true;
-                descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
+                descripcion.Size = new Size(400,100);//Size(panel.Width / 2, panel.Height / 2); //685,59
                 descripcion.TabIndex = 2;
                 descripcion.Visible = true;
 
@@ -165,9 +168,19 @@ namespace Asuma
                 panel.Controls.Add(descripcion);
                 pNoticias.Controls.Add(panel);
                 separacion += 180;
+
+                //Separación inferior dentro del panel de noticias
+                if(i == nNoticias - 1)
+                {
+                    PictureBox pSep = new PictureBox();
+                    pSep.Location = new Point(50, separacion);
+                    pSep.Size = new Size(panel.Width, 50);
+                    pNoticias.Controls.Add(pSep);
+                }
             }
+
             pNoticias.BorderStyle = BorderStyle.FixedSingle;
-            pNoticias.Size = new Size(1265, 640);
+            pNoticias.Size = new Size(800, 640);//Size(this.menuFlowLayoutPanel.Width*3/4, 640); //1265,640
         }
         #endregion
 
@@ -182,8 +195,9 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
-            ev.Show();
-            this.Visible = false;
+            ev.Owner = this;
+            ev.ShowDialog();
+            this.Close();
         }
 
         private void añadirAlPanel()
@@ -208,10 +222,41 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             InfoNoticia iNoticia = new InfoNoticia(nw,usuario);
             this.Visible = false;
+            iNoticia.Owner = this;
             iNoticia.ShowDialog();
+            if (!this.isClosed)
+            {
+                actualizar();
+                //this.Visible = true;
+                this.Close();
+                /*pNoticias.Controls.Clear();
+                mostrarNoticias();
+                actualizarPanelNoticias();*/
+            }
             usuario = iNoticia.Usuario;
-            actualizar();
-            this.Visible = true;
+            /*actualizar();
+            this.Visible = true;*/
+        }
+
+        private void bCrearNoticia_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            CrearNoticia cNoticia = new CrearNoticia(usuario);
+            cNoticia.Owner = this;
+
+            this.Visible = false;
+            cNoticia.ShowDialog();
+            if (!this.isClosed)
+            {
+                actualizar();
+                actualizarPanelNoticias();
+                this.Visible = true;
+            }
+        }
+
+        private void Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            isClosed = true;
         }
 
         #endregion
@@ -233,6 +278,8 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bCrearNoticia.Location = new Point(this.Width/2 - this.bCrearNoticia.Width/2,
+                this.pNoticias.Location.Y + this.pNoticias.Height + 20);
         }
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -255,6 +302,7 @@ namespace Asuma
                 lUsername.Visible = false;
                 lSignOut.Visible = false;
                 pPerfil.Visible = false;
+                bCrearNoticia.Visible = false;
             }
             else
             {
@@ -272,14 +320,23 @@ namespace Asuma
                 lUsername.Text = "Bienvenido " + usuario.Username;
                 lUsername.Visible = true;
                 lSignOut.Visible = true;
+
+                if (usuario.Rol.Admin == 1)
+                {
+                    bCrearNoticia.Visible = true;
+                }
+                else
+                {
+                    bCrearNoticia.Visible = false;
+                }
             }
         }
 
         private void actualizarPanelNoticias()
         {
-            pNoticias.Width = menuFlowLayoutPanel.Width - 40;
+            pNoticias.Width = (this.menuFlowLayoutPanel.Width*3)/5;
             pNoticias.Height = (this.Height * 6) / 10;
-            pNoticias.Location = new Point(this.Width / 2 - pNoticias.Width / 2, this.menuFlowLayoutPanel.Location.Y + 50);
+            pNoticias.Location = new Point(this.menuFlowLayoutPanel.Location.X+50, this.menuFlowLayoutPanel.Location.Y + 50);
         }
 
         private void actualizarNoticias()
@@ -397,6 +454,5 @@ namespace Asuma
 
         }
         #endregion
-
     }
 }

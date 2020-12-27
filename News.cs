@@ -34,17 +34,19 @@ namespace Asuma
         public News(string name, string description, string image)
         {
             date = DateTime.Now.ToString();
+
             BD bd = new BD();
-            MySqlDataReader writer = bd.Query("INSERT INTO news (`name`, `description`, `date`, `image`) VALUES ('" + name + "','" + description + "','" + date + "','" + image + "')");
-            writer.Close();
+            MySqlDataReader reader = bd.Query("SELECT MAX(id) FROM news");
+            reader.Read();
+            this.id = (int)reader[0]+1;
+            reader.Close();
             bd.closeBD();
 
             bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT MAX(id) FROM news");
-            reader.Read();
-            this.id = (int)reader[0];
-            reader.Close();
+            MySqlDataReader writer = bd.Query("INSERT INTO news (`id`, `name`, `description`, `date`, `image`) VALUES ('" + id + "','" + name + "','" + description + "','" + date + "','" + image + "')");
+            writer.Close();
             bd.closeBD();
+
         }
 
         public static List<News> listaNoticias()

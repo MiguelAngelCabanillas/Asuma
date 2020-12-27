@@ -24,6 +24,7 @@ namespace Asuma
         #region Creacion del frame
         public Eventos(User usuario)
         {
+            
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             InitializeComponent();
@@ -49,6 +50,7 @@ namespace Asuma
 
         public void mostrarEventos()
         {
+            
             panelEventos.Controls.Clear();
             List<Event> listaEventos = Event.listaEventos();
             int nEventos = listaEventos.Count;

@@ -167,13 +167,9 @@ namespace Asuma
         #region Logica del formulario
         private void bExit_Click(object sender, EventArgs e)
         {
-
             Cursor.Current = Cursors.WaitCursor;
-            /*
-            Eventos ev = new Eventos(usuario);
-            ev.Show();
-            this.Close();
-            */
+            Principal inicio = new Principal(usuario);
+            inicio.ShowDialog();
             this.Close();
         }
 
@@ -194,7 +190,7 @@ namespace Asuma
 
         private void bEditarNoticia_Click(object sender, EventArgs e)
         {
-            /*Cursor.Current = Cursors.WaitCursor;
+            Cursor.Current = Cursors.WaitCursor;
             EditarNoticia en = new EditarNoticia(noticia, usuario);
             en.Owner = this;
             this.Visible = false;
@@ -203,7 +199,7 @@ namespace Asuma
             {
                 actualizar();
                 this.Visible = true;
-            }*/
+            }
         }
 
         public User Usuario
@@ -216,7 +212,6 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
-            //misEventos.Close();
             if (this.Owner != null)
             {
                 this.Owner.Close();
@@ -274,8 +269,6 @@ namespace Asuma
             {
                 pUser.Visible = false;
             }
-            /* pUser.Visible = false;
-             lUsername.Visible = false;*/
         }
 
         private void bPerfil_MouseEnter(object sender, EventArgs e)
