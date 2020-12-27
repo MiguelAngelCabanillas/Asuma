@@ -41,6 +41,7 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mcEventos = new System.Windows.Forms.MonthCalendar();
             this.pPerfil = new System.Windows.Forms.Panel();
             this.bMensajes = new System.Windows.Forms.Button();
             this.bPerfil = new System.Windows.Forms.Button();
@@ -187,6 +188,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.mcEventos);
             this.panel1.Controls.Add(this.pPerfil);
             this.panel1.Controls.Add(this.lSignOut);
             this.panel1.Controls.Add(this.pUser);
@@ -195,6 +197,14 @@
             this.panel1.Size = new System.Drawing.Size(1435, 669);
             this.panel1.TabIndex = 15;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            // 
+            // mcEventos
+            // 
+            this.mcEventos.Location = new System.Drawing.Point(1243, 498);
+            this.mcEventos.Name = "mcEventos";
+            this.mcEventos.ShowTodayCircle = false;
+            this.mcEventos.TabIndex = 12;
+            this.mcEventos.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // pPerfil
             // 
@@ -281,5 +291,6 @@
         private System.Windows.Forms.Panel pPerfil;
         private System.Windows.Forms.Button bMensajes;
         private System.Windows.Forms.Button bPerfil;
+        private System.Windows.Forms.MonthCalendar mcEventos;
     }
 }

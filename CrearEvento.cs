@@ -30,6 +30,7 @@ namespace Asuma
             this.usuario = usuario;
             tDescription.AutoSize = false;
             tDescription.Height = 80;
+            cbTipo.Location = new Point(914, 436);
             pImage.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizarElementos();
@@ -104,6 +105,7 @@ namespace Asuma
 
             this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
             this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
+
         }
 
         private void actualizarFiltro()

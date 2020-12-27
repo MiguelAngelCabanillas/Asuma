@@ -433,7 +433,7 @@
             this.pASM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(994, 15);
+            this.pASM.Location = new System.Drawing.Point(976, 15);
             this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(263, 113);
@@ -446,7 +446,7 @@
             this.pASUMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(529, 15);
+            this.pASUMA.Location = new System.Drawing.Point(511, 15);
             this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(299, 103);
