@@ -12,7 +12,7 @@ namespace Asuma
     public class FTPClient
     {
 
-        public static bool ftpOn = false;
+        public static bool ftpOn = true;
         public static bool ftpBackupOn = false;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
@@ -49,6 +49,8 @@ namespace Asuma
         /// </summary>
         /// <param name="folder"></param>
         /// <returns></returns>
+        /// 
+
         public List<string> DirectoryListing(string folder)
         {
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + folder);
@@ -69,6 +71,7 @@ namespace Asuma
             response.Close();
             return result;
         }
+
 
         /// <summary>
         /// Download a file from the FTP server to the destination
@@ -267,6 +270,9 @@ namespace Asuma
                 }
             } }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            reader.Close();
+            responseStream.Close();
+            response.Close();
             return directorios;
         }
 
@@ -275,7 +281,7 @@ namespace Asuma
             protected override WebRequest GetWebRequest(Uri uri)
             {
                 WebRequest w = base.GetWebRequest(uri);
-                w.Timeout = 100;
+                w.Timeout = 10000;
                 return w;
             }
         }

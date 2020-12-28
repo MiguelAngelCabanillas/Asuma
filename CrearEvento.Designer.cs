@@ -62,6 +62,8 @@
             this.pASM = new System.Windows.Forms.PictureBox();
             this.pASUMA = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.lTipo = new System.Windows.Forms.Label();
             this.bEscogerImg = new System.Windows.Forms.Button();
             this.lSignOut = new System.Windows.Forms.LinkLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -329,7 +331,8 @@
             this.lEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lEntries.AutoSize = true;
             this.lEntries.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lEntries.Location = new System.Drawing.Point(348, 594);
+            this.lEntries.Location = new System.Drawing.Point(260, 501);
+            this.lEntries.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lEntries.Name = "lEntries";
             this.lEntries.Size = new System.Drawing.Size(129, 29);
             this.lEntries.TabIndex = 24;
@@ -340,7 +343,8 @@
             this.linkEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkEntries.AutoSize = true;
             this.linkEntries.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkEntries.Location = new System.Drawing.Point(517, 604);
+            this.linkEntries.Location = new System.Drawing.Point(387, 509);
+            this.linkEntries.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkEntries.Name = "linkEntries";
             this.linkEntries.Size = new System.Drawing.Size(112, 17);
             this.linkEntries.TabIndex = 25;
@@ -352,7 +356,8 @@
             this.lVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lVideochat.AutoSize = true;
             this.lVideochat.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lVideochat.Location = new System.Drawing.Point(336, 654);
+            this.lVideochat.Location = new System.Drawing.Point(251, 549);
+            this.lVideochat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lVideochat.Name = "lVideochat";
             this.lVideochat.Size = new System.Drawing.Size(141, 29);
             this.lVideochat.TabIndex = 26;
@@ -363,7 +368,8 @@
             this.linkVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkVideochat.AutoSize = true;
             this.linkVideochat.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkVideochat.Location = new System.Drawing.Point(517, 666);
+            this.linkVideochat.Location = new System.Drawing.Point(387, 559);
+            this.linkVideochat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkVideochat.Name = "linkVideochat";
             this.linkVideochat.Size = new System.Drawing.Size(137, 17);
             this.linkVideochat.TabIndex = 27;
@@ -422,7 +428,7 @@
             this.pASM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(1002, 15);
+            this.pASM.Location = new System.Drawing.Point(976, 15);
             this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(351, 139);
@@ -435,7 +441,7 @@
             this.pASUMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(537, 15);
+            this.pASUMA.Location = new System.Drawing.Point(511, 15);
             this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(399, 127);
@@ -445,6 +451,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbTipo);
+            this.panel1.Controls.Add(this.lTipo);
             this.panel1.Controls.Add(this.pImage);
             this.panel1.Controls.Add(this.tImage);
             this.panel1.Controls.Add(this.lOrganizador);
@@ -467,6 +475,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 796);
             this.panel1.TabIndex = 35;
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(333, 436);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cbTipo.TabIndex = 34;
+            this.cbTipo.DropDownClosed += new System.EventHandler(this.cbTipo_DropDownClosed);
+            // 
+            // lTipo
+            // 
+            this.lTipo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lTipo.AutoSize = true;
+            this.lTipo.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTipo.Location = new System.Drawing.Point(251, 432);
+            this.lTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lTipo.Name = "lTipo";
+            this.lTipo.Size = new System.Drawing.Size(61, 23);
+            this.lTipo.TabIndex = 33;
+            this.lTipo.Text = "Tipo:";
             // 
             // bEscogerImg
             // 
@@ -542,7 +571,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1764, 1114);
+            this.ClientSize = new System.Drawing.Size(1340, 862);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.pASM);
@@ -615,5 +644,7 @@
         private System.Windows.Forms.Panel pPerfil;
         private System.Windows.Forms.Button bMensajes;
         private System.Windows.Forms.Button bPerfil;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.Label lTipo;
     }
 }

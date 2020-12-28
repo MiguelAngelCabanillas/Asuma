@@ -17,8 +17,9 @@ namespace Asuma
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             User s = new User("docente1", "d");
-            Application.Run(new Contacto(s));
-            //Application.Run(new Principal(null));
+            //Application.Run(new Contacto(s));
+            Application.Run(new Principal(null));
+            //Application.Run(new MisEventos(new User("franB", "franB")));
 
         }
     }

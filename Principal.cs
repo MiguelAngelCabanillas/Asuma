@@ -96,25 +96,13 @@ namespace Asuma
                             image = Image.FromStream(ms);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         image = null;
                     }
 
 
-                }
-                else if (FTPClient.ftpBackupOn)
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                    try
-                    {
-                        ftp.MakeFtpDirectory("eventos/" + listaNoticias.ElementAt(i).ID);
-                    }
-                    catch (Exception ex) { }
-                    ftp.UploadFile(imagePath, "eventos/" + listaNoticias.ElementAt(i).ID + "/image.png");
-                    image = Image.FromFile(imagePath);
-                }
-                else { image = Image.FromFile(imagePath); }
+                }else { image = Image.FromFile(imagePath); }
 
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -314,7 +302,7 @@ namespace Asuma
                         FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
                         pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         FTPClient.ftpOn = false;
                         pUser.Image = null;

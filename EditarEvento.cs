@@ -56,7 +56,7 @@ namespace Asuma
                         image = Image.FromStream(ms);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     image = null;
                 }
@@ -100,7 +100,7 @@ namespace Asuma
                     FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
                     pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     FTPClient.ftpOn = false;
                     pUser.Image = null;
@@ -202,7 +202,7 @@ namespace Asuma
                     {
                         ftp.MakeFtpDirectory("eventos/" + evento.ID);
                     }
-                    catch (Exception ex) { }
+                    catch (Exception) { }
                     ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
                 }
 
@@ -313,8 +313,16 @@ namespace Asuma
 
         private void linkVideochat_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
             Directorios pftp = new Directorios(evento, usuario);
             pftp.ShowDialog();
+
+
+            /*
+            PruebaFTP pftp = new PruebaFTP(usuario, evento, "Mi_nombre_es_Groot");
+            pftp.ShowDialog();
+            */
+
         }
         #endregion
 

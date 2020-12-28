@@ -130,7 +130,7 @@ namespace Asuma
                         ftp.MakeFtpDirectory("noticias/" + noticia.ID);
                         ftp.MakeFtpDirectory("noticias/" + noticia.ID + "/files");
                     }
-                    catch (Exception ex) { }
+                    catch (Exception) { }
                     ftp.UploadFile(imagen, "/noticias/" + noticia.ID + "/image.png");
                 }
                 // imagePath.Substring(0, imagePath.LastIndexOf("/")

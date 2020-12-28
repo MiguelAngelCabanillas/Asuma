@@ -15,24 +15,27 @@ namespace Asuma
     public partial class CrearEvento : Form
     {
         private bool mouseInPanel = false;
-        private Timer hideTimer;
-
+        private Timer hideTimer;    
         private User usuario;
         private string imagen = "";
+        private bool tipo;
 
         #region Creacion del frame
         public CrearEvento(User usuario)
         {
+            this.tipo = false;
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
             tDescription.AutoSize = false;
             tDescription.Height = 80;
+            cbTipo.Location = new Point(914, 436);
             pImage.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizarElementos();
             actualizar();
+            actualizarFiltro();
         }
         #endregion
 
@@ -63,7 +66,7 @@ namespace Asuma
                     FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
                     pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     FTPClient.ftpOn = false;
                     pUser.Image = null;
@@ -110,6 +113,14 @@ namespace Asuma
 
             this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
             this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
+
+        }
+
+        private void actualizarFiltro()
+        {
+            cbTipo.Items.Add("Actividad");
+            cbTipo.SelectedItem = cbTipo.Items[0];
+            cbTipo.Items.Add("Curso");
         }
         #endregion
 
@@ -159,7 +170,9 @@ namespace Asuma
                 string eventOrganiser = tOrganizer.Text;
                 string eventCreator = usuario.Username;
                 string image = "comida.jpg";
-                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
+
+                //ADVERTENCIA: HAY QUE CONTROLAR ESTO AL INSERTAR EVENTO
+                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator, this.tipo);
                 new Forum(evento);
                 if (FTPClient.ftpOn)
                 {
@@ -260,6 +273,17 @@ namespace Asuma
                     break;
             }
         }
+
+        private void cbTipo_DropDownClosed(object sender, EventArgs e)
+        {
+            if (cbTipo.SelectedItem == cbTipo.Items[0])
+            {
+                this.tipo = false;
+            } else {
+                this.tipo = true;
+            }
+        }
+
         #endregion
 
         #region Desplegable de mi perfil
@@ -336,5 +360,7 @@ namespace Asuma
 
         }
         #endregion
+
+        
     }
 }

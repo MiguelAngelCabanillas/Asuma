@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Informacion.Designer.cs">
       <DependentUpon>Informacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoNoticia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +156,12 @@
     </Compile>
     <Compile Include="ListaParticipantes.Designer.cs">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </Compile>
     <Compile Include="MiPerfil.cs">
       <SubType>Form</SubType>
@@ -252,6 +259,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informacion.resx">
       <DependentUpon>Informacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InfoNoticia.resx">
       <DependentUpon>InfoNoticia.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaParticipantes.resx">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiPerfil.resx">
       <DependentUpon>MiPerfil.cs</DependentUpon>

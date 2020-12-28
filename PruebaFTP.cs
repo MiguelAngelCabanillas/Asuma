@@ -37,26 +37,34 @@ namespace Asuma
             }
             ftp = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/files/" + carpeta + "/", "Prueba", "");
             this.subdirectorios = ftp.FTPSubdirectories("");
-
         }
 
         private void PruebaFTP_Load(object sender, EventArgs e)
         {
-            //Selector de archivos
-             List<string> archivos = ftp.DirectoryListing();
-             foreach (string directorio in subdirectorios)
-             {
-                 archivos.Remove(directorio);
-             }
+            try
+            {
+                //Selector de archivos
+                List<string> archivos = ftp.DirectoryListing();
+                foreach (string directorio in subdirectorios)
+                {
+                    archivos.Remove(directorio);
+                }
 
-            var result = archivos.Select(s => new { Nombre = s , Tamaño = Commons.LongToBytesMagnitude(ftp.GetFileDownloadSize(s)) }).ToList();
-            dataGridView1.DataSource = result;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            MostrarSeleccionado();
-            
-            //Selector de carpetas
-             /* var result = subdirectorios.Select(s => new { Carpeta = s }).ToList();
-            dataGridView1.DataSource = result;*/
+                var result = archivos.Select(s => new { Nombre = s, Tamaño = Commons.LongToBytesMagnitude(ftp.GetFileDownloadSize(s)) }).ToList();
+                dataGridView1.DataSource = result;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                MostrarSeleccionado();
+
+                //Selector de carpetas
+                /* var result = subdirectorios.Select(s => new { Carpeta = s }).ToList();
+               dataGridView1.DataSource = result;*/
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)

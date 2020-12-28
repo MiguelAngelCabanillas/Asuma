@@ -45,6 +45,8 @@
             this.pPerfil = new System.Windows.Forms.Panel();
             this.bMensajes = new System.Windows.Forms.Button();
             this.bPerfil = new System.Windows.Forms.Button();
+            this.lFiltro = new System.Windows.Forms.Label();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -246,12 +248,35 @@
             this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
             this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
+            // lFiltro
+            // 
+            this.lFiltro.AutoSize = true;
+            this.lFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lFiltro.Location = new System.Drawing.Point(1119, 564);
+            this.lFiltro.Name = "lFiltro";
+            this.lFiltro.Size = new System.Drawing.Size(67, 16);
+            this.lFiltro.TabIndex = 40;
+            this.lFiltro.Text = "Filtrar por:";
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.BackColor = System.Drawing.Color.White;
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Location = new System.Drawing.Point(1192, 563);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(121, 21);
+            this.cbFiltro.TabIndex = 41;
+            this.cbFiltro.DropDownClosed += new System.EventHandler(this.cbFiltro_DropDownClosed);
+            // 
             // Eventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1443, 857);
+            this.Controls.Add(this.cbFiltro);
+            this.Controls.Add(this.lFiltro);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
@@ -296,5 +321,7 @@
         private System.Windows.Forms.Panel pPerfil;
         private System.Windows.Forms.Button bMensajes;
         private System.Windows.Forms.Button bPerfil;
+        private System.Windows.Forms.Label lFiltro;
+        private System.Windows.Forms.ComboBox cbFiltro;
     }
 }

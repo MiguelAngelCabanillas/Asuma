@@ -327,5 +327,17 @@ namespace Asuma
 
         }
         #endregion
+
+        private void lTipoDef_Paint(object sender, PaintEventArgs e)
+        {
+            if (this.evento.Tipo == true)
+            {
+                lTipoDef.Text = "Curso";
+            }
+            else
+            {
+                lTipoDef.Text = "Actividad";
+            }
+        }
     }
 }
