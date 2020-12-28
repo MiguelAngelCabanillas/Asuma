@@ -121,6 +121,12 @@
     <Compile Include="InfoEventoInscrito.Designer.cs">
       <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Informacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informacion.Designer.cs">
+      <DependentUpon>Informacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,18 @@
     </Compile>
     <Compile Include="Rol.cs" />
     <Compile Include="Tema.cs" />
+    <Compile Include="Test_Conocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test_Conocimiento.Designer.cs">
+      <DependentUpon>Test_Conocimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test_Conocimiento_Edicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test_Conocimiento_Edicion.Designer.cs">
+      <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Contacto.resx">
       <DependentUpon>Contacto.cs</DependentUpon>
@@ -201,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoEventoInscrito.resx">
       <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informacion.resx">
+      <DependentUpon>Informacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
@@ -237,6 +258,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test_Conocimiento.resx">
+      <DependentUpon>Test_Conocimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test_Conocimiento_Edicion.resx">
+      <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
