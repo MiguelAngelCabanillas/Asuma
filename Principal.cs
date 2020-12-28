@@ -294,6 +294,7 @@ namespace Asuma
             }
             else
             {
+                pintarCalendario();
                 linitSesion.Visible = false;
                 if (FTPClient.ftpOn)
                 {
@@ -445,10 +446,62 @@ namespace Asuma
             this.Visible = true;
         }
 
+        private void pintarCalendario()
+        {
+            if (this.usuario != null)
+            {
+                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
+                DateTime[] dates = new DateTime[eventos.Count];
+                int i = 0;
+                foreach (Event evento in eventos)
+                {
+                    dates[i] = DateTime.Parse(evento.Date);
+                    i++;
+                }
+                mcEventos.BoldedDates = dates;
+            }
+        }
+
         private void bMensajes_Click(object sender, EventArgs e)
         {
 
         }
         #endregion
+
+        private void mcEventos_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            if (this.usuario == null)
+            {
+                MessageBox.Show("Debe registrarse para visualizar sus eventos.");
+            }
+            else
+            {
+                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
+                if (eventos.Count == 0)
+                {
+                    MessageBox.Show("No se encuentra inscrito en ningún evento.");
+                }
+                else
+                {
+                    string dia = mcEventos.SelectionStart.ToString().Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
+                    string res = "";
+                    foreach (Event evento in eventos)
+                    {
+                        if (dia.Equals(evento.Date))
+                        {
+                            res = res + "- " + evento.EventName + " (" + (evento.Tipo ? "Curso" : "Actividad") + ")\n";
+                        }
+                    }
+                    if (res == "")
+                    {
+                        MessageBox.Show("No tiene ningún evento programado para este día.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(res);
+                    }
+                }
+            }
+        }
     }
 }
