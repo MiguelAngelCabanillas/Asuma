@@ -77,9 +77,9 @@ namespace Asuma
                     P_id.Click += new EventHandler(P_id_Click);     
                     flowLayoutPanel1.Controls.Add(P_id);
 
-                    resetPregunta();
-
                     id++;
+
+                    resetPregunta();
                 }
             }
             else
@@ -269,6 +269,11 @@ namespace Asuma
                 listasRespuestasPurgadas.Add(id_P, respuestasPurgadas);
             }
             return listasRespuestasPurgadas;
+        }
+
+        private void bLimpiar_Click(object sender, EventArgs e)
+        {
+            resetPregunta();
         }
     }
 }
