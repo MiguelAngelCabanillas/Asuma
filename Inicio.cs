@@ -41,7 +41,7 @@ namespace Asuma
 
         private void bRegistrarse_Click(object sender, EventArgs e)
         {
-            Recuperacion reg = new Recuperacion();
+            Registro reg = new Registro();
             this.Visible = false;
             reg.ShowDialog();
             this.Visible = true;
