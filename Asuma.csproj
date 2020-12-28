@@ -86,6 +86,12 @@
     <Compile Include="CrearEvento.Designer.cs">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearNoticia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearNoticia.Designer.cs">
+      <DependentUpon>CrearNoticia.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,12 @@
       <DependentUpon>EditarEvento.cs</DependentUpon>
     </Compile>
     <Compile Include="Email.cs" />
+    <Compile Include="EditarNoticia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarNoticia.Designer.cs">
+      <DependentUpon>EditarNoticia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Error.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Eventos.cs">
@@ -126,12 +138,23 @@
     </Compile>
     <Compile Include="Informacion.Designer.cs">
       <DependentUpon>Informacion.cs</DependentUpon>
+    <Compile Include="InfoNoticia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoNoticia.Designer.cs">
+      <DependentUpon>InfoNoticia.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaParticipantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaParticipantes.Designer.cs">
+      <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </Compile>
     <Compile Include="MiPerfil.cs">
       <SubType>Form</SubType>
@@ -151,6 +174,7 @@
     <Compile Include="Notificacion.Designer.cs">
       <DependentUpon>Notificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="News.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -205,8 +229,14 @@
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrearNoticia.resx">
+      <DependentUpon>CrearNoticia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditarEvento.resx">
       <DependentUpon>EditarEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarNoticia.resx">
+      <DependentUpon>EditarNoticia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eventos.resx">
       <DependentUpon>Eventos.cs</DependentUpon>
@@ -222,9 +252,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Informacion.resx">
       <DependentUpon>Informacion.cs</DependentUpon>
+    <EmbeddedResource Include="InfoNoticia.resx">
+      <DependentUpon>InfoNoticia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaParticipantes.resx">
+      <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiPerfil.resx">
       <DependentUpon>MiPerfil.cs</DependentUpon>

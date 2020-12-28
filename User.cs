@@ -128,7 +128,32 @@ namespace Asuma
 
             }
             return existe;
+        }
 
+        public User(string username)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT * FROM user WHERE username = '" + username + "'");
+                if (!reader.HasRows)
+                {
+                    throw new Error("Usuario incorrecto");
+                }
+                reader.Read();
+                this.username = (string)reader[0];
+                this.password = (string)reader[1];
+                this.email = (string)reader[2];
+                string rolName = (string)reader[3];
+                this.id = (int)reader[4];
+                this.rol = new Rol(rolName);
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception ex)
+            {
+                throw new Error(ex.Message);
+            }
         }
 
         public string Username
