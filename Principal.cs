@@ -197,6 +197,7 @@ namespace Asuma
             panel1.Controls.Add(pASUMA);
             panel1.Controls.Add(pASM);
             panel1.Controls.Add(menuFlowLayoutPanel);
+            panel1.Controls.Add(lNoticias);
         }
 
         protected void ltitulo_click(object sender, EventArgs e)
@@ -247,9 +248,56 @@ namespace Asuma
             isClosed = true;
         }
 
+        private void mcEventos_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            if (this.usuario == null)
+            {
+                MessageBox.Show("Debe registrarse para visualizar sus eventos.");
+            }
+            else
+            {
+                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
+                if (eventos.Count == 0)
+                {
+                    MessageBox.Show("No se encuentra inscrito en ningún evento.");
+                }
+                else
+                {
+                    string dia = mcEventos.SelectionStart.ToString().Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
+                    string res = "";
+                    foreach (Event evento in eventos)
+                    {
+                        if (dia.Equals(evento.Date))
+                        {
+                            res = res + "- " + evento.EventName + " (" + (evento.Tipo ? "Curso" : "Actividad") + ")\n";
+                        }
+                    }
+                    if (res == "")
+                    {
+                        MessageBox.Show("No tiene ningún evento programado para este día.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(res);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region GUIs
+        
+        private void actualizarElementos()
+        {
+            panel1.Width = this.Width;
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarPanelNoticias();
+            mcEventos.Location = new Point(pASM.Location.X,pNoticias.Location.Y);
+            lNoticias.Location = new Point(pNoticias.Location.X+pNoticias.Width/2-lNoticias.Text.Length*6,pNoticias.Location.Y-50);
+        }
+        
         private void actualizarImagenes()
         {
             int tamaño = this.Width;
@@ -266,8 +314,8 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bCrearNoticia.Location = new Point(this.Width/2 - this.bCrearNoticia.Width/2,
-                this.pNoticias.Location.Y + this.pNoticias.Height + 20);
+            this.bCrearNoticia.Location = new Point(this.Width*7/10+mcEventos.Width/2-bCrearNoticia.Width/2,
+                this.pNoticias.Location.Y + mcEventos.Height + 20);
         }
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -333,7 +381,7 @@ namespace Asuma
         {
             pNoticias.Width = (this.menuFlowLayoutPanel.Width*3)/5;
             pNoticias.Height = (this.Height * 6) / 10;
-            pNoticias.Location = new Point(this.menuFlowLayoutPanel.Location.X+50, this.menuFlowLayoutPanel.Location.Y + 50);
+            pNoticias.Location = new Point(this.menuFlowLayoutPanel.Location.X+50, this.menuFlowLayoutPanel.Location.Y + 100);
         }
 
         private void actualizarNoticias()
@@ -366,10 +414,7 @@ namespace Asuma
 
         private void Principal_Resize(object sender, EventArgs e)
         {
-            panel1.Width = this.Width;
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarPanelNoticias();
+            actualizarElementos();
         }
 
         private void pNoticias_Resize(object sender, EventArgs e)
@@ -467,41 +512,5 @@ namespace Asuma
 
         }
         #endregion
-
-        private void mcEventos_DateSelected(object sender, DateRangeEventArgs e)
-        {
-            if (this.usuario == null)
-            {
-                MessageBox.Show("Debe registrarse para visualizar sus eventos.");
-            }
-            else
-            {
-                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
-                if (eventos.Count == 0)
-                {
-                    MessageBox.Show("No se encuentra inscrito en ningún evento.");
-                }
-                else
-                {
-                    string dia = mcEventos.SelectionStart.ToString().Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
-                    string res = "";
-                    foreach (Event evento in eventos)
-                    {
-                        if (dia.Equals(evento.Date))
-                        {
-                            res = res + "- " + evento.EventName + " (" + (evento.Tipo ? "Curso" : "Actividad") + ")\n";
-                        }
-                    }
-                    if (res == "")
-                    {
-                        MessageBox.Show("No tiene ningún evento programado para este día.");
-                    }
-                    else
-                    {
-                        MessageBox.Show(res);
-                    }
-                }
-            }
-        }
     }
 }

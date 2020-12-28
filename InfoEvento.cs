@@ -27,18 +27,13 @@ namespace Asuma
             this.ev = e;
             this.usuario = u;
             InitializeComponent();
-            string imagen = "asuma2.ico";
+            actualizar();
+            actualizarElementos();
+            
+            string imagen = e.Image;
             string path = Path.GetDirectoryName(Application.StartupPath);
             string pathBueno = path.Substring(0, path.Length - 3);
             string imagePath = pathBueno + "images\\" + imagen;
-            Icon icon = new Icon(imagePath,100,100); 
-            this.Icon = icon;
-
-            actualizar();
-            imagen = e.Image;
-            path = Path.GetDirectoryName(Application.StartupPath);
-            pathBueno = path.Substring(0, path.Length - 3);
-            imagePath = pathBueno + "images\\" + imagen;
             Image image;
 
             if (FTPClient.ftpOn)
@@ -115,6 +110,13 @@ namespace Asuma
             this.pEvento.BorderStyle = BorderStyle.FixedSingle;
         }
 
+        private void actualizarElementos()
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarLabels();
+        }
+
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 40;
@@ -147,6 +149,8 @@ namespace Asuma
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
             this.bInscription.Location = new Point((anchura * 2) / 10, bInscription.Location.Y);
             this.bSalir.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            lTipo.Location = new Point(tDes.Location.X+tDes.Width/2,lOrganizadores.Location.Y);
+            lTipoDef.Location = new Point(lTipo.Location.X+100, lOrganizadores.Location.Y+5);
         }
 
         private void InfoEvento_Resize(object sender, EventArgs e)

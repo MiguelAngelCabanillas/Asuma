@@ -30,6 +30,7 @@ namespace Asuma
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
+            actualizarElementos();
             panelEventos.SendToBack();
             mostrarEventos(0);
         }
@@ -46,6 +47,15 @@ namespace Asuma
                 misEventos.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void actualizarElementos()
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarBotonMisEventos();
+            actualizarPanelEventos();
+            actualizarFiltro();
         }
 
         public void mostrarEventos(int filtro)
@@ -295,8 +305,8 @@ namespace Asuma
 
         private void actualizarFiltro()
         {
-            lFiltro.Location = new Point(((this.Width * 9) / 10) - bMyEvents.Width / 2, (int)((this.Height * 9) / 10));
-            cbFiltro.Location = new Point((int)((this.Width * 9.35) / 10) - bMyEvents.Width / 2, (int)((this.Height * 8.98) / 10));
+            lFiltro.Location = new Point(((this.Width * 8) / 10) - bMyEvents.Width / 2, bMyEvents.Location.Y+20);
+            cbFiltro.Location = new Point(lFiltro.Location.X+100,lFiltro.Location.Y);
             cbFiltro.Items.Add("-");
             cbFiltro.SelectedItem = cbFiltro.Items[0];
             cbFiltro.Items.Add("Actividad");
@@ -335,11 +345,7 @@ namespace Asuma
 
         private void Eventos_Resize(object sender, EventArgs e)
         {
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarBotonMisEventos();
-            actualizarPanelEventos();
-            actualizarFiltro();
+            actualizarElementos();
         }
 
         private void panelEventos_Resize(object sender, EventArgs e)

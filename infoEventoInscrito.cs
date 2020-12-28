@@ -40,6 +40,7 @@ namespace Asuma
                 bEditEvent.Visible = false;
             }
 
+            actualizarElementos();
             actualizar();
         }
         #endregion
@@ -123,6 +124,13 @@ namespace Asuma
             lFecha.Text = evento.Date;
         }
 
+        private void actualizarElementos()
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarLabels();
+        }
+
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 40;
@@ -130,6 +138,8 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            bEditEvent.Location = new Point(20,bExit.Location.Y);
+            bEditEvent.Size = bExit.Size;
         }
 
         private void actualizarImagenes()
@@ -138,7 +148,7 @@ namespace Asuma
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
             this.lSignOut.Location = new Point((tamaño * 3) / 10, lSignOut.Location.Y);
-            this.pEvento.Location = new Point((tamaño * 2) / 10, pEvento.Location.Y);
+            pEvento.Location = new Point(tamaño*2/10, menuFlowLayoutPanel.Location.Y + 100);
         }
 
         private void actualizarLabels()
@@ -155,13 +165,14 @@ namespace Asuma
             this.bEditEvent.Location = new Point((anchura * 2) / 10, bEditEvent.Location.Y);
             this.linkForum.Location = new Point((anchura * 3) / 10, linkForum.Location.Y);
             this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            lTipo.Location = new Point(tDes.Location.X + tDes.Width / 2, lOrganizadores.Location.Y);
+            lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
+            tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
         {
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarLabels();
+            actualizarElementos();
         }
         #endregion
 
