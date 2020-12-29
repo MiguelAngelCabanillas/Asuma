@@ -17,6 +17,11 @@ namespace Asuma
             InitializeComponent();
         }
 
+        public Cuestionario_Satisfaccion(String[] respuestas)
+        {
+            InitializeComponent();
+        }
+
         private void CLB_Q2_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             //Este Codigo solo permite seleccionar un check

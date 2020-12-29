@@ -61,7 +61,7 @@ namespace Asuma
             // 
             this.lNameCurso.AutoSize = true;
             this.lNameCurso.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameCurso.Location = new System.Drawing.Point(579, 14);
+            this.lNameCurso.Location = new System.Drawing.Point(543, 14);
             this.lNameCurso.Name = "lNameCurso";
             this.lNameCurso.Size = new System.Drawing.Size(187, 25);
             this.lNameCurso.TabIndex = 14;
@@ -150,10 +150,10 @@ namespace Asuma
             this.lQ3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lQ3.Location = new System.Drawing.Point(12, 350);
             this.lQ3.Name = "lQ3";
-            this.lQ3.Size = new System.Drawing.Size(996, 18);
+            this.lQ3.Size = new System.Drawing.Size(867, 18);
             this.lQ3.TabIndex = 20;
-            this.lQ3.Text = "¿Crees que la duración del programa fue lo suficientemente buena como para satisf" +
-    "acer tus expectativas de formación?";
+            this.lQ3.Text = "¿Crees que la duración del programa fue suficiente como para satisfacer tus expec" +
+    "tativas de formación?";
             // 
             // CLB_Q4
             // 
@@ -175,10 +175,9 @@ namespace Asuma
             this.lQ4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lQ4.Location = new System.Drawing.Point(13, 459);
             this.lQ4.Name = "lQ4";
-            this.lQ4.Size = new System.Drawing.Size(738, 18);
+            this.lQ4.Size = new System.Drawing.Size(605, 18);
             this.lQ4.TabIndex = 22;
-            this.lQ4.Text = "¿Se explicó claramente el objetivo del programa de capactiación antes de la inscr" +
-    "ipción?";
+            this.lQ4.Text = "¿Se explicó claramente el objetivo del programa antes de la inscripción?";
             // 
             // CLB_Q5
             // 
@@ -250,7 +249,7 @@ namespace Asuma
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1034, 972);
+            this.ClientSize = new System.Drawing.Size(977, 972);
             this.Controls.Add(this.RTB_Q7);
             this.Controls.Add(this.lQ7);
             this.Controls.Add(this.CLB_Q6);
@@ -268,6 +267,7 @@ namespace Asuma
             this.Controls.Add(this.bEnviar);
             this.Controls.Add(this.lNameCurso);
             this.Controls.Add(this.lTestName);
+            this.MaximizeBox = false;
             this.Name = "Cuestionario_Satisfaccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuestionario_Satisfaccion";
