@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.6.8.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>packages\MySqlConnector.1.2.0\lib\net471\MySqlConnector.dll</HintPath>
     </Reference>
@@ -68,11 +74,23 @@
   <ItemGroup>
     <Compile Include="BD.cs" />
     <Compile Include="Commons.cs" />
+    <Compile Include="Contacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacto.Designer.cs">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrearEvento.Designer.cs">
       <DependentUpon>CrearEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearNoticia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearNoticia.Designer.cs">
+      <DependentUpon>CrearNoticia.cs</DependentUpon>
     </Compile>
     <Compile Include="Cuestionario_Satisfaccion.cs">
       <SubType>Form</SubType>
@@ -85,6 +103,13 @@
     </Compile>
     <Compile Include="EditarEvento.Designer.cs">
       <DependentUpon>EditarEvento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Email.cs" />
+    <Compile Include="EditarNoticia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarNoticia.Designer.cs">
+      <DependentUpon>EditarNoticia.cs</DependentUpon>
     </Compile>
     <Compile Include="Error.cs" />
     <Compile Include="Event.cs" />
@@ -120,11 +145,29 @@
     <Compile Include="Informacion.Designer.cs">
       <DependentUpon>Informacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoNoticia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoNoticia.Designer.cs">
+      <DependentUpon>InfoNoticia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaParticipantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaParticipantes.Designer.cs">
+      <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </Compile>
     <Compile Include="MiPerfil.cs">
       <SubType>Form</SubType>
@@ -138,6 +181,13 @@
     <Compile Include="MisEventos.Designer.cs">
       <DependentUpon>MisEventos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacion.Designer.cs">
+      <DependentUpon>Notificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="News.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -158,6 +208,12 @@
     </Compile>
     <Compile Include="PruebaFTP.Designer.cs">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Recuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recuperacion.Designer.cs">
+      <DependentUpon>Recuperacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Registro.cs">
       <SubType>Form</SubType>
@@ -180,14 +236,17 @@
       <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Contacto.resx">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cuestionario_Satisfaccion.resx">
-      <DependentUpon>Cuestionario_Satisfaccion.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditarEvento.resx">
       <DependentUpon>EditarEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarNoticia.resx">
+      <DependentUpon>EditarNoticia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Eventos.resx">
       <DependentUpon>Eventos.cs</DependentUpon>
@@ -204,14 +263,26 @@
     <EmbeddedResource Include="Informacion.resx">
       <DependentUpon>Informacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InfoNoticia.resx">
+      <DependentUpon>InfoNoticia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaParticipantes.resx">
+      <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MiPerfil.resx">
       <DependentUpon>MiPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MisEventos.resx">
       <DependentUpon>MisEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacion.resx">
+      <DependentUpon>Notificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -230,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PruebaFTP.resx">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recuperacion.resx">
+      <DependentUpon>Recuperacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>

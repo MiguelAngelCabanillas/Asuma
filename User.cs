@@ -91,6 +91,71 @@ namespace Asuma
 
         }
 
+
+        public static List<string> listaEmailsUsuariosEnEvento(Event e)
+        {
+            List<string> listaEmails = new List<string>();
+            string aux;
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT email FROM user WHERE username IN (SELECT userName FROM inscription WHERE idEvent = " + e.ID + ")");
+            while (reader.Read())
+            {
+                aux = (string)reader[0];
+                listaEmails.Add(aux);
+            }
+            reader.Close();
+            bd.closeBD();
+
+            return listaEmails;
+        }
+
+        public static bool buscarUsuarioRecuperacion(string nombreUsuario, string email)
+        {
+            bool existe = false;
+            try
+            {
+                
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT id FROM user WHERE username = '" + nombreUsuario + "' AND email = '" + email + "'");
+                if (reader.HasRows)
+                {
+                    existe = true;
+                }
+                reader.Close();
+                bd.closeBD();
+                
+            } catch(Exception ex){
+
+            }
+            return existe;
+        }
+
+        public User(string username)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT * FROM user WHERE username = '" + username + "'");
+                if (!reader.HasRows)
+                {
+                    throw new Error("Usuario incorrecto");
+                }
+                reader.Read();
+                this.username = (string)reader[0];
+                this.password = (string)reader[1];
+                this.email = (string)reader[2];
+                string rolName = (string)reader[3];
+                this.id = (int)reader[4];
+                this.rol = new Rol(rolName);
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception ex)
+            {
+                throw new Error(ex.Message);
+            }
+        }
+
         public string Username
         {
             get { return username; }
@@ -140,6 +205,23 @@ namespace Asuma
                 bd.closeBD();
             }
         }
+
+        public static void insertarToken(string username, string email, string token)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET recoveryToken = '" + token + "' WHERE username = '" + username + "' AND email = '" + email + "';");
+                writer.Close();
+                bd.closeBD();
+            }
+            catch (Exception)
+            {
+
+            }
+         
+        }
+ 
 
         public static implicit operator string(User v)
         {

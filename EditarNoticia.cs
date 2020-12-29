@@ -3,39 +3,71 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using MySqlConnector;
 
 namespace Asuma
 {
-    public partial class CrearEvento : Form
+    public partial class EditarNoticia : Form
     {
-        private bool mouseInPanel = false;
-        private Timer hideTimer;    
-        private User usuario;
-        private string imagen = "";
-        private bool tipo;
 
-        #region Creacion del frame
-        public CrearEvento(User usuario)
+        private bool mouseInPanel = false;
+        private Timer hideTimer;
+
+        private User usuario;
+        private News noticia;
+        private string imagen = "";
+
+        #region Creacion del form
+        public EditarNoticia(News n, User u)
         {
-            this.tipo = false;
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             InitializeComponent();
-            this.usuario = usuario;
+            this.usuario = u;
+            this.noticia = n;
             tDescription.AutoSize = false;
             tDescription.Height = 80;
-            cbTipo.Location = new Point(914, 436);
             pImage.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
+            tTitle.Text = noticia.Name;
+            tDescription.Text = noticia.Description;
+
+            //Image image = Image.FromFile(imagePath);
+            tImage.Text = noticia.Image;
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + noticia.Image;
+            Image image;
+            if (FTPClient.ftpOn)
+            {
+                try
+                {
+                    FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + noticia.ID + "/", "Prueba", "");
+                    byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                    using (var ms = new MemoryStream(byteArrayIn))
+                    {
+                        image = Image.FromStream(ms);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    image = null;
+                }
+
+
+            }
+            else { image = Image.FromFile(imagePath); }
+
+            pImage.Image = image;
+            pImage.SizeMode = PictureBoxSizeMode.StretchImage;
+
             actualizarElementos();
             actualizar();
-            actualizarFiltro();
         }
         #endregion
 
@@ -59,27 +91,19 @@ namespace Asuma
 
         public void actualizar()
         {
-            if (FTPClient.ftpOn)
+            try
             {
-                try
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
-                }
-                catch (Exception)
-                {
-                    FTPClient.ftpOn = false;
-                    pUser.Image = null;
-                }
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
             }
-            else
+            catch (Exception ex)
             {
                 pUser.Image = null;
             }
-                pUser.Visible = true;
-                lUsername.Text = "Bienvenido " + usuario.Username;
-                lUsername.Visible = true;
-                lSignOut.Visible = true;
+            pUser.Visible = true;
+            lUsername.Text = "Bienvenido " + usuario.Username;
+            lUsername.Visible = true;
+            lSignOut.Visible = true;
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -92,15 +116,15 @@ namespace Asuma
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
         }
 
-        private void CrearEvento_Resize(object sender, EventArgs e)
+        private void EditarNoticia_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
         }
 
         private void actualizarElementos()
         {
-            this.pUser.Location = new Point(72,16);
-            this.lUsername.Location = new Point(pUser.Location.X+120, pUser.Location.Y+40);
+            this.pUser.Location = new Point(72, 16);
+            this.lUsername.Location = new Point(pUser.Location.X + 120, pUser.Location.Y + 40);
             lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -111,16 +135,8 @@ namespace Asuma
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
 
-            this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
-            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
-
-        }
-
-        private void actualizarFiltro()
-        {
-            cbTipo.Items.Add("Actividad");
-            cbTipo.SelectedItem = cbTipo.Items[0];
-            cbTipo.Items.Add("Curso");
+            this.panel1.Location = new Point(this.bInicio.Location.X + 100, this.menuFlowLayoutPanel.Location.Y + 80);
+            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width, this.Height - this.menuFlowLayoutPanel.Location.Y - 30);
         }
         #endregion
 
@@ -128,71 +144,68 @@ namespace Asuma
         private void bExit_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            MisEventos misEventos = new MisEventos(usuario);
-            misEventos.Show();
+            this.Owner.Visible = true;
+            /*Principal inicio = new Principal(usuario);
+            inicio.Show();*/
             this.Close();
         }
 
-        private void bCreateEvent_Click(object sender, EventArgs e)
+        private void bConfirmar_Click(object sender, EventArgs e)
         {
-            /*Cursor.Current = Cursors.WaitCursor;
             try
             {
-                string eventName = tTitle.Text;
-                string eventDescription = tDescription.Text;
-                DateTime date = tDatePicker.Value;
-
-                string[] aux = date.ToString().Split(' ');
-                string eventDate = aux[0];
-                string eventOrganiser = tOrganizer.Text;
-                string eventCreator = usuario.Username;
+                string title = tTitle.Text;
+                string description = tDescription.Text;
                 string image = tImage.Text;
-                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
-                MessageBox.Show("Evento creado con exito");
-                MisEventos misEventos = new MisEventos(usuario);
-                misEventos.Show();
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE news SET name = '" + title + "', image = '" + image + "', description = '" + description + "' WHERE id = " + noticia.ID);
+                MessageBox.Show("Se ha editado la noticia correctamente");
+                writer.Close();
+                bd.closeBD();
+                Cursor.Current = Cursors.WaitCursor;
+                Principal inicio = new Principal(usuario);
+                inicio.ShowDialog();
+                if (this.Owner != null)
+                {
+                    this.Owner.Close();
+                    //this.Owner.Owner.Close();
+                }
                 this.Close();
 
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
-            Cursor.Current = Cursors.WaitCursor;
-            try
-            {
-                string eventName = tTitle.Text;
-                string eventDescription = tDescription.Text;
-                DateTime date = tDatePicker.Value;
-
-                string[] aux = date.ToString().Split(' ');
-                string eventDate = aux[0];
-                string eventOrganiser = tOrganizer.Text;
-                string eventCreator = usuario.Username;
-                string image = "comida.jpg";
-
-                //ADVERTENCIA: HAY QUE CONTROLAR ESTO AL INSERTAR EVENTO
-                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator, this.tipo);
-                new Forum(evento);
                 if (FTPClient.ftpOn)
                 {
                     FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
                     try
                     {
-                        ftp.MakeFtpDirectory("eventos/" + evento.ID);
-                        ftp.MakeFtpDirectory("eventos/" + evento.ID + "/files");
+                        ftp.MakeFtpDirectory("noticias/" + noticia.ID);
                     }
                     catch (Exception ex) { }
-                    ftp.UploadFile(imagen, "/eventos/" + evento.ID + "/image.png");
+                    ftp.UploadFile(imagen, "/noticias/" + noticia.ID + "/image.png");
                 }
-                // imagePath.Substring(0, imagePath.LastIndexOf("/")
 
-                MessageBox.Show("Evento creado con exito");
-                MisEventos misEventos = new MisEventos(usuario);
-                misEventos.Show();
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("DELETE FROM news WHERE id = " + noticia.ID);
+                writer.Close();
+                bd.closeBD();
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                ftp.DeleteFTPDirectory("noticias/" + noticia.ID + "/");
+                MessageBox.Show("Noticia eliminada con éxito");
+                Principal inicio = new Principal(usuario);
+                inicio.Show();
                 if (this.Owner != null)
                 {
-                    this.Owner.Close();
+                    this.Owner.Owner.Close();
                 }
                 this.Close();
 
@@ -213,6 +226,7 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
+            this.Owner.Owner.Close();
             this.Close();
         }
 
@@ -235,11 +249,11 @@ namespace Asuma
                 pImage.Image = image;
                 pImage.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
-            
+
         }
 
         private void bEscogerImg_Click(object sender, EventArgs e)
@@ -273,17 +287,6 @@ namespace Asuma
                     break;
             }
         }
-
-        private void cbTipo_DropDownClosed(object sender, EventArgs e)
-        {
-            if (cbTipo.SelectedItem == cbTipo.Items[0])
-            {
-                this.tipo = false;
-            } else {
-                this.tipo = true;
-            }
-        }
-
         #endregion
 
         #region Desplegable de mi perfil
@@ -317,8 +320,6 @@ namespace Asuma
             {
                 pUser.Visible = false;
             }
-            /* pUser.Visible = false;
-             lUsername.Visible = false;*/
         }
 
         private void bPerfil_MouseEnter(object sender, EventArgs e)
@@ -360,7 +361,5 @@ namespace Asuma
 
         }
         #endregion
-
-        
     }
 }

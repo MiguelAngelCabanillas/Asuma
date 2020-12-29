@@ -24,13 +24,15 @@ namespace Asuma
         #region Creacion del frame
         public Eventos(User usuario)
         {
+            
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
+            actualizarElementos();
             panelEventos.SendToBack();
-            mostrarEventos();
+            mostrarEventos(0);
         }
         private void bMyEvents_Click(object sender, EventArgs e)
         {
@@ -42,141 +44,185 @@ namespace Asuma
             {
                 Cursor.Current = Cursors.WaitCursor;
                 MisEventos misEventos = new MisEventos(usuario);
-                misEventos.Show();
+                misEventos.ShowDialog();
                 this.Close();
             }
         }
 
-        public void mostrarEventos()
+        private void actualizarElementos()
         {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarBotonMisEventos();
+            actualizarPanelEventos();
+            actualizarFiltro();
+        }
+
+        public void mostrarEventos(int filtro)
+        {
+            
             panelEventos.Controls.Clear();
-            List<Event> listaEventos = Event.listaEventos();
-            int nEventos = listaEventos.Count;
-            int separacion = 50;
-
-            for (int i = 0; i < nEventos; i++)
+            List<Event> listaEventos = null;
+            switch (filtro)
             {
-                string eventName = listaEventos.ElementAt(i).EventName;
-                string eventDate = listaEventos.ElementAt(i).Date;
-                string eventDescription = listaEventos.ElementAt(i).EventDescription;
-                string imagen = listaEventos.ElementAt(i).Image;
-                int id = listaEventos.ElementAt(i).ID;
-
-                Panel panel = new Panel();
-                panel.Name = "pEvento" + id;
-
-                //------------------
-
-                LinkLabel ltitulo = new LinkLabel();
-                ltitulo.Text = eventName;
-                ltitulo.Size = new Size(292, 38);
-                ltitulo.AutoSize = true;
-                ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                ltitulo.LinkColor = Color.Black;
-                ltitulo.Location = new Point(230, 18);
-                ltitulo.Name = id.ToString();
-                ltitulo.TabIndex = 31;
-                ltitulo.TabStop = true;
-                ltitulo.Visible = true;
-                ltitulo.Click += new EventHandler(ltitulo_click);
-
-                //------------------
-
-
-                PictureBox pImagen = new PictureBox();
-                pImagen.BackColor = SystemColors.ActiveCaption;
-                pImagen.Location = new Point(59, 28);
-                pImagen.Name = "pImagen";
-
-                string path = Path.GetDirectoryName(Application.StartupPath);
-                string pathBueno = path.Substring(0, path.Length - 3);
-                string imagePath = pathBueno + "images\\" + imagen;
-
-                Image image;
-                if (FTPClient.ftpOn)
-                {
-                    try
-                    {
-                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).ID + "/", "Prueba", "");
-                        byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
-                        using (var ms = new MemoryStream(byteArrayIn))
-                        {
-                            image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        image = null;
-                    }
-
-
-                }
-                else if (FTPClient.ftpBackupOn)
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                    try
-                    {
-                        ftp.MakeFtpDirectory("eventos/" + listaEventos.ElementAt(i).ID);
-                    }
-                    catch (Exception ex) { }
-                    ftp.UploadFile(imagePath, "eventos/" + listaEventos.ElementAt(i).ID + "/image.png");
-                    image = Image.FromFile(imagePath);
-                }
-                else { image = Image.FromFile(imagePath); }
-
-                pImagen.Image = image;
-                pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-                pImagen.Size = new Size(115, 127);
-                pImagen.TabIndex = 0;
-                pImagen.TabStop = false;
-                pImagen.Visible = true;
-                pImagen.BorderStyle = BorderStyle.FixedSingle;
-
-
-                TextBox tFecha = new TextBox();
-                tFecha.Text = "Fecha del evento: " + eventDate;
-                tFecha.BorderStyle = BorderStyle.None;
-                tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                tFecha.Location = new Point(900, 145);
-                tFecha.Multiline = true;
-                tFecha.Name = "tFecha";
-                tFecha.ReadOnly = true;
-                tFecha.Size = new Size(216, 24);
-                tFecha.TabIndex = 32;
-                tFecha.Visible = true;
-
-
-
-                panel.Size = new Size(1142, 186); //1142 186
-
-                panel.Location = new Point(50, separacion);
-                panel.Visible = true;
-                panel.BorderStyle = BorderStyle.FixedSingle;
-
-
-                TextBox descripcion = new TextBox();
-                descripcion.Text = eventDescription;
-                descripcion.BorderStyle = BorderStyle.None;
-                descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                descripcion.Location = new Point(233, 68);
-                descripcion.Multiline = true;
-                descripcion.Name = "tDescripcion";
-                descripcion.ReadOnly = true;
-                descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
-                descripcion.TabIndex = 2;
-                descripcion.Visible = true;
-
-
-
-                panel.Controls.Add(ltitulo);
-                panel.Controls.Add(pImagen);
-                panel.Controls.Add(tFecha);
-                panel.Controls.Add(descripcion);
-                panelEventos.Controls.Add(panel);
-                separacion += 180;
+                case 0:
+                    listaEventos = Event.listaEventos();
+                    break;
+                case 1:
+                    listaEventos = Event.listaActividades();
+                    break;
+                case 2:
+                    listaEventos = Event.listaCursos();
+                    break;
             }
-            panelEventos.BorderStyle = BorderStyle.FixedSingle;
-            panelEventos.Size = new Size(1265, 640);
+
+            if (listaEventos != null)
+            {
+                int nEventos = listaEventos.Count;
+                int separacion = 50;
+
+                for (int i = 0; i < nEventos; i++)
+                {
+                    string eventName = listaEventos.ElementAt(i).EventName;
+                    string eventDate = listaEventos.ElementAt(i).Date;
+                    string eventDescription = listaEventos.ElementAt(i).EventDescription;
+                    string imagen = listaEventos.ElementAt(i).Image;
+                    bool tipo = listaEventos.ElementAt(i).Tipo;
+                    int id = listaEventos.ElementAt(i).ID;
+
+                    Panel panel = new Panel();
+                    panel.Name = "pEvento" + id;
+
+                    //------------------
+
+                    LinkLabel ltitulo = new LinkLabel();
+                    ltitulo.Text = eventName;
+                    ltitulo.Size = new Size(292, 38);
+                    ltitulo.AutoSize = true;
+                    ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    ltitulo.LinkColor = Color.Black;
+                    ltitulo.Location = new Point(230, 18);
+                    ltitulo.Name = id.ToString();
+                    ltitulo.TabIndex = 31;
+                    ltitulo.TabStop = true;
+                    ltitulo.Visible = true;
+                    ltitulo.Click += new EventHandler(ltitulo_click);
+
+                    //------------------
+
+
+                    PictureBox pImagen = new PictureBox();
+                    pImagen.BackColor = SystemColors.ActiveCaption;
+                    pImagen.Location = new Point(59, 28);
+                    pImagen.Name = "pImagen";
+
+                    string path = Path.GetDirectoryName(Application.StartupPath);
+                    string pathBueno = path.Substring(0, path.Length - 3);
+                    string imagePath = pathBueno + "images\\" + imagen;
+
+                    Image image;
+                    if (FTPClient.ftpOn)
+                    {
+                        try
+                        {
+                            FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).ID + "/", "Prueba", "");
+                            byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                            using (var ms = new MemoryStream(byteArrayIn))
+                            {
+                                image = Image.FromStream(ms);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            image = null;
+                        }
+
+
+                    }
+                    else if (FTPClient.ftpBackupOn)
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                        try
+                        {
+                            ftp.MakeFtpDirectory("eventos/" + listaEventos.ElementAt(i).ID);
+                        }
+                        catch (Exception ex) { }
+                        ftp.UploadFile(imagePath, "eventos/" + listaEventos.ElementAt(i).ID + "/image.png");
+                        image = Image.FromFile(imagePath);
+                    }
+                    else { image = Image.FromFile(imagePath); }
+
+                    pImagen.Image = image;
+                    pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pImagen.Size = new Size(115, 127);
+                    pImagen.TabIndex = 0;
+                    pImagen.TabStop = false;
+                    pImagen.Visible = true;
+                    pImagen.BorderStyle = BorderStyle.FixedSingle;
+
+
+                    TextBox tFecha = new TextBox();
+                    tFecha.Text = "Fecha del evento: " + eventDate;
+                    tFecha.BorderStyle = BorderStyle.None;
+                    tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tFecha.Location = new Point(900, 145);
+                    tFecha.Multiline = true;
+                    tFecha.Name = "tFecha";
+                    tFecha.ReadOnly = true;
+                    tFecha.Size = new Size(216, 24);
+                    tFecha.TabIndex = 32;
+                    tFecha.Visible = true;
+
+
+
+                    panel.Size = new Size(1142, 186); //1142 186
+
+                    panel.Location = new Point(50, separacion);
+                    panel.Visible = true;
+                    panel.BorderStyle = BorderStyle.FixedSingle;
+
+
+                    TextBox descripcion = new TextBox();
+                    descripcion.Text = eventDescription;
+                    descripcion.BorderStyle = BorderStyle.None;
+                    descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    descripcion.Location = new Point(233, 68);
+                    descripcion.Multiline = true;
+                    descripcion.Name = "tDescripcion";
+                    descripcion.ReadOnly = true;
+                    descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
+                    descripcion.TabIndex = 2;
+                    descripcion.Visible = true;
+
+                    TextBox tTipo = new TextBox();
+                    if (tipo == true)
+                    {
+                        tTipo.Text = "Tipo de evento: Curso";
+                    }
+                    else
+                    {
+                        tTipo.Text = "Tipo de evento: Actividad";
+                    }
+                    tTipo.BorderStyle = BorderStyle.None;
+                    tTipo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tTipo.Location = new Point(900, 100);
+                    tTipo.Name = "tTipo";
+                    tTipo.ReadOnly = true;
+                    tTipo.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
+                    tTipo.TabIndex = 40;
+                    tTipo.Visible = true;
+
+                    panel.Controls.Add(ltitulo);
+                    panel.Controls.Add(pImagen);
+                    panel.Controls.Add(tFecha);
+                    panel.Controls.Add(descripcion);
+                    panel.Controls.Add(tTipo);
+                    panelEventos.Controls.Add(panel);
+                    separacion += 180;
+                }
+                panelEventos.BorderStyle = BorderStyle.FixedSingle;
+                panelEventos.Size = new Size(1265, 640);
+            }
         }
         #endregion
 
@@ -201,7 +247,7 @@ namespace Asuma
                     }
                     catch (Exception ex)
                     {
-                        FTPClient.ftpOn = false;
+                        //FTPClient.ftpOn = false;
                         pUser.Image = null;
                     }
                 }
@@ -257,6 +303,16 @@ namespace Asuma
             bMyEvents.Location = new Point(((this.Width * 5) / 10) - bMyEvents.Width / 2, (int)((this.Height * 8.5) / 10));
         }
 
+        private void actualizarFiltro()
+        {
+            lFiltro.Location = new Point(((this.Width * 8) / 10) - bMyEvents.Width / 2, bMyEvents.Location.Y+20);
+            cbFiltro.Location = new Point(lFiltro.Location.X+100,lFiltro.Location.Y);
+            cbFiltro.Items.Add("-");
+            cbFiltro.SelectedItem = cbFiltro.Items[0];
+            cbFiltro.Items.Add("Actividad");
+            cbFiltro.Items.Add("Curso");
+        }
+
         private void actualizarPanelEventos()
         {
             panelEventos.Width = menuFlowLayoutPanel.Width - 40;
@@ -289,10 +345,7 @@ namespace Asuma
 
         private void Eventos_Resize(object sender, EventArgs e)
         {
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarBotonMisEventos();
-            actualizarPanelEventos();
+            actualizarElementos();
         }
 
         private void panelEventos_Resize(object sender, EventArgs e)
@@ -517,6 +570,13 @@ namespace Asuma
         public void setUser(User usuario)
         {
             this.usuario = usuario;
+        }
+
+        private void cbFiltro_DropDownClosed(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            mostrarEventos(cbFiltro.SelectedIndex);
+            actualizarPanelEventos();
         }
     }
         #endregion

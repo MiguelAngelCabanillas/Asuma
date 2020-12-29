@@ -16,8 +16,11 @@ namespace Asuma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cuestionario_Satisfaccion());
-            // new User("docente1", "d"))
+            User s = new User("docente1", "d");
+            //Application.Run(new Contacto(s));
+            Application.Run(new Principal(null));
+            //Application.Run(new MisEventos(new User("franB", "franB")));
+
         }
     }
 }
