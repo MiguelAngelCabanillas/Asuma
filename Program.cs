@@ -16,7 +16,7 @@ namespace Asuma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Test_Conocimiento_Edicion());
+            Application.Run(new Cuestionario_Satisfaccion());
             // new User("docente1", "d"))
         }
     }
