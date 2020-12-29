@@ -184,8 +184,19 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Owner = this;
+            this.Visible = false;
             ev.ShowDialog();
-            this.Close();
+            this.Visible = true;
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto contacto = new Contacto(usuario);
+            contacto.Owner = this;
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Visible = true;
         }
 
         private void añadirAlPanel()
@@ -512,5 +523,6 @@ namespace Asuma
 
         }
         #endregion
+
     }
 }

@@ -400,5 +400,13 @@ namespace Asuma
 
         }
         #endregion
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
     }
 }

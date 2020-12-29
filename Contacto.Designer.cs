@@ -52,6 +52,8 @@ namespace Asuma
             this.bNotificar = new System.Windows.Forms.Button();
             this.bNotificarGui = new System.Windows.Forms.Button();
             this.bRecuperacion = new System.Windows.Forms.Button();
+            this.lEmail = new System.Windows.Forms.Label();
+            this.tEmail = new System.Windows.Forms.TextBox();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -62,7 +64,7 @@ namespace Asuma
             // 
             this.lReason.AutoSize = true;
             this.lReason.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lReason.Location = new System.Drawing.Point(642, 504);
+            this.lReason.Location = new System.Drawing.Point(642, 573);
             this.lReason.Name = "lReason";
             this.lReason.Size = new System.Drawing.Size(195, 23);
             this.lReason.TabIndex = 0;
@@ -72,7 +74,7 @@ namespace Asuma
             // 
             this.lMessage.AutoSize = true;
             this.lMessage.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lMessage.Location = new System.Drawing.Point(740, 587);
+            this.lMessage.Location = new System.Drawing.Point(740, 639);
             this.lMessage.Name = "lMessage";
             this.lMessage.Size = new System.Drawing.Size(97, 23);
             this.lMessage.TabIndex = 1;
@@ -86,7 +88,7 @@ namespace Asuma
             "Problema",
             "Sugerencia",
             "Duda"});
-            this.cReason.Location = new System.Drawing.Point(843, 502);
+            this.cReason.Location = new System.Drawing.Point(843, 571);
             this.cReason.Name = "cReason";
             this.cReason.Size = new System.Drawing.Size(162, 28);
             this.cReason.TabIndex = 2;
@@ -95,7 +97,7 @@ namespace Asuma
             // 
             this.tMessage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tMessage.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tMessage.Location = new System.Drawing.Point(843, 587);
+            this.tMessage.Location = new System.Drawing.Point(843, 639);
             this.tMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tMessage.MaxLength = 0;
             this.tMessage.Multiline = true;
@@ -108,7 +110,7 @@ namespace Asuma
             // tSend
             // 
             this.tSend.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tSend.Location = new System.Drawing.Point(843, 791);
+            this.tSend.Location = new System.Drawing.Point(843, 843);
             this.tSend.Name = "tSend";
             this.tSend.Size = new System.Drawing.Size(183, 32);
             this.tSend.TabIndex = 12;
@@ -142,6 +144,7 @@ namespace Asuma
             this.bInicio.TabIndex = 0;
             this.bInicio.Text = "Inicio";
             this.bInicio.UseVisualStyleBackColor = false;
+            this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos
             // 
@@ -153,6 +156,7 @@ namespace Asuma
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
+            this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
             // 
             // bInfo
             // 
@@ -302,6 +306,24 @@ namespace Asuma
             this.bRecuperacion.UseVisualStyleBackColor = true;
             this.bRecuperacion.Click += new System.EventHandler(this.bRecuperacion_Click);
             // 
+            // lEmail
+            // 
+            this.lEmail.AutoSize = true;
+            this.lEmail.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lEmail.Location = new System.Drawing.Point(642, 494);
+            this.lEmail.Name = "lEmail";
+            this.lEmail.Size = new System.Drawing.Size(195, 23);
+            this.lEmail.TabIndex = 42;
+            this.lEmail.Text = "Correo electrónico:";
+            // 
+            // tEmail
+            // 
+            this.tEmail.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tEmail.Location = new System.Drawing.Point(843, 492);
+            this.tEmail.Name = "tEmail";
+            this.tEmail.Size = new System.Drawing.Size(231, 28);
+            this.tEmail.TabIndex = 43;
+            // 
             // Contacto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -309,6 +331,8 @@ namespace Asuma
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.tEmail);
+            this.Controls.Add(this.lEmail);
             this.Controls.Add(this.bRecuperacion);
             this.Controls.Add(this.bNotificarGui);
             this.Controls.Add(this.bNotificar);
@@ -364,5 +388,7 @@ namespace Asuma
         private System.Windows.Forms.Button bNotificar;
         private System.Windows.Forms.Button bNotificarGui;
         private System.Windows.Forms.Button bRecuperacion;
+        private System.Windows.Forms.Label lEmail;
+        private System.Windows.Forms.TextBox tEmail;
     }
 }

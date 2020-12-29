@@ -73,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarPassword.Designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Commons.cs" />
     <Compile Include="Contacto.cs">
       <SubType>Form</SubType>
@@ -157,6 +163,12 @@
     <Compile Include="ListaParticipantes.Designer.cs">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaUsuariosAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaUsuariosAplicacion.Designer.cs">
+      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensajes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +242,9 @@
       <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contacto.resx">
       <DependentUpon>Contacto.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaParticipantes.resx">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaUsuariosAplicacion.resx">
+      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajes.resx">
       <DependentUpon>Mensajes.cs</DependentUpon>

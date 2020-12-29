@@ -20,6 +20,8 @@ namespace Asuma
             //Application.Run(new Contacto(s));
             Application.Run(new Principal(null));
             //Application.Run(new MisEventos(new User("franB", "franB")));
+            //Application.Run(new Recuperacion());
+            //Application.Run(new ListaUsuariosAplicacion());
 
         }
     }

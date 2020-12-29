@@ -381,6 +381,19 @@ namespace Asuma
                 this.Close();
                 */
             }
+            else if (usuario.Rol.RolName.Equals("Admin"))
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                infoEvento.Owner = this;
+                this.Visible = false;
+                infoEvento.ShowDialog();
+                if (!isClosed)
+                {
+                    actualizar();
+                    this.Visible = true;
+                }
+            }
             else
             {
                 Boolean found = false;
@@ -577,6 +590,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             mostrarEventos(cbFiltro.SelectedIndex);
             actualizarPanelEventos();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close(); 
         }
     }
         #endregion
