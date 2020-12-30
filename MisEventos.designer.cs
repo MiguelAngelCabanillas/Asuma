@@ -151,6 +151,7 @@
             // pUser
             // 
             this.pUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(54, 13);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);

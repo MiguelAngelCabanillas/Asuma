@@ -80,6 +80,12 @@
     <Compile Include="Contacto.Designer.cs">
       <DependentUpon>Contacto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Conversaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conversaciones.Designer.cs">
+      <DependentUpon>Conversaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,18 @@
     <Compile Include="ListaParticipantes.Designer.cs">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaUsuarios.Designer.cs">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajeria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajeria.Designer.cs">
+      <DependentUpon>Mensajeria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensajes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +251,9 @@
     <EmbeddedResource Include="Contacto.resx">
       <DependentUpon>Contacto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Conversaciones.resx">
+      <DependentUpon>Conversaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaParticipantes.resx">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaUsuarios.resx">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajeria.resx">
+      <DependentUpon>Mensajeria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajes.resx">
       <DependentUpon>Mensajes.cs</DependentUpon>
