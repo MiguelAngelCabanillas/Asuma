@@ -20,7 +20,8 @@ namespace Asuma
             //Application.Run(new Contacto(s));
             //Application.Run(new Cuestionario_Satisfaccion("1_3", 1, 2, 2, 1, 1, "Hola a todos"));
             //Application.Run(new MisEventos(new User("franB", "franB")));
-            Application.Run(new Surveys_Evento(new Event(61)));
+            //Application.Run(new Surveys_Evento(new Event(61)));
+            Application.Run(new Test_Conocimiento_Edicion());
         }
     }
 }

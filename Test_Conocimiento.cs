@@ -110,48 +110,78 @@ namespace Asuma
                 Label_Resultado.Add(id_Pregunta, ResPregunta);
             }
         }
-        private void check()
+        private void Check()
         {
-            int contG = 0;
+            int res = 0;
             int id_P;
-            List<String> respuestasC;
-            Label labelRes;
             foreach (var item in Respuestas_Resultado)
             {
                 id_P = item.Key;
-                respuestasCorrectas.TryGetValue(id_P, out respuestasC);
+                respuestasCorrectas.TryGetValue(id_P, out List<string> respuestasC);
                 int cont = 0;
                 foreach (var aux in respuestasC)
-                {                   
+                {
                     if (item.Value.CheckedItems.Contains(aux))
                     {
                         cont++;
-                        contG++;
                     }
                 }
-                Label_Resultado.TryGetValue(id_P, out labelRes);
-                if (cont == respuestasC.Count)
-                {                  
-                    labelRes.Text = "Correcta";
+                Label_Resultado.TryGetValue(id_P, out Label labelRes);
+                //Tienes que acertar la mitad de las respuestas para que sea correcta la pregunta
+                //NO TENGO GANAS DE PENSAR PERO TIENE QUE HABER UNA MANERA MEJOR DE HACER ESTO
+                if (respuestasC.Count % 2 == 0) //Par
+                {
+                    if (cont >= respuestasC.Count / 2)
+                    {
+                        labelRes.Text = "Correcta";
+                        res++;
+                    }
+                    else
+                    {
+                        labelRes.Text = "Incorrecta";
+                    }
                 }
                 else
-                {                   
-                    labelRes.Text = "Incorrecta";
+                {
+                    if (cont > respuestasC.Count / 2)
+                    {
+                        labelRes.Text = "Correcta";
+                        res++;
+                    }
+                    else
+                    {
+                        labelRes.Text = "Incorrecta";
+                    }
                 }
             }
-            if (contG >= 5)
+            //Tienes que acertar la mitad de las preguntas para superar el test
+            if (nombrePreguntas.Count % 2 == 0) //Par
             {
-                MessageBox.Show("Has superado el test");
+                if (res >= nombrePreguntas.Count / 2)
+                {
+                    MessageBox.Show("Has superado el test");
+                }
+                else
+                {
+                    MessageBox.Show("Intentalo de nuevo");
+                }
             }
             else
             {
-                MessageBox.Show("Intentalo de nuevo");
+                if (res > nombrePreguntas.Count / 2)
+                {
+                    MessageBox.Show("Has superado el test");
+                }
+                else
+                {
+                    MessageBox.Show("Intentalo de nuevo");
+                }
             }
         }
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
-            check();
+            Check();
         }
 
         protected void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
