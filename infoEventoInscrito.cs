@@ -139,6 +139,7 @@ namespace Asuma
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             bEditEvent.Location = new Point(20,bExit.Location.Y);
+            
             bEditEvent.Size = bExit.Size;
         }
 
@@ -168,6 +169,7 @@ namespace Asuma
             lTipo.Location = new Point(tDes.Location.X + tDes.Width / 2, lOrganizadores.Location.Y);
             lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
             tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
+            this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
@@ -349,6 +351,12 @@ namespace Asuma
             {
                 lTipoDef.Text = "Actividad";
             }
+        }
+
+        private void bTestConocimiento_Click(object sender, EventArgs e)
+        {
+            //Hay que hacer comprobaciones antes de llamas a test
+            new Test(evento.ID);
         }
     }
 }

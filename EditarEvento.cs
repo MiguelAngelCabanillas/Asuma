@@ -400,5 +400,12 @@ namespace Asuma
 
         }
         #endregion
+
+        private void bCrearTest_Click(object sender, EventArgs e)
+        {
+            //if tiene test entonces update
+            Test_Conocimiento_Edicion TCEdit = new Test_Conocimiento_Edicion(this.evento);
+            TCEdit.ShowDialog();
+        }
     }
 }

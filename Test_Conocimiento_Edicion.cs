@@ -13,11 +13,12 @@ namespace Asuma
     public partial class Test_Conocimiento_Edicion : Form
     {
         int id;
+        Event evento;
         SortedDictionary<int, String> nombrePreguntas;
         SortedDictionary<int, String[]> listasRespuestas;
         SortedDictionary<int, Button> botonesDinamicos;
         SortedDictionary<int, List<String>> RespuestasCorrectas;
-        public Test_Conocimiento_Edicion()
+        public Test_Conocimiento_Edicion(Event e)
         {
             InitializeComponent();
             id = 0;
@@ -29,6 +30,8 @@ namespace Asuma
             listasRespuestas = new SortedDictionary<int, string[]>();
             //Id -> Las respuestas correctas a la pregunta (por si es seleccion multiple)
             RespuestasCorrectas = new SortedDictionary<int, List<string>>();
+            this.evento = e;
+            lNameCurso.Text = evento.EventName;
         }
 
         private void bAñadir_Respuesta_Click(object sender, EventArgs e)
@@ -236,8 +239,8 @@ namespace Asuma
         private void bFinalizar_Test_Click(object sender, EventArgs e)
         {
             SortedDictionary<int, String[]> Respuestas = RespuestasPurgadas();
-            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, Respuestas, RespuestasCorrectas, checkBoxSelecM.Checked);
-            aux.Show();
+            Test aux = new Test(evento.ID, nombrePreguntas, Respuestas, RespuestasCorrectas);
+            this.Close();
         }
 
         private SortedDictionary<int, String[]> RespuestasPurgadas()

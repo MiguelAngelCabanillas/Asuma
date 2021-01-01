@@ -207,7 +207,7 @@ namespace Asuma
             this.bNueva_Pregunta.Name = "bNueva_Pregunta";
             this.bNueva_Pregunta.Size = new System.Drawing.Size(195, 28);
             this.bNueva_Pregunta.TabIndex = 27;
-            this.bNueva_Pregunta.Text = "Nueva Pregunta";
+            this.bNueva_Pregunta.Text = "Limpiar";
             this.bNueva_Pregunta.UseVisualStyleBackColor = true;
             this.bNueva_Pregunta.Click += new System.EventHandler(this.bLimpiar_Click);
             // 
