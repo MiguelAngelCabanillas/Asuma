@@ -370,6 +370,7 @@ namespace Asuma
                 this.Visible = false;
                 infoEvento.ShowDialog();
                 usuario = infoEvento.Usuario;
+                mostrarEventos(0);
                 actualizar();
                 this.Visible = true;
 
@@ -390,6 +391,7 @@ namespace Asuma
                 infoEvento.ShowDialog();
                 if (!isClosed)
                 {
+                    mostrarEventos(0);
                     actualizar();
                     this.Visible = true;
                 }
@@ -415,6 +417,7 @@ namespace Asuma
                             infoEvento.ShowDialog();
                             if (!isClosed)
                             {
+                                mostrarEventos(0);
                                 actualizar();
                                 this.Visible = true;
                             }
@@ -450,6 +453,7 @@ namespace Asuma
                         infoEvento.ShowDialog();
                         if (!isClosed)
                         {
+                            mostrarEventos(0);
                             actualizar();
                             this.Visible = true;
                         }
@@ -476,6 +480,7 @@ namespace Asuma
                     infoEvento.ShowDialog();
                     if (!isClosed)
                     {
+                        mostrarEventos(0);
                         this.Visible = true;
                     }
                 }
