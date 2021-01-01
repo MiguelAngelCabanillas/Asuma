@@ -191,6 +191,7 @@ namespace Asuma
                 }
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
                 linitSesion.Visible = false;
                 lSignOut.Visible = true;
                 bInscription.Visible = true;
@@ -363,6 +364,17 @@ namespace Asuma
             this.Visible = false;
             contacto.ShowDialog();
             this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            //this.Visible = false;
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+            //this.Visible = true;
         }
     }
 }

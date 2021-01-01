@@ -267,11 +267,11 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
-            this.Visible = false;
+            //this.Visible = false;
             init.ShowDialog();
             this.usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
+            //this.Visible = true;
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -281,13 +281,13 @@ namespace Asuma
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(429, 79);
+            this.linitSesion.Location = new System.Drawing.Point(426, 78);
             this.linitSesion.Name = "linitSesion";
             this.linitSesion.Size = new System.Drawing.Size(146, 25);
             this.linitSesion.TabIndex = 33;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
-            this.linitSesion.Click += new System.EventHandler(this.linitSesion_Click);
+            this.linitSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linitSesion_LinkClicked);
             // 
             // lSignOut
             // 
@@ -370,11 +370,13 @@ namespace Asuma
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.linitSesion);
+            this.Controls.Add(this.pUser);
+            this.Controls.Add(this.lUsername);
             this.Controls.Add(this.lTipoDef);
             this.Controls.Add(this.lTipo);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.lSignOut);
-            this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.bInscription);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.splitter1);
@@ -388,8 +390,6 @@ namespace Asuma
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
-            this.Controls.Add(this.lUsername);
-            this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InfoEvento";

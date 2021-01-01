@@ -225,6 +225,7 @@ namespace Asuma
             this.linitSesion.TabIndex = 15;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
+            this.linitSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linitSesion_LinkClicked);
             // 
             // lInfo
             // 
@@ -246,6 +247,7 @@ namespace Asuma
             this.lSignOut.TabIndex = 35;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
+            this.lSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSignOut_LinkClicked);
             // 
             // pUser
             // 

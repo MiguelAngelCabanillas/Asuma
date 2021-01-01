@@ -171,5 +171,19 @@ namespace Asuma
             eventos.Show();
             this.Close();
         }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

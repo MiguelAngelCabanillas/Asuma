@@ -332,11 +332,11 @@ namespace Asuma
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Inicio init = new Inicio();
-            this.Visible = false;
+            //this.Visible = false;
             init.ShowDialog();
             this.Usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
+            //this.Visible = true;
             this.ActiveControl = bInicio;
         }
 
