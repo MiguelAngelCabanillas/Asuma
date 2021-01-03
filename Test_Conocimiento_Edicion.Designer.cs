@@ -73,7 +73,7 @@ namespace Asuma
             // 
             this.lNameCurso.AutoSize = true;
             this.lNameCurso.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameCurso.Location = new System.Drawing.Point(343, 25);
+            this.lNameCurso.Location = new System.Drawing.Point(287, 25);
             this.lNameCurso.Name = "lNameCurso";
             this.lNameCurso.Size = new System.Drawing.Size(187, 25);
             this.lNameCurso.TabIndex = 11;

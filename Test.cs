@@ -62,58 +62,108 @@ namespace Asuma
             try
             {
                 BD bd = new BD();
-                //Se crea el test con el idEvento
-                MySqlDataReader writer = bd.Query("INSERT INTO test VALUES(" + idEvento + ")");
-                writer.Read();
-                writer.Close();
-
-                foreach (var nombreQ in nombrePreguntas)
+                //Si existe el test lo eliminamos para volver a crearlo
+                if (selecIDTest(idEvento))
                 {
-                    String nombreRespuestas = "";
-                    String resCorrectas = "";
-                    int idP = nombreQ.Key;
-                    String nombrePregunta = nombreQ.Value;              
-                    listaRespuestas.TryGetValue(idP, out String[] respuestas);
-
-                    for (int i = 0; i < respuestas.Length; i++)
-                    {
-                        //Respuesta0|Respuesta1|Respuesta2
-                        if (i == respuestas.Length - 1)
-                        {
-                            nombreRespuestas += respuestas[i];
-                        }
-                        else
-                        {
-                            nombreRespuestas += respuestas[i] + "|";
-                        }
-                    }
-
-                    respuestasCorrectas.TryGetValue(idP, out List<string> correctas);
-
-                    foreach (var res in correctas)
-                    {
-                        //ResCorrecta0|ResCorrecta1
-                        if (correctas.Last().Equals(res))
-                        {
-                            resCorrectas += res;
-                        }
-                        else
-                        {
-                            resCorrectas += res + "|";
-                        }
-                    }
-
-                    MySqlDataReader writer2 = bd.Query("INSERT INTO preguntas VALUES("+idEvento+", '"+ nombrePregunta +"', '"+ nombreRespuestas +"', '"+ resCorrectas +"', "+ idP  +");");
+                    MySqlDataReader writer2 = bd.Query("DELETE FROM preguntas WHERE test = "+ idEvento +";");
                     writer2.Read();
                     writer2.Close();
                 }
-                bd.closeBD();
+                else
+                {
+                    //Se crea el test con el idEvento
+                    MySqlDataReader writer = bd.Query("INSERT INTO test VALUES(" + idEvento + ")");
+                    writer.Read();
+                    writer.Close();
+                }
+
+                foreach (var nombreQ in nombrePreguntas)
+                {
+                    int idP = nombreQ.Key;
+                    String nombrePregunta = nombreQ.Value;
+
+                    listaRespuestas.TryGetValue(idP, out String[] respuestas);
+                    String nombreRespuestas = seleccionarRespuestas(respuestas);
+
+                    respuestasCorrectas.TryGetValue(idP, out List<string> correctas);
+                    String resCorrectas = seleccionarRespuestasCorrectas(correctas);
+
+                    MySqlDataReader writer3 = bd.Query("INSERT INTO preguntas VALUES(" + idEvento + ", '" + nombrePregunta + "', '" + nombreRespuestas + "', '" + resCorrectas + "', " + idP + ");");
+                    writer3.Read();
+                    writer3.Close();
+                }
+                bd.closeBD();               
             }
             catch (Exception e2)
             {
-
                 throw new Error(e2.Message);
             }
+
+            string seleccionarRespuestas(string[] respuestas)
+            {
+                string nombreRespuestas = "";
+
+                for (int i = 0; i < respuestas.Length; i++)
+                {
+                    //Respuesta0|Respuesta1|Respuesta2
+                    if (i == respuestas.Length - 1)
+                    {
+                        nombreRespuestas += respuestas[i];
+                    }
+                    else
+                    {
+                        nombreRespuestas += respuestas[i] + "|";
+                    }
+                }
+
+                return nombreRespuestas;
+            }
+        }
+
+        private static string seleccionarRespuestasCorrectas(List<string> correctas)
+        {
+            String resCorrectas = "";
+            foreach (var res in correctas)
+            {
+                //ResCorrecta0|ResCorrecta1
+                if (correctas.Last().Equals(res))
+                {
+                    resCorrectas += res;
+                }
+                else
+                {
+                    resCorrectas += res + "|";
+                }
+            }
+
+            return resCorrectas;
+        }
+
+        private Boolean selecIDTest(int idEvent)
+        {
+            Boolean res = false;
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT testID FROM test WHERE testID = "+ idEvent + ";");
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    res = true;
+                }
+                else
+                {
+                    res = false;
+                }
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception e3)
+            {
+
+                throw new Error(e3.Message);
+            }
+            return res;
         }
     }
 }
