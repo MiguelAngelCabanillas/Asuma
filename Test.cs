@@ -9,7 +9,7 @@ namespace Asuma
 {
     class Test
     {
-        public Test(int idEvento)
+        public Test(Event Evento, User Usuario)
         {
             SortedDictionary<int, String> nombrePreguntas = new SortedDictionary<int, string>();
             SortedDictionary< int, String[]> listaRespuestas = new SortedDictionary<int, string[]>();
@@ -24,7 +24,7 @@ namespace Asuma
             try
             {
                 BD bd = new BD();
-                MySqlDataReader reader = bd.Query("SELECT nombre, respuestas, respuestasCorrectas, idPregunta FROM preguntas WHERE test = "+idEvento+";");
+                MySqlDataReader reader = bd.Query("SELECT nombre, respuestas, respuestasCorrectas, idPregunta FROM preguntas WHERE test = "+ Evento.ID +";");
                 while (reader.Read())
                 {
                     //ID y el nombre de la pregunta
@@ -51,7 +51,7 @@ namespace Asuma
             {
                 throw new Error(e.Message);
             }
-            Test_Conocimiento testC = new Test_Conocimiento(nombrePreguntas, listaRespuestas, respuestasCorrectas, seleccionMultiple);
+            Test_Conocimiento testC = new Test_Conocimiento(nombrePreguntas, listaRespuestas, respuestasCorrectas, seleccionMultiple, Evento, Usuario);
             testC.ShowDialog();
         }
 
@@ -164,6 +164,41 @@ namespace Asuma
                 throw new Error(e3.Message);
             }
             return res;
+        }
+        public static void SubmitAprobado(Event e, User u)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("INSERT INTO resultsTest VALUES("+ e.ID +", "+ u.Id +", 1)");
+                writer.Read();
+                writer.Close();
+                bd.closeBD();
+            }
+            catch (Exception e4)
+            {
+                throw new Error(e4.Message);
+            }
+        }
+
+        public static Boolean testAprobado(Event e, User u)
+        {
+            //En la base de datos solo se guardan aprobados
+            Boolean aprobado = false;
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT * FROM resultsTest WHERE evento = "+ e.ID +" AND user = "+ u.Id +";");
+                reader.Read();
+                if (reader.HasRows) aprobado = true;
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception e4)
+            {
+                throw new Error(e4.Message);
+            }
+            return aprobado;
         }
     }
 }

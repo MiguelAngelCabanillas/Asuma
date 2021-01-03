@@ -355,8 +355,15 @@ namespace Asuma
 
         private void bTestConocimiento_Click(object sender, EventArgs e)
         {
-            //Hay que hacer comprobaciones antes de llamas a test
-            new Test(evento.ID);
+            //No permito que el usuario realize el test si ya lo ha aprobado
+            if (!Test.testAprobado(evento, usuario))
+            {
+                new Test(evento, usuario);
+            }
+            else
+            {
+                MessageBox.Show("El test de conocimiento esta aprobado");
+            }
         }
     }
 }

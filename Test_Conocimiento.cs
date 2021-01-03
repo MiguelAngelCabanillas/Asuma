@@ -18,10 +18,12 @@ namespace Asuma
         SortedDictionary<int, Label> Label_Resultado;
         SortedDictionary<int, List<String>> respuestasCorrectas;
         Boolean seleccionMultiple;
+        Event evento;
+        User usuario;
         public Test_Conocimiento(SortedDictionary<int, String> nombrePreguntas,
                                  SortedDictionary<int, String[]> listaRespuestas,
                                  SortedDictionary<int, List<string>> respuestasCorrectas,
-                                 Boolean seleccionMultiple)
+                                 Boolean seleccionMultiple, Event evento, User usuario)
         {
             this.nombrePreguntas = nombrePreguntas;
             this.listaRespuestas = listaRespuestas;
@@ -29,6 +31,8 @@ namespace Asuma
             this.respuestasCorrectas = respuestasCorrectas;
             this.Respuestas_Resultado = new SortedDictionary<int, CheckedListBox>();
             this.Label_Resultado = new SortedDictionary<int, Label>();
+            this.evento = evento;
+            this.usuario = usuario;
 
             InitializeComponent();
             mostrarPreguntasyRespuestas();
@@ -36,6 +40,8 @@ namespace Asuma
 
         private void mostrarPreguntasyRespuestas()
         {
+            lNameCurso.Text = evento.EventName;
+
             panelPregyRes.Controls.Clear();
             int numPreg = nombrePreguntas.Count;
             int separacion = 50;
@@ -91,7 +97,7 @@ namespace Asuma
                 ResPregunta.Location = new Point(578, 60);
                 ResPregunta.Size = new Size(84, 25);
                 ResPregunta.TabIndex = 9;
-                ResPregunta.Text = "label1";
+                ResPregunta.Text = "";
 
                 //------------------
 
@@ -110,9 +116,10 @@ namespace Asuma
                 Label_Resultado.Add(id_Pregunta, ResPregunta);
             }
         }
-        private void Check()
+        private Boolean Check()
         {
             int res = 0;
+            Boolean aprobado = false;
             int id_P;
             foreach (var item in Respuestas_Resultado)
             {
@@ -160,6 +167,7 @@ namespace Asuma
                 if (res >= nombrePreguntas.Count / 2)
                 {
                     MessageBox.Show("Has superado el test");
+                    aprobado = true;
                 }
                 else
                 {
@@ -171,17 +179,24 @@ namespace Asuma
                 if (res > nombrePreguntas.Count / 2)
                 {
                     MessageBox.Show("Has superado el test");
+                    aprobado = true;
                 }
                 else
                 {
                     MessageBox.Show("Intentalo de nuevo");
                 }
             }
+            return aprobado;
         }
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
-            Check();
+            Boolean res = Check();
+            if (res)
+            {
+                //Inserto su aprobado en la base de datos
+                Test.SubmitAprobado(evento, usuario);
+            }
         }
 
         protected void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -205,6 +220,11 @@ namespace Asuma
                 }
                 return;
             }        
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
