@@ -52,6 +52,7 @@ namespace Asuma
             this.button4 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pUser = new System.Windows.Forms.PictureBox();
+            this.bExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.pPerfil.SuspendLayout();
@@ -303,11 +304,25 @@ namespace Asuma
             this.pUser.Click += new System.EventHandler(this.pUser_MouseClick);
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             // 
+            // bExit
+            // 
+            this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bExit.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Location = new System.Drawing.Point(1517, 1043);
+            this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bExit.Name = "bExit";
+            this.bExit.Size = new System.Drawing.Size(183, 32);
+            this.bExit.TabIndex = 47;
+            this.bExit.Text = "Salir";
+            this.bExit.UseVisualStyleBackColor = true;
+            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            // 
             // ListaParticipantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1331, 862);
+            this.ClientSize = new System.Drawing.Size(1775, 1114);
+            this.Controls.Add(this.bExit);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
@@ -359,5 +374,6 @@ namespace Asuma
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox pUser;
+        private System.Windows.Forms.Button bExit;
     }
 }
