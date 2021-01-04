@@ -16,13 +16,16 @@ namespace Asuma
         User usuario;
         int idConv;
         int idUsuario;
+        string nombreUsuarioConv;
         int numMensajes = 0;
 
-        public Conversaciones(int id, User usuario)
+        public Conversaciones(string nombre, User usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
-            idUsuario = id;
+            nombreUsuarioConv = nombre;
+            lNombre.Text = nombre;
+            idUsuario = Commons.GetUserIdByName(nombre);
             loadConversation();
 
         }
@@ -61,13 +64,17 @@ namespace Asuma
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
+            if (tEnviar.Text != "")
+            {
                 BD bd = new BD();
+                tConversacion.AppendText(DateTime.Now.ToString() + @"  |  " + nombreUsuarioConv + ": " + tEnviar.Text + Environment.NewLine + Environment.NewLine);
                 MySqlDataReader writer = bd.Query("INSERT INTO privateMessages VALUES (" + idConv + ", " + numMensajes + ", " + usuario.Id + ", '" + tEnviar.Text + "', '" + DateTime.Now.ToString() + "');");
-                numMensajes = 0;
+                numMensajes++;
                 writer.Close();
                 bd.closeBD();
-                loadConversation();
+                //loadConversation();
                 tEnviar.Text = "";
+            }
             
         }
 

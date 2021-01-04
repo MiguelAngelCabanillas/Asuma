@@ -31,6 +31,7 @@
             this.tConversacion = new System.Windows.Forms.TextBox();
             this.tEnviar = new System.Windows.Forms.TextBox();
             this.bEnviar = new System.Windows.Forms.Button();
+            this.lNombre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tConversacion
@@ -39,6 +40,7 @@
             this.tConversacion.Multiline = true;
             this.tConversacion.Name = "tConversacion";
             this.tConversacion.ReadOnly = true;
+            this.tConversacion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tConversacion.Size = new System.Drawing.Size(503, 317);
             this.tConversacion.TabIndex = 0;
             // 
@@ -61,11 +63,22 @@
             this.bEnviar.UseVisualStyleBackColor = true;
             this.bEnviar.Click += new System.EventHandler(this.bEnviar_Click);
             // 
+            // lNombre
+            // 
+            this.lNombre.AutoSize = true;
+            this.lNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNombre.Location = new System.Drawing.Point(90, 9);
+            this.lNombre.Name = "lNombre";
+            this.lNombre.Size = new System.Drawing.Size(86, 31);
+            this.lNombre.TabIndex = 3;
+            this.lNombre.Text = "label1";
+            // 
             // Conversaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 438);
+            this.Controls.Add(this.lNombre);
             this.Controls.Add(this.bEnviar);
             this.Controls.Add(this.tEnviar);
             this.Controls.Add(this.tConversacion);
@@ -81,5 +94,6 @@
         private System.Windows.Forms.TextBox tConversacion;
         private System.Windows.Forms.TextBox tEnviar;
         private System.Windows.Forms.Button bEnviar;
+        private System.Windows.Forms.Label lNombre;
     }
 }

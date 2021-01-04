@@ -14,7 +14,7 @@ namespace Asuma
     public partial class Mensajeria : Form
     {
         private User usuario;
-        private int seleccionado = -1;
+        private string seleccionado = "";
 
         public Mensajeria(User usuario)
         {
@@ -29,7 +29,7 @@ namespace Asuma
 
             BD bd = new BD();
             //select = "(SELECT u.username FROM conversation c LEFT JOIN `user` u ON u.id = c.user2 WHERE c.user1 = 1) UNION (SELECT u.username FROM conversation c LEFT JOIN `user` u ON u.id = c.user1 WHERE c.user2 = 1);";
-            string select = "SELECT * FROM ((SELECT u.username, m.message, m.id, m.conversation FROM conversation c LEFT JOIN `user` u ON u.id = c.user2 LEFT JOIN privateMessages m ON c.id = m.conversation WHERE c.user1 = 6) UNION (SELECT u.username, m.message, m.id, m.conversation  FROM conversation c LEFT JOIN `user` u ON u.id = c.user1 LEFT JOIN privateMessages m ON c.id = m.conversation WHERE c.user2 = 6)) t WHERE t.id IN (SELECT MAX(id) FROM privateMessages c WHERE c.conversation = t.conversation) OR t.id IS NULL;";
+            string select = "SELECT * FROM ((SELECT u.username, m.message, m.id, m.conversation FROM conversation c LEFT JOIN `user` u ON u.id = c.user2 LEFT JOIN privateMessages m ON c.id = m.conversation WHERE c.user1 = " + usuario.Id + ") UNION (SELECT u.username, m.message, m.id, m.conversation  FROM conversation c LEFT JOIN `user` u ON u.id = c.user1 LEFT JOIN privateMessages m ON c.id = m.conversation WHERE c.user2 = " + usuario.Id + ")) t WHERE t.id IN (SELECT MAX(id) FROM privateMessages c WHERE c.conversation = t.conversation) OR t.id IS NULL;";
                 //"SELECT t.username, t.message FROM ((SELECT u.username, m.message, m.id, m.conversation FROM conversation c LEFT JOIN `user` u ON u.id = c.user2 LEFT JOIN privateMessages m ON c.id = m.conversation WHERE c.user1 = 1 GROUP BY m.conversation) UNION (SELECT u.username, m.message, m.id, m.conversation FROM conversation c LEFT JOIN `user` u ON u.id = c.user1 LEFT JOIN privateMessages m ON c.id = m.conversationWHERE c.user2 = 1 GROUP BY m.conversation)) t;";
             MySqlDataReader reader2 = bd.Query(select);
 
@@ -79,10 +79,7 @@ namespace Asuma
             {
                 try
                 {
-                    string username = (string)dataGridView1.SelectedRows[0].Cells[0].Value;
-                    int userid = Commons.GetUserIdByName(username);
-
-                    seleccionado = userid;                    
+                    seleccionado = (string)dataGridView1.SelectedRows[0].Cells[0].Value;                 
                 }
                 catch (Exception ex)
                 {
@@ -93,17 +90,18 @@ namespace Asuma
 
         private void bBorrar_Click(object sender, EventArgs e)
         {
-            if (seleccionado == -1)
+            if (seleccionado == "")
             {
                 MessageBox.Show("Seleccione una conversación para borrar");
             }
             else
             {
+                int userid = Commons.GetUserIdByName(seleccionado);
                 BD bd = new BD();
-                bd.Query("DELETE FROM conversation WHERE (user1 = " + seleccionado + " AND user2 = " + usuario.Id + ") OR (user2 = " + seleccionado + " AND user1 = " + usuario.Id + ");");
+                bd.Query("DELETE FROM conversation WHERE (user1 = " + userid + " AND user2 = " + usuario.Id + ") OR (user2 = " + userid + " AND user1 = " + usuario.Id + ");");
                 MessageBox.Show("Conversación eliminada");
                 cargarDataGrid();
-                seleccionado = -1;
+                seleccionado = "";
                 dataGridView1.ClearSelection();
 
             }
@@ -111,9 +109,10 @@ namespace Asuma
 
         private void bAcceder_Click(object sender, EventArgs e)
         {
-            if (seleccionado == -1) MessageBox.Show("Selecciona antes un chat");
+            if (seleccionado == "") MessageBox.Show("Selecciona antes un chat");
             else
             {
+               //int userid = Commons.GetUserIdByName(seleccionado);
                Conversaciones conv = new Conversaciones(seleccionado, usuario);
                conv.Owner = this;
                this.Visible = false;

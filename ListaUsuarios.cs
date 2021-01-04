@@ -20,79 +20,136 @@ namespace Asuma
         {
             InitializeComponent();
             this.usuario = usuario;
-            cargarDatagrid();
+            mostrarParticipantes();
         }
 
-        private void cargarDatagrid()
+        public void mostrarParticipantes()
         {
+
+            panelParticipantes.Controls.Clear();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT username FROM `user` WHERE id != " + usuario.Id);
-            if (!reader.HasRows) { MessageBox.Show("No se han encontrado más usuarios en la plataforma..."); }
-            else
+            MySqlDataReader reader = bd.Query("SELECT username, id  FROM `user`  WHERE id != " + usuario.Id + " AND id NOT IN ((SELECT user1 FROM conversation WHERE user2 = " + usuario.Id + ") UNION (SELECT user2 FROM conversation WHERE user1 = " + usuario.Id + "));");
+            int separacionV = 5, separacionH = 3;// this.Width - (panelParticipantes.Width);
+            int i = 0;
+            while (reader.Read())
             {
-                List<string> str = new List<string>();
-                while (reader.Read())
-                {
-                    str.Add((string)reader[0]);
-                }
-                var result = str.Select(s => new { Nombre = s }).ToList();
-                dataGridView1.DataSource = result;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }   
-        }
+                string name = (string)reader[0];
+                int id = (int)reader[1];
+                //string imagen = listaParticipantes.ElementAt(i).;
+                //string imagen = "";
 
-        private void bCrear_Click(object sender, EventArgs e)
-        {
-            if (seleccionado != "") { 
-                int id = 0;
-                int idUser = Commons.GetUserIdByName(seleccionado);
-                BD bd = new BD();
-                MySqlDataReader reader3 = bd.Query("SELECT * FROM conversation WHERE (user1 = " + usuario.Id + " AND user2 = " + idUser + ") OR (user2 = " + usuario.Id + " AND user1 = " + idUser + ");");
-                if (reader3.HasRows)
+
+                Panel panel = new Panel();
+                panel.Name = "pUsuario" + id;
+                panel.Size = new Size(200, 250);
+                panel.Location = new Point(separacionH, separacionV);
+
+                
+
+                //------------------
+
+                Label lUsuario = new Label();
+                lUsuario.Text = name;
+                lUsuario.Size = new Size(120, 30);
+                lUsuario.AutoSize = true;
+                lUsuario.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                lUsuario.Location = new Point(panel.Width / 2 - lUsuario.Text.Length * 5, 130);
+                lUsuario.Visible = true;
+
+                //------------------
+
+
+                PictureBox pImagen = new PictureBox();
+                pImagen.BackColor = SystemColors.ActiveCaption;
+                pImagen.Location = new Point(panel.Width / 2 - pImagen.Width / 2, 10);
+                pImagen.Name = "pImagen";
+
+                Image image;
+                if (FTPClient.ftpOn)
                 {
-                    MessageBox.Show("Ya existe una conversación abierta con esa persona");
-                    reader3.Close();
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + id + "/", "Prueba", "");
+                        pImagen.Image = ftp.DownloadPngAsImage("image.png", pImagen.Size);
+                    }
+                    catch (Exception)
+                    {
+                        //FTPClient.ftpOn = false;
+                        pImagen.Image = null;
+                    }
                 }
                 else
                 {
-                    reader3.Close();
-                    MySqlDataReader reader = bd.Query("SELECT MAX(id) FROM conversation");
-                    if (!reader.HasRows) { }
-                    else
-                    {
-                        reader.Read();
-                        id = (int)reader[0] + 1;
-                        reader.Close();
-                        MySqlDataReader writer = bd.Query("INSERT INTO conversation VALUES (" + id + ", " + usuario.Id + ", " + idUser + ");");
-                        writer.Close();
-                        bd.closeBD();
-                        this.Close();
-                    }
+                    pImagen.Image = null;
                 }
-            }
+                pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                pImagen.Size = new Size(100, 100);
+                pImagen.TabIndex = 0;
+                pImagen.TabStop = false;
+                pImagen.Visible = true;
+                pImagen.BorderStyle = BorderStyle.FixedSingle;
+
+
+                //------------------------------------------
+
                 
-            else
-            {
-                MessageBox.Show("Selecciona un usuario para crear una conversación");
-            } 
-        }
+                Button lButton = new Button();
+                lButton.Name = name;
+                lButton.Text = "Seleccionar";
+                lButton.Size = new Size(120, 30);
+                lButton.AutoSize = true;
+                lButton.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                lButton.Location = new Point(panel.Width / 2 - lButton.Text.Length * 5, 200);
+                lButton.Click +=lButton_Click;
+                lButton.Visible = true;
 
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedRows.Count > 0)
-            {
-                try
+                //------------------
+
+                panel.Visible = true;
+                panel.BorderStyle = BorderStyle.FixedSingle;
+
+
+                panel.Controls.Add(lUsuario);
+                panel.Controls.Add(pImagen);
+                panel.Controls.Add(lButton);
+
+                panelParticipantes.Controls.Add(panel);
+                separacionH += panel.Width; //+ 50;
+                if (i != 0 && (i + 1) % 3 == 0)
                 {
-                    seleccionado = (string)dataGridView1.SelectedRows[0].Cells[0].Value;
+                    separacionH = 3;//this.Width - (panelParticipantes.Width);
+                    separacionV += /*360;*/panel.Height + 2;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("ERROR: " + ex.Message);
-                }
+                i++;
             }
+            panelParticipantes.BorderStyle = BorderStyle.FixedSingle;
+            reader.Close();
+            bd.closeBD();
+       }
+
+        private void lButton_Click(object sender, EventArgs e)
+        {
+            seleccionado = ((Button)sender).Name;
+            int id = 0;
+            int idUser = Commons.GetUserIdByName(seleccionado);
+            BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT MAX(id) FROM conversation");
+                if (!reader.HasRows) { }
+                else
+                {
+                    reader.Read();
+                    id = (int)reader[0] + 1;
+                    reader.Close();
+                    MySqlDataReader writer = bd.Query("INSERT INTO conversation VALUES (" + id + ", " + usuario.Id + ", " + idUser + ");");
+                    writer.Close();
+                    bd.closeBD();
+                    Conversaciones conv = new Conversaciones(seleccionado, usuario);
+                    this.Visible = false;
+                    conv.Owner = this;
+                    conv.ShowDialog();
+                    this.Close();
+                }            
         }
-
-
     }
 }

@@ -68,7 +68,7 @@ namespace Asuma
                 }
                 catch (Exception)
                 {
-                    FTPClient.ftpOn = false;
+                    //FTPClient.ftpOn = false;
                     pUser.Image = null;
                 }
             }
