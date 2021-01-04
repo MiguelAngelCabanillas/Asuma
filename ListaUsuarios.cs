@@ -75,10 +75,10 @@ namespace Asuma
                     catch (Exception)
                     {
                         //FTPClient.ftpOn = false;
-                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
+                       /* FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
                         ftp.MakeFtpDirectory("" + id);
                         ftp.UploadFile(@"C:\Users\xdmrg\Desktop\Imagenes\image (" + id + ").jpg", id + "/image.png");
-                        pImagen.Image = null;
+                        pImagen.Image = null;*/
                     }
                 }
                 else
