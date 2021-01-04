@@ -190,6 +190,7 @@
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // tImage
             // 
@@ -446,7 +447,8 @@
             this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(49, 115);
+            this.pPerfil.Location = new System.Drawing.Point(65, 142);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(237, 113);
             this.pPerfil.TabIndex = 53;
@@ -455,7 +457,8 @@
             // 
             // bMensajes
             // 
-            this.bMensajes.Location = new System.Drawing.Point(31, 73);
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(184, 23);
             this.bMensajes.TabIndex = 1;
@@ -467,7 +470,8 @@
             // 
             // bPerfil
             // 
-            this.bPerfil.Location = new System.Drawing.Point(31, 15);
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(184, 23);
             this.bPerfil.TabIndex = 0;

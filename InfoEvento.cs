@@ -191,6 +191,7 @@ namespace Asuma
                 }
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
                 linitSesion.Visible = false;
                 lSignOut.Visible = true;
                 bInscription.Visible = true;
@@ -220,6 +221,8 @@ namespace Asuma
                     reader.Close();
                     bd.closeBD();
                     MessageBox.Show("Inscripción realizada con éxito.");
+                    Email email = new Email();
+                    email.sendEmailToInscripted(usuario.Email, ev);
                     this.Close();
                 }
                 catch { MessageBox.Show("Error al formular la inscripción"); }
@@ -355,5 +358,23 @@ namespace Asuma
             }
         }
 
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            //this.Visible = false;
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+            //this.Visible = true;
+        }
     }
 }

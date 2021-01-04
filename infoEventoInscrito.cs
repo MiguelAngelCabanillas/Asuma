@@ -32,7 +32,7 @@ namespace Asuma
 
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
-            if (e.EventCreator.Equals(u.Username)){
+            if (e.EventCreator.Equals(u.Username) || usuario.Rol.RolName.Equals("Admin")){
                 bEditEvent.Visible = true;
             }
             else
@@ -351,6 +351,14 @@ namespace Asuma
             {
                 lTipoDef.Text = "Actividad";
             }
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
         }
 
         private void bTestConocimiento_Click(object sender, EventArgs e)

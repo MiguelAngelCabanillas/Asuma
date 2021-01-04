@@ -401,6 +401,14 @@ namespace Asuma
         }
         #endregion
 
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
         private void bCrearTest_Click(object sender, EventArgs e)
         {
             //if tiene test entonces update

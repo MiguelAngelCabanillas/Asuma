@@ -271,6 +271,8 @@ namespace Asuma
             bd.closeBD();
             /*FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
             ftp.DeleteFTPDirectory("eventos/" + evento.ID + "/");*/
+            Email email = new Email();
+            email.sendEmailToCancelInscription(new User(name).Email, evento, usuario);
             MessageBox.Show("Suscripción cancelada con éxito");
 
         }

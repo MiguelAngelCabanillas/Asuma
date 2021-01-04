@@ -267,11 +267,11 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
-            this.Visible = false;
+            //this.Visible = false;
             init.ShowDialog();
             this.usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
+            //this.Visible = true;
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -370,6 +370,7 @@ namespace Asuma
                 this.Visible = false;
                 infoEvento.ShowDialog();
                 usuario = infoEvento.Usuario;
+                mostrarEventos(0);
                 actualizar();
                 this.Visible = true;
 
@@ -380,6 +381,20 @@ namespace Asuma
                 infoEvento.Show();
                 this.Close();
                 */
+            }
+            else if (usuario.Rol.RolName.Equals("Admin"))
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                infoEvento.Owner = this;
+                this.Visible = false;
+                infoEvento.ShowDialog();
+                if (!isClosed)
+                {
+                    mostrarEventos(0);
+                    actualizar();
+                    this.Visible = true;
+                }
             }
             else
             {
@@ -402,6 +417,7 @@ namespace Asuma
                             infoEvento.ShowDialog();
                             if (!isClosed)
                             {
+                                mostrarEventos(0);
                                 actualizar();
                                 this.Visible = true;
                             }
@@ -437,6 +453,7 @@ namespace Asuma
                         infoEvento.ShowDialog();
                         if (!isClosed)
                         {
+                            mostrarEventos(0);
                             actualizar();
                             this.Visible = true;
                         }
@@ -463,6 +480,7 @@ namespace Asuma
                     infoEvento.ShowDialog();
                     if (!isClosed)
                     {
+                        mostrarEventos(0);
                         this.Visible = true;
                     }
                 }
@@ -577,6 +595,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             mostrarEventos(cbFiltro.SelectedIndex);
             actualizarPanelEventos();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close(); 
         }
     }
         #endregion
