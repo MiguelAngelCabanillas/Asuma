@@ -200,5 +200,24 @@ namespace Asuma
             }
             return aprobado;
         }
+
+        public static Boolean testCreado(Event e)
+        {
+            Boolean creado = false;
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT * FROM test WHERE testID = " + e.ID + ";");
+                reader.Read();
+                if (reader.HasRows) creado = true;
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception ex)
+            {
+                throw new Error(ex.Message);
+            }
+            return creado;
+        }
     }
 }

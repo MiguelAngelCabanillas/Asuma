@@ -367,14 +367,22 @@ namespace Asuma
 
         private void bTestConocimiento_Click(object sender, EventArgs e)
         {
-            //No permito que el usuario realize el test si ya lo ha aprobado
-            if (!Test.testAprobado(evento, usuario))
+            if (!Test.testCreado(evento))
             {
-                new Test(evento, usuario);
+                //Si el gestor no ha creado el test muestro un mensaje
+                MessageBox.Show("No existe test de conocimiento para este curso");
             }
             else
             {
-                MessageBox.Show("El test de conocimiento esta aprobado");
+                //No permito que el usuario realize el test si ya lo ha aprobado
+                if (!Test.testAprobado(evento, usuario))
+                {
+                    new Test(evento, usuario);
+                }
+                else
+                {
+                    MessageBox.Show("El test de conocimiento esta aprobado");
+                }
             }
         }
 
