@@ -350,6 +350,7 @@ namespace Asuma
                 lSignOut.Visible = false;
                 pPerfil.Visible = false;
                 bCrearNoticia.Visible = false;
+                linkGesUsers.Visible = false;
             }
             else
             {
@@ -380,10 +381,12 @@ namespace Asuma
                 if (usuario.Rol.Admin == 1)
                 {
                     bCrearNoticia.Visible = true;
+                    linkGesUsers.Visible = true;
                 }
                 else
                 {
                     bCrearNoticia.Visible = false;
+                    linkGesUsers.Visible = false;
                 }
             }
         }

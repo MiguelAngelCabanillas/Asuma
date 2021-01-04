@@ -97,6 +97,13 @@ namespace Asuma
         {
             actualizarBotones();
             actualizarImagenes();
+            CentrarPanel();
+        }
+
+        private void CentrarPanel()
+        {
+            panel1.Location = new Point(this.Width/2 - panel1.Width/2, this.Height/2 - panel1.Height/2);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void tSend_Click(object sender, EventArgs e)

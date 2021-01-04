@@ -34,10 +34,12 @@ namespace Asuma
             lUsername.Text = "Bienvenido " + usuario.Username;
             if (e.EventCreator.Equals(u.Username) || usuario.Rol.RolName.Equals("Admin")){
                 bEditEvent.Visible = true;
+                bNotifyEmail.Visible = true;
             }
             else
             {
                 bEditEvent.Visible = false;
+                bNotifyEmail.Visible = false;
             }
 
             actualizarElementos();
@@ -170,6 +172,7 @@ namespace Asuma
             lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
             tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
             this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
+            this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
@@ -372,6 +375,13 @@ namespace Asuma
             {
                 MessageBox.Show("El test de conocimiento esta aprobado");
             }
+        }
+
+        private void bNotifyEmail_Click(object sender, EventArgs e)
+        {
+            Notificacion n = new Notificacion();
+            n.Owner = this;
+            n.ShowDialog();
         }
     }
 }

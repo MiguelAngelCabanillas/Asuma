@@ -76,7 +76,7 @@
     <Compile Include="CambiarPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CambiarPassword.Designer.cs">
+    <Compile Include="CambiarPassword.designer.cs">
       <DependentUpon>CambiarPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons.cs" />
@@ -168,12 +168,6 @@
     </Compile>
     <Compile Include="ListaParticipantes.Designer.cs">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ListaUsuariosAplicacion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListaUsuariosAplicacion.Designer.cs">
-      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Mensajes.cs">
       <SubType>Form</SubType>
@@ -293,9 +287,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaParticipantes.resx">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ListaUsuariosAplicacion.resx">
-      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajes.resx">
       <DependentUpon>Mensajes.cs</DependentUpon>
