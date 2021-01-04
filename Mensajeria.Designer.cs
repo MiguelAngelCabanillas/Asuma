@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensajeria));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bAcceder = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,6 +58,7 @@
             // 
             // button1
             // 
+            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.Location = new System.Drawing.Point(470, 384);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
@@ -89,13 +91,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(777, 434);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.lConversaciones);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bAcceder);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Mensajeria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mensajeria";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

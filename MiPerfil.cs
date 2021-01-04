@@ -16,6 +16,7 @@ namespace Asuma
         public MiPerfil(User usuario)
         {
             InitializeComponent();
+            this.Text = "Perfil de " + usuario.Username;
             this.usuario = usuario;
             try
             {
@@ -35,6 +36,7 @@ namespace Asuma
             if (tUsername.Text != usuario.Username)
             {
                 usuario.Username = tUsername.Text;
+                this.Text = "Perfil de " + usuario.Username;
                 MessageBox.Show("Nombre cambiado correctamente");
             }
         }

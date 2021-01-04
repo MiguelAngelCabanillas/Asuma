@@ -44,7 +44,6 @@ namespace Asuma
             String str;
             while(reader2.Read())
             {
-                
                 try
                 {
                     if(reader2.IsDBNull(1)){
@@ -126,6 +125,7 @@ namespace Asuma
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             ListaUsuarios lUs = new ListaUsuarios(usuario);
             lUs.Owner = this;
             this.Visible = false;

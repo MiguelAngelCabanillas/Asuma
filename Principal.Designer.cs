@@ -87,7 +87,7 @@
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
             this.pASM.Location = new System.Drawing.Point(1019, 15);
-            this.pASM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(263, 113);
             this.pASM.TabIndex = 14;
@@ -99,7 +99,7 @@
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
             this.pASUMA.Location = new System.Drawing.Point(554, 15);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(299, 103);
             this.pASUMA.TabIndex = 13;
@@ -114,7 +114,7 @@
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
             this.menuFlowLayoutPanel.Location = new System.Drawing.Point(22, 141);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
             this.menuFlowLayoutPanel.TabIndex = 12;
@@ -125,7 +125,7 @@
             this.bInicio.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInicio.Location = new System.Drawing.Point(2, 2);
-            this.bInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(2);
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(95, 37);
             this.bInicio.TabIndex = 0;
@@ -136,7 +136,7 @@
             // 
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(95, 37);
             this.bEventos.TabIndex = 1;
@@ -148,7 +148,7 @@
             // 
             this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(95, 37);
             this.bInfo.TabIndex = 2;
@@ -159,7 +159,7 @@
             // 
             this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
             this.bContacto.Name = "bContacto";
             this.bContacto.Size = new System.Drawing.Size(95, 37);
             this.bContacto.TabIndex = 3;
@@ -182,7 +182,7 @@
             this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(54, 13);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(98, 113);
             this.pUser.TabIndex = 10;
@@ -214,7 +214,7 @@
             // bCrearNoticia
             // 
             this.bCrearNoticia.Location = new System.Drawing.Point(676, 379);
-            this.bCrearNoticia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bCrearNoticia.Margin = new System.Windows.Forms.Padding(2);
             this.bCrearNoticia.Name = "bCrearNoticia";
             this.bCrearNoticia.Size = new System.Drawing.Size(90, 49);
             this.bCrearNoticia.TabIndex = 13;
@@ -227,7 +227,7 @@
             this.pNoticias.AutoScroll = true;
             this.pNoticias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pNoticias.Location = new System.Drawing.Point(19, 233);
-            this.pNoticias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pNoticias.Margin = new System.Windows.Forms.Padding(2);
             this.pNoticias.Name = "pNoticias";
             this.pNoticias.Size = new System.Drawing.Size(600, 422);
             this.pNoticias.TabIndex = 12;
@@ -240,7 +240,7 @@
             this.pPerfil.Controls.Add(this.lNoticias);
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(38, 115);
+            this.pPerfil.Location = new System.Drawing.Point(54, 126);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(237, 113);
             this.pPerfil.TabIndex = 11;
@@ -295,7 +295,7 @@
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Conversaciones));
             this.tConversacion = new System.Windows.Forms.TextBox();
             this.tEnviar = new System.Windows.Forms.TextBox();
             this.bEnviar = new System.Windows.Forms.Button();
@@ -77,12 +78,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(704, 438);
             this.Controls.Add(this.lNombre);
             this.Controls.Add(this.bEnviar);
             this.Controls.Add(this.tEnviar);
             this.Controls.Add(this.tConversacion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Conversaciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conversaciones";
             this.ResumeLayout(false);
             this.PerformLayout();

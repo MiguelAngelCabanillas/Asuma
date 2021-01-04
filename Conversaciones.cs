@@ -41,7 +41,7 @@ namespace Asuma
                 MySqlDataReader reader2 = bd.Query("SELECT c.id FROM conversation c LEFT JOIN privateMessages p ON c.id = p.conversation WHERE (user1 = " + idUsuario + " AND user2 = " + usuario.Id + ") OR (user2 = " + idUsuario + " AND user1 = " + usuario.Id + ")");
                 reader2.Read();
                 idConv = (int)reader2[0];
-                bd.closeBD();
+                reader2.Close();
             }
             else
             {
@@ -49,11 +49,14 @@ namespace Asuma
                 tConversacion.Text = "";
                 while (reader.Read())
                 {
-                    idConv = (int)reader[4];
-                    if (!reader.IsDBNull(2))
+                    if (!reader.IsDBNull(1))
                     {
-                        tConversacion.AppendText((string)reader[3] + @"  |  " + (string)reader[1] + ": " + (string)reader[2] + Environment.NewLine + Environment.NewLine);
-                        numMensajes++;
+                        idConv = (int)reader[4];
+                        if (!reader.IsDBNull(2))
+                        {
+                            tConversacion.AppendText((string)reader[3] + @"  |  " + (string)reader[1] + ": " + (string)reader[2] + Environment.NewLine + Environment.NewLine);
+                            numMensajes++;
+                        }
                     }
                 } 
                 
@@ -67,7 +70,7 @@ namespace Asuma
             if (tEnviar.Text != "")
             {
                 BD bd = new BD();
-                tConversacion.AppendText(DateTime.Now.ToString() + @"  |  " + nombreUsuarioConv + ": " + tEnviar.Text + Environment.NewLine + Environment.NewLine);
+                tConversacion.AppendText(DateTime.Now.ToString() + @"  |  " + usuario.Username + ": " + tEnviar.Text + Environment.NewLine + Environment.NewLine);
                 MySqlDataReader writer = bd.Query("INSERT INTO privateMessages VALUES (" + idConv + ", " + numMensajes + ", " + usuario.Id + ", '" + tEnviar.Text + "', '" + DateTime.Now.ToString() + "');");
                 numMensajes++;
                 writer.Close();

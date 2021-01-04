@@ -98,6 +98,10 @@ namespace Asuma
                     }
                     catch (Exception)
                     {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/noticias/", "Prueba", "");
+                        ftp.MakeFtpDirectory("" + listaNoticias.ElementAt(i).ID);
+                        ftp.UploadFile(@"C:\Universidad\Descargas\anciano.jpg", listaNoticias.ElementAt(i).ID + "/image.png");
+                        pImagen.Image = null;
                         image = null;
                     }
 

@@ -29,7 +29,7 @@ namespace Asuma
             panelParticipantes.Controls.Clear();
             BD bd = new BD();
             MySqlDataReader reader = bd.Query("SELECT username, id  FROM `user`  WHERE id != " + usuario.Id + " AND id NOT IN ((SELECT user1 FROM conversation WHERE user2 = " + usuario.Id + ") UNION (SELECT user2 FROM conversation WHERE user1 = " + usuario.Id + "));");
-            int separacionV = 5, separacionH = 3;// this.Width - (panelParticipantes.Width);
+            int separacionV = 5, separacionH = 10;// this.Width - (panelParticipantes.Width);
             int i = 0;
             while (reader.Read())
             {
@@ -75,6 +75,9 @@ namespace Asuma
                     catch (Exception)
                     {
                         //FTPClient.ftpOn = false;
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
+                        ftp.MakeFtpDirectory("" + id);
+                        ftp.UploadFile(@"C:\Users\xdmrg\Desktop\Imagenes\image (" + id + ").jpg", id + "/image.png");
                         pImagen.Image = null;
                     }
                 }
@@ -116,9 +119,9 @@ namespace Asuma
 
                 panelParticipantes.Controls.Add(panel);
                 separacionH += panel.Width; //+ 50;
-                if (i != 0 && (i + 1) % 3 == 0)
+                if (i != 0 && (i + 1) % 4 == 0)
                 {
-                    separacionH = 3;//this.Width - (panelParticipantes.Width);
+                    separacionH = 10;//this.Width - (panelParticipantes.Width);
                     separacionV += /*360;*/panel.Height + 2;
                 }
                 i++;
@@ -135,11 +138,14 @@ namespace Asuma
             int idUser = Commons.GetUserIdByName(seleccionado);
             BD bd = new BD();
                 MySqlDataReader reader = bd.Query("SELECT MAX(id) FROM conversation");
-                if (!reader.HasRows) { }
+                if (!reader.HasRows) 
+                {
+                
+                }
                 else
                 {
                     reader.Read();
-                    id = (int)reader[0] + 1;
+                    id = ((int)reader[0]) + 1;
                     reader.Close();
                     MySqlDataReader writer = bd.Query("INSERT INTO conversation VALUES (" + id + ", " + usuario.Id + ", " + idUser + ");");
                     writer.Close();
