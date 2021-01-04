@@ -89,6 +89,7 @@ namespace Asuma
             this.bMensajes.TabIndex = 1;
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
+            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
             // 
             // bPerfil
             // 
@@ -228,6 +229,7 @@ namespace Asuma
             // 
             // pUser
             // 
+            this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(37, 22);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);

@@ -46,7 +46,7 @@ namespace Asuma
                     }
                     catch (Exception ex)
                     {
-                        FTPClient.ftpOn = false;
+                        //FTPClient.ftpOn = false;
                         pUser.Image = null;
                     }
                 }
@@ -208,6 +208,17 @@ namespace Asuma
         public void setUser(User usuario)
         {
             this.usuario = usuario;
+        }
+
+        private void bMensajes_Click(object sender, EventArgs e)
+        {
+            Mensajeria frame = new Mensajeria(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
         }
         #endregion
     }
