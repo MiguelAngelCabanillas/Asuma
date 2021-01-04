@@ -16,8 +16,14 @@ namespace Asuma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal(null));
-            // new User("docente1", "d"))
+            User s = new User("docente1", "d");
+            //Application.Run(new Contacto(s));
+            //Application.Run(new Cuestionario_Satisfaccion("1_3", 1, 2, 2, 1, 1, "Hola a todos"));
+            //Application.Run(new MisEventos(new User("franB", "franB")));
+            //Application.Run(new Surveys_Evento(new Event(61)));
+            //Application.Run(new Test_Conocimiento_Edicion(new Event(115)));
+            //Application.Run(new Contacto(null));
+            Application.Run(new Principal(s));
         }
     }
 }

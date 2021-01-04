@@ -91,6 +91,61 @@ namespace Asuma
 
         }
 
+        public static List<User> listaUsuariosAplicacion()
+        {
+            List<User> listaUsuarios = new List<User>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT username FROM user ");
+            while (reader.Read())
+            {
+                User aux = new User((string)reader[0]);
+                listaUsuarios.Add(aux);
+            }
+            reader.Close();
+            bd.closeBD();
+
+            return listaUsuarios;
+        }
+
+
+        public static List<string> listaEmailsUsuariosEnEvento(Event e)
+        {
+            List<string> listaEmails = new List<string>();
+            string aux;
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT email FROM user WHERE username IN (SELECT userName FROM inscription WHERE idEvent = " + e.ID + ")");
+            while (reader.Read())
+            {
+                aux = (string)reader[0];
+                listaEmails.Add(aux);
+            }
+            reader.Close();
+            bd.closeBD();
+
+            return listaEmails;
+        }
+
+        public static bool buscarUsuarioRecuperacion(string nombreUsuario, string email)
+        {
+            bool existe = false;
+            try
+            {
+                
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT id FROM user WHERE username = '" + nombreUsuario + "' AND email = '" + email + "'");
+                if (reader.HasRows)
+                {
+                    existe = true;
+                }
+                reader.Close();
+                bd.closeBD();
+                
+            } catch(Exception ex){
+
+            }
+            return existe;
+        }
+
         public User(string username)
         {
             try
@@ -138,12 +193,20 @@ namespace Asuma
                 MySqlDataReader writer = bd.Query("UPDATE user SET email = '" + value + "' WHERE id = " + id + ";");
                 writer.Close();
                 bd.closeBD();
-                this.username = value;
+                this.email = value;
             }
         }
         public string Password
         {
             get { return password; }
+            set
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET password = '" + value + "' WHERE id = " + id + ";");
+                writer.Close();
+                bd.closeBD();
+                this.password = value;
+            }
         }
 
         public Rol Rol
@@ -166,6 +229,23 @@ namespace Asuma
                 bd.closeBD();
             }
         }
+
+        public static void insertarToken(string username, string email, string token)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET recoveryToken = '" + token + "' WHERE username = '" + username + "' AND email = '" + email + "';");
+                writer.Close();
+                bd.closeBD();
+            }
+            catch (Exception)
+            {
+
+            }
+         
+        }
+ 
 
         public static implicit operator string(User v)
         {

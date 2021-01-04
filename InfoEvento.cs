@@ -27,18 +27,13 @@ namespace Asuma
             this.ev = e;
             this.usuario = u;
             InitializeComponent();
-            string imagen = "asuma2.ico";
+            actualizar();
+            actualizarElementos();
+            
+            string imagen = e.Image;
             string path = Path.GetDirectoryName(Application.StartupPath);
             string pathBueno = path.Substring(0, path.Length - 3);
             string imagePath = pathBueno + "images\\" + imagen;
-            Icon icon = new Icon(imagePath,100,100); 
-            this.Icon = icon;
-
-            actualizar();
-            imagen = e.Image;
-            path = Path.GetDirectoryName(Application.StartupPath);
-            pathBueno = path.Substring(0, path.Length - 3);
-            imagePath = pathBueno + "images\\" + imagen;
             Image image;
 
             if (FTPClient.ftpOn)
@@ -115,6 +110,13 @@ namespace Asuma
             this.pEvento.BorderStyle = BorderStyle.FixedSingle;
         }
 
+        private void actualizarElementos()
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarLabels();
+        }
+
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 40;
@@ -147,6 +149,8 @@ namespace Asuma
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
             this.bInscription.Location = new Point((anchura * 2) / 10, bInscription.Location.Y);
             this.bSalir.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            lTipo.Location = new Point(tDes.Location.X+tDes.Width/2,lOrganizadores.Location.Y);
+            lTipoDef.Location = new Point(lTipo.Location.X+100, lOrganizadores.Location.Y+5);
         }
 
         private void InfoEvento_Resize(object sender, EventArgs e)
@@ -168,17 +172,26 @@ namespace Asuma
             }
             else
             {
-                try
+                if (FTPClient.ftpOn)
                 {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception ex)
+                    {
+                        FTPClient.ftpOn = false;
+                        pUser.Image = null;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
                     pUser.Image = null;
                 }
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
                 linitSesion.Visible = false;
                 lSignOut.Visible = true;
                 bInscription.Visible = true;
@@ -208,6 +221,8 @@ namespace Asuma
                     reader.Close();
                     bd.closeBD();
                     MessageBox.Show("Inscripción realizada con éxito.");
+                    Email email = new Email();
+                    email.sendEmailToInscripted(usuario.Email, ev);
                     this.Close();
                 }
                 catch { MessageBox.Show("Error al formular la inscripción"); }
@@ -330,5 +345,36 @@ namespace Asuma
 
         }
         #endregion
+
+        private void lTipoDef_Paint(object sender, PaintEventArgs e)
+        {
+            if (this.ev.Tipo == true)
+            {
+                lTipoDef.Text = "Curso";
+            }
+            else
+            {
+                lTipoDef.Text = "Actividad";
+            }
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            //this.Visible = false;
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+            //this.Visible = true;
+        }
     }
 }

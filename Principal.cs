@@ -96,25 +96,13 @@ namespace Asuma
                             image = Image.FromStream(ms);
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         image = null;
                     }
 
 
-                }
-                else if (FTPClient.ftpBackupOn)
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                    try
-                    {
-                        ftp.MakeFtpDirectory("eventos/" + listaNoticias.ElementAt(i).ID);
-                    }
-                    catch (Exception ex) { }
-                    ftp.UploadFile(imagePath, "eventos/" + listaNoticias.ElementAt(i).ID + "/image.png");
-                    image = Image.FromFile(imagePath);
-                }
-                else { image = Image.FromFile(imagePath); }
+                }else { image = Image.FromFile(imagePath); }
 
                 pImagen.Image = image;
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -196,8 +184,19 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Owner = this;
+            this.Visible = false;
             ev.ShowDialog();
-            this.Close();
+            this.Visible = true;
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto contacto = new Contacto(usuario);
+            contacto.Owner = this;
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Visible = true;
         }
 
         private void añadirAlPanel()
@@ -209,6 +208,7 @@ namespace Asuma
             panel1.Controls.Add(pASUMA);
             panel1.Controls.Add(pASM);
             panel1.Controls.Add(menuFlowLayoutPanel);
+            panel1.Controls.Add(lNoticias);
         }
 
         protected void ltitulo_click(object sender, EventArgs e)
@@ -259,9 +259,56 @@ namespace Asuma
             isClosed = true;
         }
 
+        private void mcEventos_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            if (this.usuario == null)
+            {
+                MessageBox.Show("Debe registrarse para visualizar sus eventos.");
+            }
+            else
+            {
+                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
+                if (eventos.Count == 0)
+                {
+                    MessageBox.Show("No se encuentra inscrito en ningún evento.");
+                }
+                else
+                {
+                    string dia = mcEventos.SelectionStart.ToString().Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
+                    string res = "";
+                    foreach (Event evento in eventos)
+                    {
+                        if (dia.Equals(evento.Date))
+                        {
+                            res = res + "- " + evento.EventName + " (" + (evento.Tipo ? "Curso" : "Actividad") + ")\n";
+                        }
+                    }
+                    if (res == "")
+                    {
+                        MessageBox.Show("No tiene ningún evento programado para este día.");
+                    }
+                    else
+                    {
+                        MessageBox.Show(res);
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region GUIs
+        
+        private void actualizarElementos()
+        {
+            panel1.Width = this.Width;
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarPanelNoticias();
+            mcEventos.Location = new Point(pASM.Location.X,pNoticias.Location.Y);
+            lNoticias.Location = new Point(pNoticias.Location.X+pNoticias.Width/2-lNoticias.Text.Length*6,pNoticias.Location.Y-50);
+        }
+        
         private void actualizarImagenes()
         {
             int tamaño = this.Width;
@@ -278,18 +325,18 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bCrearNoticia.Location = new Point(this.Width/2 - this.bCrearNoticia.Width/2,
-                this.pNoticias.Location.Y + this.pNoticias.Height + 20);
+            this.bCrearNoticia.Location = new Point(this.Width*7/10+mcEventos.Width/2-bCrearNoticia.Width/2,
+                this.pNoticias.Location.Y + mcEventos.Height + 20);
         }
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Inicio init = new Inicio();
-            this.Visible = false;
+            //this.Visible = false;
             init.ShowDialog();
             this.Usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
+            //this.Visible = true;
             this.ActiveControl = bInicio;
         }
 
@@ -303,16 +350,26 @@ namespace Asuma
                 lSignOut.Visible = false;
                 pPerfil.Visible = false;
                 bCrearNoticia.Visible = false;
+                linkGesUsers.Visible = false;
             }
             else
             {
+                pintarCalendario();
                 linitSesion.Visible = false;
-                try
+                if (FTPClient.ftpOn)
                 {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception)
+                    {
+                        FTPClient.ftpOn = false;
+                        pUser.Image = null;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
                     pUser.Image = null;
                 }
@@ -324,10 +381,12 @@ namespace Asuma
                 if (usuario.Rol.Admin == 1)
                 {
                     bCrearNoticia.Visible = true;
+                    linkGesUsers.Visible = true;
                 }
                 else
                 {
                     bCrearNoticia.Visible = false;
+                    linkGesUsers.Visible = false;
                 }
             }
         }
@@ -336,7 +395,7 @@ namespace Asuma
         {
             pNoticias.Width = (this.menuFlowLayoutPanel.Width*3)/5;
             pNoticias.Height = (this.Height * 6) / 10;
-            pNoticias.Location = new Point(this.menuFlowLayoutPanel.Location.X+50, this.menuFlowLayoutPanel.Location.Y + 50);
+            pNoticias.Location = new Point(this.menuFlowLayoutPanel.Location.X+50, this.menuFlowLayoutPanel.Location.Y + 100);
         }
 
         private void actualizarNoticias()
@@ -369,10 +428,7 @@ namespace Asuma
 
         private void Principal_Resize(object sender, EventArgs e)
         {
-            panel1.Width = this.Width;
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarPanelNoticias();
+            actualizarElementos();
         }
 
         private void pNoticias_Resize(object sender, EventArgs e)
@@ -449,10 +505,27 @@ namespace Asuma
             this.Visible = true;
         }
 
+        private void pintarCalendario()
+        {
+            if (this.usuario != null)
+            {
+                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
+                DateTime[] dates = new DateTime[eventos.Count];
+                int i = 0;
+                foreach (Event evento in eventos)
+                {
+                    dates[i] = DateTime.Parse(evento.Date);
+                    i++;
+                }
+                mcEventos.BoldedDates = dates;
+            }
+        }
+
         private void bMensajes_Click(object sender, EventArgs e)
         {
 
         }
         #endregion
+
     }
 }

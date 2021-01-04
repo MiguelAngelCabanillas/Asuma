@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.6.8.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>packages\MySqlConnector.1.2.0\lib\net471\MySqlConnector.dll</HintPath>
     </Reference>
@@ -67,7 +73,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarPassword.designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Commons.cs" />
+    <Compile Include="Contacto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contacto.Designer.cs">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,12 +98,19 @@
     <Compile Include="CrearNoticia.Designer.cs">
       <DependentUpon>CrearNoticia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cuestionario_Satisfaccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cuestionario_Satisfaccion.Designer.cs">
+      <DependentUpon>Cuestionario_Satisfaccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditarEvento.Designer.cs">
       <DependentUpon>EditarEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Email.cs" />
     <Compile Include="EditarNoticia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +145,12 @@
     <Compile Include="InfoEventoInscrito.Designer.cs">
       <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Informacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informacion.Designer.cs">
+      <DependentUpon>Informacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoNoticia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +169,12 @@
     <Compile Include="ListaParticipantes.Designer.cs">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes.Designer.cs">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MiPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +186,12 @@
     </Compile>
     <Compile Include="MisEventos.Designer.cs">
       <DependentUpon>MisEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notificacion.Designer.cs">
+      <DependentUpon>Notificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="News.cs" />
     <Compile Include="Permission.cs" />
@@ -172,6 +215,12 @@
     <Compile Include="PruebaFTP.Designer.cs">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recuperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recuperacion.Designer.cs">
+      <DependentUpon>Recuperacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,13 +228,35 @@
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs" />
+    <Compile Include="Surveys_Evento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Surveys_Evento.Designer.cs">
+      <DependentUpon>Surveys_Evento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tema.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Test_Conocimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test_Conocimiento.Designer.cs">
+      <DependentUpon>Test_Conocimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Test_Conocimiento_Edicion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test_Conocimiento_Edicion.Designer.cs">
+      <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contacto.resx">
+      <DependentUpon>Contacto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrearNoticia.resx">
-      <DependentUpon>CrearNoticia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditarEvento.resx">
       <DependentUpon>EditarEvento.cs</DependentUpon>
@@ -205,6 +276,9 @@
     <EmbeddedResource Include="InfoEventoInscrito.resx">
       <DependentUpon>InfoEventoInscrito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Informacion.resx">
+      <DependentUpon>Informacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InfoNoticia.resx">
       <DependentUpon>InfoNoticia.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,11 +288,17 @@
     <EmbeddedResource Include="ListaParticipantes.resx">
       <DependentUpon>ListaParticipantes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes.resx">
+      <DependentUpon>Mensajes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MiPerfil.resx">
       <DependentUpon>MiPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MisEventos.resx">
       <DependentUpon>MisEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notificacion.resx">
+      <DependentUpon>Notificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
@@ -238,8 +318,20 @@
     <EmbeddedResource Include="PruebaFTP.resx">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recuperacion.resx">
+      <DependentUpon>Recuperacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Surveys_Evento.resx">
+      <DependentUpon>Surveys_Evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test_Conocimiento.resx">
+      <DependentUpon>Test_Conocimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test_Conocimiento_Edicion.resx">
+      <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

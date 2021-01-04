@@ -32,14 +32,17 @@ namespace Asuma
 
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
-            if (e.EventCreator.Equals(u.Username)){
+            if (e.EventCreator.Equals(u.Username) || usuario.Rol.RolName.Equals("Admin")){
                 bEditEvent.Visible = true;
+                bNotifyEmail.Visible = true;
             }
             else
             {
                 bEditEvent.Visible = false;
+                bNotifyEmail.Visible = false;
             }
 
+            actualizarElementos();
             actualizar();
         }
         #endregion
@@ -67,12 +70,20 @@ namespace Asuma
 
         private void actualizar()
         {
-            try
+            if (FTPClient.ftpOn)
             {
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                }
+                catch (Exception ex)
+                {
+                    FTPClient.ftpOn = false;
+                    pUser.Image = null;
+                }
             }
-            catch (Exception ex)
+            else
             {
                 pUser.Image = null;
             }
@@ -115,6 +126,13 @@ namespace Asuma
             lFecha.Text = evento.Date;
         }
 
+        private void actualizarElementos()
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarLabels();
+        }
+
         private void actualizarBotones()
         {
             this.menuFlowLayoutPanel.Width = this.Width - 40;
@@ -122,6 +140,9 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            bEditEvent.Location = new Point(20,bExit.Location.Y);
+            
+            bEditEvent.Size = bExit.Size;
         }
 
         private void actualizarImagenes()
@@ -130,7 +151,7 @@ namespace Asuma
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
             this.lSignOut.Location = new Point((tamaño * 3) / 10, lSignOut.Location.Y);
-            this.pEvento.Location = new Point((tamaño * 2) / 10, pEvento.Location.Y);
+            pEvento.Location = new Point(tamaño*2/10, menuFlowLayoutPanel.Location.Y + 100);
         }
 
         private void actualizarLabels()
@@ -147,13 +168,17 @@ namespace Asuma
             this.bEditEvent.Location = new Point((anchura * 2) / 10, bEditEvent.Location.Y);
             this.linkForum.Location = new Point((anchura * 3) / 10, linkForum.Location.Y);
             this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            lTipo.Location = new Point(tDes.Location.X + tDes.Width / 2, lOrganizadores.Location.Y);
+            lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
+            tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
+            this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
+            this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
+            this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
         {
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarLabels();
+            actualizarElementos();
         }
         #endregion
 
@@ -319,5 +344,55 @@ namespace Asuma
 
         }
         #endregion
+
+        private void lTipoDef_Paint(object sender, PaintEventArgs e)
+        {
+            if (this.evento.Tipo == true)
+            {
+                lTipoDef.Text = "Curso";
+            }
+            else
+            {
+                lTipoDef.Text = "Actividad";
+            }
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void bTestConocimiento_Click(object sender, EventArgs e)
+        {
+            //No permito que el usuario realize el test si ya lo ha aprobado
+            if (!Test.testAprobado(evento, usuario))
+            {
+                new Test(evento, usuario);
+            }
+            else
+            {
+                MessageBox.Show("El test de conocimiento esta aprobado");
+            }
+        }
+
+        private void bNotifyEmail_Click(object sender, EventArgs e)
+        {
+            Notificacion n = new Notificacion();
+            n.Owner = this;
+            n.ShowDialog();
+        }
+
+        private void bListParticipantes_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ListaParticipantes lP = new ListaParticipantes(usuario, evento)
+            {
+                Owner = this
+            };
+            lP.ShowDialog();
+        }
     }
 }
