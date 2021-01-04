@@ -16,8 +16,9 @@ namespace Asuma
     {
         private User usuario;
         private Event evento;
-        private bool mouseInPanel = false, gestor = true;
+        private bool mouseInPanel = false;
         private Timer hideTimer;
+        private string nombreGestor;
 
         #region Creacion del frame
         public ListaParticipantes(User u, Event e)
@@ -28,6 +29,7 @@ namespace Asuma
             InitializeComponent();
             this.usuario = u;
             this.evento = e;
+            this.nombreGestor = e.EventCreator;
             actualizar();
             panelParticipantes.SendToBack();
             mostrarParticipantes();
@@ -128,7 +130,7 @@ namespace Asuma
                 pImagen.Visible = true;
                 pImagen.BorderStyle = BorderStyle.FixedSingle;
 
-                if (gestor)
+                if (usuario.Username.Equals(nombreGestor) && !name.Equals(nombreGestor))
                 {
                     Button bCancelarSus = new Button();
                     bCancelarSus.Text = "Cancelar suscripción";
@@ -168,7 +170,7 @@ namespace Asuma
                 }
             }
             panelParticipantes.BorderStyle = BorderStyle.FixedSingle;
-            panelParticipantes.Size = new Size(1265, 640);
+            //panelParticipantes.Size = new Size(1265, 600);
         }
         #endregion
 
@@ -203,6 +205,7 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
+            this.bExit.Location = new Point(this.Width-200,this.Height-100);
         }
         private void actualizarImagenes()
         {
@@ -215,9 +218,15 @@ namespace Asuma
 
         private void actualizarPanelParticipantes()
         {
-            panelParticipantes.Width = menuFlowLayoutPanel.Width - 40;
+            panelParticipantes.Width = menuFlowLayoutPanel.Width - 60;
             panelParticipantes.Height = (this.Height * 6) / 10;
             panelParticipantes.Location = new Point(this.Width / 2 - panelParticipantes.Width / 2, this.menuFlowLayoutPanel.Location.Y + 50);
+        }
+
+        private void actualizarParticipantes()
+        {
+            panelParticipantes.Controls.Clear();
+            mostrarParticipantes();
         }
 
         /*private void actualizarParticipantes()
@@ -249,19 +258,12 @@ namespace Asuma
             actualizarImagenes();
             actualizarPanelParticipantes();
         }
-
-        private void panelParticipantes_Resize(object sender, EventArgs e)
-        {
-            //actualizarParticipantes();
-        }
         #endregion
 
         #region Logica del formulario
         protected void bCancelarSus_click(object sender, EventArgs e)
         {
-            //LinkLabel link = sender as LinkLabel;
-            // identify which button was clicked and perform necessary actions
-            //var id = Int32.Parse(link.Name);ç
+            Cursor.Current = Cursors.WaitCursor;
             Button b = sender as Button;
             string name = b.Name;
 
@@ -274,7 +276,13 @@ namespace Asuma
             Email email = new Email();
             email.sendEmailToCancelInscription(new User(name).Email, evento, usuario);
             MessageBox.Show("Suscripción cancelada con éxito");
+            actualizarParticipantes();
+        }
 
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            this.Close();
         }
 
         private void bInicio_Click(object sender, EventArgs e)
