@@ -564,6 +564,8 @@
             // bPerfil
             // 
             this.bPerfil.Location = new System.Drawing.Point(31, 15);
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(184, 23);
             this.bPerfil.TabIndex = 0;

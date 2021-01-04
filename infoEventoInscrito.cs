@@ -160,7 +160,7 @@ namespace Asuma
             int altura = this.Height;
             lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
             this.lTitulo.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y);
-            this.tDes.Location = new Point((int)((anchura * 4.5) / 10), tDes.Location.Y);
+            this.tDes.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y + tDes.Height / 3);
             this.lOrg.Location = new Point((anchura * 2) / 10, lOrg.Location.Y);
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
@@ -170,7 +170,6 @@ namespace Asuma
             this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
             lTipo.Location = new Point(tDes.Location.X + tDes.Width / 2, lOrganizadores.Location.Y);
             lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
-            tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
             this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
             this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
             this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);

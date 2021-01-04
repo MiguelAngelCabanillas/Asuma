@@ -288,7 +288,8 @@ namespace Asuma
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(426, 78);
+            this.linitSesion.Location = new System.Drawing.Point(322, 64);
+            this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linitSesion.Name = "linitSesion";
             this.linitSesion.Size = new System.Drawing.Size(118, 18);
             this.linitSesion.TabIndex = 33;

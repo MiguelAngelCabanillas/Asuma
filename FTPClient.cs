@@ -12,7 +12,7 @@ namespace Asuma
     public class FTPClient
     {
 
-        public static bool ftpOn = true;
+        public static bool ftpOn = false;
         public static bool ftpBackupOn = false;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
@@ -83,22 +83,12 @@ namespace Asuma
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + filename);
             request.Method = WebRequestMethods.Ftp.DownloadFile;
             request.Credentials = new NetworkCredential(_remoteUser, _remotePass);
-            /*FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-            Stream responseStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(responseStream);*/
 
             using (Stream streamIn = request.GetResponse().GetResponseStream())
             using (Stream streamOut = File.Create(destination))
             {
                 streamIn.CopyTo(streamOut);
             }
-
-            /* StreamWriter writer = new StreamWriter(destination);
-             writer.Write(reader.ReadToEnd());*/
-
-            // writer.Close();
-            /* reader.Close();
-             response.Close();*/
         }
 
         public float GetFileDownloadSize(string filename)
