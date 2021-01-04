@@ -238,9 +238,17 @@ namespace Asuma
 
         private void bFinalizar_Test_Click(object sender, EventArgs e)
         {
-            SortedDictionary<int, String[]> Respuestas = RespuestasPurgadas();
-            Test aux = new Test(evento.ID, nombrePreguntas, Respuestas, RespuestasCorrectas);
-            this.Close();
+            //Si no tiene preguntas no dejo crear el test
+            if (nombrePreguntas.Count == 0)
+            {
+                MessageBox.Show("No se puede crear el test sin preguntas");
+            }
+            else
+            {
+                SortedDictionary<int, String[]> Respuestas = RespuestasPurgadas();
+                Test aux = new Test(evento.ID, nombrePreguntas, Respuestas, RespuestasCorrectas);
+                this.Close();
+            }
         }
 
         private SortedDictionary<int, String[]> RespuestasPurgadas()
@@ -277,6 +285,11 @@ namespace Asuma
         private void bLimpiar_Click(object sender, EventArgs e)
         {
             resetPregunta();
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

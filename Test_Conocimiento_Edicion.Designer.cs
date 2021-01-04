@@ -45,6 +45,7 @@ namespace Asuma
             this.checkBoxSelecM = new System.Windows.Forms.CheckBox();
             this.checkBoxCorrecta = new System.Windows.Forms.CheckBox();
             this.bNueva_Pregunta = new System.Windows.Forms.Button();
+            this.bSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkedListBoxQ1
@@ -211,11 +212,23 @@ namespace Asuma
             this.bNueva_Pregunta.UseVisualStyleBackColor = true;
             this.bNueva_Pregunta.Click += new System.EventHandler(this.bLimpiar_Click);
             // 
+            // bSalir
+            // 
+            this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bSalir.Location = new System.Drawing.Point(676, 410);
+            this.bSalir.Name = "bSalir";
+            this.bSalir.Size = new System.Drawing.Size(195, 28);
+            this.bSalir.TabIndex = 28;
+            this.bSalir.Text = "Salir";
+            this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
+            // 
             // Test_Conocimiento_Edicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(893, 450);
+            this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bNueva_Pregunta);
             this.Controls.Add(this.checkBoxCorrecta);
             this.Controls.Add(this.checkBoxSelecM);
@@ -256,5 +269,6 @@ namespace Asuma
         private System.Windows.Forms.CheckBox checkBoxSelecM;
         private System.Windows.Forms.CheckBox checkBoxCorrecta;
         private System.Windows.Forms.Button bNueva_Pregunta;
+        private System.Windows.Forms.Button bSalir;
     }
 }
