@@ -358,7 +358,13 @@ namespace Asuma
 
         private void bMensajes_Click(object sender, EventArgs e)
         {
-
+            Mensajeria frame = new Mensajeria(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
         }
         #endregion
 
