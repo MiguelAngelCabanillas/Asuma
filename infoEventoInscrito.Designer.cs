@@ -56,6 +56,7 @@
             this.lTipoDef = new System.Windows.Forms.Label();
             this.bTestConocimiento = new System.Windows.Forms.Button();
             this.bNotifyEmail = new System.Windows.Forms.Button();
+            this.bListParticipantes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
@@ -365,7 +366,7 @@
             this.bTestConocimiento.Name = "bTestConocimiento";
             this.bTestConocimiento.Size = new System.Drawing.Size(189, 23);
             this.bTestConocimiento.TabIndex = 47;
-            this.bTestConocimiento.Text = "Realizar Test de Conocimiento";
+            this.bTestConocimiento.Text = "Realizar test de conocimiento";
             this.bTestConocimiento.UseVisualStyleBackColor = true;
             this.bTestConocimiento.Click += new System.EventHandler(this.bTestConocimiento_Click);
             // 
@@ -379,12 +380,23 @@
             this.bNotifyEmail.UseVisualStyleBackColor = true;
             this.bNotifyEmail.Click += new System.EventHandler(this.bNotifyEmail_Click);
             // 
+            // bListParticipantes
+            // 
+            this.bListParticipantes.Location = new System.Drawing.Point(785, 490);
+            this.bListParticipantes.Name = "bListParticipantes";
+            this.bListParticipantes.Size = new System.Drawing.Size(189, 23);
+            this.bListParticipantes.TabIndex = 49;
+            this.bListParticipantes.Text = "Participantes";
+            this.bListParticipantes.UseVisualStyleBackColor = true;
+            this.bListParticipantes.Click += new System.EventHandler(this.bListParticipantes_Click);
+            // 
             // InfoEventoInscrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1082, 862);
+            this.Controls.Add(this.bListParticipantes);
             this.Controls.Add(this.bNotifyEmail);
             this.Controls.Add(this.bTestConocimiento);
             this.Controls.Add(this.lTipoDef);
@@ -456,5 +468,6 @@
         private System.Windows.Forms.Label lTipoDef;
         private System.Windows.Forms.Button bTestConocimiento;
         private System.Windows.Forms.Button bNotifyEmail;
+        private System.Windows.Forms.Button bListParticipantes;
     }
 }

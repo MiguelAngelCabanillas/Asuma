@@ -28,10 +28,6 @@ namespace Asuma
             hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
-            tDescription.AutoSize = false;
-            tDescription.Height = 80;
-            cbTipo.Location = new Point(914, 436);
-            pImage.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizarElementos();
             actualizar();
@@ -59,27 +55,47 @@ namespace Asuma
 
         public void actualizar()
         {
-            if (FTPClient.ftpOn)
+            if (usuario == null)
             {
-                try
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
-                }
-                catch (Exception)
-                {
-                    FTPClient.ftpOn = false;
-                    pUser.Image = null;
-                }
+                linitSesion.Visible = true;
+                pUser.Visible = false;
+                lUsername.Visible = false;
+                lSignOut.Visible = false;
+                //pPerfil.Visible = false;
             }
             else
             {
-                pUser.Image = null;
+                if (FTPClient.ftpOn)
+                {
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception)
+                    {
+                        FTPClient.ftpOn = false;
+                        pUser.Image = null;
+                    }
+                }
+                else
+                {
+                    linitSesion.Visible = false;
+                    try
+                    {
+                        // FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        //pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception ex)
+                    {
+                        pUser.Image = null;
+                    }
+                    pUser.Visible = true;
+                    lUsername.Text = "Bienvenido " + usuario.Username;
+                    lUsername.Visible = true;
+                    lSignOut.Visible = true;
+                }
             }
-                pUser.Visible = true;
-                lUsername.Text = "Bienvenido " + usuario.Username;
-                lUsername.Visible = true;
-                lSignOut.Visible = true;
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -95,13 +111,12 @@ namespace Asuma
         private void CrearEvento_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+            this.CenterToScreen();
         }
 
         private void actualizarElementos()
         {
-            this.pUser.Location = new Point(72,16);
-            this.lUsername.Location = new Point(pUser.Location.X+120, pUser.Location.Y+40);
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -111,9 +126,7 @@ namespace Asuma
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
 
-            this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
-            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
-
+            this.panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, (int)(this.Height * 5.5 / 10 - panel1.Height / 2));     
         }
 
         private void actualizarFiltro()

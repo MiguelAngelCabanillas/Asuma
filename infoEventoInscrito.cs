@@ -173,6 +173,7 @@ namespace Asuma
             tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
             this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
             this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
+            this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
@@ -382,6 +383,16 @@ namespace Asuma
             Notificacion n = new Notificacion();
             n.Owner = this;
             n.ShowDialog();
+        }
+
+        private void bListParticipantes_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ListaParticipantes lP = new ListaParticipantes(usuario, evento)
+            {
+                Owner = this
+            };
+            lP.ShowDialog();
         }
     }
 }
