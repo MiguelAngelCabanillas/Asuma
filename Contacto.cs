@@ -19,8 +19,6 @@ namespace Asuma
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
-            cReason.SelectedItem = "Problema";
-            tMessage.Text = "He aquí un mensaje de prueba para ver como funciona el correo electrónico y sus funcionalidades, y como conectarlo con gmail y similares. UN SALUDO Y FELIZ NAVIDAD";
         }
 
       
@@ -105,14 +103,14 @@ namespace Asuma
         {
             try
             {
-                if (tName.Text.Trim(' ').Equals("") || cReason.SelectedItem == null || tMessage.Text.Trim(' ').Equals(""))
+                if (tName.Text.Trim(' ').Equals("") || cReason.SelectedItem == null || tMessage.Text.Trim(' ').Equals("") || tEmail.Text.Trim(' ').Equals(""))
                 {
                     MessageBox.Show("Debe rellenar todos los campos");
                 }
                 else
                 {
                     Email email = new Email();
-                    email.sendEmailToAdmin(tName.Text, usuario.Email, cReason.Text, tMessage.Text);
+                    email.sendEmailToAdmin(tName.Text, tEmail.Text, cReason.Text, tMessage.Text);
                     MessageBox.Show("Mensaje enviado correctamente");
                 }
             }
@@ -156,6 +154,36 @@ namespace Asuma
             r.Owner = this;
             r.ShowDialog();
             this.Visible = true;
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            this.Close();
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos eventos = new Eventos(usuario);
+            eventos.Show();
+            this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

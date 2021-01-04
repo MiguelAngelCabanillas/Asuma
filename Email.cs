@@ -140,5 +140,67 @@ namespace Asuma
             // Y lo enviamos a través del servidor SMTP...
             smtp.Send(mail);
         }
+
+        public void sendEmailToInscripted(string destinatario, Event evento)
+        {
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");
+            mail.To.Add(new MailAddress(destinatario));
+            mail.Subject = "Nueva inscripción";
+            mail.IsBodyHtml = true;
+            string mensaje = "Muchas gracias por realizar su inscripción al evento: " + evento.EventName + "<br/><br/>" + "Esperamos que disfrute y no dude en contactar con el creador del evento ante cualquier duda: " + evento.EventCreator;
+            mensaje = mensaje + "<br/><br/><br/>" + "<em>" + "Mensaje generado automaticamente<br/>" + "</em>" + "<br/><br/>" + "<img src='cid:imagen' />";
+
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mensaje, Encoding.UTF8, MediaTypeNames.Text.Html);
+
+
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + "asuma2correo1.png";
+            LinkedResource img = new LinkedResource(imagePath, MediaTypeNames.Image.Jpeg);
+            img.ContentId = "imagen";
+
+            // Lo incrustamos en la vista HTML...
+
+            htmlView.LinkedResources.Add(img);
+
+            // Por último, vinculamos la vista al mensaje...
+
+            mail.AlternateViews.Add(htmlView);
+
+            // Y lo enviamos a través del servidor SMTP...
+            smtp.Send(mail);
+        }
+
+        public void sendEmailToCancelInscription(string destinatario, Event evento, User organizador)
+        {
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");
+            mail.To.Add(new MailAddress(destinatario));
+            mail.Subject = "Nueva inscripción";
+            mail.IsBodyHtml = true;
+            string mensaje = "Ha sido eliminada su suscripción al evento " + evento.EventName + " por parte del organizador " + "<br/><br/>" + "Ante cualquier cuestión o réplica, no dude en contactar con el: " + organizador.Username + "<em>" + "(" + organizador.Email + ")" + "</emisor>"; 
+            mensaje = mensaje + "<br/><br/><br/>" + "<em>" + "Mensaje generado automaticamente<br/>" + "</em>" + "<br/><br/>" + "<img src='cid:imagen' />";
+
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mensaje, Encoding.UTF8, MediaTypeNames.Text.Html);
+
+
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + "asuma2correo1.png";
+            LinkedResource img = new LinkedResource(imagePath, MediaTypeNames.Image.Jpeg);
+            img.ContentId = "imagen";
+
+            // Lo incrustamos en la vista HTML...
+
+            htmlView.LinkedResources.Add(img);
+
+            // Por último, vinculamos la vista al mensaje...
+
+            mail.AlternateViews.Add(htmlView);
+
+            // Y lo enviamos a través del servidor SMTP...
+            smtp.Send(mail);
+        }
     }
 }

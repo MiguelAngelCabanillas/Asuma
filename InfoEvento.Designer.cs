@@ -123,6 +123,7 @@ namespace Asuma
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // lUsername
             // 
@@ -280,13 +281,13 @@ namespace Asuma
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(429, 79);
+            this.linitSesion.Location = new System.Drawing.Point(426, 78);
             this.linitSesion.Name = "linitSesion";
             this.linitSesion.Size = new System.Drawing.Size(146, 25);
             this.linitSesion.TabIndex = 33;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
-            this.linitSesion.Click += new System.EventHandler(this.linitSesion_Click);
+            this.linitSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linitSesion_LinkClicked);
             // 
             // lSignOut
             // 
@@ -306,7 +307,7 @@ namespace Asuma
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
             this.pPerfil.Location = new System.Drawing.Point(52, 142);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 35;
@@ -316,7 +317,7 @@ namespace Asuma
             // bMensajes
             // 
             this.bMensajes.Location = new System.Drawing.Point(41, 90);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
@@ -329,7 +330,7 @@ namespace Asuma
             // bPerfil
             // 
             this.bPerfil.Location = new System.Drawing.Point(41, 18);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
@@ -369,11 +370,13 @@ namespace Asuma
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.linitSesion);
+            this.Controls.Add(this.pUser);
+            this.Controls.Add(this.lUsername);
             this.Controls.Add(this.lTipoDef);
             this.Controls.Add(this.lTipo);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.lSignOut);
-            this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.bInscription);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.splitter1);
@@ -387,8 +390,6 @@ namespace Asuma
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
-            this.Controls.Add(this.lUsername);
-            this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InfoEvento";

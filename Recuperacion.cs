@@ -118,8 +118,11 @@ namespace Asuma
 
             if (this.token.Equals(token))
             {
-                /*LLAMAR A FORM DE RECUPERAR CONTRASEÑA*/
                 MessageBox.Show("Token correcto");
+                User user = new User(username);
+                CambiarPassword cp = new CambiarPassword(user);
+                cp.Show();
+
             }
             else
             {

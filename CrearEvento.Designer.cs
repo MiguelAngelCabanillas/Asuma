@@ -140,6 +140,7 @@
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -322,7 +323,7 @@
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 1114);
+            this.splitter1.Size = new System.Drawing.Size(3, 1062);
             this.splitter1.TabIndex = 21;
             this.splitter1.TabStop = false;
             // 
@@ -428,7 +429,7 @@
             this.pASM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(976, 15);
+            this.pASM.Location = new System.Drawing.Point(1000, 15);
             this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(351, 139);
@@ -441,7 +442,7 @@
             this.pASUMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(511, 15);
+            this.pASUMA.Location = new System.Drawing.Point(535, 15);
             this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(399, 127);
@@ -481,7 +482,7 @@
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Location = new System.Drawing.Point(333, 436);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(121, 21);
+            this.cbTipo.Size = new System.Drawing.Size(121, 24);
             this.cbTipo.TabIndex = 34;
             this.cbTipo.DropDownClosed += new System.EventHandler(this.cbTipo_DropDownClosed);
             // 
@@ -493,7 +494,7 @@
             this.lTipo.Location = new System.Drawing.Point(251, 432);
             this.lTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lTipo.Name = "lTipo";
-            this.lTipo.Size = new System.Drawing.Size(61, 23);
+            this.lTipo.Size = new System.Drawing.Size(75, 29);
             this.lTipo.TabIndex = 33;
             this.lTipo.Text = "Tipo:";
             // 
@@ -533,7 +534,7 @@
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
             this.pPerfil.Location = new System.Drawing.Point(65, 142);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 37;
@@ -543,7 +544,7 @@
             // bMensajes
             // 
             this.bMensajes.Location = new System.Drawing.Point(41, 90);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
@@ -556,7 +557,7 @@
             // bPerfil
             // 
             this.bPerfil.Location = new System.Drawing.Point(41, 18);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
