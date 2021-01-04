@@ -162,6 +162,7 @@
             // 
             // pUser
             // 
+            this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(51, 12);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);

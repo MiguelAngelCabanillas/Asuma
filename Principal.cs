@@ -98,6 +98,10 @@ namespace Asuma
                     }
                     catch (Exception)
                     {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/noticias/", "Prueba", "");
+                        ftp.MakeFtpDirectory("" + listaNoticias.ElementAt(i).ID);
+                        ftp.UploadFile(@"C:\Universidad\Descargas\anciano.jpg", listaNoticias.ElementAt(i).ID + "/image.png");
+                        pImagen.Image = null;
                         image = null;
                     }
 
@@ -365,7 +369,7 @@ namespace Asuma
                     }
                     catch (Exception)
                     {
-                        FTPClient.ftpOn = false;
+                        //FTPClient.ftpOn = false;
                         pUser.Image = null;
                     }
                 }
@@ -523,7 +527,13 @@ namespace Asuma
 
         private void bMensajes_Click(object sender, EventArgs e)
         {
-
+            Mensajeria frame = new Mensajeria(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
         }
         #endregion
 

@@ -80,9 +80,12 @@ namespace Asuma
                 this.email = email;
                 this.rol = new Rol(rolName);
 
-                MySqlDataReader writer = bd.Query("INSERT INTO user VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "', " + id + ")");
+                MySqlDataReader writer = bd.Query("INSERT INTO user (username, password, email, rolName, id) VALUES ('" + username + "','" + password + "','" + email + "','" + rolName + "', " + id + ")");
                 writer.Close();
                 bd.closeBD();
+
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
+                ftp.MakeFtpDirectory("" + id);
 
             }catch(Exception ex)
             {

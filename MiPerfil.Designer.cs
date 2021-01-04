@@ -37,13 +37,17 @@
             this.bBorrarCuenta = new System.Windows.Forms.Button();
             this.bImagen = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // pUsuario
             // 
+            this.pUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pUsuario.Image")));
-            this.pUsuario.Location = new System.Drawing.Point(53, 65);
+            this.pUsuario.Location = new System.Drawing.Point(126, 104);
             this.pUsuario.Name = "pUsuario";
             this.pUsuario.Size = new System.Drawing.Size(159, 156);
             this.pUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -52,21 +56,21 @@
             // 
             // tUsername
             // 
-            this.tUsername.Location = new System.Drawing.Point(325, 79);
+            this.tUsername.Location = new System.Drawing.Point(507, 114);
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(189, 20);
             this.tUsername.TabIndex = 13;
             // 
             // tEmail
             // 
-            this.tEmail.Location = new System.Drawing.Point(325, 180);
+            this.tEmail.Location = new System.Drawing.Point(507, 216);
             this.tEmail.Name = "tEmail";
             this.tEmail.Size = new System.Drawing.Size(189, 20);
             this.tEmail.TabIndex = 14;
             // 
             // bNombre
             // 
-            this.bNombre.Location = new System.Drawing.Point(617, 79);
+            this.bNombre.Location = new System.Drawing.Point(528, 140);
             this.bNombre.Name = "bNombre";
             this.bNombre.Size = new System.Drawing.Size(152, 20);
             this.bNombre.TabIndex = 15;
@@ -76,7 +80,7 @@
             // 
             // bMail
             // 
-            this.bMail.Location = new System.Drawing.Point(617, 179);
+            this.bMail.Location = new System.Drawing.Point(528, 242);
             this.bMail.Name = "bMail";
             this.bMail.Size = new System.Drawing.Size(152, 20);
             this.bMail.TabIndex = 16;
@@ -86,7 +90,7 @@
             // 
             // bBorrarCuenta
             // 
-            this.bBorrarCuenta.Location = new System.Drawing.Point(304, 317);
+            this.bBorrarCuenta.Location = new System.Drawing.Point(487, 318);
             this.bBorrarCuenta.Name = "bBorrarCuenta";
             this.bBorrarCuenta.Size = new System.Drawing.Size(226, 20);
             this.bBorrarCuenta.TabIndex = 17;
@@ -96,7 +100,7 @@
             // 
             // bImagen
             // 
-            this.bImagen.Location = new System.Drawing.Point(53, 244);
+            this.bImagen.Location = new System.Drawing.Point(126, 286);
             this.bImagen.Name = "bImagen";
             this.bImagen.Size = new System.Drawing.Size(159, 23);
             this.bImagen.TabIndex = 18;
@@ -109,11 +113,42 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(105, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(207, 31);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Imagen de perfil";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(553, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Nombre de Usuario";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(558, 200);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Correo electrónico";
+            // 
             // MiPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 424);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bImagen);
             this.Controls.Add(this.bBorrarCuenta);
             this.Controls.Add(this.bMail);
@@ -139,5 +174,8 @@
         private System.Windows.Forms.Button bBorrarCuenta;
         private System.Windows.Forms.Button bImagen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
