@@ -34,6 +34,7 @@ namespace Asuma
             this.bEnviar = new System.Windows.Forms.Button();
             this.panelPregyRes = new System.Windows.Forms.Panel();
             this.bSalir = new System.Windows.Forms.Button();
+            this.lAprobadoRO = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lTestName
@@ -88,11 +89,22 @@ namespace Asuma
             this.bSalir.UseVisualStyleBackColor = true;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
             // 
+            // lAprobadoRO
+            // 
+            this.lAprobadoRO.AutoSize = true;
+            this.lAprobadoRO.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lAprobadoRO.Location = new System.Drawing.Point(414, 507);
+            this.lAprobadoRO.Name = "lAprobadoRO";
+            this.lAprobadoRO.Size = new System.Drawing.Size(112, 23);
+            this.lAprobadoRO.TabIndex = 14;
+            this.lAprobadoRO.Text = "Aprobado";
+            // 
             // Test_Conocimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 542);
+            this.Controls.Add(this.lAprobadoRO);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bEnviar);
             this.Controls.Add(this.lNameCurso);
@@ -113,5 +125,6 @@ namespace Asuma
         private System.Windows.Forms.Button bEnviar;
         private System.Windows.Forms.Panel panelPregyRes;
         private System.Windows.Forms.Button bSalir;
+        private System.Windows.Forms.Label lAprobadoRO;
     }
 }

@@ -266,6 +266,12 @@
     </Compile>
     <Compile Include="Tema.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="Tests_Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests_Curso.Designer.cs">
+      <DependentUpon>Tests_Curso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Conocimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Surveys_Evento.resx">
       <DependentUpon>Surveys_Evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests_Curso.resx">
+      <DependentUpon>Tests_Curso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test_Conocimiento.resx">
       <DependentUpon>Test_Conocimiento.cs</DependentUpon>

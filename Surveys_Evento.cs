@@ -70,5 +70,10 @@ namespace Asuma
             Cuestionario_Satisfaccion cuestionario = new Cuestionario_Satisfaccion(q1, q2, q3, q4, q5, q6, q7);
             cuestionario.ShowDialog();
         }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

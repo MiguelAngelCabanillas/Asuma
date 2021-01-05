@@ -57,6 +57,7 @@
             this.bTestConocimiento = new System.Windows.Forms.Button();
             this.bNotifyEmail = new System.Windows.Forms.Button();
             this.bListParticipantes = new System.Windows.Forms.Button();
+            this.linkArchivos = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
@@ -391,12 +392,25 @@
             this.bListParticipantes.UseVisualStyleBackColor = true;
             this.bListParticipantes.Click += new System.EventHandler(this.bListParticipantes_Click);
             // 
+            // linkArchivos
+            // 
+            this.linkArchivos.AutoSize = true;
+            this.linkArchivos.Font = new System.Drawing.Font("Verdana", 13.8F);
+            this.linkArchivos.Location = new System.Drawing.Point(632, 638);
+            this.linkArchivos.Name = "linkArchivos";
+            this.linkArchivos.Size = new System.Drawing.Size(92, 23);
+            this.linkArchivos.TabIndex = 50;
+            this.linkArchivos.TabStop = true;
+            this.linkArchivos.Text = "Archivos";
+            this.linkArchivos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkArchivos_LinkClicked);
+            // 
             // InfoEventoInscrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1082, 862);
+            this.Controls.Add(this.linkArchivos);
             this.Controls.Add(this.bListParticipantes);
             this.Controls.Add(this.bNotifyEmail);
             this.Controls.Add(this.bTestConocimiento);
@@ -470,5 +484,6 @@
         private System.Windows.Forms.Button bTestConocimiento;
         private System.Windows.Forms.Button bNotifyEmail;
         private System.Windows.Forms.Button bListParticipantes;
+        private System.Windows.Forms.LinkLabel linkArchivos;
     }
 }
