@@ -41,6 +41,7 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkGesUsers = new System.Windows.Forms.LinkLabel();
             this.mcEventos = new System.Windows.Forms.MonthCalendar();
             this.bCrearNoticia = new System.Windows.Forms.Button();
             this.pNoticias = new System.Windows.Forms.Panel();
@@ -48,7 +49,7 @@
             this.lNoticias = new System.Windows.Forms.Label();
             this.bMensajes = new System.Windows.Forms.Button();
             this.bPerfil = new System.Windows.Forms.Button();
-            this.linkGesUsers = new System.Windows.Forms.LinkLabel();
+            this.lCalendario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
@@ -88,7 +89,7 @@
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
             this.pASM.Location = new System.Drawing.Point(1019, 15);
-            this.pASM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(263, 113);
             this.pASM.TabIndex = 14;
@@ -100,7 +101,7 @@
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
             this.pASUMA.Location = new System.Drawing.Point(554, 15);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(299, 103);
             this.pASUMA.TabIndex = 13;
@@ -115,7 +116,7 @@
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
             this.menuFlowLayoutPanel.Location = new System.Drawing.Point(22, 141);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
             this.menuFlowLayoutPanel.TabIndex = 12;
@@ -126,7 +127,7 @@
             this.bInicio.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInicio.Location = new System.Drawing.Point(2, 2);
-            this.bInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(2);
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(95, 37);
             this.bInicio.TabIndex = 0;
@@ -137,7 +138,7 @@
             // 
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(95, 37);
             this.bEventos.TabIndex = 1;
@@ -149,7 +150,7 @@
             // 
             this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(95, 37);
             this.bInfo.TabIndex = 2;
@@ -160,7 +161,7 @@
             // 
             this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
             this.bContacto.Name = "bContacto";
             this.bContacto.Size = new System.Drawing.Size(95, 37);
             this.bContacto.TabIndex = 3;
@@ -184,7 +185,7 @@
             this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(54, 13);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(98, 113);
             this.pUser.TabIndex = 10;
@@ -194,6 +195,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lCalendario);
             this.panel1.Controls.Add(this.linkGesUsers);
             this.panel1.Controls.Add(this.mcEventos);
             this.panel1.Controls.Add(this.bCrearNoticia);
@@ -207,6 +209,18 @@
             this.panel1.TabIndex = 15;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
+            // linkGesUsers
+            // 
+            this.linkGesUsers.AutoSize = true;
+            this.linkGesUsers.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkGesUsers.Location = new System.Drawing.Point(319, 95);
+            this.linkGesUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkGesUsers.Name = "linkGesUsers";
+            this.linkGesUsers.Size = new System.Drawing.Size(149, 17);
+            this.linkGesUsers.TabIndex = 15;
+            this.linkGesUsers.TabStop = true;
+            this.linkGesUsers.Text = "Gestión de usuarios";
+            // 
             // mcEventos
             // 
             this.mcEventos.Location = new System.Drawing.Point(1450, 400);
@@ -217,7 +231,7 @@
             // bCrearNoticia
             // 
             this.bCrearNoticia.Location = new System.Drawing.Point(676, 379);
-            this.bCrearNoticia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bCrearNoticia.Margin = new System.Windows.Forms.Padding(2);
             this.bCrearNoticia.Name = "bCrearNoticia";
             this.bCrearNoticia.Size = new System.Drawing.Size(90, 49);
             this.bCrearNoticia.TabIndex = 13;
@@ -230,7 +244,7 @@
             this.pNoticias.AutoScroll = true;
             this.pNoticias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pNoticias.Location = new System.Drawing.Point(19, 233);
-            this.pNoticias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pNoticias.Margin = new System.Windows.Forms.Padding(2);
             this.pNoticias.Name = "pNoticias";
             this.pNoticias.Size = new System.Drawing.Size(600, 422);
             this.pNoticias.TabIndex = 12;
@@ -285,17 +299,15 @@
             this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
             this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
-            // linkGesUsers
+            // lCalendario
             // 
-            this.linkGesUsers.AutoSize = true;
-            this.linkGesUsers.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkGesUsers.Location = new System.Drawing.Point(319, 95);
-            this.linkGesUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkGesUsers.Name = "linkGesUsers";
-            this.linkGesUsers.Size = new System.Drawing.Size(149, 17);
-            this.linkGesUsers.TabIndex = 15;
-            this.linkGesUsers.TabStop = true;
-            this.linkGesUsers.Text = "Gestión de usuarios";
+            this.lCalendario.AutoSize = true;
+            this.lCalendario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCalendario.Location = new System.Drawing.Point(884, 250);
+            this.lCalendario.Name = "lCalendario";
+            this.lCalendario.Size = new System.Drawing.Size(126, 25);
+            this.lCalendario.TabIndex = 16;
+            this.lCalendario.Text = "Calendario";
             // 
             // Principal
             // 
@@ -310,7 +322,7 @@
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
@@ -352,5 +364,6 @@
         private System.Windows.Forms.MonthCalendar mcEventos;
         private System.Windows.Forms.Label lNoticias;
         private System.Windows.Forms.LinkLabel linkGesUsers;
+        private System.Windows.Forms.Label lCalendario;
     }
 }

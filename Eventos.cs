@@ -307,6 +307,7 @@ namespace Asuma
         {
             lFiltro.Location = new Point(((this.Width * 8) / 10) - bMyEvents.Width / 2, bMyEvents.Location.Y+20);
             cbFiltro.Location = new Point(lFiltro.Location.X+100,lFiltro.Location.Y);
+            cbFiltro.Items.Clear();
             cbFiltro.Items.Add("-");
             cbFiltro.SelectedItem = cbFiltro.Items[0];
             cbFiltro.Items.Add("Actividad");
