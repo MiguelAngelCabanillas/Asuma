@@ -68,6 +68,9 @@ namespace Asuma
                     MySqlDataReader writer2 = bd.Query("DELETE FROM preguntas WHERE test = "+ idEvento +";");
                     writer2.Read();
                     writer2.Close();
+                    writer2 = bd.Query("DELETE FROM resultsTest WHERE evento = "+ idEvento +"");
+                    writer2.Read();
+                    writer2.Close();
                 }
                 else
                 {
