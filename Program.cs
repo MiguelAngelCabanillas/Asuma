@@ -24,7 +24,8 @@ namespace Asuma
             //Application.Run(new Surveys_Evento(new Event(61)));
             //Application.Run(new Test_Conocimiento_Edicion(new Event(115)));
             //Application.Run(new Contacto(null));
-            Application.Run(new Principal(admin));
+            //Application.Run(new Principal(admin));
+            Application.Run(new PruebaWord());
         }
     }
 }

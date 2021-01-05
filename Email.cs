@@ -202,5 +202,40 @@ namespace Asuma
             // Y lo enviamos a través del servidor SMTP...
             smtp.Send(mail);
         }
+
+        public void sendEmailCertificate(string destinatario, Event evento, User organizador)
+        {
+            string rutaCertificado = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.pdf";
+            Attachment data = new Attachment(rutaCertificado, MediaTypeNames.Application.Octet);
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");
+            mail.To.Add(new MailAddress(destinatario));
+            mail.Subject = "Certificado de curso";
+            mail.IsBodyHtml = true;
+            string mensaje = "Enhorabuena por haber completado el curso " + "<em>" + "\"" + evento.EventName + "\" " + "</em>" + " con éxito." + "<br/><br/>" + "Le adjuntamos su certificado válido que acredita que usted ha logrado aprobar el curso." + "<br/><br/>" + "Ante cualquier cuestión o réplica, no dude en contactar con el organizador: " + "<em>" + organizador.Username + "<em> " + "(" + organizador.Email + ")" + "</emisor>";
+            mensaje = mensaje + "<br/><br/><br/>" + "<em>" + "Mensaje generado automaticamente<br/>" + "</em>" + "<br/><br/>" + "<img src='cid:imagen' />";
+
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mensaje, Encoding.UTF8, MediaTypeNames.Text.Html);
+
+            mail.Attachments.Add(data);
+            string path = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string imagePath = pathBueno + "images\\" + "asuma2correo1.png";
+            LinkedResource img = new LinkedResource(imagePath, MediaTypeNames.Image.Jpeg);
+            img.ContentId = "imagen";
+
+            // Lo incrustamos en la vista HTML...
+
+            htmlView.LinkedResources.Add(img);
+
+            // Por último, vinculamos la vista al mensaje...
+
+            mail.AlternateViews.Add(htmlView);
+
+            // Y lo enviamos a través del servidor SMTP...
+            smtp.Send(mail);
+        }
+
+
     }
 }
