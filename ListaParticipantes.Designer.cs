@@ -62,7 +62,7 @@ namespace Asuma
             // 
             // bMensajes
             // 
-            this.bMensajes.Location = new System.Drawing.Point(31, 73);
+            this.bMensajes.Location = new System.Drawing.Point(31, 83);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(184, 23);
             this.bMensajes.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace Asuma
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(2, 862);
             this.splitter1.TabIndex = 40;
@@ -85,7 +85,7 @@ namespace Asuma
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
             this.pASM.Location = new System.Drawing.Point(1060, 15);
-            this.pASM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
             this.pASM.Size = new System.Drawing.Size(263, 113);
             this.pASM.TabIndex = 43;
@@ -98,7 +98,7 @@ namespace Asuma
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
             this.pASUMA.Location = new System.Drawing.Point(596, 15);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
             this.pASUMA.Size = new System.Drawing.Size(299, 103);
             this.pASUMA.TabIndex = 42;
@@ -122,7 +122,7 @@ namespace Asuma
             // 
             this.panelParticipantes.AutoScroll = true;
             this.panelParticipantes.Location = new System.Drawing.Point(290, 216);
-            this.panelParticipantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelParticipantes.Margin = new System.Windows.Forms.Padding(2);
             this.panelParticipantes.Name = "panelParticipantes";
             this.panelParticipantes.Size = new System.Drawing.Size(750, 647);
             this.panelParticipantes.TabIndex = 44;
@@ -137,7 +137,7 @@ namespace Asuma
             this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(49, 115);
+            this.pPerfil.Location = new System.Drawing.Point(49, 125);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(237, 113);
             this.pPerfil.TabIndex = 46;
@@ -146,7 +146,7 @@ namespace Asuma
             // 
             // bPerfil
             // 
-            this.bPerfil.Location = new System.Drawing.Point(31, 15);
+            this.bPerfil.Location = new System.Drawing.Point(31, 25);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(184, 23);
             this.bPerfil.TabIndex = 0;
@@ -176,7 +176,7 @@ namespace Asuma
             this.menuFlowLayoutPanel.Controls.Add(this.flowLayoutPanel1);
             this.menuFlowLayoutPanel.Controls.Add(this.checkBox1);
             this.menuFlowLayoutPanel.Location = new System.Drawing.Point(21, 141);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
             this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
             this.menuFlowLayoutPanel.TabIndex = 39;
@@ -185,11 +185,11 @@ namespace Asuma
             // 
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInicio.Location = new System.Drawing.Point(2, 2);
-            this.bInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(2);
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(95, 37);
             this.bInicio.TabIndex = 0;
-            this.bInicio.Text = "Inicio";
+            this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
@@ -197,7 +197,7 @@ namespace Asuma
             // 
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(95, 37);
             this.bEventos.TabIndex = 1;
@@ -209,7 +209,7 @@ namespace Asuma
             // 
             this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(95, 37);
             this.bInfo.TabIndex = 2;
@@ -220,7 +220,7 @@ namespace Asuma
             // 
             this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
             this.bContacto.Name = "bContacto";
             this.bContacto.Size = new System.Drawing.Size(95, 37);
             this.bContacto.TabIndex = 3;
@@ -234,7 +234,7 @@ namespace Asuma
             this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Controls.Add(this.button4);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 43);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1054, 832);
             this.flowLayoutPanel1.TabIndex = 7;
@@ -242,7 +242,7 @@ namespace Asuma
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 37);
             this.button1.TabIndex = 0;
@@ -252,7 +252,7 @@ namespace Asuma
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(101, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(95, 37);
             this.button2.TabIndex = 1;
@@ -262,7 +262,7 @@ namespace Asuma
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(200, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 37);
             this.button3.TabIndex = 2;
@@ -272,7 +272,7 @@ namespace Asuma
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(299, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(95, 37);
             this.button4.TabIndex = 3;
@@ -283,7 +283,7 @@ namespace Asuma
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(2, 879);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 8;
@@ -295,7 +295,7 @@ namespace Asuma
             this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(53, 13);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(98, 113);
             this.pUser.TabIndex = 38;
@@ -318,7 +318,7 @@ namespace Asuma
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ListaParticipantes";
             this.Text = "ListaParticipantes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

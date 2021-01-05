@@ -56,7 +56,6 @@ namespace Asuma
 
             bd = new BD();
             MySqlDataReader writer2 = bd.Query("INSERT INTO inscription VALUES ('" + eventCreator + "', " + id + ")");
-            this.eventDescription = eventDescription;
             this.eventName = eventName;
             this.date = date;
             this.image = image;
@@ -69,16 +68,28 @@ namespace Asuma
             bd.closeBD();
         }
 
+         public Event(int id, string eventName, string date, string image, string eventDescription, string organizer, string eventCreator, bool tipo)
+        {
+            this.id = id;
+            this.eventName = eventName;
+            this.date = date;
+            this.image = image;
+            this.eventDescription = eventDescription;
+            this.organizer = organizer;
+            this.eventCreator = eventCreator;
+            this.tipo = tipo;
+        }
+
 
         public static List<Event> listaEventos()
         {
             List<Event> lista = new List<Event>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event ORDER BY date ASC");
+            MySqlDataReader reader = bd.Query("SELECT idEvent, eventName, date, image, eventDescription, organizer, eventCreator, type  FROM event ORDER BY date ASC");
                 while (reader.Read())
                 {
-                    int id = (int)reader[0];
-                    Event e = new Event(id);
+                    Event e = new Event((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6], (bool)reader[7]);
+                    //Event e = new Event((int)reader[0]);
                     lista.Add(e);
                 }
             reader.Close();
@@ -90,11 +101,10 @@ namespace Asuma
         {
             List<Event> lista = new List<Event>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event WHERE type = 0 ORDER BY date ASC");
+            MySqlDataReader reader = bd.Query("SELECT idEvent, eventName, date, image, eventDescription, organizer, eventCreator, type  FROM event WHERE type = 0 ORDER BY date ASC");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                Event e = new Event(id);
+                Event e = new Event((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6], (bool)reader[7]);
                 lista.Add(e);
             }
             reader.Close();
@@ -106,11 +116,10 @@ namespace Asuma
         {
             List<Event> lista = new List<Event>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT idEvent FROM event WHERE type = 1 ORDER BY date ASC");
+            MySqlDataReader reader = bd.Query("SELECT idEvent, eventName, date, image, eventDescription, organizer, eventCreator, type  FROM event WHERE type = 1 ORDER BY date ASC");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                Event e = new Event(id);
+                Event e = new Event((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6], (bool)reader[7]);
                 lista.Add(e);
             }
             reader.Close();
@@ -122,11 +131,10 @@ namespace Asuma
         {
             List<Event> lista = new List<Event>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT idEvent FROM inscription WHERE userName = '" + usuario.Username + "'");
+            MySqlDataReader reader = bd.Query("SELECT e.idEvent, e.eventName, e.date, e.image, e.eventDescription, e.organizer, e.eventCreator, e.type FROM inscription i left join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "'");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                Event e = new Event(id);
+                Event e = new Event((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6], (bool)reader[7]);
                 lista.Add(e);
             }
             reader.Close();
@@ -138,11 +146,10 @@ namespace Asuma
         {
             List<Event> lista = new List<Event>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT i.idEvent FROM inscription i inner join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "' AND e.type = 0;");
+            MySqlDataReader reader = bd.Query("SELECT e.idEvent, e.eventName, e.date, e.image, e.eventDescription, e.organizer, e.eventCreator, e.type FROM inscription i inner join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "' AND e.type = 0;");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                Event e = new Event(id);
+                Event e = new Event((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6], (bool)reader[7]);
                 lista.Add(e);
             }
             reader.Close();
@@ -154,11 +161,10 @@ namespace Asuma
         {
             List<Event> lista = new List<Event>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT i.idEvent FROM inscription i inner join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "' AND e.type = 1;");
+            MySqlDataReader reader = bd.Query("SELECT e.idEvent, e.eventName, e.date, e.image, e.eventDescription, e.organizer, e.eventCreator, e.type FROM inscription i inner join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "' AND e.type = 1;");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                Event e = new Event(id);
+                Event e = new Event((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6], (bool)reader[7]);
                 lista.Add(e);
             }
             reader.Close();
@@ -173,9 +179,7 @@ namespace Asuma
             MySqlDataReader reader = bd.Query("SELECT idEvent FROM event WHERE eventCreator = '" + usuario.Username + "'");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                //Event e = new Event(id);
-                lista.Add(id);
+                lista.Add((int)reader[0]);
             }
             reader.Close();
             bd.closeBD();

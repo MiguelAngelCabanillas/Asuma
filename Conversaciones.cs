@@ -49,15 +49,12 @@ namespace Asuma
                 tConversacion.Text = "";
                 while (reader.Read())
                 {
-                    if (!reader.IsDBNull(1))
-                    {
                         idConv = (int)reader[4];
                         if (!reader.IsDBNull(2))
                         {
                             tConversacion.AppendText((string)reader[3] + @"  |  " + (string)reader[1] + ": " + (string)reader[2] + Environment.NewLine + Environment.NewLine);
                             numMensajes++;
                         }
-                    }
                 } 
                 
             }

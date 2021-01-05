@@ -31,6 +31,15 @@ namespace Asuma
             bd.closeBD();
         }
 
+        public News(int id, string name, string description, string date, string image)
+        {
+            this.id = id;
+            this.name = name;
+            this.description = description;
+            this.date = date;
+            this.image = image;
+        }
+
         public News(string name, string description, string image)
         {
             date = DateTime.Now.ToString();
@@ -53,11 +62,12 @@ namespace Asuma
         {
             List<News> lista = new List<News>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT id FROM news ORDER BY date ASC");
+            MySqlDataReader reader = bd.Query("SELECT id, name, description, date, image FROM news ORDER BY date ASC");
             while (reader.Read())
             {
-                int id = (int)reader[0];
-                News n = new News(id);
+                /*int id = (int)reader[0];
+                News n = new News(id);*/
+                News n = new News((int)reader[0], (string)reader[1], (string)reader[2], (string)reader[3], (string)reader[4]);
                 lista.Add(n);
             }
             reader.Close();

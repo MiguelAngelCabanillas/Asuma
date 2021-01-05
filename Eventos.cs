@@ -44,6 +44,7 @@ namespace Asuma
             {
                 Cursor.Current = Cursors.WaitCursor;
                 MisEventos misEventos = new MisEventos(usuario);
+                this.Visible = false;
                 misEventos.ShowDialog();
                 this.Close();
             }
@@ -473,7 +474,8 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
-            p.Show();
+            this.Visible = false;
+            p.ShowDialog();
             this.Close();
         }
 

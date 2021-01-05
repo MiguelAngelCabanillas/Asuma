@@ -145,7 +145,14 @@ namespace Asuma
                 else
                 {
                     reader.Read();
-                    id = ((int)reader[0]) + 1;
+                    if (!reader.IsDBNull(0)) 
+                    {     
+                        id = ((int)reader[0]) + 1;
+                    }
+                    else
+                    {
+                        id = 0;
+                    }
                     reader.Close();
                     MySqlDataReader writer = bd.Query("INSERT INTO conversation VALUES (" + id + ", " + usuario.Id + ", " + idUser + ");");
                     writer.Close();

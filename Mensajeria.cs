@@ -36,6 +36,7 @@ namespace Asuma
             if (!reader2.HasRows)
             {
                 MessageBox.Show("No tienes conversaciones abiertas.");
+                dataGridView1.DataSource = null;
                 return;
             }
             

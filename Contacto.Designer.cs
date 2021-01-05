@@ -62,9 +62,10 @@ namespace Asuma
             // 
             this.lReason.AutoSize = true;
             this.lReason.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lReason.Location = new System.Drawing.Point(642, 504);
+            this.lReason.Location = new System.Drawing.Point(514, 403);
+            this.lReason.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lReason.Name = "lReason";
-            this.lReason.Size = new System.Drawing.Size(195, 23);
+            this.lReason.Size = new System.Drawing.Size(156, 18);
             this.lReason.TabIndex = 0;
             this.lReason.Text = "Razón de contacto:";
             // 
@@ -72,9 +73,10 @@ namespace Asuma
             // 
             this.lMessage.AutoSize = true;
             this.lMessage.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lMessage.Location = new System.Drawing.Point(740, 587);
+            this.lMessage.Location = new System.Drawing.Point(592, 470);
+            this.lMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lMessage.Name = "lMessage";
-            this.lMessage.Size = new System.Drawing.Size(97, 23);
+            this.lMessage.Size = new System.Drawing.Size(77, 18);
             this.lMessage.TabIndex = 1;
             this.lMessage.Text = "Mensaje:";
             // 
@@ -86,31 +88,33 @@ namespace Asuma
             "Problema",
             "Sugerencia",
             "Duda"});
-            this.cReason.Location = new System.Drawing.Point(843, 502);
+            this.cReason.Location = new System.Drawing.Point(674, 402);
+            this.cReason.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cReason.Name = "cReason";
-            this.cReason.Size = new System.Drawing.Size(162, 28);
+            this.cReason.Size = new System.Drawing.Size(130, 25);
             this.cReason.TabIndex = 2;
             // 
             // tMessage
             // 
             this.tMessage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tMessage.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tMessage.Location = new System.Drawing.Point(843, 587);
-            this.tMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tMessage.Location = new System.Drawing.Point(674, 470);
+            this.tMessage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tMessage.MaxLength = 0;
             this.tMessage.Multiline = true;
             this.tMessage.Name = "tMessage";
             this.tMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tMessage.Size = new System.Drawing.Size(453, 174);
+            this.tMessage.Size = new System.Drawing.Size(363, 140);
             this.tMessage.TabIndex = 11;
             this.tMessage.Text = "\r\n";
             // 
             // tSend
             // 
             this.tSend.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tSend.Location = new System.Drawing.Point(843, 791);
+            this.tSend.Location = new System.Drawing.Point(674, 633);
+            this.tSend.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tSend.Name = "tSend";
-            this.tSend.Size = new System.Drawing.Size(183, 32);
+            this.tSend.Size = new System.Drawing.Size(146, 26);
             this.tSend.TabIndex = 12;
             this.tSend.Text = "Enviar mensaje";
             this.tSend.UseVisualStyleBackColor = true;
@@ -123,10 +127,10 @@ namespace Asuma
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(29, 174);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(23, 139);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
-            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1073, 43);
             this.menuFlowLayoutPanel.TabIndex = 13;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint_1);
             // 
@@ -135,21 +139,21 @@ namespace Asuma
             this.bInicio.BackColor = System.Drawing.Color.Transparent;
             this.bInicio.Cursor = System.Windows.Forms.Cursors.Default;
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInicio.Location = new System.Drawing.Point(3, 2);
-            this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bInicio.Location = new System.Drawing.Point(2, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(127, 46);
+            this.bInicio.Size = new System.Drawing.Size(102, 37);
             this.bInicio.TabIndex = 0;
-            this.bInicio.Text = "Inicio";
+            this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = false;
             // 
             // bEventos
             // 
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEventos.Location = new System.Drawing.Point(136, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bEventos.Location = new System.Drawing.Point(108, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bEventos.Name = "bEventos";
-            this.bEventos.Size = new System.Drawing.Size(127, 46);
+            this.bEventos.Size = new System.Drawing.Size(102, 37);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
@@ -157,10 +161,10 @@ namespace Asuma
             // bInfo
             // 
             this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInfo.Location = new System.Drawing.Point(269, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bInfo.Location = new System.Drawing.Point(214, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bInfo.Name = "bInfo";
-            this.bInfo.Size = new System.Drawing.Size(127, 46);
+            this.bInfo.Size = new System.Drawing.Size(102, 37);
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
@@ -169,10 +173,10 @@ namespace Asuma
             // 
             this.bContacto.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bContacto.Location = new System.Drawing.Point(402, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bContacto.Location = new System.Drawing.Point(320, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bContacto.Name = "bContacto";
-            this.bContacto.Size = new System.Drawing.Size(127, 46);
+            this.bContacto.Size = new System.Drawing.Size(102, 37);
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = false;
@@ -181,10 +185,10 @@ namespace Asuma
             // 
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(1359, 18);
-            this.pASM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pASM.Location = new System.Drawing.Point(1087, 14);
+            this.pASM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pASM.Name = "pASM";
-            this.pASM.Size = new System.Drawing.Size(351, 139);
+            this.pASM.Size = new System.Drawing.Size(281, 111);
             this.pASM.TabIndex = 20;
             this.pASM.TabStop = false;
             this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
@@ -193,10 +197,10 @@ namespace Asuma
             // 
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(739, 18);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pASUMA.Location = new System.Drawing.Point(591, 14);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pASUMA.Name = "pASUMA";
-            this.pASUMA.Size = new System.Drawing.Size(399, 127);
+            this.pASUMA.Size = new System.Drawing.Size(319, 102);
             this.pASUMA.TabIndex = 19;
             this.pASUMA.TabStop = false;
             this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
@@ -205,9 +209,10 @@ namespace Asuma
             // 
             this.lUsername.AutoSize = true;
             this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lUsername.Location = new System.Drawing.Point(244, 69);
+            this.lUsername.Location = new System.Drawing.Point(195, 55);
+            this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(159, 34);
+            this.lUsername.Size = new System.Drawing.Size(122, 26);
             this.lUsername.TabIndex = 18;
             this.lUsername.Text = "userName";
             // 
@@ -215,9 +220,10 @@ namespace Asuma
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(429, 79);
+            this.linitSesion.Location = new System.Drawing.Point(343, 63);
+            this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linitSesion.Name = "linitSesion";
-            this.linitSesion.Size = new System.Drawing.Size(146, 25);
+            this.linitSesion.Size = new System.Drawing.Size(118, 18);
             this.linitSesion.TabIndex = 15;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
@@ -226,9 +232,10 @@ namespace Asuma
             // 
             this.lInfo.AutoSize = true;
             this.lInfo.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lInfo.Location = new System.Drawing.Point(426, 283);
+            this.lInfo.Location = new System.Drawing.Point(341, 226);
+            this.lInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lInfo.Name = "lInfo";
-            this.lInfo.Size = new System.Drawing.Size(1094, 46);
+            this.lInfo.Size = new System.Drawing.Size(867, 36);
             this.lInfo.TabIndex = 21;
             this.lInfo.Text = "¿Algún problema o duda? Contacta con el administrador";
             // 
@@ -236,9 +243,10 @@ namespace Asuma
             // 
             this.lSignOut.AutoSize = true;
             this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(245, 117);
+            this.lSignOut.Location = new System.Drawing.Point(196, 94);
+            this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(122, 20);
+            this.lSignOut.Size = new System.Drawing.Size(102, 17);
             this.lSignOut.TabIndex = 35;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -246,10 +254,10 @@ namespace Asuma
             // pUser
             // 
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(72, 16);
-            this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pUser.Location = new System.Drawing.Point(58, 13);
+            this.pUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(131, 139);
+            this.pUser.Size = new System.Drawing.Size(105, 111);
             this.pUser.TabIndex = 36;
             this.pUser.TabStop = false;
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
@@ -258,25 +266,28 @@ namespace Asuma
             // 
             this.lName.AutoSize = true;
             this.lName.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lName.Location = new System.Drawing.Point(743, 404);
+            this.lName.Location = new System.Drawing.Point(594, 323);
+            this.lName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(94, 23);
+            this.lName.Size = new System.Drawing.Size(75, 18);
             this.lName.TabIndex = 37;
             this.lName.Text = "Nombre:";
             // 
             // tName
             // 
             this.tName.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tName.Location = new System.Drawing.Point(843, 405);
+            this.tName.Location = new System.Drawing.Point(674, 324);
+            this.tName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tName.Name = "tName";
-            this.tName.Size = new System.Drawing.Size(231, 28);
+            this.tName.Size = new System.Drawing.Size(186, 24);
             this.tName.TabIndex = 38;
             // 
             // bNotificar
             // 
-            this.bNotificar.Location = new System.Drawing.Point(139, 381);
+            this.bNotificar.Location = new System.Drawing.Point(111, 305);
+            this.bNotificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bNotificar.Name = "bNotificar";
-            this.bNotificar.Size = new System.Drawing.Size(131, 46);
+            this.bNotificar.Size = new System.Drawing.Size(105, 37);
             this.bNotificar.TabIndex = 39;
             this.bNotificar.Text = "Notificar usuarios";
             this.bNotificar.UseVisualStyleBackColor = true;
@@ -284,9 +295,10 @@ namespace Asuma
             // 
             // bNotificarGui
             // 
-            this.bNotificarGui.Location = new System.Drawing.Point(139, 494);
+            this.bNotificarGui.Location = new System.Drawing.Point(111, 395);
+            this.bNotificarGui.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bNotificarGui.Name = "bNotificarGui";
-            this.bNotificarGui.Size = new System.Drawing.Size(131, 46);
+            this.bNotificarGui.Size = new System.Drawing.Size(105, 37);
             this.bNotificarGui.TabIndex = 40;
             this.bNotificarGui.Text = "Notificar con GUI";
             this.bNotificarGui.UseVisualStyleBackColor = true;
@@ -294,9 +306,10 @@ namespace Asuma
             // 
             // bRecuperacion
             // 
-            this.bRecuperacion.Location = new System.Drawing.Point(139, 601);
+            this.bRecuperacion.Location = new System.Drawing.Point(111, 481);
+            this.bRecuperacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bRecuperacion.Name = "bRecuperacion";
-            this.bRecuperacion.Size = new System.Drawing.Size(131, 46);
+            this.bRecuperacion.Size = new System.Drawing.Size(105, 37);
             this.bRecuperacion.TabIndex = 41;
             this.bRecuperacion.Text = "Recuperacion contraseña";
             this.bRecuperacion.UseVisualStyleBackColor = true;
@@ -304,11 +317,11 @@ namespace Asuma
             // 
             // Contacto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1539, 844);
             this.Controls.Add(this.bRecuperacion);
             this.Controls.Add(this.bNotificarGui);
             this.Controls.Add(this.bNotificar);
@@ -327,6 +340,7 @@ namespace Asuma
             this.Controls.Add(this.cReason);
             this.Controls.Add(this.lMessage);
             this.Controls.Add(this.lReason);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Contacto";
             this.Text = "Contacto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

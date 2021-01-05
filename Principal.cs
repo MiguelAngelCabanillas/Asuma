@@ -25,6 +25,7 @@ namespace Asuma
             hideTimer.Tick += hidePanel;
             this.usuario = user;
             InitializeComponent();
+            this.Text = "Inicio / Noticias";
             actualizar();
             añadirAlPanel();
             this.ActiveControl = bInicio;
@@ -187,6 +188,7 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
+            this.Visible = false;
             ev.Owner = this;
             ev.ShowDialog();
             this.Close();
