@@ -500,7 +500,7 @@ namespace Asuma
             frame.Owner = this;
             this.Visible = false;
             frame.ShowDialog();
-            usuario = Inicio.usuario;
+            usuario = frame.Usuario;
             actualizar();
             this.Visible = true;
         }
@@ -533,5 +533,10 @@ namespace Asuma
         }
         #endregion
 
+        private void linkGesUsers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ListaUsuariosAplicacion usuarios = new ListaUsuariosAplicacion();
+            usuarios.ShowDialog();
+        }
     }
 }

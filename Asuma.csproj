@@ -181,6 +181,12 @@
     <Compile Include="ListaUsuarios.Designer.cs">
       <DependentUpon>ListaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaUsuariosAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaUsuariosAplicacion.Designer.cs">
+      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensajeria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaUsuarios.resx">
       <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaUsuariosAplicacion.resx">
+      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajeria.resx">
       <DependentUpon>Mensajeria.cs</DependentUpon>

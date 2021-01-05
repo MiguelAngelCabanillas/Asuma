@@ -177,9 +177,9 @@ namespace Asuma
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");
             mail.To.Add(new MailAddress(destinatario));
-            mail.Subject = "Nueva inscripción";
+            mail.Subject = "Inscripción cancelada";
             mail.IsBodyHtml = true;
-            string mensaje = "Ha sido eliminada su suscripción al evento " + evento.EventName + " por parte del organizador " + "<br/><br/>" + "Ante cualquier cuestión o réplica, no dude en contactar con el: " + organizador.Username + "<em>" + "(" + organizador.Email + ")" + "</emisor>"; 
+            string mensaje = "Ha sido eliminada su suscripción al evento \"" + evento.EventName + "\" por parte del organizador " + "<br/><br/>" + "Ante cualquier cuestión o réplica, no dude en contactar con el: " + organizador.Username + "<em>" + "(" + organizador.Email + ")" + "</emisor>"; 
             mensaje = mensaje + "<br/><br/><br/>" + "<em>" + "Mensaje generado automaticamente<br/>" + "</em>" + "<br/><br/>" + "<img src='cid:imagen' />";
 
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mensaje, Encoding.UTF8, MediaTypeNames.Text.Html);

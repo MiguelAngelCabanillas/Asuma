@@ -130,7 +130,7 @@ namespace Asuma
                 pImagen.Visible = true;
                 pImagen.BorderStyle = BorderStyle.FixedSingle;
 
-                if (usuario.Username.Equals(nombreGestor) && !name.Equals(nombreGestor))
+                if ((usuario.Username.Equals(nombreGestor) || usuario.Rol.Admin == 1)&& !name.Equals(nombreGestor))
                 {
                     Button bCancelarSus = new Button();
                     bCancelarSus.Text = "Cancelar suscripción";
