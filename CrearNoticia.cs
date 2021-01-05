@@ -38,13 +38,11 @@ namespace Asuma
         #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void pASM_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
             this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -128,7 +126,6 @@ namespace Asuma
                     try
                     {
                         ftp.MakeFtpDirectory("noticias/" + noticia.ID);
-                        ftp.MakeFtpDirectory("noticias/" + noticia.ID + "/files");
                     }
                     catch (Exception) { }
                     ftp.UploadFile(imagen, "/noticias/" + noticia.ID + "/image.png");
@@ -169,6 +166,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
+            this.Close();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
             this.Close();
         }
 

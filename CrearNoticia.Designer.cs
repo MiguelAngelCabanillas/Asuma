@@ -29,7 +29,6 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearNoticia));
             this.tImage = new System.Windows.Forms.TextBox();
             this.bMensajes = new System.Windows.Forms.Button();
             this.tTitle = new System.Windows.Forms.TextBox();
@@ -153,8 +152,7 @@ namespace Asuma
             // pASM
             // 
             this.pASM.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
-            this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
+            this.pASM.InitialImage = null;
             this.pASM.Location = new System.Drawing.Point(1516, 23);
             this.pASM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pASM.Name = "pASM";
@@ -166,8 +164,7 @@ namespace Asuma
             // pASUMA
             // 
             this.pASUMA.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
-            this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
+            this.pASUMA.InitialImage = null;
             this.pASUMA.Location = new System.Drawing.Point(896, 23);
             this.pASUMA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pASUMA.Name = "pASUMA";
@@ -353,6 +350,7 @@ namespace Asuma
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -419,7 +417,6 @@ namespace Asuma
             // 
             // pUser
             // 
-            this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(63, 21);
             this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pUser.Name = "pUser";
@@ -443,7 +440,6 @@ namespace Asuma
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.pUser);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CrearNoticia";
             this.Text = "CrearNoticia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
