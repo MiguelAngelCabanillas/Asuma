@@ -173,6 +173,7 @@ namespace Asuma
             this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
             this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
             this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);
+            this.linkArchivos.Location = new Point((anchura * 4) / 10, linkForum.Location.Y);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
@@ -406,6 +407,17 @@ namespace Asuma
                 Owner = this
             };
             lP.ShowDialog();
+        }
+
+        private void bArchivos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkArchivos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Directorios pftp = new Directorios(evento, usuario);
+            pftp.ShowDialog();
         }
     }
 }

@@ -120,6 +120,52 @@ namespace Asuma
             }
         }
 
+        public Test(Event Evento, User Usuario, string idsP, string respuestasUsuario)
+        {
+            SortedDictionary<int, String> nombrePreguntas = new SortedDictionary<int, string>();
+            SortedDictionary<int, String[]> listaRespuestas = new SortedDictionary<int, string[]>();
+            SortedDictionary<int, List<string>> respuestasCorrectas = new SortedDictionary<int, List<string>>();
+            Boolean seleccionMultiple = false;
+            int idP;
+            String nombreP;
+            String resline;
+            String resCorrectLine;
+            String[] respuestas;
+            List<String> resCorrectas;
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT nombre, respuestas, respuestasCorrectas, idPregunta FROM preguntas WHERE test = " + Evento.ID + ";");
+                while (reader.Read())
+                {
+                    //ID y el nombre de la pregunta
+                    idP = (int)reader[3];
+                    nombreP = (String)reader[0];
+                    nombrePreguntas.Add(idP, nombreP);
+
+                    //ID y respuestas de la pregunta
+                    resline = (String)reader[1];
+                    respuestas = resline.Split('|');
+                    listaRespuestas.Add(idP, respuestas);
+
+                    //ID y la respuesta o respuestas correctas a la pregunta
+                    resCorrectLine = (String)reader[2];
+                    resCorrectas = resCorrectLine.Split('|').ToList();
+                    //Compruebo si es seleccion multiple al tener mas de una respuesta correcta
+                    if (resCorrectas.Count > 1) seleccionMultiple = true;
+                    respuestasCorrectas.Add(idP, resCorrectas);
+                }
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception e)
+            {
+                throw new Error(e.Message);
+            }
+            Test_Conocimiento testC = new Test_Conocimiento(nombrePreguntas, listaRespuestas, respuestasCorrectas, seleccionMultiple, Evento, Usuario, idsP, respuestasUsuario);
+            testC.ShowDialog();
+        }
+
         private static string seleccionarRespuestasCorrectas(List<string> correctas)
         {
             String resCorrectas = "";
@@ -165,12 +211,12 @@ namespace Asuma
             }
             return res;
         }
-        public static void SubmitAprobado(Event e, User u)
+        public static void SubmitAprobado(Event e, User u, String idsP, String respuestasUsuario)
         {
             try
             {
                 BD bd = new BD();
-                MySqlDataReader writer = bd.Query("INSERT INTO resultsTest VALUES("+ e.ID +", "+ u.Id +", 1)");
+                MySqlDataReader writer = bd.Query("INSERT INTO resultsTest VALUES("+ e.ID +", "+ u.Id +", '"+ u.Username +"', 1, '"+ idsP +"', '"+ respuestasUsuario +"')");
                 writer.Read();
                 writer.Close();
                 bd.closeBD();
