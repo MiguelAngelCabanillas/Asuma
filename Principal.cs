@@ -17,10 +17,13 @@ namespace Asuma
         private bool mouseInPanel = false;
         private Timer hideTimer;
         public Boolean isClosed = false;
+        List<Event> eventos;
+        List<Event> eventosInscritos;
 
         #region Creacion del form
         public Principal(User user)
         {
+            eventos = Event.listaEventos();
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             this.usuario = user;
@@ -261,38 +264,39 @@ namespace Asuma
 
         private void mcEventos_DateSelected(object sender, DateRangeEventArgs e)
         {
-            if (this.usuario == null)
-            {
-                MessageBox.Show("Debe registrarse para visualizar sus eventos.");
-            }
-            else
-            {
-                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
-                if (eventos.Count == 0)
+                string dia = mcEventos.SelectionStart.ToString().Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
+                string res = "";
+                int i = 1;
+                foreach (Event evento in this.eventos)
                 {
-                    MessageBox.Show("No se encuentra inscrito en ningún evento.");
+                    if (dia.Equals(evento.Date))
+                    {
+                        if (this.usuario == null)
+                        {
+                            res = res + i + ") " + (evento.Tipo ? "Curso" : "Actividad") + ": " + evento.EventName + "\n";
+                        }
+                        else
+                        {
+                            if (this.eventosInscritos.Contains(evento))
+                            {
+                                res = res + i + ") " + (evento.Tipo ? "Curso" : "Actividad") + ": " + evento.EventName + " (INSCRITO)\n";
+                            }
+                            else
+                            {
+                                res = res + i +  ") " + (evento.Tipo ? "Curso" : "Actividad") + ": " + evento.EventName + " (NO INSCRITO)\n";
+                            }
+                        }
+                    }
+                    i++;
+                }
+                if (res == "")
+                {
+                    MessageBox.Show("No tiene ningún evento programado para este día.");
                 }
                 else
                 {
-                    string dia = mcEventos.SelectionStart.ToString().Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
-                    string res = "";
-                    foreach (Event evento in eventos)
-                    {
-                        if (dia.Equals(evento.Date))
-                        {
-                            res = res + "- " + evento.EventName + " (" + (evento.Tipo ? "Curso" : "Actividad") + ")\n";
-                        }
-                    }
-                    if (res == "")
-                    {
-                        MessageBox.Show("No tiene ningún evento programado para este día.");
-                    }
-                    else
-                    {
-                        MessageBox.Show(res);
-                    }
+                    MessageBox.Show(res);
                 }
-            }
         }
 
         #endregion
@@ -305,8 +309,11 @@ namespace Asuma
             actualizarBotones();
             actualizarImagenes();
             actualizarPanelNoticias();
+            mcEventos.ShowTodayCircle = false;
+            mcEventos.MaxSelectionCount = 1;
             mcEventos.Location = new Point(pASM.Location.X,pNoticias.Location.Y);
             lNoticias.Location = new Point(pNoticias.Location.X+pNoticias.Width/2-lNoticias.Text.Length*6,pNoticias.Location.Y-50);
+            lCalendario.Location = new Point(pASM.Location.X + 32, pNoticias.Location.Y - 30);
         }
         
         private void actualizarImagenes()
@@ -342,6 +349,7 @@ namespace Asuma
 
         public void actualizar()
         {
+            pintarCalendario();
             if (usuario == null)
             {
                 linitSesion.Visible = true;
@@ -354,7 +362,8 @@ namespace Asuma
             }
             else
             {
-                pintarCalendario();
+                eventosInscritos = Event.listaEventosUsuario(this.usuario);
+
                 linitSesion.Visible = false;
                 if (FTPClient.ftpOn)
                 {
@@ -507,18 +516,14 @@ namespace Asuma
 
         private void pintarCalendario()
         {
-            if (this.usuario != null)
-            {
-                List<Event> eventos = Event.listaEventosUsuario(this.usuario);
                 DateTime[] dates = new DateTime[eventos.Count];
                 int i = 0;
-                foreach (Event evento in eventos)
+                foreach (Event evento in this.eventos)
                 {
                     dates[i] = DateTime.Parse(evento.Date);
                     i++;
                 }
                 mcEventos.BoldedDates = dates;
-            }
         }
 
         private void bMensajes_Click(object sender, EventArgs e)
