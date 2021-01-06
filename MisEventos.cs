@@ -112,7 +112,7 @@ namespace Asuma
                     string eventDate = aux.Date;
                     string eventDescription = aux.EventDescription;
                     string imagen = aux.Image;
-                    bool tipo = aux.Tipo;
+                    bool tipo = aux.EsCurso;
                     int id = aux.ID;
 
                     Panel panel = new Panel();

@@ -272,6 +272,10 @@ namespace Asuma
                 foro = new Forum((int)reader[0]);
                 reader.Close();
                 bd.closeBD();
+                if (!evento.EsCurso)
+                {
+                    bCrearTest.Visible = false;
+                }
             }
             catch (Exception ex)
             {

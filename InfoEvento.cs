@@ -354,7 +354,7 @@ namespace Asuma
 
         private void lTipoDef_Paint(object sender, PaintEventArgs e)
         {
-            if (this.ev.Tipo == true)
+            if (this.ev.EsCurso)
             {
                 lTipoDef.Text = "Curso";
             }

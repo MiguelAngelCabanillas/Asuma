@@ -13,13 +13,15 @@ namespace Asuma
 {
     public partial class Surveys_Evento : Form
     {
+        Event evento;
         public Surveys_Evento(Event evento)
         {
             InitializeComponent();
-            añadirIDCuestionarios(evento);
+            this.evento = evento;
+            añadirIDCuestionarios();
         }
 
-        private void añadirIDCuestionarios(Event evento)
+        private void añadirIDCuestionarios()
         {
             int idSurvey;                   
             try
@@ -67,8 +69,28 @@ namespace Asuma
             {
                 throw new Error(e2.Message);
             }
-            Cuestionario_Satisfaccion cuestionario = new Cuestionario_Satisfaccion(q1, q2, q3, q4, q5, q6, q7);
+            Cuestionario_Satisfaccion cuestionario = new Cuestionario_Satisfaccion(q1, q2, q3, q4, q5, q6, q7, evento);
             cuestionario.ShowDialog();
+        }
+
+        public static bool EncuestaRealizada(int idUser)
+        {
+            bool res = false;
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT id FROM survey WHERE userID = " + idUser + ";");
+                reader.Read();
+                if (reader.HasRows) res = true;
+                reader.Close();
+                bd.closeBD();
+
+            }
+            catch (Exception e2)
+            {
+                throw new Error(e2.Message);
+            }
+            return res;
         }
 
         private void bSalir_Click(object sender, EventArgs e)

@@ -58,6 +58,9 @@
             this.bNotifyEmail = new System.Windows.Forms.Button();
             this.bListParticipantes = new System.Windows.Forms.Button();
             this.linkArchivos = new System.Windows.Forms.LinkLabel();
+            this.bTestsRealizados = new System.Windows.Forms.Button();
+            this.bRealizarEncSatisfaccion = new System.Windows.Forms.Button();
+            this.bEncuestas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
@@ -404,12 +407,45 @@
             this.linkArchivos.Text = "Archivos";
             this.linkArchivos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkArchivos_LinkClicked);
             // 
+            // bTestsRealizados
+            // 
+            this.bTestsRealizados.Location = new System.Drawing.Point(567, 490);
+            this.bTestsRealizados.Name = "bTestsRealizados";
+            this.bTestsRealizados.Size = new System.Drawing.Size(189, 23);
+            this.bTestsRealizados.TabIndex = 51;
+            this.bTestsRealizados.Text = "Test de conocimientos";
+            this.bTestsRealizados.UseVisualStyleBackColor = true;
+            this.bTestsRealizados.Click += new System.EventHandler(this.bTestsRealizados_Click);
+            // 
+            // bRealizarEncSatisfaccion
+            // 
+            this.bRealizarEncSatisfaccion.Location = new System.Drawing.Point(567, 532);
+            this.bRealizarEncSatisfaccion.Name = "bRealizarEncSatisfaccion";
+            this.bRealizarEncSatisfaccion.Size = new System.Drawing.Size(189, 23);
+            this.bRealizarEncSatisfaccion.TabIndex = 52;
+            this.bRealizarEncSatisfaccion.Text = "Realizar encuesta de satisfacción";
+            this.bRealizarEncSatisfaccion.UseVisualStyleBackColor = true;
+            this.bRealizarEncSatisfaccion.Click += new System.EventHandler(this.bRealizarEncSatisfaccion_Click);
+            // 
+            // bEncuestas
+            // 
+            this.bEncuestas.Location = new System.Drawing.Point(567, 571);
+            this.bEncuestas.Name = "bEncuestas";
+            this.bEncuestas.Size = new System.Drawing.Size(189, 23);
+            this.bEncuestas.TabIndex = 53;
+            this.bEncuestas.Text = "Encuestas de satisfacción";
+            this.bEncuestas.UseVisualStyleBackColor = true;
+            this.bEncuestas.Click += new System.EventHandler(this.bEncuestas_Click);
+            // 
             // InfoEventoInscrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1082, 862);
+            this.Controls.Add(this.bEncuestas);
+            this.Controls.Add(this.bRealizarEncSatisfaccion);
+            this.Controls.Add(this.bTestsRealizados);
             this.Controls.Add(this.linkArchivos);
             this.Controls.Add(this.bListParticipantes);
             this.Controls.Add(this.bNotifyEmail);
@@ -485,5 +521,8 @@
         private System.Windows.Forms.Button bNotifyEmail;
         private System.Windows.Forms.Button bListParticipantes;
         private System.Windows.Forms.LinkLabel linkArchivos;
+        private System.Windows.Forms.Button bTestsRealizados;
+        private System.Windows.Forms.Button bRealizarEncSatisfaccion;
+        private System.Windows.Forms.Button bEncuestas;
     }
 }

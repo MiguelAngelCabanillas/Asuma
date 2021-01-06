@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,29 @@ namespace Asuma
 {
     public partial class Cuestionario_Satisfaccion : Form
     {
-        public Cuestionario_Satisfaccion()
+        Event evento;
+        User user;
+        public Cuestionario_Satisfaccion(Event e, User u)
         {
             InitializeComponent();
+            evento = e;
+            user = u;
         }
 
         public Cuestionario_Satisfaccion(String resQ1, int resQ2, int resQ3, int resQ4, int resQ5,
-                                         int resQ6, String resQ7)
+                                         int resQ6, String resQ7, Event e)
         {
             InitializeComponent();
+            evento = e;
+
             String[] respuestasQ1 = resQ1.Split('_');
             for (int i = 0; i < respuestasQ1.Length; i++)
             {
-                CLB_Q1.SetItemChecked(int.Parse(respuestasQ1[i]), true);
+                //La ultima es la cadena vacia
+                if (i < respuestasQ1.Length - 1)
+                {
+                    CLB_Q1.SetItemChecked(int.Parse(respuestasQ1[i]), true);
+                }
             }
             CLB_Q2.SetItemChecked(resQ2, true);
             CLB_Q3.SetItemChecked(resQ3, true);
@@ -147,6 +158,77 @@ namespace Asuma
                 }
                 return;
             }
+        }
+
+        private void bEnviar_Click(object sender, EventArgs e)
+        {
+            String q1 = "";
+            int q2, q3, q4, q5, q6;
+            q2 = q3 = q4 = q5 = q6 = -1;
+            
+            foreach (var res in CLB_Q1.CheckedIndices)
+            {
+                q1 += (int)res + "_";
+            }
+
+            foreach (var select in CLB_Q2.CheckedIndices)
+            {
+                q2 = (int)select;
+            }
+
+            foreach (var select in CLB_Q3.CheckedIndices)
+            {
+                q3 = (int)select;
+            }
+
+            foreach (var select in CLB_Q4.CheckedIndices)
+            {
+                q4 = (int)select;
+            }
+
+            foreach (var select in CLB_Q5.CheckedIndices)
+            {
+                q5 = (int)select;
+            }
+
+            foreach (var select in CLB_Q6.CheckedIndices)
+            {
+                q6 = (int)select;
+            }
+
+            String q7 = RTB_Q7.Text;
+
+            if (q1.Equals("") || q2 == -1 || q3 == -1 || q4 == -1 || q5 == -1 || q6 == -1)
+            {
+                MessageBox.Show("Debe contestar a todas las preguntas");
+            }
+            else
+            {
+                try
+                {
+                    BD myBd = new BD();
+                    MySqlDataReader writer = myBd.Query("INSERT INTO survey (`q1`, `q2`, `q3`, `q4`, `q5`, `q6`, `q7`, `userID`, `eventID`) VALUES('" + q1 + "', " + q2 + ", " + q3 + ", " + q4 + ", " + q5 + ", " + q6 + ", '" + q7 + "', " + user.Id + ", " + evento.ID + ")");
+                    writer.Read();
+                    writer.Close();
+                    myBd.closeBD();
+                }
+                catch (Exception)
+                {                  
+                    throw;
+                }
+                MessageBox.Show("La encuesta se ha enviado con éxito");
+                this.Close();
+            }
+        }
+
+        private void Cuestionario_Satisfaccion_Load(object sender, EventArgs e)
+        {
+            lNameCurso.Text = evento.EventName;
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

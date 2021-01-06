@@ -87,7 +87,7 @@ namespace Asuma
                     string eventDate = listaEventos.ElementAt(i).Date;
                     string eventDescription = listaEventos.ElementAt(i).EventDescription;
                     string imagen = listaEventos.ElementAt(i).Image;
-                    bool tipo = listaEventos.ElementAt(i).Tipo;
+                    bool tipo = listaEventos.ElementAt(i).EsCurso;
                     int id = listaEventos.ElementAt(i).ID;
 
                     Panel panel = new Panel();

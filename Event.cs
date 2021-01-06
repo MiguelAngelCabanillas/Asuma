@@ -16,7 +16,7 @@ namespace Asuma
         private string eventDescription;
         private string organizer;
         private string eventCreator;
-        private bool tipo;
+        private bool esCurso;
         private Forum _foro; 
         public Event(int id)
         {
@@ -31,18 +31,18 @@ namespace Asuma
                 this.organizer = (string)reader[4];
                 this.id = (int)reader[5];
                 this.eventCreator = (string)reader[6];
-                this.tipo = (bool)reader[7];
+                this.esCurso = (bool)reader[7];
             }
             reader.Close();
             bd.closeBD();
         }
 
-        public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator, bool tipo)
+        public Event(string eventName, string date, string image, string eventDescription, string organizer, string eventCreator, bool esCurso)
         {
             BD bd = new BD();
             //MySqlDataReader writer = bd.Query("INSERT INTO event VALUES ('" + eventName + "', '" + date + "', '"
             //  + image + "', '" + eventDescription + "', '" + organizer + "', '" + eventCreator + "');");
-            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`, `type`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "', " + (tipo ? 1 : 0) + ");");
+            MySqlDataReader writer = bd.Query("INSERT INTO event (`eventName`, `date`, `image`, `eventDescription`, `organizer`, `eventCreator`, `type`) VALUES ('" + eventName + "','" + date + "','" + image + "','" + eventDescription + "','" + organizer + "','" + eventCreator + "', " + (esCurso ? 1 : 0) + ");");
             writer.Close();
             bd.closeBD();
 
@@ -63,7 +63,7 @@ namespace Asuma
             this.eventDescription = eventDescription;
             this.organizer = organizer;
             this.eventCreator = eventCreator;
-            this.tipo = tipo;
+            this.esCurso = esCurso;
 
             writer2.Close();
             bd.closeBD();
@@ -217,9 +217,9 @@ namespace Asuma
             get { return this.eventCreator; }
         }
 
-        public bool Tipo
+        public bool EsCurso
         {
-            get { return this.tipo; }
+            get { return this.esCurso; }
         }
     }
 }

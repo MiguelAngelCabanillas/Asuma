@@ -273,17 +273,17 @@ namespace Asuma
                     {
                         if (this.usuario == null)
                         {
-                            res = res + i + ") " + (evento.Tipo ? "Curso" : "Actividad") + ": " + evento.EventName + "\n";
+                            res = res + i + ") " + (evento.EsCurso ? "Curso" : "Actividad") + ": " + evento.EventName + "\n";
                         }
                         else
                         {
                             if (this.eventosInscritos.Contains(evento))
                             {
-                                res = res + i + ") " + (evento.Tipo ? "Curso" : "Actividad") + ": " + evento.EventName + " (INSCRITO)\n";
+                                res = res + i + ") " + (evento.EsCurso ? "Curso" : "Actividad") + ": " + evento.EventName + " (INSCRITO)\n";
                             }
                             else
                             {
-                                res = res + i +  ") " + (evento.Tipo ? "Curso" : "Actividad") + ": " + evento.EventName + " (NO INSCRITO)\n";
+                                res = res + i +  ") " + (evento.EsCurso ? "Curso" : "Actividad") + ": " + evento.EventName + " (NO INSCRITO)\n";
                             }
                         }
                     }

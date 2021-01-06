@@ -32,14 +32,17 @@ namespace Asuma
 
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
-            if (e.EventCreator.Equals(u.Username) || usuario.Rol.RolName.Equals("Admin")){
-                bEditEvent.Visible = true;
-                bNotifyEmail.Visible = true;
+            if (e.EventCreator.Equals(u.Username) || usuario.Rol.RolName.Equals("Admin"))
+            {
+                bTestConocimiento.Visible = false;
+                bRealizarEncSatisfaccion.Visible = false;
             }
             else
             {
                 bEditEvent.Visible = false;
                 bNotifyEmail.Visible = false;
+                bTestsRealizados.Visible = false;
+                bEncuestas.Visible = false;
             }
 
             actualizarElementos();
@@ -174,6 +177,9 @@ namespace Asuma
             this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
             this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);
             this.linkArchivos.Location = new Point((anchura * 4) / 10, linkForum.Location.Y);
+            this.bTestsRealizados.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7) / 10);
+            this.bRealizarEncSatisfaccion.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7) / 10);
+            this.bEncuestas.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7.5) / 10);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
@@ -251,12 +257,12 @@ namespace Asuma
         {
             try
             {
-               // BD bd = new BD();
-                //MySqlDataReader reader = bd.Query("SELECT eventID FROM forum WHERE eventID = " + evento.ID + ";");
-                //reader.Read();
+                if (!evento.EsCurso)
+                {
+                    bTestConocimiento.Visible = false;
+                    bTestsRealizados.Visible = false;
+                }
                 foro = new Forum(evento.ID);
-               // reader.Close();
-                //bd.closeBD();
             }
             catch (Exception ex)
             {
@@ -353,7 +359,7 @@ namespace Asuma
 
         private void lTipoDef_Paint(object sender, PaintEventArgs e)
         {
-            if (this.evento.Tipo == true)
+            if (this.evento.EsCurso)
             {
                 lTipoDef.Text = "Curso";
             }
@@ -409,15 +415,35 @@ namespace Asuma
             lP.ShowDialog();
         }
 
-        private void bArchivos_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkArchivos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Directorios pftp = new Directorios(evento, usuario);
             pftp.ShowDialog();
+        }
+
+        private void bTestsRealizados_Click(object sender, EventArgs e)
+        {
+            Tests_Curso testRealizados = new Tests_Curso(evento);
+            testRealizados.ShowDialog();
+        }
+
+        private void bRealizarEncSatisfaccion_Click(object sender, EventArgs e)
+        {
+            if (Surveys_Evento.EncuestaRealizada(usuario.Id))
+            {
+                MessageBox.Show("La encuesta ya ha sido realizada");
+            }
+            else
+            {
+                Cuestionario_Satisfaccion cuestionario = new Cuestionario_Satisfaccion(evento, usuario);
+                cuestionario.ShowDialog();
+            }
+        }
+
+        private void bEncuestas_Click(object sender, EventArgs e)
+        {
+            Surveys_Evento encuestas = new Surveys_Evento(evento);
+            encuestas.ShowDialog();
         }
     }
 }

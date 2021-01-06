@@ -46,6 +46,7 @@ namespace Asuma
             this.lQ6 = new System.Windows.Forms.Label();
             this.lQ7 = new System.Windows.Forms.Label();
             this.RTB_Q7 = new System.Windows.Forms.RichTextBox();
+            this.bSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bEnviar
@@ -56,12 +57,13 @@ namespace Asuma
             this.bEnviar.TabIndex = 15;
             this.bEnviar.Text = "Enviar";
             this.bEnviar.UseVisualStyleBackColor = true;
+            this.bEnviar.Click += new System.EventHandler(this.bEnviar_Click);
             // 
             // lNameCurso
             // 
             this.lNameCurso.AutoSize = true;
             this.lNameCurso.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameCurso.Location = new System.Drawing.Point(543, 14);
+            this.lNameCurso.Location = new System.Drawing.Point(474, 14);
             this.lNameCurso.Name = "lNameCurso";
             this.lNameCurso.Size = new System.Drawing.Size(187, 25);
             this.lNameCurso.TabIndex = 14;
@@ -244,12 +246,23 @@ namespace Asuma
             this.RTB_Q7.TabIndex = 29;
             this.RTB_Q7.Text = "";
             // 
+            // bSalir
+            // 
+            this.bSalir.Location = new System.Drawing.Point(826, 928);
+            this.bSalir.Name = "bSalir";
+            this.bSalir.Size = new System.Drawing.Size(139, 32);
+            this.bSalir.TabIndex = 30;
+            this.bSalir.Text = "Salir";
+            this.bSalir.UseVisualStyleBackColor = true;
+            this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
+            // 
             // Cuestionario_Satisfaccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(977, 972);
+            this.Controls.Add(this.bSalir);
             this.Controls.Add(this.RTB_Q7);
             this.Controls.Add(this.lQ7);
             this.Controls.Add(this.CLB_Q6);
@@ -271,6 +284,7 @@ namespace Asuma
             this.Name = "Cuestionario_Satisfaccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuestionario_Satisfaccion";
+            this.Load += new System.EventHandler(this.Cuestionario_Satisfaccion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +309,6 @@ namespace Asuma
         private System.Windows.Forms.Label lQ6;
         private System.Windows.Forms.Label lQ7;
         private System.Windows.Forms.RichTextBox RTB_Q7;
+        private System.Windows.Forms.Button bSalir;
     }
 }
