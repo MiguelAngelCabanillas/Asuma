@@ -19,8 +19,6 @@ namespace Asuma
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
-            cReason.SelectedItem = "Problema";
-            tMessage.Text = "He aquí un mensaje de prueba para ver como funciona el correo electrónico y sus funcionalidades, y como conectarlo con gmail y similares. UN SALUDO Y FELIZ NAVIDAD";
         }
 
       
@@ -31,6 +29,9 @@ namespace Asuma
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
         }
 
 
@@ -99,20 +100,27 @@ namespace Asuma
         {
             actualizarBotones();
             actualizarImagenes();
+            CentrarPanel();
+        }
+
+        private void CentrarPanel()
+        {
+            panel1.Location = new Point(this.Width/2 - panel1.Width/2, this.Height/2 - panel1.Height/2);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void tSend_Click(object sender, EventArgs e)
         {
             try
             {
-                if (tName.Text.Trim(' ').Equals("") || cReason.SelectedItem == null || tMessage.Text.Trim(' ').Equals(""))
+                if (tName.Text.Trim(' ').Equals("") || cReason.SelectedItem == null || tMessage.Text.Trim(' ').Equals("") || tEmail.Text.Trim(' ').Equals(""))
                 {
                     MessageBox.Show("Debe rellenar todos los campos");
                 }
                 else
                 {
                     Email email = new Email();
-                    email.sendEmailToAdmin(tName.Text, usuario.Email, cReason.Text, tMessage.Text);
+                    email.sendEmailToAdmin(tName.Text, tEmail.Text, cReason.Text, tMessage.Text);
                     MessageBox.Show("Mensaje enviado correctamente");
                 }
             }
@@ -156,6 +164,36 @@ namespace Asuma
             r.Owner = this;
             r.ShowDialog();
             this.Visible = true;
+        }
+
+        private void bInicio_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal p = new Principal(usuario);
+            p.Show();
+            this.Close();
+        }
+
+        private void bEventos_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos eventos = new Eventos(usuario);
+            eventos.Show();
+            this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Asuma
                 this.rol = new Rol(rolName);
                 reader.Close();
                 bd.closeBD();
-                
+
                 if (!this.password.Equals(password))
                 {
                     //bd.closeBD();
@@ -47,7 +47,7 @@ namespace Asuma
             }
             catch (Exception ex)
             {
-               throw new Error(ex.Message);
+                throw new Error(ex.Message);
             }
         }
 
@@ -87,11 +87,27 @@ namespace Asuma
                 FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
                 ftp.MakeFtpDirectory("" + id);
 
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 throw new Error(ex.Message);
             }
 
+        }
+
+        public static List<User> listaUsuariosAplicacion()
+        {
+            List<User> listaUsuarios = new List<User>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT username FROM user ");
+            while (reader.Read())
+            {
+                User aux = new User((string)reader[0]);
+                listaUsuarios.Add(aux);
+            }
+            reader.Close();
+            bd.closeBD();
+
+            return listaUsuarios;
         }
 
 
@@ -117,7 +133,7 @@ namespace Asuma
             bool existe = false;
             try
             {
-                
+
                 BD bd = new BD();
                 MySqlDataReader reader = bd.Query("SELECT id FROM user WHERE username = '" + nombreUsuario + "' AND email = '" + email + "'");
                 if (reader.HasRows)
@@ -126,8 +142,8 @@ namespace Asuma
                 }
                 reader.Close();
                 bd.closeBD();
-                
-            } catch(Exception ex){
+
+            } catch (Exception ex) {
 
             }
             return existe;
@@ -170,6 +186,8 @@ namespace Asuma
                 this.username = value;
             }
         }
+    
+
 
         public string Email
         {
@@ -180,12 +198,20 @@ namespace Asuma
                 MySqlDataReader writer = bd.Query("UPDATE user SET email = '" + value + "' WHERE id = " + id + ";");
                 writer.Close();
                 bd.closeBD();
-                this.username = value;
+                this.email = value;
             }
         }
         public string Password
         {
             get { return password; }
+            set
+            {
+                BD bd = new BD();
+                MySqlDataReader writer = bd.Query("UPDATE user SET password = '" + value + "' WHERE id = " + id + ";");
+                writer.Close();
+                bd.closeBD();
+                this.password = value;
+            }
         }
 
         public Rol Rol

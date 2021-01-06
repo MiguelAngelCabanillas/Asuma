@@ -123,9 +123,9 @@ namespace Asuma
 
         private void actualizarElementos()
         {
-            this.pUser.Location = new Point(72, 16);
-            this.lUsername.Location = new Point(pUser.Location.X + 120, pUser.Location.Y + 40);
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -367,5 +367,13 @@ namespace Asuma
             this.Visible = true;
         }
         #endregion
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
     }
 }

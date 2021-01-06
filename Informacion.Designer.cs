@@ -44,11 +44,28 @@ namespace Asuma
             this.lSignOut = new System.Windows.Forms.LinkLabel();
             this.linitSesion = new System.Windows.Forms.LinkLabel();
             this.pUser = new System.Windows.Forms.PictureBox();
+            this.lConoceSN = new System.Windows.Forms.Label();
+            this.lQuienes_Somos = new System.Windows.Forms.Label();
+            this.RTB_Quienes_Somos = new System.Windows.Forms.RichTextBox();
+            this.lASUMA = new System.Windows.Forms.Label();
+            this.RTB_ASUMA = new System.Windows.Forms.RichTextBox();
+            this.lValores = new System.Windows.Forms.Label();
+            this.RTB_Valores = new System.Windows.Forms.RichTextBox();
+            this.Palomo = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Palomo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pPerfil
@@ -223,12 +240,145 @@ namespace Asuma
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             this.pUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pUser_MouseClick);
             // 
+            // lConoceSN
+            // 
+            this.lConoceSN.AutoSize = true;
+            this.lConoceSN.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lConoceSN.Location = new System.Drawing.Point(514, 243);
+            this.lConoceSN.Name = "lConoceSN";
+            this.lConoceSN.Size = new System.Drawing.Size(322, 29);
+            this.lConoceSN.TabIndex = 50;
+            this.lConoceSN.Text = "Conoce Sobre Nosotros";
+            // 
+            // lQuienes_Somos
+            // 
+            this.lQuienes_Somos.AutoSize = true;
+            this.lQuienes_Somos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lQuienes_Somos.Location = new System.Drawing.Point(59, 300);
+            this.lQuienes_Somos.Name = "lQuienes_Somos";
+            this.lQuienes_Somos.Size = new System.Drawing.Size(188, 25);
+            this.lQuienes_Somos.TabIndex = 51;
+            this.lQuienes_Somos.Text = "¿Quienes Somos?";
+            // 
+            // RTB_Quienes_Somos
+            // 
+            this.RTB_Quienes_Somos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RTB_Quienes_Somos.Location = new System.Drawing.Point(64, 338);
+            this.RTB_Quienes_Somos.Name = "RTB_Quienes_Somos";
+            this.RTB_Quienes_Somos.ReadOnly = true;
+            this.RTB_Quienes_Somos.Size = new System.Drawing.Size(321, 155);
+            this.RTB_Quienes_Somos.TabIndex = 52;
+            this.RTB_Quienes_Somos.Text = resources.GetString("RTB_Quienes_Somos.Text");
+            // 
+            // lASUMA
+            // 
+            this.lASUMA.AutoSize = true;
+            this.lASUMA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lASUMA.Location = new System.Drawing.Point(1023, 511);
+            this.lASUMA.Name = "lASUMA";
+            this.lASUMA.Size = new System.Drawing.Size(186, 25);
+            this.lASUMA.TabIndex = 53;
+            this.lASUMA.Text = "¿Que es ASUMA?";
+            // 
+            // RTB_ASUMA
+            // 
+            this.RTB_ASUMA.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RTB_ASUMA.Location = new System.Drawing.Point(752, 548);
+            this.RTB_ASUMA.Name = "RTB_ASUMA";
+            this.RTB_ASUMA.ReadOnly = true;
+            this.RTB_ASUMA.Size = new System.Drawing.Size(457, 72);
+            this.RTB_ASUMA.TabIndex = 54;
+            this.RTB_ASUMA.Text = resources.GetString("RTB_ASUMA.Text");
+            // 
+            // lValores
+            // 
+            this.lValores.AutoSize = true;
+            this.lValores.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lValores.Location = new System.Drawing.Point(60, 521);
+            this.lValores.Name = "lValores";
+            this.lValores.Size = new System.Drawing.Size(85, 25);
+            this.lValores.TabIndex = 55;
+            this.lValores.Text = "Valores\r\n";
+            // 
+            // RTB_Valores
+            // 
+            this.RTB_Valores.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RTB_Valores.Location = new System.Drawing.Point(64, 549);
+            this.RTB_Valores.Name = "RTB_Valores";
+            this.RTB_Valores.ReadOnly = true;
+            this.RTB_Valores.Size = new System.Drawing.Size(94, 155);
+            this.RTB_Valores.TabIndex = 56;
+            this.RTB_Valores.Text = "*Alegría                   \n*Confianza\n*Creatividad\n*Crecimiento\n*Educación\n*Hone" +
+    "stidad\n*Servicio\n*Sinceridad";
+            // 
+            // Palomo
+            // 
+            this.Palomo.Image = ((System.Drawing.Image)(resources.GetObject("Palomo.Image")));
+            this.Palomo.InitialImage = null;
+            this.Palomo.Location = new System.Drawing.Point(409, 289);
+            this.Palomo.Name = "Palomo";
+            this.Palomo.Size = new System.Drawing.Size(153, 158);
+            this.Palomo.TabIndex = 57;
+            this.Palomo.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(582, 289);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(153, 173);
+            this.pictureBox1.TabIndex = 58;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(753, 289);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(178, 158);
+            this.pictureBox2.TabIndex = 59;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.InitialImage = null;
+            this.pictureBox3.Location = new System.Drawing.Point(948, 289);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(123, 158);
+            this.pictureBox3.TabIndex = 60;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.InitialImage = null;
+            this.pictureBox4.Location = new System.Drawing.Point(1095, 289);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(143, 173);
+            this.pictureBox4.TabIndex = 61;
+            this.pictureBox4.TabStop = false;
+            // 
             // Informacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1284, 741);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Palomo);
+            this.Controls.Add(this.RTB_Valores);
+            this.Controls.Add(this.lValores);
+            this.Controls.Add(this.RTB_ASUMA);
+            this.Controls.Add(this.lASUMA);
+            this.Controls.Add(this.RTB_Quienes_Somos);
+            this.Controls.Add(this.lQuienes_Somos);
+            this.Controls.Add(this.lConoceSN);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
@@ -249,6 +399,11 @@ namespace Asuma
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             this.menuFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Palomo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +425,17 @@ namespace Asuma
         private System.Windows.Forms.LinkLabel lSignOut;
         private System.Windows.Forms.LinkLabel linitSesion;
         private System.Windows.Forms.PictureBox pUser;
+        private System.Windows.Forms.Label lConoceSN;
+        private System.Windows.Forms.Label lQuienes_Somos;
+        private System.Windows.Forms.RichTextBox RTB_Quienes_Somos;
+        private System.Windows.Forms.Label lASUMA;
+        private System.Windows.Forms.RichTextBox RTB_ASUMA;
+        private System.Windows.Forms.Label lValores;
+        private System.Windows.Forms.RichTextBox RTB_Valores;
+        private System.Windows.Forms.PictureBox Palomo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

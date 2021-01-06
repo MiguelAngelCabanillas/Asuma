@@ -80,6 +80,7 @@ namespace Asuma
                 lSignOut.Visible = true;
                 bInscription.Visible = true;
             }
+
         }
         #endregion
 
@@ -128,6 +129,9 @@ namespace Asuma
 
         private void actualizarImagenes()
         {
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
@@ -146,9 +150,9 @@ namespace Asuma
             this.lOrg.Location = new Point((anchura * 2) / 10, lOrg.Location.Y);
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
-            this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
-            this.bInscription.Location = new Point((anchura * 2) / 10, bInscription.Location.Y);
+            this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);  
             this.bSalir.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            this.bInscription.Location = new Point((anchura * 2) / 10, bSalir.Location.Y);
             lTipo.Location = new Point(tDes.Location.X+tDes.Width/2,lOrganizadores.Location.Y);
             lTipoDef.Location = new Point(lTipo.Location.X+100, lOrganizadores.Location.Y+5);
         }
@@ -191,6 +195,7 @@ namespace Asuma
                 }
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
                 linitSesion.Visible = false;
                 lSignOut.Visible = true;
                 bInscription.Visible = true;
@@ -220,6 +225,8 @@ namespace Asuma
                     reader.Close();
                     bd.closeBD();
                     MessageBox.Show("Inscripción realizada con éxito.");
+                    Email email = new Email();
+                    email.sendEmailToInscripted(usuario.Email, ev);
                     this.Close();
                 }
                 catch { MessageBox.Show("Error al formular la inscripción"); }
@@ -351,7 +358,7 @@ namespace Asuma
 
         private void lTipoDef_Paint(object sender, PaintEventArgs e)
         {
-            if (this.ev.Tipo == true)
+            if (this.ev.EsCurso)
             {
                 lTipoDef.Text = "Curso";
             }
@@ -361,5 +368,23 @@ namespace Asuma
             }
         }
 
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            //this.Visible = false;
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+            //this.Visible = true;
+        }
     }
 }

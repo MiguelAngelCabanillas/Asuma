@@ -35,9 +35,25 @@ namespace Asuma
         {
             if (tUsername.Text != usuario.Username)
             {
-                usuario.Username = tUsername.Text;
-                this.Text = "Perfil de " + usuario.Username;
-                MessageBox.Show("Nombre cambiado correctamente");
+                if (!tUsername.Text.Trim().Equals(""))
+                {
+                    try
+                    {
+                        usuario.Username = tUsername.Text;
+                        this.Text = "Perfil de " + usuario.Username;
+                        MessageBox.Show("Nombre cambiado correctamente");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("El nombre de usuario ya existe");
+                        tUsername.Text = usuario.Username;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Introduzca un nombre de usuario válido");
+                    tUsername.Text = usuario.Username;
+                }
             }
         }
 
@@ -96,9 +112,30 @@ namespace Asuma
         {
             if (tEmail.Text != usuario.Email)
             {
-                usuario.Email = tEmail.Text;
-                MessageBox.Show("Correo cambiado correctamente");
+                if (!tEmail.Text.Trim().Equals(""))
+                {
+                    try
+                    {
+                        usuario.Email = tEmail.Text;
+                        MessageBox.Show("Correo cambiado correctamente");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("El correo electrónico ya está en uso");
+                        tEmail.Text = usuario.Email;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Introduzca un correo electrónico válido");
+                    tEmail.Text = usuario.Email;
+                }
             }
+        }
+
+        public User Usuario
+        {
+            get{ return usuario; }
         }
     }
 }

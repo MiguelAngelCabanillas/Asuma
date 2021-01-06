@@ -18,10 +18,12 @@ namespace Asuma
         SortedDictionary<int, Label> Label_Resultado;
         SortedDictionary<int, List<String>> respuestasCorrectas;
         Boolean seleccionMultiple;
+        Event evento;
+        User usuario;
         public Test_Conocimiento(SortedDictionary<int, String> nombrePreguntas,
                                  SortedDictionary<int, String[]> listaRespuestas,
                                  SortedDictionary<int, List<string>> respuestasCorrectas,
-                                 Boolean seleccionMultiple)
+                                 Boolean seleccionMultiple, Event evento, User usuario)
         {
             this.nombrePreguntas = nombrePreguntas;
             this.listaRespuestas = listaRespuestas;
@@ -29,13 +31,61 @@ namespace Asuma
             this.respuestasCorrectas = respuestasCorrectas;
             this.Respuestas_Resultado = new SortedDictionary<int, CheckedListBox>();
             this.Label_Resultado = new SortedDictionary<int, Label>();
+            this.evento = evento;
+            this.usuario = usuario;
 
             InitializeComponent();
             mostrarPreguntasyRespuestas();
         }
 
+        public Test_Conocimiento(SortedDictionary<int, string> nombrePreguntas,
+                                 SortedDictionary<int, string[]> listaRespuestas,
+                                 SortedDictionary<int, List<string>> respuestasCorrectas,
+                                 bool seleccionMultiple, Event evento, User usuario,
+                                 string idsP, string respuestasUsuario)
+        : this(nombrePreguntas, listaRespuestas, respuestasCorrectas, seleccionMultiple,
+              evento, usuario)
+        {
+            ReadOnly(idsP, respuestasUsuario);
+        }
+
+        private void ReadOnly(string idsP, string respuestasUsuario)
+        {
+            String[] idPregunta = idsP.Split('_');
+            String[] respuestasAllPreguntas = respuestasUsuario.Split('_');
+            String[] resP;
+            int i = 0;
+            int idP;
+            foreach (var item in Respuestas_Resultado)
+            {
+                idP = int.Parse(idPregunta[i]);
+                Respuestas_Resultado.TryGetValue(idP, out CheckedListBox aux);
+                //La ultima es la cadena vacia
+                if (i < respuestasAllPreguntas.Length - 1)
+                {
+                    resP = respuestasAllPreguntas[i].Split('|');
+                    for (int j = 0; j < resP.Length; j++)
+                    {
+                        //La ultima es la cadena vacia
+                        if (j < resP.Length - 1)
+                        {
+                            aux.SetItemChecked(int.Parse(resP[j]), true);
+                        }
+                    }
+                }               
+                aux.Enabled = false;
+                i++;
+            }
+            bEnviar.Enabled = false;
+            bEnviar.Visible = false;
+            Boolean readOnly = true;
+            Check(readOnly);
+        }
+
         private void mostrarPreguntasyRespuestas()
         {
+            lNameCurso.Text = evento.EventName;
+
             panelPregyRes.Controls.Clear();
             int numPreg = nombrePreguntas.Count;
             int separacion = 50;
@@ -91,7 +141,7 @@ namespace Asuma
                 ResPregunta.Location = new Point(578, 60);
                 ResPregunta.Size = new Size(84, 25);
                 ResPregunta.TabIndex = 9;
-                ResPregunta.Text = "label1";
+                ResPregunta.Text = "";
 
                 //------------------
 
@@ -106,52 +156,144 @@ namespace Asuma
                 panelPregyRes.Controls.Add(panel);
                 separacion += 180;
 
+                lAprobadoRO.Visible = false;
+
                 Respuestas_Resultado.Add(id_Pregunta, respuestasPregunta);
                 Label_Resultado.Add(id_Pregunta, ResPregunta);
             }
         }
-        private void check()
+        private Boolean Check(Boolean readOnly)
         {
-            int contG = 0;
+            int res = 0;
+            Boolean aprobado = false;
             int id_P;
-            List<String> respuestasC;
-            Label labelRes;
             foreach (var item in Respuestas_Resultado)
             {
                 id_P = item.Key;
-                respuestasCorrectas.TryGetValue(id_P, out respuestasC);
+                respuestasCorrectas.TryGetValue(id_P, out List<string> respuestasC);
                 int cont = 0;
                 foreach (var aux in respuestasC)
-                {                   
+                {
                     if (item.Value.CheckedItems.Contains(aux))
                     {
                         cont++;
-                        contG++;
                     }
                 }
-                Label_Resultado.TryGetValue(id_P, out labelRes);
-                if (cont == respuestasC.Count)
-                {                  
-                    labelRes.Text = "Correcta";
+                Label_Resultado.TryGetValue(id_P, out Label labelRes);
+                //Tienes que acertar la mitad de las respuestas para que sea correcta la pregunta
+                //NO TENGO GANAS DE PENSAR PERO TIENE QUE HABER UNA MANERA MEJOR DE HACER ESTO
+                if (respuestasC.Count % 2 == 0) //Par
+                {
+                    if (cont >= respuestasC.Count / 2)
+                    {
+                        labelRes.Text = "Correcta";
+                        res++;
+                    }
+                    else
+                    {
+                        labelRes.Text = "Incorrecta";
+                    }
                 }
                 else
-                {                   
-                    labelRes.Text = "Incorrecta";
+                {
+                    if (cont > respuestasC.Count / 2)
+                    {
+                        labelRes.Text = "Correcta";
+                        res++;
+                    }
+                    else
+                    {
+                        labelRes.Text = "Incorrecta";
+                    }
                 }
             }
-            if (contG >= 5)
+            //Tienes que acertar la mitad de las preguntas para superar el test
+            if (nombrePreguntas.Count % 2 == 0 && !readOnly) //Par
             {
-                MessageBox.Show("Has superado el test");
+                if (res >= nombrePreguntas.Count / 2)
+                {
+                    MessageBox.Show("Has superado el test");
+                    aprobado = true;
+                }
+                else
+                {
+                    MessageBox.Show("Intentalo de nuevo");
+                }
             }
-            else
+            else if (!readOnly)
             {
-                MessageBox.Show("Intentalo de nuevo");
+                if (res > nombrePreguntas.Count / 2)
+                {
+                    MessageBox.Show("Has superado el test");
+                    aprobado = true;
+                }
+                else
+                {
+                    MessageBox.Show("Intentalo de nuevo");
+                }
             }
+
+            if (nombrePreguntas.Count % 2 == 0 && readOnly) //Par
+            {
+                if (res >= nombrePreguntas.Count / 2)
+                {
+                    lAprobadoRO.Text = "Aprobado";
+                    lAprobadoRO.ForeColor = Color.Green;
+                    lAprobadoRO.Visible = true;
+                }
+                else
+                {
+                    lAprobadoRO.Text = "Suspenso";
+                    lAprobadoRO.ForeColor = Color.Red;
+                    lAprobadoRO.Visible = true;
+                }
+            }
+            else if (readOnly)
+            {
+                if (res > nombrePreguntas.Count / 2)
+                {
+                    lAprobadoRO.Text = "Aprobado";
+                    lAprobadoRO.ForeColor = Color.Green;
+                    lAprobadoRO.Visible = true;
+                }
+                else
+                {
+                    lAprobadoRO.Text = "Suspenso";
+                    lAprobadoRO.ForeColor = Color.Red;
+                    lAprobadoRO.Visible = true;
+                }
+            }
+            return aprobado;
         }
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
-            check();
+            Boolean res = Check(false);
+            if (res)
+            {
+                String idsP = "";
+                String respuestasUsuario = "";
+                foreach (var respuesta in Respuestas_Resultado)
+                {
+                    //idP -> 1_2_3_4
+                    //indexRes -> 2|3|_1|_2|2|_1|3|_
+                    if (Respuestas_Resultado.Last().Equals(respuesta))
+                    {
+                        idsP += respuesta.Key;
+                    }
+                    else
+                    {
+                        idsP += respuesta.Key + "_";
+                    }
+                    foreach (var item in respuesta.Value.CheckedIndices)
+                    {
+                        respuestasUsuario += item.ToString() + "|";
+                    }
+                    respuestasUsuario += "_";
+                }
+                //Inserto sus respuestas en la base de datos si ha aprobado
+                Test.SubmitAprobado(evento, usuario, idsP, respuestasUsuario);
+            }
         }
 
         protected void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -175,6 +317,11 @@ namespace Asuma
                 }
                 return;
             }        
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

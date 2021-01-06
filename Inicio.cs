@@ -88,5 +88,14 @@ namespace Asuma
                 bInicio.PerformClick();
             }
         }
+
+        private void linkFPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Recuperacion r = new Recuperacion();
+            this.Visible = false;
+            r.Owner = this;
+            r.ShowDialog();
+            this.Visible = true;
+        }
     }
 }

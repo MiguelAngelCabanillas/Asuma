@@ -54,6 +54,13 @@
             this.bPerfil = new System.Windows.Forms.Button();
             this.lTipo = new System.Windows.Forms.Label();
             this.lTipoDef = new System.Windows.Forms.Label();
+            this.bTestConocimiento = new System.Windows.Forms.Button();
+            this.bNotifyEmail = new System.Windows.Forms.Button();
+            this.bListParticipantes = new System.Windows.Forms.Button();
+            this.linkArchivos = new System.Windows.Forms.LinkLabel();
+            this.bTestsRealizados = new System.Windows.Forms.Button();
+            this.bRealizarEncSatisfaccion = new System.Windows.Forms.Button();
+            this.bEncuestas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
@@ -145,6 +152,7 @@
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // lUsername
             // 
@@ -357,12 +365,91 @@
             this.lTipoDef.Text = "Tipo:";
             this.lTipoDef.Paint += new System.Windows.Forms.PaintEventHandler(this.lTipoDef_Paint);
             // 
+            // bTestConocimiento
+            // 
+            this.bTestConocimiento.Location = new System.Drawing.Point(785, 532);
+            this.bTestConocimiento.Name = "bTestConocimiento";
+            this.bTestConocimiento.Size = new System.Drawing.Size(189, 23);
+            this.bTestConocimiento.TabIndex = 47;
+            this.bTestConocimiento.Text = "Realizar test de conocimiento";
+            this.bTestConocimiento.UseVisualStyleBackColor = true;
+            this.bTestConocimiento.Click += new System.EventHandler(this.bTestConocimiento_Click);
+            // 
+            // bNotifyEmail
+            // 
+            this.bNotifyEmail.Location = new System.Drawing.Point(808, 571);
+            this.bNotifyEmail.Name = "bNotifyEmail";
+            this.bNotifyEmail.Size = new System.Drawing.Size(160, 23);
+            this.bNotifyEmail.TabIndex = 48;
+            this.bNotifyEmail.Text = "Notificar por correo";
+            this.bNotifyEmail.UseVisualStyleBackColor = true;
+            this.bNotifyEmail.Click += new System.EventHandler(this.bNotifyEmail_Click);
+            // 
+            // bListParticipantes
+            // 
+            this.bListParticipantes.Location = new System.Drawing.Point(785, 490);
+            this.bListParticipantes.Name = "bListParticipantes";
+            this.bListParticipantes.Size = new System.Drawing.Size(189, 23);
+            this.bListParticipantes.TabIndex = 49;
+            this.bListParticipantes.Text = "Participantes";
+            this.bListParticipantes.UseVisualStyleBackColor = true;
+            this.bListParticipantes.Click += new System.EventHandler(this.bListParticipantes_Click);
+            // 
+            // linkArchivos
+            // 
+            this.linkArchivos.AutoSize = true;
+            this.linkArchivos.Font = new System.Drawing.Font("Verdana", 13.8F);
+            this.linkArchivos.Location = new System.Drawing.Point(632, 638);
+            this.linkArchivos.Name = "linkArchivos";
+            this.linkArchivos.Size = new System.Drawing.Size(92, 23);
+            this.linkArchivos.TabIndex = 50;
+            this.linkArchivos.TabStop = true;
+            this.linkArchivos.Text = "Archivos";
+            this.linkArchivos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkArchivos_LinkClicked);
+            // 
+            // bTestsRealizados
+            // 
+            this.bTestsRealizados.Location = new System.Drawing.Point(567, 490);
+            this.bTestsRealizados.Name = "bTestsRealizados";
+            this.bTestsRealizados.Size = new System.Drawing.Size(189, 23);
+            this.bTestsRealizados.TabIndex = 51;
+            this.bTestsRealizados.Text = "Test de conocimientos";
+            this.bTestsRealizados.UseVisualStyleBackColor = true;
+            this.bTestsRealizados.Click += new System.EventHandler(this.bTestsRealizados_Click);
+            // 
+            // bRealizarEncSatisfaccion
+            // 
+            this.bRealizarEncSatisfaccion.Location = new System.Drawing.Point(567, 532);
+            this.bRealizarEncSatisfaccion.Name = "bRealizarEncSatisfaccion";
+            this.bRealizarEncSatisfaccion.Size = new System.Drawing.Size(189, 23);
+            this.bRealizarEncSatisfaccion.TabIndex = 52;
+            this.bRealizarEncSatisfaccion.Text = "Realizar encuesta de satisfacción";
+            this.bRealizarEncSatisfaccion.UseVisualStyleBackColor = true;
+            this.bRealizarEncSatisfaccion.Click += new System.EventHandler(this.bRealizarEncSatisfaccion_Click);
+            // 
+            // bEncuestas
+            // 
+            this.bEncuestas.Location = new System.Drawing.Point(567, 571);
+            this.bEncuestas.Name = "bEncuestas";
+            this.bEncuestas.Size = new System.Drawing.Size(189, 23);
+            this.bEncuestas.TabIndex = 53;
+            this.bEncuestas.Text = "Encuestas de satisfacción";
+            this.bEncuestas.UseVisualStyleBackColor = true;
+            this.bEncuestas.Click += new System.EventHandler(this.bEncuestas_Click);
+            // 
             // InfoEventoInscrito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1082, 862);
+            this.Controls.Add(this.bEncuestas);
+            this.Controls.Add(this.bRealizarEncSatisfaccion);
+            this.Controls.Add(this.bTestsRealizados);
+            this.Controls.Add(this.linkArchivos);
+            this.Controls.Add(this.bListParticipantes);
+            this.Controls.Add(this.bNotifyEmail);
+            this.Controls.Add(this.bTestConocimiento);
             this.Controls.Add(this.lTipoDef);
             this.Controls.Add(this.lTipo);
             this.Controls.Add(this.pPerfil);
@@ -430,5 +517,12 @@
         private System.Windows.Forms.Button bPerfil;
         private System.Windows.Forms.Label lTipo;
         private System.Windows.Forms.Label lTipoDef;
+        private System.Windows.Forms.Button bTestConocimiento;
+        private System.Windows.Forms.Button bNotifyEmail;
+        private System.Windows.Forms.Button bListParticipantes;
+        private System.Windows.Forms.LinkLabel linkArchivos;
+        private System.Windows.Forms.Button bTestsRealizados;
+        private System.Windows.Forms.Button bRealizarEncSatisfaccion;
+        private System.Windows.Forms.Button bEncuestas;
     }
 }

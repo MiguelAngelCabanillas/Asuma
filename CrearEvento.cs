@@ -23,32 +23,33 @@ namespace Asuma
         #region Creacion del frame
         public CrearEvento(User usuario)
         {
-            this.tipo = false;
+            this.tipo = true;
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
-            tDescription.AutoSize = false;
-            tDescription.Height = 80;
-            cbTipo.Location = new Point(914, 436);
-            pImage.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizarElementos();
             actualizar();
             actualizarFiltro();
+            cbTipo.SelectedItem = cbTipo.Items[1];
+            /*Desactivar SCROLL HORIZONTAL 
+            this.HorizontalScroll.Maximum = 0;
+            this.AutoScroll = false;
+            this.VerticalScroll.Visible = false;
+            this.AutoScroll = true;
+            */
         }
         #endregion
 
         #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void pASM_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
             this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -59,27 +60,49 @@ namespace Asuma
 
         public void actualizar()
         {
-            if (FTPClient.ftpOn)
+            if (usuario == null)
             {
-                try
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
-                }
-                catch (Exception)
-                {
-                    //FTPClient.ftpOn = false;
-                    pUser.Image = null;
-                }
+                linitSesion.Visible = true;
+                pUser.Visible = false;
+                lUsername.Visible = false;
+                lSignOut.Visible = false;
+                //pPerfil.Visible = false;
             }
             else
             {
-                pUser.Image = null;
-            }
+                if (FTPClient.ftpOn)
+                {
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception)
+                    {
+                        FTPClient.ftpOn = false;
+                        pUser.Image = null;
+                    }
+                }
+                else
+                {
+                    linitSesion.Visible = false;
+                    try
+                    {
+                        // FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        //pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception ex)
+                    {
+                        pUser.Image = null;
+                    }
+
+                }
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
                 lUsername.Visible = true;
                 lSignOut.Visible = true;
+                linitSesion.Visible = false;
+            }
         }
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -95,13 +118,12 @@ namespace Asuma
         private void CrearEvento_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+            this.CenterToScreen();
         }
 
         private void actualizarElementos()
         {
-            this.pUser.Location = new Point(72,16);
-            this.lUsername.Location = new Point(pUser.Location.X+120, pUser.Location.Y+40);
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -110,10 +132,10 @@ namespace Asuma
 
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
-
-            this.panel1.Location = new Point(this.bInicio.Location.X+100,this.menuFlowLayoutPanel.Location.Y+80);
-            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width,this.Height-this.menuFlowLayoutPanel.Location.Y-30);
-
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
+            this.panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, this.menuFlowLayoutPanel.Location.Y + 70);
         }
 
         private void actualizarFiltro()
@@ -276,11 +298,21 @@ namespace Asuma
 
         private void cbTipo_DropDownClosed(object sender, EventArgs e)
         {
-            if (cbTipo.SelectedItem == cbTipo.Items[0])
+            if (!usuario.Rol.RolName.Equals("ONG") && cbTipo.SelectedItem == cbTipo.Items[0])
             {
-                this.tipo = false;
-            } else {
-                this.tipo = true;
+                MessageBox.Show("Solo las ONG pueden crear actividades");
+                cbTipo.SelectedItem = cbTipo.Items[1];
+            }
+            else
+            {
+                if (cbTipo.SelectedItem == cbTipo.Items[0] && usuario.Rol.RolName.Equals("ONG"))
+                {
+                    this.tipo = false;
+                }
+                else
+                {
+                    this.tipo = true;
+                }
             }
         }
 
@@ -365,8 +397,16 @@ namespace Asuma
             actualizar();
             this.Visible = true;
         }
+
         #endregion
 
-        
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
     }
 }

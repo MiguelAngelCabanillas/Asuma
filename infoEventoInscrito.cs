@@ -32,12 +32,17 @@ namespace Asuma
 
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
-            if (e.EventCreator.Equals(u.Username)){
-                bEditEvent.Visible = true;
+            if (e.EventCreator.Equals(u.Username) || usuario.Rol.RolName.Equals("Admin"))
+            {
+                bTestConocimiento.Visible = false;
+                bRealizarEncSatisfaccion.Visible = false;
             }
             else
             {
                 bEditEvent.Visible = false;
+                bNotifyEmail.Visible = false;
+                bTestsRealizados.Visible = false;
+                bEncuestas.Visible = false;
             }
 
             actualizarElementos();
@@ -139,11 +144,15 @@ namespace Asuma
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             bEditEvent.Location = new Point(20,bExit.Location.Y);
+            
             bEditEvent.Size = bExit.Size;
         }
 
         private void actualizarImagenes()
         {
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
@@ -157,7 +166,7 @@ namespace Asuma
             int altura = this.Height;
             lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
             this.lTitulo.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y);
-            this.tDes.Location = new Point((int)((anchura * 4.5) / 10), tDes.Location.Y);
+            this.tDes.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y + tDes.Height / 3);
             this.lOrg.Location = new Point((anchura * 2) / 10, lOrg.Location.Y);
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
@@ -167,7 +176,13 @@ namespace Asuma
             this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
             lTipo.Location = new Point(tDes.Location.X + tDes.Width / 2, lOrganizadores.Location.Y);
             lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
-            tDes.Location = new Point(tDes.Location.X,pEvento.Location.Y);
+            this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
+            this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
+            this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);
+            this.linkArchivos.Location = new Point((anchura * 4) / 10, linkForum.Location.Y);
+            this.bTestsRealizados.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7) / 10);
+            this.bRealizarEncSatisfaccion.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7) / 10);
+            this.bEncuestas.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7.5) / 10);
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
@@ -245,12 +260,12 @@ namespace Asuma
         {
             try
             {
-               // BD bd = new BD();
-                //MySqlDataReader reader = bd.Query("SELECT eventID FROM forum WHERE eventID = " + evento.ID + ";");
-                //reader.Read();
+                if (!evento.EsCurso)
+                {
+                    bTestConocimiento.Visible = false;
+                    bTestsRealizados.Visible = false;
+                }
                 foro = new Forum(evento.ID);
-               // reader.Close();
-                //bd.closeBD();
             }
             catch (Exception ex)
             {
@@ -347,7 +362,7 @@ namespace Asuma
 
         private void lTipoDef_Paint(object sender, PaintEventArgs e)
         {
-            if (this.evento.Tipo == true)
+            if (this.evento.EsCurso)
             {
                 lTipoDef.Text = "Curso";
             }
@@ -355,6 +370,83 @@ namespace Asuma
             {
                 lTipoDef.Text = "Actividad";
             }
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void bTestConocimiento_Click(object sender, EventArgs e)
+        {
+            if (!Test.testCreado(evento))
+            {
+                //Si el gestor no ha creado el test muestro un mensaje
+                MessageBox.Show("No existe test de conocimiento para este curso");
+            }
+            else
+            {
+                //No permito que el usuario realize el test si ya lo ha aprobado
+                if (!Test.testAprobado(evento, usuario))
+                {
+                    new Test(evento, usuario);
+                }
+                else
+                {
+                    MessageBox.Show("El test de conocimiento esta aprobado");
+                }
+            }
+        }
+
+        private void bNotifyEmail_Click(object sender, EventArgs e)
+        {
+            Notificacion n = new Notificacion();
+            n.Owner = this;
+            n.ShowDialog();
+        }
+
+        private void bListParticipantes_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ListaParticipantes lP = new ListaParticipantes(usuario, evento)
+            {
+                Owner = this
+            };
+            lP.ShowDialog();
+        }
+
+        private void linkArchivos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Directorios pftp = new Directorios(evento, usuario);
+            pftp.ShowDialog();
+        }
+
+        private void bTestsRealizados_Click(object sender, EventArgs e)
+        {
+            Tests_Curso testRealizados = new Tests_Curso(evento);
+            testRealizados.ShowDialog();
+        }
+
+        private void bRealizarEncSatisfaccion_Click(object sender, EventArgs e)
+        {
+            if (Surveys_Evento.EncuestaRealizada(usuario.Id))
+            {
+                MessageBox.Show("La encuesta ya ha sido realizada");
+            }
+            else
+            {
+                Cuestionario_Satisfaccion cuestionario = new Cuestionario_Satisfaccion(evento, usuario);
+                cuestionario.ShowDialog();
+            }
+        }
+
+        private void bEncuestas_Click(object sender, EventArgs e)
+        {
+            Surveys_Evento encuestas = new Surveys_Evento(evento);
+            encuestas.ShowDialog();
         }
     }
 }

@@ -41,6 +41,8 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lCalendario = new System.Windows.Forms.Label();
+            this.linkGesUsers = new System.Windows.Forms.LinkLabel();
             this.mcEventos = new System.Windows.Forms.MonthCalendar();
             this.bCrearNoticia = new System.Windows.Forms.Button();
             this.pNoticias = new System.Windows.Forms.Panel();
@@ -63,7 +65,7 @@
             this.linitSesion.Location = new System.Drawing.Point(322, 64);
             this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linitSesion.Name = "linitSesion";
-            this.linitSesion.Size = new System.Drawing.Size(118, 18);
+            this.linitSesion.Size = new System.Drawing.Size(146, 25);
             this.linitSesion.TabIndex = 0;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
@@ -76,7 +78,7 @@
             this.lSignOut.Location = new System.Drawing.Point(184, 95);
             this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(102, 17);
+            this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 8;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -165,6 +167,7 @@
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // lUsername
             // 
@@ -173,7 +176,7 @@
             this.lUsername.Location = new System.Drawing.Point(183, 56);
             this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(122, 26);
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
             this.lUsername.TabIndex = 11;
             this.lUsername.Text = "userName";
             // 
@@ -192,6 +195,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lCalendario);
+            this.panel1.Controls.Add(this.linkGesUsers);
             this.panel1.Controls.Add(this.mcEventos);
             this.panel1.Controls.Add(this.bCrearNoticia);
             this.panel1.Controls.Add(this.pNoticias);
@@ -203,6 +208,28 @@
             this.panel1.Size = new System.Drawing.Size(1435, 890);
             this.panel1.TabIndex = 15;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            // 
+            // lCalendario
+            // 
+            this.lCalendario.AutoSize = true;
+            this.lCalendario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCalendario.Location = new System.Drawing.Point(884, 250);
+            this.lCalendario.Name = "lCalendario";
+            this.lCalendario.Size = new System.Drawing.Size(155, 31);
+            this.lCalendario.TabIndex = 16;
+            this.lCalendario.Text = "Calendario";
+            // 
+            // linkGesUsers
+            // 
+            this.linkGesUsers.AutoSize = true;
+            this.linkGesUsers.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkGesUsers.Location = new System.Drawing.Point(319, 95);
+            this.linkGesUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkGesUsers.Name = "linkGesUsers";
+            this.linkGesUsers.Size = new System.Drawing.Size(179, 20);
+            this.linkGesUsers.TabIndex = 15;
+            this.linkGesUsers.TabStop = true;
+            this.linkGesUsers.Text = "Gestión de usuarios";
             // 
             // mcEventos
             // 
@@ -240,7 +267,7 @@
             this.pPerfil.Controls.Add(this.lNoticias);
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(54, 126);
+            this.pPerfil.Location = new System.Drawing.Point(38, 115);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(237, 113);
             this.pPerfil.TabIndex = 11;
@@ -254,7 +281,7 @@
             this.lNoticias.Location = new System.Drawing.Point(-22, 73);
             this.lNoticias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lNoticias.Name = "lNoticias";
-            this.lNoticias.Size = new System.Drawing.Size(200, 34);
+            this.lNoticias.Size = new System.Drawing.Size(247, 42);
             this.lNoticias.TabIndex = 16;
             this.lNoticias.Text = "Últimas noticias";
             // 
@@ -298,7 +325,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Principal";
+            this.Text = "7";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.Resize += new System.EventHandler(this.Principal_Resize);
@@ -336,5 +363,7 @@
         private System.Windows.Forms.Button bCrearNoticia;
         private System.Windows.Forms.MonthCalendar mcEventos;
         private System.Windows.Forms.Label lNoticias;
+        private System.Windows.Forms.LinkLabel linkGesUsers;
+        private System.Windows.Forms.Label lCalendario;
     }
 }

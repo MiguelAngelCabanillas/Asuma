@@ -27,7 +27,7 @@ namespace Asuma
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizar();
-            if (!usuario.Rol.RolName.Equals("Docente"))
+            if (!usuario.Rol.RolName.Equals("Docente") && !usuario.Rol.RolName.Equals("ONG"))
             {
                 bCreateEvent.Visible = false;
             }
@@ -116,7 +116,7 @@ namespace Asuma
                     string eventDate = aux.Date;
                     string eventDescription = aux.EventDescription;
                     string imagen = aux.Image;
-                    bool tipo = aux.Tipo;
+                    bool tipo = aux.EsCurso;
                     int id = aux.ID;
 
                     Panel panel = new Panel();
@@ -254,8 +254,6 @@ namespace Asuma
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
-
             this.menuFlowLayoutPanel.Location = new Point(15, menuFlowLayoutPanel.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -280,6 +278,9 @@ namespace Asuma
 
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
 
             panelEventos.Width = menuFlowLayoutPanel.Width - 40;
             panelEventos.Height = (this.Height * 6) / 10;
@@ -300,6 +301,7 @@ namespace Asuma
         {
             lFiltro.Location = new Point(((this.Width * 9) / 10) - bCreateEvent.Width / 2, (int)((this.Height * 9) / 10));
             cbFiltro.Location = new Point((int)((this.Width * 9.35) / 10) - bCreateEvent.Width / 2, (int)((this.Height * 8.98) / 10));
+            cbFiltro.Items.Clear();
             cbFiltro.Items.Add("-");
             cbFiltro.SelectedItem = cbFiltro.Items[0];
             cbFiltro.Items.Add("Actividad");
@@ -386,6 +388,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             mostrarEventos(cbFiltro.SelectedIndex);
             actualizarElementos();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
         }
         #endregion
 

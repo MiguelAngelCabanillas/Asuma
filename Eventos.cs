@@ -88,7 +88,7 @@ namespace Asuma
                     string eventDate = listaEventos.ElementAt(i).Date;
                     string eventDescription = listaEventos.ElementAt(i).EventDescription;
                     string imagen = listaEventos.ElementAt(i).Image;
-                    bool tipo = listaEventos.ElementAt(i).Tipo;
+                    bool tipo = listaEventos.ElementAt(i).EsCurso;
                     int id = listaEventos.ElementAt(i).ID;
 
                     Panel panel = new Panel();
@@ -268,11 +268,11 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
-            this.Visible = false;
+            //this.Visible = false;
             init.ShowDialog();
             this.usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
+            //this.Visible = true;
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -283,6 +283,7 @@ namespace Asuma
         
         private void actualizarBotones()
         {
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -291,8 +292,9 @@ namespace Asuma
         }
         private void actualizarImagenes()
         {
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
-            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
 
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
@@ -308,6 +310,7 @@ namespace Asuma
         {
             lFiltro.Location = new Point(((this.Width * 8) / 10) - bMyEvents.Width / 2, bMyEvents.Location.Y+20);
             cbFiltro.Location = new Point(lFiltro.Location.X+100,lFiltro.Location.Y);
+            cbFiltro.Items.Clear();
             cbFiltro.Items.Add("-");
             cbFiltro.SelectedItem = cbFiltro.Items[0];
             cbFiltro.Items.Add("Actividad");
@@ -371,6 +374,7 @@ namespace Asuma
                 this.Visible = false;
                 infoEvento.ShowDialog();
                 usuario = infoEvento.Usuario;
+                mostrarEventos(0);
                 actualizar();
                 this.Visible = true;
 
@@ -381,6 +385,20 @@ namespace Asuma
                 infoEvento.Show();
                 this.Close();
                 */
+            }
+            else if (usuario.Rol.RolName.Equals("Admin"))
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                infoEvento.Owner = this;
+                this.Visible = false;
+                infoEvento.ShowDialog();
+                if (!isClosed)
+                {
+                    mostrarEventos(0);
+                    actualizar();
+                    this.Visible = true;
+                }
             }
             else
             {
@@ -403,6 +421,7 @@ namespace Asuma
                             infoEvento.ShowDialog();
                             if (!isClosed)
                             {
+                                mostrarEventos(0);
                                 actualizar();
                                 this.Visible = true;
                             }
@@ -438,6 +457,7 @@ namespace Asuma
                         infoEvento.ShowDialog();
                         if (!isClosed)
                         {
+                            mostrarEventos(0);
                             actualizar();
                             this.Visible = true;
                         }
@@ -464,6 +484,7 @@ namespace Asuma
                     infoEvento.ShowDialog();
                     if (!isClosed)
                     {
+                        mostrarEventos(0);
                         this.Visible = true;
                     }
                 }
@@ -585,6 +606,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             mostrarEventos(cbFiltro.SelectedIndex);
             actualizarPanelEventos();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close(); 
         }
     }
         #endregion

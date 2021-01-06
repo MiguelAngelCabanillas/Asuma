@@ -13,11 +13,12 @@ namespace Asuma
     public partial class Test_Conocimiento_Edicion : Form
     {
         int id;
+        Event evento;
         SortedDictionary<int, String> nombrePreguntas;
         SortedDictionary<int, String[]> listasRespuestas;
         SortedDictionary<int, Button> botonesDinamicos;
         SortedDictionary<int, List<String>> RespuestasCorrectas;
-        public Test_Conocimiento_Edicion()
+        public Test_Conocimiento_Edicion(Event e)
         {
             InitializeComponent();
             id = 0;
@@ -29,6 +30,8 @@ namespace Asuma
             listasRespuestas = new SortedDictionary<int, string[]>();
             //Id -> Las respuestas correctas a la pregunta (por si es seleccion multiple)
             RespuestasCorrectas = new SortedDictionary<int, List<string>>();
+            this.evento = e;
+            lNameCurso.Text = evento.EventName;
         }
 
         private void bAñadir_Respuesta_Click(object sender, EventArgs e)
@@ -77,9 +80,9 @@ namespace Asuma
                     P_id.Click += new EventHandler(P_id_Click);     
                     flowLayoutPanel1.Controls.Add(P_id);
 
-                    resetPregunta();
-
                     id++;
+
+                    resetPregunta();
                 }
             }
             else
@@ -235,9 +238,17 @@ namespace Asuma
 
         private void bFinalizar_Test_Click(object sender, EventArgs e)
         {
-            SortedDictionary<int, String[]> Respuestas = RespuestasPurgadas();
-            Test_Conocimiento aux = new Test_Conocimiento(nombrePreguntas, Respuestas, RespuestasCorrectas, checkBoxSelecM.Checked);
-            aux.Show();
+            //Si no tiene preguntas no dejo crear el test
+            if (nombrePreguntas.Count == 0)
+            {
+                MessageBox.Show("No se puede crear el test sin preguntas");
+            }
+            else
+            {
+                SortedDictionary<int, String[]> Respuestas = RespuestasPurgadas();
+                Test aux = new Test(evento.ID, nombrePreguntas, Respuestas, RespuestasCorrectas);
+                this.Close();
+            }
         }
 
         private SortedDictionary<int, String[]> RespuestasPurgadas()
@@ -269,6 +280,16 @@ namespace Asuma
                 listasRespuestasPurgadas.Add(id_P, respuestasPurgadas);
             }
             return listasRespuestasPurgadas;
+        }
+
+        private void bLimpiar_Click(object sender, EventArgs e)
+        {
+            resetPregunta();
+        }
+
+        private void bSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

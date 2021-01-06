@@ -73,6 +73,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.cs" />
+    <Compile Include="CambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambiarPassword.designer.cs">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Commons.cs" />
     <Compile Include="Contacto.cs">
       <SubType>Form</SubType>
@@ -95,8 +101,14 @@
     <Compile Include="CrearNoticia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearNoticia.Designer.cs">
+    <Compile Include="CrearNoticia.designer.cs">
       <DependentUpon>CrearNoticia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cuestionario_Satisfaccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cuestionario_Satisfaccion.Designer.cs">
+      <DependentUpon>Cuestionario_Satisfaccion.cs</DependentUpon>
     </Compile>
     <Compile Include="EditarEvento.cs">
       <SubType>Form</SubType>
@@ -169,6 +181,12 @@
     <Compile Include="ListaUsuarios.Designer.cs">
       <DependentUpon>ListaUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaUsuariosAplicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaUsuariosAplicacion.Designer.cs">
+      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensajeria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,7 +252,20 @@
       <DependentUpon>Registro.cs</DependentUpon>
     </Compile>
     <Compile Include="Rol.cs" />
+    <Compile Include="Surveys_Evento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Surveys_Evento.Designer.cs">
+      <DependentUpon>Surveys_Evento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tema.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Tests_Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tests_Curso.Designer.cs">
+      <DependentUpon>Tests_Curso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test_Conocimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +279,9 @@
       <DependentUpon>Test_Conocimiento_Edicion.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="CambiarPassword.resx">
+      <DependentUpon>CambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Contacto.resx">
       <DependentUpon>Contacto.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearNoticia.resx">
       <DependentUpon>CrearNoticia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cuestionario_Satisfaccion.resx">
+      <DependentUpon>Cuestionario_Satisfaccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditarEvento.resx">
       <DependentUpon>EditarEvento.cs</DependentUpon>
@@ -292,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ListaUsuarios.resx">
       <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaUsuariosAplicacion.resx">
+      <DependentUpon>ListaUsuariosAplicacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajeria.resx">
       <DependentUpon>Mensajeria.cs</DependentUpon>
@@ -331,6 +371,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registro.resx">
       <DependentUpon>Registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Surveys_Evento.resx">
+      <DependentUpon>Surveys_Evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tests_Curso.resx">
+      <DependentUpon>Tests_Curso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test_Conocimiento.resx">
       <DependentUpon>Test_Conocimiento.cs</DependentUpon>
