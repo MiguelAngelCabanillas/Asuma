@@ -39,27 +39,15 @@ namespace Asuma
         {
 
             panelParticipantes.Controls.Clear();
-            List<User> listaParticipantes = new List<User>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT userName FROM inscription WHERE idEvent = " + evento.ID + ";");
+            MySqlDataReader reader = bd.Query("SELECT username, id FROM user WHERE username IN (SELECT userName FROM inscription WHERE idEvent = " + evento.ID + ");");
+            int separacionV = 50, separacionH = 50;
+            int i = 0;
             while (reader.Read())
             {
-                string userName = (string)reader[0];
-                User u = new User(userName);
-                listaParticipantes.Add(u);
-            }
-            reader.Close();
-            bd.closeBD();
-
-            int nParticipantes = listaParticipantes.Count;
-            int separacionV = 50, separacionH = 50;
-
-            for (int i= 0; i < nParticipantes; i++)
-            {
-                string name = listaParticipantes.ElementAt(i).Username;
-                //string imagen = listaParticipantes.ElementAt(i).;
+                string name = (string)reader[0];
                 string imagen = "";
-                int id = listaParticipantes.ElementAt(i).Id;
+                int id = (int)reader[1];
 
                 Panel panel = new Panel();
                 panel.Name = "pUsuario" + id;
@@ -73,9 +61,7 @@ namespace Asuma
                 lUsuario.Size = new Size(120, 30);
                 lUsuario.AutoSize = true;
                 lUsuario.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                lUsuario.Location = new Point(panel.Width/2 - lUsuario.Text.Length*5, 130);
-                //lUsuario.TabIndex = 31;
-                //lUsuario.TabStop = true;
+                lUsuario.Location = new Point(panel.Width / 2 - lUsuario.Text.Length * 5, 130);
                 lUsuario.Visible = true;
 
                 //------------------
@@ -83,46 +69,27 @@ namespace Asuma
 
                 PictureBox pImagen = new PictureBox();
                 pImagen.BackColor = SystemColors.ActiveCaption;
-                pImagen.Location = new Point(panel.Width/2-pImagen.Width/2, 10);
+                pImagen.Location = new Point(panel.Width / 2 - pImagen.Width / 2, 10);
                 pImagen.Name = "pImagen";
 
-                string path = Path.GetDirectoryName(Application.StartupPath);
-                string pathBueno = path.Substring(0, path.Length - 3);
-                string imagePath = pathBueno + "images\\" + imagen;
-
-                /*Image image;
+                Image image;
                 if (FTPClient.ftpOn)
                 {
                     try
                     {
-                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaParticipantes.ElementAt(i).Id + "/", "Prueba", "");
-                        byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
-                        using (var ms = new MemoryStream(byteArrayIn))
-                        {
-                            image = Image.FromStream(ms);
-                        }
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + id + "/", "Prueba", "");
+                        pImagen.Image = ftp.DownloadPngAsImage("image.png", pImagen.Size);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        image = null;
+                        //FTPClient.ftpOn = false;
+                        pImagen.Image = null;
                     }
-
-
                 }
-                else if (FTPClient.ftpBackupOn)
+                else
                 {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                    try
-                    {
-                        ftp.MakeFtpDirectory("eventos/" + listaEventos.ElementAt(i).ID);
-                    }
-                    catch (Exception ex) { }
-                    ftp.UploadFile(imagePath, "eventos/" + listaEventos.ElementAt(i).ID + "/image.png");
-                    image = Image.FromFile(imagePath);
+                    pImagen.Image = null;
                 }
-                else { image = Image.FromFile(imagePath); }
-
-                pImagen.Image = image;*/
                 pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                 pImagen.Size = new Size(100, 100);
                 pImagen.TabIndex = 0;
@@ -130,12 +97,12 @@ namespace Asuma
                 pImagen.Visible = true;
                 pImagen.BorderStyle = BorderStyle.FixedSingle;
 
-                if ((usuario.Username.Equals(nombreGestor) || usuario.Rol.Admin == 1)&& !name.Equals(nombreGestor))
+                if ((usuario.Username.Equals(nombreGestor) || usuario.Rol.Admin == 1) && !name.Equals(nombreGestor))
                 {
                     Button bCancelarSus = new Button();
                     bCancelarSus.Text = "Cancelar suscripción";
-                    bCancelarSus.Size = new Size(120,30);
-                    bCancelarSus.Location = new Point(panel.Width/2 - bCancelarSus.Width/2,170);
+                    bCancelarSus.Size = new Size(120, 30);
+                    bCancelarSus.Location = new Point(panel.Width / 2 - bCancelarSus.Width / 2, 170);
                     bCancelarSus.Name = name;
                     bCancelarSus.Visible = true;
                     bCancelarSus.Click += new EventHandler(bCancelarSus_click);
@@ -144,48 +111,57 @@ namespace Asuma
 
                 //------------------------------------------
 
-                
+
                 panel.Visible = true;
                 panel.BorderStyle = BorderStyle.FixedSingle;
 
 
                 panel.Controls.Add(lUsuario);
                 panel.Controls.Add(pImagen);
-                
+
                 panelParticipantes.Controls.Add(panel);
                 separacionH += 230;
-                if(i !=0 && (i+1)%6 == 0)
+                if (i != 0 && (i + 1) % 6 == 0)
                 {
                     separacionH = 50;
                     separacionV += 300;
                 }
 
-                //Separación inferior dentro del panel de noticias
-                if (i == nParticipantes - 1)
-                {
-                    PictureBox pSep = new PictureBox();
-                    pSep.Location = new Point(50, separacionV+panel.Height);
-                    pSep.Size = new Size(panel.Width, 50);
-                    panelParticipantes.Controls.Add(pSep);
-                }
+                i++;
             }
+            reader.Close();
+            bd.closeBD();
+
+            //Separación inferior dentro del panel de noticias
+            PictureBox pSep = new PictureBox();
+            pSep.Location = new Point(50, separacionV + 250);
+            pSep.Size = new Size(200, 50);
+            panelParticipantes.Controls.Add(pSep);
+
             panelParticipantes.BorderStyle = BorderStyle.FixedSingle;
-            //panelParticipantes.Size = new Size(1265, 600);
         }
         #endregion
 
         #region GUIs
         public void actualizar()
         {
-            try
+            if (FTPClient.ftpOn)
             {
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                }
+                catch (Exception ex)
+                {
+                    pUser.Image = null;
+                }
             }
-            catch (Exception ex)
+            else
             {
                 pUser.Image = null;
             }
+            
             pUser.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             lUsername.Visible = true;
@@ -205,7 +181,7 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bExit.Location = new Point(this.Width-200,this.Height-100);
+            this.bExit.Location = new Point(this.pASM.Location.X+50,this.Height-100);
         }
         private void actualizarImagenes()
         {
@@ -225,7 +201,6 @@ namespace Asuma
 
         private void actualizarParticipantes()
         {
-            panelParticipantes.Controls.Clear();
             mostrarParticipantes();
         }
 

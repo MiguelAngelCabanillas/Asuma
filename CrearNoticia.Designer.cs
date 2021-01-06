@@ -29,7 +29,6 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearNoticia));
             this.tImage = new System.Windows.Forms.TextBox();
             this.bMensajes = new System.Windows.Forms.Button();
             this.tTitle = new System.Windows.Forms.TextBox();
@@ -354,6 +353,7 @@ namespace Asuma
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // flowLayoutPanel1
             // 
