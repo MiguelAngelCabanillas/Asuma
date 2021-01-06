@@ -150,6 +150,9 @@ namespace Asuma
 
         private void actualizarImagenes()
         {
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);

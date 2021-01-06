@@ -101,7 +101,7 @@
     <Compile Include="CrearNoticia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearNoticia.Designer.cs">
+    <Compile Include="CrearNoticia.designer.cs">
       <DependentUpon>CrearNoticia.cs</DependentUpon>
     </Compile>
     <Compile Include="Cuestionario_Satisfaccion.cs">
@@ -290,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearEvento.resx">
       <DependentUpon>CrearEvento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearNoticia.resx">
+      <DependentUpon>CrearNoticia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cuestionario_Satisfaccion.resx">
       <DependentUpon>Cuestionario_Satisfaccion.cs</DependentUpon>

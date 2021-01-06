@@ -16,7 +16,7 @@ namespace Asuma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            User s = new User("docente2", "d");
+            User s = new User("docente3", "d");
             User admin = new User("admin", "admin");
             User fran = new User("franB");
             //Application.Run(new Contacto(s));
@@ -25,10 +25,12 @@ namespace Asuma
             //Application.Run(new Surveys_Evento(new Event(62)));
             //Application.Run(new Test_Conocimiento_Edicion(new Event(115)));
             //Application.Run(new Contacto(null));
-            //Application.Run(new Principal(admin));
             //Application.Run(new PruebaWord());
-            Application.Run(new InfoEventoInscrito(new Event(62), s));
-            //Application.Run(new Principal(new User("franB")));
+            //Application.Run(new InfoEventoInscrito(new Event(62), s));
+            Application.Run(new Principal(admin));
+            //Application.Run(new CrearEvento(s));
+            //Application.Run(new EditarEvento(new Event(62), s));
+            //Application.Run(new CrearNoticia(s));
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Asuma
             InitializeComponent();
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizar();
-            if (!usuario.Rol.RolName.Equals("Docente"))
+            if (!usuario.Rol.RolName.Equals("Docente") && !usuario.Rol.RolName.Equals("ONG"))
             {
                 bCreateEvent.Visible = false;
             }
@@ -250,8 +250,6 @@ namespace Asuma
 
         private void menuFlowLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
-
             this.menuFlowLayoutPanel.Location = new Point(15, menuFlowLayoutPanel.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -276,6 +274,9 @@ namespace Asuma
 
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
 
             panelEventos.Width = menuFlowLayoutPanel.Width - 40;
             panelEventos.Height = (this.Height * 6) / 10;

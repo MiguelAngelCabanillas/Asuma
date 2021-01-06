@@ -45,6 +45,11 @@ namespace Asuma
             string pathBueno = path.Substring(0, path.Length - 3);
             string imagePath = pathBueno + "images\\" + evento.Image;
             Image image;
+
+
+            
+
+
             if (FTPClient.ftpOn)
             {
                 try
@@ -70,19 +75,23 @@ namespace Asuma
 
             actualizarElementos();
             actualizar();
+            /*
+            this.HorizontalScroll.Maximum = 0;
+            this.AutoScroll = false;
+            this.VerticalScroll.Visible = false;
+            this.AutoScroll = true;
+            */
         }
         #endregion
 
         #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void pASM_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
             this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -129,25 +138,17 @@ namespace Asuma
         private void EditarEvento_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+            this.CenterToScreen();
         }
 
         private void actualizarElementos()
         {
-            /*tTitle.Text = evento.EventName;
-            tDescription.Text = evento.EventDescription;
-            tImage.Text = evento.Image;
-            string path = Path.GetDirectoryName(Application.StartupPath);
-            string pathBueno = path.Substring(0, path.Length - 3);
-            string imagePath = pathBueno + "images\\" + evento.Image;
-            Image image = Image.FromFile(imagePath);
-            pImage.Image = image;
-            tOrganizer.Text = evento.Organizer;
-            DateTime date = DateTime.Parse(evento.Date);
-            tDatePicker.Value = date;*/
-            this.pUser.Location = new Point(72, 16);
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
-            this.lUsername.Location = new Point(pUser.Location.X + 120, pUser.Location.Y + 40);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
+           
+
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -155,10 +156,7 @@ namespace Asuma
 
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
-
-            this.panel1.Location = new Point(this.bInicio.Location.X + 100, this.menuFlowLayoutPanel.Location.Y + 80);
-            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width, this.Height - this.menuFlowLayoutPanel.Location.Y - 30);
-
+            this.panel1.Location = new Point(((this.Width / 2) - this.panel1.Width / 2)-40, this.menuFlowLayoutPanel.Location.Y + 70);
         }
         #endregion
 
@@ -173,6 +171,21 @@ namespace Asuma
             this.Close();
             */
             this.Close();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void bCrearTest_Click(object sender, EventArgs e)
+        {
+            //if tiene test entonces update
+            Test_Conocimiento_Edicion TCEdit = new Test_Conocimiento_Edicion(this.evento);
+            TCEdit.ShowDialog();
         }
 
         private void bConfirmEvent_Click(object sender, EventArgs e)
@@ -361,8 +374,6 @@ namespace Asuma
             {
                 pUser.Visible = false;
             }
-            /* pUser.Visible = false;
-             lUsername.Visible = false;*/
         }
 
         private void bPerfil_MouseEnter(object sender, EventArgs e)
@@ -411,19 +422,6 @@ namespace Asuma
         }
         #endregion
 
-        private void bContacto_Click(object sender, EventArgs e)
-        {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close();
-        }
 
-        private void bCrearTest_Click(object sender, EventArgs e)
-        {
-            //if tiene test entonces update
-            Test_Conocimiento_Edicion TCEdit = new Test_Conocimiento_Edicion(this.evento);
-            TCEdit.ShowDialog();
-        }
     }
 }

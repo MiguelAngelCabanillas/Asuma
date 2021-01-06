@@ -23,7 +23,7 @@ namespace Asuma
         #region Creacion del frame
         public CrearEvento(User usuario)
         {
-            this.tipo = false;
+            this.tipo = true;
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
             InitializeComponent();
@@ -32,19 +32,24 @@ namespace Asuma
             actualizarElementos();
             actualizar();
             actualizarFiltro();
+            cbTipo.SelectedItem = cbTipo.Items[1];
+            /*Desactivar SCROLL HORIZONTAL 
+            this.HorizontalScroll.Maximum = 0;
+            this.AutoScroll = false;
+            this.VerticalScroll.Visible = false;
+            this.AutoScroll = true;
+            */
         }
         #endregion
 
         #region GUIs
         private void pASUMA_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASUMA.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void pASM_Paint(object sender, PaintEventArgs e)
         {
-            //this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
             this.pASM.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
@@ -90,11 +95,13 @@ namespace Asuma
                     {
                         pUser.Image = null;
                     }
-                    pUser.Visible = true;
-                    lUsername.Text = "Bienvenido " + usuario.Username;
-                    lUsername.Visible = true;
-                    lSignOut.Visible = true;
+
                 }
+                pUser.Visible = true;
+                lUsername.Text = "Bienvenido " + usuario.Username;
+                lUsername.Visible = true;
+                lSignOut.Visible = true;
+                linitSesion.Visible = false;
             }
         }
 
@@ -125,8 +132,10 @@ namespace Asuma
 
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
-
-            this.panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, (int)(this.Height * 5.5 / 10 - panel1.Height / 2));     
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
+            this.panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, this.menuFlowLayoutPanel.Location.Y + 70);
         }
 
         private void actualizarFiltro()
@@ -289,11 +298,21 @@ namespace Asuma
 
         private void cbTipo_DropDownClosed(object sender, EventArgs e)
         {
-            if (cbTipo.SelectedItem == cbTipo.Items[0])
+            if (!usuario.Rol.RolName.Equals("ONG") && cbTipo.SelectedItem == cbTipo.Items[0])
             {
-                this.tipo = false;
-            } else {
-                this.tipo = true;
+                MessageBox.Show("Solo las ONG pueden crear actividades");
+                cbTipo.SelectedItem = cbTipo.Items[1];
+            }
+            else
+            {
+                if (cbTipo.SelectedItem == cbTipo.Items[0] && usuario.Rol.RolName.Equals("ONG"))
+                {
+                    this.tipo = false;
+                }
+                else
+                {
+                    this.tipo = true;
+                }
             }
         }
 
@@ -388,5 +407,6 @@ namespace Asuma
             contacto.ShowDialog();
             this.Close();
         }
+
     }
 }

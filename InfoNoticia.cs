@@ -126,6 +126,7 @@ namespace Asuma
 
         private void actualizarBotones()
         {
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 40;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -146,8 +147,9 @@ namespace Asuma
         {
             int anchura = this.Width;
             int altura = this.Height;
-            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
             this.lTitulo.Location = new Point((int)((anchura * 4.5) / 10), lTitulo.Location.Y);
             this.tDes.Location = new Point((int)((anchura * 4.5) / 10), tDes.Location.Y);
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
