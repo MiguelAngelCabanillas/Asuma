@@ -316,6 +316,7 @@ namespace Asuma
             lCalendario.Location = new Point(pASM.Location.X + 32, pNoticias.Location.Y - 30);
             this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
             this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.linkGesUsers.Location = new Point(lUsername.Location.X + lSignOut.Width + 10, lSignOut.Location.Y);
             this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
         }
         
