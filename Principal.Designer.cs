@@ -41,11 +41,21 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.pUser = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lCalendario = new System.Windows.Forms.Label();
+            this.linkGesUsers = new System.Windows.Forms.LinkLabel();
+            this.mcEventos = new System.Windows.Forms.MonthCalendar();
+            this.bCrearNoticia = new System.Windows.Forms.Button();
+            this.pNoticias = new System.Windows.Forms.Panel();
+            this.pPerfil = new System.Windows.Forms.Panel();
+            this.lNoticias = new System.Windows.Forms.Label();
+            this.bMensajes = new System.Windows.Forms.Button();
+            this.bPerfil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pPerfil.SuspendLayout();
             this.SuspendLayout();
             // 
             // linitSesion
@@ -64,7 +74,7 @@
             // 
             this.lSignOut.AutoSize = true;
             this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(246, 117);
+            this.lSignOut.Location = new System.Drawing.Point(245, 117);
             this.lSignOut.Name = "lSignOut";
             this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 8;
@@ -119,7 +129,7 @@
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
-            this.bInicio.Text = "Inicio";
+            this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = false;
             // 
             // bEventos
@@ -144,6 +154,7 @@
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -155,6 +166,7 @@
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // lUsername
             // 
@@ -168,6 +180,7 @@
             // 
             // pUser
             // 
+            this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -176,16 +189,128 @@
             this.pUser.TabIndex = 10;
             this.pUser.TabStop = false;
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
+            this.pUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pUser_MouseClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pUser);
+            this.panel1.Controls.Add(this.lCalendario);
+            this.panel1.Controls.Add(this.linkGesUsers);
+            this.panel1.Controls.Add(this.mcEventos);
+            this.panel1.Controls.Add(this.bCrearNoticia);
+            this.panel1.Controls.Add(this.pNoticias);
+            this.panel1.Controls.Add(this.pPerfil);
             this.panel1.Controls.Add(this.lSignOut);
+            this.panel1.Controls.Add(this.pUser);
             this.panel1.Location = new System.Drawing.Point(4, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1913, 823);
+            this.panel1.Size = new System.Drawing.Size(1913, 1095);
             this.panel1.TabIndex = 15;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
+            // 
+            // lCalendario
+            // 
+            this.lCalendario.AutoSize = true;
+            this.lCalendario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lCalendario.Location = new System.Drawing.Point(1179, 308);
+            this.lCalendario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lCalendario.Name = "lCalendario";
+            this.lCalendario.Size = new System.Drawing.Size(155, 31);
+            this.lCalendario.TabIndex = 16;
+            this.lCalendario.Text = "Calendario";
+            // 
+            // linkGesUsers
+            // 
+            this.linkGesUsers.AutoSize = true;
+            this.linkGesUsers.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkGesUsers.Location = new System.Drawing.Point(425, 117);
+            this.linkGesUsers.Name = "linkGesUsers";
+            this.linkGesUsers.Size = new System.Drawing.Size(179, 20);
+            this.linkGesUsers.TabIndex = 15;
+            this.linkGesUsers.TabStop = true;
+            this.linkGesUsers.Text = "Gestión de usuarios";
+            this.linkGesUsers.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkGesUsers_LinkClicked);
+            // 
+            // mcEventos
+            // 
+            this.mcEventos.Location = new System.Drawing.Point(1933, 492);
+            this.mcEventos.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
+            this.mcEventos.Name = "mcEventos";
+            this.mcEventos.TabIndex = 14;
+            this.mcEventos.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mcEventos_DateSelected);
+            // 
+            // bCrearNoticia
+            // 
+            this.bCrearNoticia.Location = new System.Drawing.Point(901, 466);
+            this.bCrearNoticia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bCrearNoticia.Name = "bCrearNoticia";
+            this.bCrearNoticia.Size = new System.Drawing.Size(120, 60);
+            this.bCrearNoticia.TabIndex = 13;
+            this.bCrearNoticia.Text = "Crear Noticia";
+            this.bCrearNoticia.UseVisualStyleBackColor = true;
+            this.bCrearNoticia.Click += new System.EventHandler(this.bCrearNoticia_Click);
+            // 
+            // pNoticias
+            // 
+            this.pNoticias.AutoScroll = true;
+            this.pNoticias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pNoticias.Location = new System.Drawing.Point(25, 287);
+            this.pNoticias.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pNoticias.Name = "pNoticias";
+            this.pNoticias.Size = new System.Drawing.Size(799, 519);
+            this.pNoticias.TabIndex = 12;
+            this.pNoticias.Resize += new System.EventHandler(this.pNoticias_Resize);
+            // 
+            // pPerfil
+            // 
+            this.pPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pPerfil.Controls.Add(this.lNoticias);
+            this.pPerfil.Controls.Add(this.bMensajes);
+            this.pPerfil.Controls.Add(this.bPerfil);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.pPerfil.Name = "pPerfil";
+            this.pPerfil.Size = new System.Drawing.Size(315, 139);
+            this.pPerfil.TabIndex = 11;
+            this.pPerfil.Visible = false;
+            this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
+            // 
+            // lNoticias
+            // 
+            this.lNoticias.AutoSize = true;
+            this.lNoticias.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNoticias.Location = new System.Drawing.Point(-29, 90);
+            this.lNoticias.Name = "lNoticias";
+            this.lNoticias.Size = new System.Drawing.Size(247, 42);
+            this.lNoticias.TabIndex = 16;
+            this.lNoticias.Text = "Últimas noticias";
+            // 
+            // bMensajes
+            // 
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
+            this.bMensajes.Name = "bMensajes";
+            this.bMensajes.Size = new System.Drawing.Size(245, 28);
+            this.bMensajes.TabIndex = 1;
+            this.bMensajes.Text = "Mensajes Privados";
+            this.bMensajes.UseVisualStyleBackColor = true;
+            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
+            this.bMensajes.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bMensajes.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
+            // 
+            // bPerfil
+            // 
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.bPerfil.Name = "bPerfil";
+            this.bPerfil.Size = new System.Drawing.Size(245, 28);
+            this.bPerfil.TabIndex = 0;
+            this.bPerfil.Text = "Mi perfil";
+            this.bPerfil.UseVisualStyleBackColor = true;
+            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
+            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
             // Principal
             // 
@@ -203,7 +328,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Principal";
+            this.Text = "Inicio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Resize += new System.EventHandler(this.Principal_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
@@ -212,6 +337,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pPerfil.ResumeLayout(false);
+            this.pPerfil.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +358,14 @@
         private System.Windows.Forms.Label lUsername;
         private System.Windows.Forms.PictureBox pUser;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pPerfil;
+        private System.Windows.Forms.Button bMensajes;
+        private System.Windows.Forms.Button bPerfil;
+        private System.Windows.Forms.Panel pNoticias;
+        private System.Windows.Forms.Button bCrearNoticia;
+        private System.Windows.Forms.MonthCalendar mcEventos;
+        private System.Windows.Forms.Label lNoticias;
+        private System.Windows.Forms.LinkLabel linkGesUsers;
+        private System.Windows.Forms.Label lCalendario;
     }
 }

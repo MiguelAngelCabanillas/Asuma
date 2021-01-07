@@ -17,14 +17,22 @@ namespace Asuma
     public partial class Eventos : Form
     {
         private User usuario;
+        private bool mouseInPanel = false;
+        private Timer hideTimer;
         private bool isClosed = false;
+
+        #region Creacion del frame
         public Eventos(User usuario)
         {
+            
+            hideTimer = new Timer { Interval = 100 };
+            hideTimer.Tick += hidePanel;
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
+            actualizarElementos();
             panelEventos.SendToBack();
-            mostrarEventos();
+            mostrarEventos(0);
         }
         private void bMyEvents_Click(object sender, EventArgs e)
         {
@@ -36,11 +44,190 @@ namespace Asuma
             {
                 Cursor.Current = Cursors.WaitCursor;
                 MisEventos misEventos = new MisEventos(usuario);
-                misEventos.Show();
+                this.Visible = false;
+                misEventos.ShowDialog();
                 this.Close();
             }
         }
 
+        private void actualizarElementos()
+        {
+            actualizarBotones();
+            actualizarImagenes();
+            actualizarBotonMisEventos();
+            actualizarPanelEventos();
+            actualizarFiltro();
+        }
+
+        public void mostrarEventos(int filtro)
+        {
+            
+            panelEventos.Controls.Clear();
+            List<Event> listaEventos = null;
+            switch (filtro)
+            {
+                case 0:
+                    listaEventos = Event.listaEventos();
+                    break;
+                case 1:
+                    listaEventos = Event.listaActividades();
+                    break;
+                case 2:
+                    listaEventos = Event.listaCursos();
+                    break;
+            }
+
+            if (listaEventos != null)
+            {
+                int nEventos = listaEventos.Count;
+                int separacion = 50;
+
+                for (int i = 0; i < nEventos; i++)
+                {
+                    string eventName = listaEventos.ElementAt(i).EventName;
+                    string eventDate = listaEventos.ElementAt(i).Date;
+                    string eventDescription = listaEventos.ElementAt(i).EventDescription;
+                    string imagen = listaEventos.ElementAt(i).Image;
+                    bool tipo = listaEventos.ElementAt(i).EsCurso;
+                    int id = listaEventos.ElementAt(i).ID;
+
+                    Panel panel = new Panel();
+                    panel.Name = "pEvento" + id;
+
+                    //------------------
+
+                    LinkLabel ltitulo = new LinkLabel();
+                    ltitulo.Text = eventName;
+                    ltitulo.Size = new Size(292, 38);
+                    ltitulo.AutoSize = true;
+                    ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    ltitulo.LinkColor = Color.Black;
+                    ltitulo.Location = new Point(230, 18);
+                    ltitulo.Name = id.ToString();
+                    ltitulo.TabIndex = 31;
+                    ltitulo.TabStop = true;
+                    ltitulo.Visible = true;
+                    ltitulo.Click += new EventHandler(ltitulo_click);
+
+                    //------------------
+
+
+                    PictureBox pImagen = new PictureBox();
+                    pImagen.BackColor = SystemColors.ActiveCaption;
+                    pImagen.Location = new Point(59, 28);
+                    pImagen.Name = "pImagen";
+
+                    string path = Path.GetDirectoryName(Application.StartupPath);
+                    string pathBueno = path.Substring(0, path.Length - 3);
+                    string imagePath = pathBueno + "images\\" + imagen;
+
+                    Image image;
+                    if (FTPClient.ftpOn)
+                    {
+                        try
+                        {
+                            FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).ID + "/", "Prueba", "");
+                            byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
+                            using (var ms = new MemoryStream(byteArrayIn))
+                            {
+                                image = Image.FromStream(ms);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            image = null;
+                        }
+
+
+                    }
+                    else if (FTPClient.ftpBackupOn)
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                        try
+                        {
+                            ftp.MakeFtpDirectory("eventos/" + listaEventos.ElementAt(i).ID);
+                        }
+                        catch (Exception ex) { }
+                        ftp.UploadFile(imagePath, "eventos/" + listaEventos.ElementAt(i).ID + "/image.png");
+                        image = Image.FromFile(imagePath);
+                    }
+                    else { image = Image.FromFile(imagePath); }
+
+                    pImagen.Image = image;
+                    pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pImagen.Size = new Size(115, 127);
+                    pImagen.TabIndex = 0;
+                    pImagen.TabStop = false;
+                    pImagen.Visible = true;
+                    pImagen.BorderStyle = BorderStyle.FixedSingle;
+
+
+                    TextBox tFecha = new TextBox();
+                    tFecha.Text = "Fecha del evento: " + eventDate;
+                    tFecha.BorderStyle = BorderStyle.None;
+                    tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tFecha.Location = new Point(900, 145);
+                    tFecha.Multiline = true;
+                    tFecha.Name = "tFecha";
+                    tFecha.ReadOnly = true;
+                    tFecha.Size = new Size(216, 24);
+                    tFecha.TabIndex = 32;
+                    tFecha.Visible = true;
+
+
+
+                    panel.Size = new Size(1142, 186); //1142 186
+
+                    panel.Location = new Point(50, separacion);
+                    panel.Visible = true;
+                    panel.BorderStyle = BorderStyle.FixedSingle;
+
+
+                    TextBox descripcion = new TextBox();
+                    descripcion.Text = eventDescription;
+                    descripcion.BorderStyle = BorderStyle.None;
+                    descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    descripcion.Location = new Point(233, 68);
+                    descripcion.Multiline = true;
+                    descripcion.Name = "tDescripcion";
+                    descripcion.ReadOnly = true;
+                    descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
+                    descripcion.TabIndex = 2;
+                    descripcion.Visible = true;
+
+                    TextBox tTipo = new TextBox();
+                    if (tipo == true)
+                    {
+                        tTipo.Text = "Tipo de evento: Curso";
+                    }
+                    else
+                    {
+                        tTipo.Text = "Tipo de evento: Actividad";
+                    }
+                    tTipo.BorderStyle = BorderStyle.None;
+                    tTipo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tTipo.Location = new Point(900, 100);
+                    tTipo.Name = "tTipo";
+                    tTipo.ReadOnly = true;
+                    tTipo.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
+                    tTipo.TabIndex = 40;
+                    tTipo.Visible = true;
+
+                    panel.Controls.Add(ltitulo);
+                    panel.Controls.Add(pImagen);
+                    panel.Controls.Add(tFecha);
+                    panel.Controls.Add(descripcion);
+                    panel.Controls.Add(tTipo);
+                    panelEventos.Controls.Add(panel);
+                    separacion += 180;
+                }
+                panelEventos.BorderStyle = BorderStyle.FixedSingle;
+                panelEventos.Size = new Size(1265, 640);
+            }
+        }
+        #endregion
+
+        #region GUIs
         public void actualizar()
         {
             if (usuario == null)
@@ -52,6 +239,23 @@ namespace Asuma
             }
             else
             {
+                if (FTPClient.ftpOn)
+                {
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception ex)
+                    {
+                        //FTPClient.ftpOn = false;
+                        pUser.Image = null;
+                    }
+                }
+                else
+                {
+                    pUser.Image = null;
+                }
                 linitSesion.Visible = false;
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
@@ -64,11 +268,9 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
-            this.Visible = false;
             init.ShowDialog();
             this.usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -76,139 +278,10 @@ namespace Asuma
             Environment.Exit(Environment.ExitCode);
         }
 
-        public void mostrarEventos()
-        {
-            panelEventos.Controls.Clear();
-            List<Event> listaEventos = Event.listaEventos();
-            int nEventos = listaEventos.Count;
-            int separacion = 50;
-
-            for (int i = 0; i < nEventos; i++)
-            {
-                string eventName = listaEventos.ElementAt(i).EventName;
-                string eventDate = listaEventos.ElementAt(i).Date;
-                string eventDescription = listaEventos.ElementAt(i).EventDescription;
-                string imagen = listaEventos.ElementAt(i).Image;
-                int id = listaEventos.ElementAt(i).ID;
-
-                Panel panel = new Panel();
-                panel.Name = "pEvento" + id;
-
-                //------------------
-
-                LinkLabel ltitulo = new LinkLabel();
-                ltitulo.Text = eventName;
-                ltitulo.Size = new Size(292, 38);
-                ltitulo.AutoSize = true;
-                ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                ltitulo.LinkColor = Color.Black;
-                ltitulo.Location = new Point(230, 18);
-                ltitulo.Name = id.ToString();
-                ltitulo.TabIndex = 31;
-                ltitulo.TabStop = true;
-                ltitulo.Visible = true;
-                ltitulo.Click += new EventHandler(ltitulo_click);
-
-                //------------------
-
-
-                PictureBox pImagen = new PictureBox();
-                pImagen.BackColor = SystemColors.ActiveCaption;
-                pImagen.Location = new Point(59, 28);
-                pImagen.Name = "pImagen";
-                
-                string path = Path.GetDirectoryName(Application.StartupPath);
-                string pathBueno = path.Substring(0, path.Length - 3);
-                string imagePath = pathBueno + "images\\" + imagen;
-
-                Image image;
-                if (FTPClient.ftpOn)
-                {
-                    try
-                    {
-                        FTPClient ftpClient = new FTPClient("ftp://25.35.182.85:12975/eventos/" + listaEventos.ElementAt(i).ID + "/", "Prueba", "");
-                        byte[] byteArrayIn = ftpClient.DownloadFileBytesInArray("image.png");
-                        using (var ms = new MemoryStream(byteArrayIn))
-                        {
-                            image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        image = null;
-                    }
-
-
-                }
-                else if (FTPClient.ftpBackupOn)
-                {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                    try
-                    {
-                        ftp.MakeFtpDirectory("eventos/" + listaEventos.ElementAt(i).ID);
-                    }
-                    catch (Exception ex) { }
-                    ftp.UploadFile(imagePath, "eventos/" + listaEventos.ElementAt(i).ID + "/image.png");
-                    image = Image.FromFile(imagePath);
-                }
-                else { image = Image.FromFile(imagePath); }
-
-                pImagen.Image = image;
-                pImagen.SizeMode = PictureBoxSizeMode.StretchImage;
-                pImagen.Size = new Size(115, 127);
-                pImagen.TabIndex = 0;
-                pImagen.TabStop = false;
-                pImagen.Visible = true;
-                pImagen.BorderStyle = BorderStyle.FixedSingle;
-
-
-                TextBox tFecha = new TextBox();
-                tFecha.Text = "Fecha del evento: " + eventDate;
-                tFecha.BorderStyle = BorderStyle.None;
-                tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                tFecha.Location = new Point(900, 145);
-                tFecha.Multiline = true;
-                tFecha.Name = "tFecha";
-                tFecha.ReadOnly = true;
-                tFecha.Size = new Size(216, 24);
-                tFecha.TabIndex = 32;
-                tFecha.Visible = true;
-
-
-
-                panel.Size = new Size(1142, 186); //1142 186
-
-                panel.Location = new Point(50, separacion);
-                panel.Visible = true;
-                panel.BorderStyle = BorderStyle.FixedSingle;
-
-
-                TextBox descripcion = new TextBox();
-                descripcion.Text = eventDescription;
-                descripcion.BorderStyle = BorderStyle.None;
-                descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                descripcion.Location = new Point(233, 68);
-                descripcion.Multiline = true;
-                descripcion.Name = "tDescripcion";
-                descripcion.ReadOnly = true;
-                descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
-                descripcion.TabIndex = 2;
-                descripcion.Visible = true;
-
-
-
-                panel.Controls.Add(ltitulo);
-                panel.Controls.Add(pImagen);
-                panel.Controls.Add(tFecha);
-                panel.Controls.Add(descripcion);
-                panelEventos.Controls.Add(panel);
-                separacion += 180;
-            }
-            panelEventos.BorderStyle = BorderStyle.FixedSingle;
-            panelEventos.Size = new Size(1265, 640);
-        }
+        
         private void actualizarBotones()
         {
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -217,8 +290,9 @@ namespace Asuma
         }
         private void actualizarImagenes()
         {
-            lSignOut.Location = new Point(lUsername.Location.X, lUsername.Location.Y + 40);
-            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
+            this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
 
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
@@ -228,6 +302,17 @@ namespace Asuma
         private void actualizarBotonMisEventos()
         {
             bMyEvents.Location = new Point(((this.Width * 5) / 10) - bMyEvents.Width / 2, (int)((this.Height * 8.5) / 10));
+        }
+
+        private void actualizarFiltro()
+        {
+            lFiltro.Location = new Point(((this.Width * 8) / 10) - bMyEvents.Width / 2, bMyEvents.Location.Y+20);
+            cbFiltro.Location = new Point(lFiltro.Location.X+100,lFiltro.Location.Y);
+            cbFiltro.Items.Clear();
+            cbFiltro.Items.Add("-");
+            cbFiltro.SelectedItem = cbFiltro.Items[0];
+            cbFiltro.Items.Add("Actividad");
+            cbFiltro.Items.Add("Curso");
         }
 
         private void actualizarPanelEventos()
@@ -244,119 +329,6 @@ namespace Asuma
                 c.Width = panelEventos.Width - 120;
             }
         }
-
-        protected void ltitulo_click(object sender, EventArgs e)
-        {
-            LinkLabel link = sender as LinkLabel;
-            // identify which button was clicked and perform necessary actions
-            var id = Int32.Parse(link.Name);
-            Event ev = new Event(id);
-
-            if (usuario == null)
-            {
-               
-                Cursor.Current = Cursors.WaitCursor;
-                InfoEvento infoEvento = new InfoEvento(ev,null);
-                this.Visible = false;
-                infoEvento.ShowDialog();
-                usuario = infoEvento.Usuario;
-                actualizar();
-                this.Visible = true;
-
-               
-                /*
-                Cursor.Current = Cursors.WaitCursor;
-                InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                infoEvento.Show();
-                this.Close();
-                */
-            }
-            else
-            {
-                Boolean found = false;
-                BD bd = new BD();
-                MySqlDataReader reader = bd.Query("SELECT idEvent FROM inscription WHERE userName = '" + this.usuario.Username + "';");
-                if (reader.HasRows)
-                {
-                    while (reader.Read() && !found)
-                    {
-                        int idEvent = (int)reader[0];
-                        if (idEvent == ev.ID)
-                        {
-                            found = true;
-                            
-                            Cursor.Current = Cursors.WaitCursor;
-                            InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
-                            infoEvento.Owner = this;
-                            this.Visible = false;
-                            infoEvento.ShowDialog();
-                            if (!isClosed)
-                            {
-                                this.Visible = true;
-                            }
-                            
-
-                            /*
-                            Cursor.Current = Cursors.WaitCursor;
-                            InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
-                            infoEvento.Show();
-                            this.Close();
-                            */
-
-                        }
-                    }
-                    reader.Close();
-                    bd.closeBD();
-                    if (!found)
-                    {
-                        /*
-                        Cursor.Current = Cursors.WaitCursor;
-                        InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                        this.Visible = false;
-                        infoEvento.ShowDialog();
-                        usuario = infoEvento.Usuario;
-                        actualizar();
-                        this.Visible = true;
-                        */
-
-                        Cursor.Current = Cursors.WaitCursor;
-                        InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                        infoEvento.Owner = this;
-                        this.Visible = false;
-                        infoEvento.ShowDialog();
-                        if (!isClosed)
-                        {
-                            this.Visible = true;
-                        }
-
-                    }
-                }
-                else
-                {
-                    /*
-                    Cursor.Current = Cursors.WaitCursor;
-                    InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                    this.Visible = false;
-                    infoEvento.ShowDialog();
-                    usuario = infoEvento.Usuario;
-                    actualizar();
-                    this.Visible = true;
-                    */
-
-
-                    Cursor.Current = Cursors.WaitCursor;
-                    InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                    infoEvento.Owner = this;
-                    this.Visible = false;
-                    infoEvento.ShowDialog();
-                    if (!isClosed)
-                    {
-                        this.Visible = true;
-                    }
-                }
-            }
-        }
-
 
         private void pUser_Paint(object sender, PaintEventArgs e)
         {
@@ -375,37 +347,255 @@ namespace Asuma
 
         private void Eventos_Resize(object sender, EventArgs e)
         {
-            actualizarBotones();
-            actualizarImagenes();
-            actualizarBotonMisEventos();
-            actualizarPanelEventos();
+            actualizarElementos();
         }
 
         private void panelEventos_Resize(object sender, EventArgs e)
         {
             actualizarEventos();
         }
+        #endregion
+
+        #region Logica del formulario
+        protected void ltitulo_click(object sender, EventArgs e)
+        {
+            LinkLabel link = sender as LinkLabel;
+            // identify which button was clicked and perform necessary actions
+            var id = Int32.Parse(link.Name);
+            Event ev = new Event(id);
+
+            if (usuario == null)
+            {
+
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEvento infoEvento = new InfoEvento(ev, null);
+                this.Visible = false;
+                infoEvento.ShowDialog();
+                usuario = infoEvento.Usuario;
+                mostrarEventos(0);
+                actualizar();
+                actualizarPanelEventos();
+                this.Visible = true;
+
+
+                /*
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                infoEvento.Show();
+                this.Close();
+                */
+            }
+            else if (usuario.Rol.RolName.Equals("Admin"))
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                infoEvento.Owner = this;
+                this.Visible = false;
+                infoEvento.ShowDialog();
+                if (!isClosed)
+                {
+                    mostrarEventos(0);
+                    actualizar();
+                    actualizarPanelEventos();
+                    this.Visible = true;
+                    
+                }
+            }
+            else
+            {
+                Boolean found = false;
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT idEvent FROM inscription WHERE userName = '" + this.usuario.Username + "';");
+                if (reader.HasRows)
+                {
+                    while (reader.Read() && !found)
+                    {
+                        int idEvent = (int)reader[0];
+                        if (idEvent == ev.ID)
+                        {
+                            found = true;
+
+                            Cursor.Current = Cursors.WaitCursor;
+                            InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
+                            infoEvento.Owner = this;
+                            this.Visible = false;
+                            infoEvento.ShowDialog();
+                            if (!isClosed)
+                            {
+                                mostrarEventos(0);
+                                actualizar();
+                                actualizarPanelEventos();
+                                this.Visible = true;
+                            }
+                        }
+                    }
+                    reader.Close();
+                    bd.closeBD();
+                    if (!found)
+                    {
+                        Cursor.Current = Cursors.WaitCursor;
+                        InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                        infoEvento.Owner = this;
+                        this.Visible = false;
+                        infoEvento.ShowDialog();
+                        if (!isClosed)
+                        {
+                            mostrarEventos(0);
+                            actualizar();
+                            actualizarPanelEventos();
+                            this.Visible = true;
+                        }
+
+                    }
+                }
+                else
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
+                    infoEvento.Owner = this;
+                    this.Visible = false;
+                    infoEvento.ShowDialog();
+                    if (!isClosed)
+                    {
+                        mostrarEventos(0);
+                        actualizar();
+                        actualizarPanelEventos();
+                        this.Visible = true;
+                    }
+                }
+            }
+        }
 
         private void bInicio_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Principal p = new Principal(usuario);
-            p.Show();
+            Principal ev = new Principal(usuario);
+            ev.Show();
             this.Close();
         }
 
         private void bEventos_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Eventos eventos = new Eventos(usuario);
-            eventos.Show();
-            this.Close();
-           
+            actualizar();
+            actualizarPanelEventos(); 
         }
+
 
         private void Eventos_FormClosing(object sender, FormClosingEventArgs e)
         {
             isClosed = true;
         }
+
+        #endregion
+
+        #region Desplegable de mi perfil
+        private void pPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            mouseInPanel = false;
+            hideTimer.Start();
+        }
+
+        private void hidePanel(object sender, EventArgs e)
+        {
+            hideTimer.Stop();
+            if (!mouseInPanel)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        private void pUser_MouseClick(object sender, EventArgs e)
+        {
+            if (usuario != null)
+            {
+                mouseInPanel = true;
+                pUser.SendToBack();
+                pPerfil.Visible = true;
+            }
+            else
+            {
+                pUser.Visible = false;
+            }
+            /* pUser.Visible = false;
+             lUsername.Visible = false;*/
+        }
+
+        private void bPerfil_MouseEnter(object sender, EventArgs e)
+        {
+            pPerfil.Visible = true;
+            mouseInPanel = true;
+            hideTimer.Stop();
+        }
+
+        private void bPerfil_MouseLeave(object sender, EventArgs e)
+        {
+            hideTimer.Start();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (usuario != null)
+            {
+                pPerfil.Visible = false;
+                pUser.BringToFront();
+                pUser.Visible = true;
+                lUsername.Visible = true;
+            }
+        }
+
+        
+        private void bPerfil_Click(object sender, EventArgs e)
+        {
+            MiPerfil frame = new MiPerfil(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            actualizar();
+            this.Visible = true;
+        }
+
+        private void bMensajes_Click(object sender, EventArgs e)
+        {
+            Mensajeria frame = new Mensajeria(usuario);
+            frame.Owner = this;
+            this.Visible = false;
+            frame.ShowDialog();
+            usuario = Inicio.usuario;
+            actualizar();
+            this.Visible = true;
+        }
+
+        public void setUser(User usuario)
+        {
+            this.usuario = usuario;
+        }
+
+        private void cbFiltro_DropDownClosed(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            mostrarEventos(cbFiltro.SelectedIndex);
+            actualizarPanelEventos();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close(); 
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
+        }
     }
+        #endregion
 }

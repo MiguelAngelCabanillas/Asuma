@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using System.Drawing;
 
 namespace Asuma
 {
     public class FTPClient
     {
 
-        public static bool ftpOn = true;
+        public static bool ftpOn = false;
         public static bool ftpBackupOn = false;
         // The hostname or IP address of the FTP server
         private string _remoteHost;
@@ -48,6 +49,8 @@ namespace Asuma
         /// </summary>
         /// <param name="folder"></param>
         /// <returns></returns>
+        /// 
+
         public List<string> DirectoryListing(string folder)
         {
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + folder);
@@ -69,6 +72,7 @@ namespace Asuma
             return result;
         }
 
+
         /// <summary>
         /// Download a file from the FTP server to the destination
         /// </summary>
@@ -79,22 +83,12 @@ namespace Asuma
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create(_remoteHost + filename);
             request.Method = WebRequestMethods.Ftp.DownloadFile;
             request.Credentials = new NetworkCredential(_remoteUser, _remotePass);
-            /*FtpWebResponse response = (FtpWebResponse)request.GetResponse();
-            Stream responseStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(responseStream);*/
 
             using (Stream streamIn = request.GetResponse().GetResponseStream())
             using (Stream streamOut = File.Create(destination))
             {
                 streamIn.CopyTo(streamOut);
             }
-
-            /* StreamWriter writer = new StreamWriter(destination);
-             writer.Write(reader.ReadToEnd());*/
-
-            // writer.Close();
-            /* reader.Close();
-             response.Close();*/
         }
 
         public float GetFileDownloadSize(string filename)
@@ -111,11 +105,23 @@ namespace Asuma
 
         public byte[] DownloadFileBytesInArray(string filename)
         {
-            WebClient client = new WebClient();
-            string url = _remoteHost + filename;
-            client.Credentials = new NetworkCredential(_remoteUser, _remotePass);
-            byte[] contents = client.DownloadData(url);
-            return contents;
+                MyWebClient client = new MyWebClient();
+                string url = _remoteHost + filename;
+                client.Credentials = new NetworkCredential(_remoteUser, _remotePass);
+                byte[] contents;
+                contents = client.DownloadData(url);
+                return contents;
+        }
+
+        public Image DownloadPngAsImage(string filename, Size size)
+        {
+            byte[] imagen = DownloadFileBytesInArray("image.png");
+            Image image;
+            using (var ms = new MemoryStream(imagen))
+            {
+                image = Image.FromStream(ms);
+            }
+            return (Image)(new Bitmap(image, size));
         }
 
         /// <summary>
@@ -254,7 +260,20 @@ namespace Asuma
                 }
             } }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            reader.Close();
+            responseStream.Close();
+            response.Close();
             return directorios;
+        }
+
+        private class MyWebClient : WebClient
+        {
+            protected override WebRequest GetWebRequest(Uri uri)
+            {
+                WebRequest w = base.GetWebRequest(uri);
+                w.Timeout = 10000;
+                return w;
+            }
         }
     }
 }

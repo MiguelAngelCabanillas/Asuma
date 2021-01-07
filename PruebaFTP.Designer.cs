@@ -32,7 +32,7 @@
             this.bArchivo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bSubir = new System.Windows.Forms.Button();
             this.bVolver = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,21 +70,21 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // button2
+            // bSubir
             // 
-            this.button2.Location = new System.Drawing.Point(48, 301);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(372, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Subir archivo";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.bSubir.Location = new System.Drawing.Point(48, 301);
+            this.bSubir.Name = "bSubir";
+            this.bSubir.Size = new System.Drawing.Size(372, 23);
+            this.bSubir.TabIndex = 3;
+            this.bSubir.Text = "Subir archivo";
+            this.bSubir.UseVisualStyleBackColor = true;
+            this.bSubir.Click += new System.EventHandler(this.button2_Click);
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(439, 301);
+            this.bVolver.Location = new System.Drawing.Point(432, 270);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(75, 23);
+            this.bVolver.Size = new System.Drawing.Size(82, 23);
             this.bVolver.TabIndex = 4;
             this.bVolver.Text = "Volver";
             this.bVolver.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             // 
             // bEliminar
             // 
-            this.bEliminar.Location = new System.Drawing.Point(432, 271);
+            this.bEliminar.Location = new System.Drawing.Point(432, 301);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(82, 23);
             this.bEliminar.TabIndex = 5;
@@ -107,7 +107,7 @@
             this.ClientSize = new System.Drawing.Size(566, 328);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.bVolver);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.bSubir);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bArchivo);
             this.Controls.Add(this.dataGridView1);
@@ -126,7 +126,7 @@
         private System.Windows.Forms.TextBox bArchivo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bSubir;
         private System.Windows.Forms.Button bVolver;
         private System.Windows.Forms.Button bEliminar;
     }

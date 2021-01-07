@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Asuma
 {
+    /*
     static class Program
     {
         /// <summary>
@@ -16,8 +17,49 @@ namespace Asuma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal(null));
-            // new User("docente1", "d"))
+            User s = new User("docente3", "d");
+            User admin = new User("admin", "admin");
+            User fran = new User("franB");
+            //Application.Run(new Contacto(s));
+            //Application.Run(new Cuestionario_Satisfaccion("1_3", 1, 2, 2, 1, 1, "Hola a todos"));
+            //Application.Run(new MisEventos(new User("franB", "franB")));
+            //Application.Run(new Surveys_Evento(new Event(62)));
+            //Application.Run(new Test_Conocimiento_Edicion(new Event(115)));
+            //Application.Run(new Contacto(null));
+            //Application.Run(new PruebaWord());
+            //Application.Run(new InfoEventoInscrito(new Event(62), s));
+            //Application.Run(new Principal(null));
+            //Application.Run(new CrearEvento(s));
+            //Application.Run(new EditarEvento(new Event(62), s));
+            //Application.Run(new CrearNoticia(s));
         }
+    }
+    */
+
+    public class MyApplication : Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase
+    {
+        public MyApplication()
+            : base(Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
+        {
+            this.IsSingleInstance = false;
+            this.EnableVisualStyles = true;
+
+            //Aqui esta el truco
+            this.ShutdownStyle = Microsoft.VisualBasic.ApplicationServices.
+                ShutdownMode.AfterAllFormsClose;
+        }
+
+        protected override void OnCreateMainForm()
+        {
+
+            this.MainForm = new Principal(null);
+        }
+
+        internal static void Main(string[] Args)
+        {
+            string[] arg; arg = new string[0];
+            new MyApplication().Run(arg);
+        }
+
     }
 }

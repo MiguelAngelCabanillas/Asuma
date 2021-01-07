@@ -42,10 +42,16 @@
             this.lUsername = new System.Windows.Forms.Label();
             this.lSignOut = new System.Windows.Forms.LinkLabel();
             this.linitSesion = new System.Windows.Forms.LinkLabel();
+            this.pPerfil = new System.Windows.Forms.Panel();
+            this.bMensajes = new System.Windows.Forms.Button();
+            this.bPerfil = new System.Windows.Forms.Button();
+            this.lFiltro = new System.Windows.Forms.Label();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             this.menuFlowLayoutPanel.SuspendLayout();
+            this.pPerfil.SuspendLayout();
             this.SuspendLayout();
             // 
             // bMyEvents
@@ -74,6 +80,7 @@
             // 
             // pUser
             // 
+            this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -82,6 +89,7 @@
             this.pUser.TabIndex = 34;
             this.pUser.TabStop = false;
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
+            this.pUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pUser_MouseClick);
             // 
             // pASM
             // 
@@ -128,7 +136,7 @@
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
-            this.bInicio.Text = "Inicio";
+            this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
@@ -156,6 +164,7 @@
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -167,6 +176,7 @@
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // lUsername
             // 
@@ -182,7 +192,7 @@
             // 
             this.lSignOut.AutoSize = true;
             this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(246, 117);
+            this.lSignOut.Location = new System.Drawing.Point(245, 117);
             this.lSignOut.Name = "lSignOut";
             this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 33;
@@ -202,13 +212,78 @@
             this.linitSesion.Text = "Iniciar sesion";
             this.linitSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linitSesion_LinkClicked);
             // 
+            // pPerfil
+            // 
+            this.pPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pPerfil.Controls.Add(this.bMensajes);
+            this.pPerfil.Controls.Add(this.bPerfil);
+            this.pPerfil.Location = new System.Drawing.Point(65, 137);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.pPerfil.Name = "pPerfil";
+            this.pPerfil.Size = new System.Drawing.Size(315, 139);
+            this.pPerfil.TabIndex = 39;
+            this.pPerfil.Visible = false;
+            this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
+            // 
+            // bMensajes
+            // 
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
+            this.bMensajes.Name = "bMensajes";
+            this.bMensajes.Size = new System.Drawing.Size(245, 28);
+            this.bMensajes.TabIndex = 1;
+            this.bMensajes.Text = "Mensajes Privados";
+            this.bMensajes.UseVisualStyleBackColor = true;
+            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
+            this.bMensajes.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bMensajes.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
+            // 
+            // bPerfil
+            // 
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.bPerfil.Name = "bPerfil";
+            this.bPerfil.Size = new System.Drawing.Size(245, 28);
+            this.bPerfil.TabIndex = 0;
+            this.bPerfil.Text = "Mi perfil";
+            this.bPerfil.UseVisualStyleBackColor = true;
+            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
+            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
+            // 
+            // lFiltro
+            // 
+            this.lFiltro.AutoSize = true;
+            this.lFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lFiltro.Location = new System.Drawing.Point(1492, 694);
+            this.lFiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lFiltro.Name = "lFiltro";
+            this.lFiltro.Size = new System.Drawing.Size(87, 20);
+            this.lFiltro.TabIndex = 40;
+            this.lFiltro.Text = "Filtrar por:";
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.BackColor = System.Drawing.Color.White;
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Location = new System.Drawing.Point(1589, 693);
+            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(160, 24);
+            this.cbFiltro.TabIndex = 41;
+            this.cbFiltro.DropDownClosed += new System.EventHandler(this.cbFiltro_DropDownClosed);
+            // 
             // Eventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.pUser);
+            this.Controls.Add(this.cbFiltro);
+            this.Controls.Add(this.lFiltro);
+            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
@@ -217,6 +292,7 @@
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.panelEventos);
             this.Controls.Add(this.bMyEvents);
+            this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Eventos";
@@ -229,6 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             this.menuFlowLayoutPanel.ResumeLayout(false);
+            this.pPerfil.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +325,10 @@
         private System.Windows.Forms.Label lUsername;
         private System.Windows.Forms.LinkLabel lSignOut;
         private System.Windows.Forms.LinkLabel linitSesion;
+        private System.Windows.Forms.Panel pPerfil;
+        private System.Windows.Forms.Button bMensajes;
+        private System.Windows.Forms.Button bPerfil;
+        private System.Windows.Forms.Label lFiltro;
+        private System.Windows.Forms.ComboBox cbFiltro;
     }
 }

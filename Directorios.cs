@@ -14,13 +14,27 @@ namespace Asuma
     {
         FTPClient ftp;
         Event evento;
+        User usuario;
         string seleccionado;
         List<String> subdirectorios;
 
-        public Directorios(Event evento)
+        public Directorios(Event evento, User usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
             this.evento = evento;
+            if (evento.EventCreator == usuario.Username)
+            {
+                bCrear.Visible = true;
+                tCrear.Visible = true;
+                bBorrar.Visible = true;
+            }
+            else
+            {
+                bCrear.Visible = false;
+                tCrear.Visible = false;
+                bBorrar.Visible = false;
+            }
             ftp = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/files/", "Prueba", "");
             this.subdirectorios = ftp.FTPSubdirectories("");
         }
@@ -36,6 +50,7 @@ namespace Asuma
             var result = subdirectorios.Select(s => new { Carpeta = s.Replace('_', ' ')}).ToList();
             dataGridView1.DataSource = result;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            MostrarSeleccionado();
            
         }
 
@@ -92,7 +107,7 @@ namespace Asuma
         {
             if (seleccionado != null)
             {
-                PruebaFTP archivos = new PruebaFTP(this.evento, seleccionado.Replace(' ', '_'));
+                PruebaFTP archivos = new PruebaFTP(this.usuario, this.evento, seleccionado.Replace(' ', '_'));
                 archivos.Owner = this;
                 this.Visible = false;
                 archivos.ShowDialog();

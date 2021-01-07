@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySqlConnector;
 
 namespace Asuma
 {
@@ -20,6 +21,7 @@ namespace Asuma
             s += size;
             switch (i)
             {
+                case -1:
                 case 0: s += " B";
                     break;
                 case 1: s += " KB";
@@ -36,6 +38,17 @@ namespace Asuma
 
             return s;
 
+        }
+
+        public static int GetUserIdByName(string name)
+        {
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT id FROM user WHERE username = '" + name + "';");
+
+            if (!reader.HasRows) return -1;
+
+            reader.Read();
+            return (int)reader[0];
         }
     }
 }

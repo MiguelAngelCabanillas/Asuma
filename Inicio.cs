@@ -14,9 +14,10 @@ namespace Asuma
     public partial class Inicio : Form
     {
         private Principal pr;
-        public static User usuario = null;
+        public static User usuario;
         public Inicio()
         {
+            usuario = null;
             InitializeComponent();
         }
 
@@ -86,6 +87,15 @@ namespace Asuma
             {
                 bInicio.PerformClick();
             }
+        }
+
+        private void linkFPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Recuperacion r = new Recuperacion();
+            this.Visible = false;
+            r.Owner = this;
+            r.ShowDialog();
+            this.Visible = true;
         }
     }
 }
