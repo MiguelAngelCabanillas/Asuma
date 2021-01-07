@@ -268,11 +268,9 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
-            //this.Visible = false;
             init.ShowDialog();
             this.usuario = Inicio.usuario;
             actualizar();
-            //this.Visible = true;
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -376,6 +374,7 @@ namespace Asuma
                 usuario = infoEvento.Usuario;
                 mostrarEventos(0);
                 actualizar();
+                actualizarPanelEventos();
                 this.Visible = true;
 
 
@@ -397,7 +396,9 @@ namespace Asuma
                 {
                     mostrarEventos(0);
                     actualizar();
+                    actualizarPanelEventos();
                     this.Visible = true;
+                    
                 }
             }
             else
@@ -423,33 +424,15 @@ namespace Asuma
                             {
                                 mostrarEventos(0);
                                 actualizar();
+                                actualizarPanelEventos();
                                 this.Visible = true;
                             }
-
-
-                            /*
-                            Cursor.Current = Cursors.WaitCursor;
-                            InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
-                            infoEvento.Show();
-                            this.Close();
-                            */
-
                         }
                     }
                     reader.Close();
                     bd.closeBD();
                     if (!found)
                     {
-                        /*
-                        Cursor.Current = Cursors.WaitCursor;
-                        InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                        this.Visible = false;
-                        infoEvento.ShowDialog();
-                        usuario = infoEvento.Usuario;
-                        actualizar();
-                        this.Visible = true;
-                        */
-
                         Cursor.Current = Cursors.WaitCursor;
                         InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                         infoEvento.Owner = this;
@@ -459,6 +442,7 @@ namespace Asuma
                         {
                             mostrarEventos(0);
                             actualizar();
+                            actualizarPanelEventos();
                             this.Visible = true;
                         }
 
@@ -466,17 +450,6 @@ namespace Asuma
                 }
                 else
                 {
-                    /*
-                    Cursor.Current = Cursors.WaitCursor;
-                    InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                    this.Visible = false;
-                    infoEvento.ShowDialog();
-                    usuario = infoEvento.Usuario;
-                    actualizar();
-                    this.Visible = true;
-                    */
-
-
                     Cursor.Current = Cursors.WaitCursor;
                     InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                     infoEvento.Owner = this;
@@ -485,6 +458,8 @@ namespace Asuma
                     if (!isClosed)
                     {
                         mostrarEventos(0);
+                        actualizar();
+                        actualizarPanelEventos();
                         this.Visible = true;
                     }
                 }
@@ -494,19 +469,16 @@ namespace Asuma
         private void bInicio_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Principal p = new Principal(usuario);
-            this.Visible = false;
-            p.ShowDialog();
+            Principal ev = new Principal(usuario);
+            ev.Show();
             this.Close();
         }
 
         private void bEventos_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Eventos eventos = new Eventos(usuario);
-            eventos.Show();
-            this.Close();
-           
+            actualizar();
+            actualizarPanelEventos(); 
         }
 
 
@@ -514,6 +486,7 @@ namespace Asuma
         {
             isClosed = true;
         }
+
         #endregion
 
         #region Desplegable de mi perfil
@@ -614,6 +587,14 @@ namespace Asuma
             this.Visible = false;
             contacto.ShowDialog();
             this.Close(); 
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
         }
     }
         #endregion

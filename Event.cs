@@ -77,7 +77,7 @@ namespace Asuma
             this.eventDescription = eventDescription;
             this.organizer = organizer;
             this.eventCreator = eventCreator;
-            this.tipo = tipo;
+            this.esCurso = tipo;
         }
 
 
@@ -139,6 +139,21 @@ namespace Asuma
             }
             reader.Close();
             bd.closeBD();
+            return lista;
+        }
+
+        public static List<int> listaIdEventosUsuario(User usuario)
+        {
+            List<int> lista = new List<int>();
+            BD bd = new BD();
+            MySqlDataReader reader = bd.Query("SELECT e.idEvent FROM inscription i left join event e ON (i.idEvent = e.idEvent) WHERE i.userName = '" + usuario.Username + "'");
+            while (reader.Read())
+            {
+                lista.Add((int)reader[0]);
+            }
+            reader.Close();
+            bd.closeBD();
+
             return lista;
         }
 

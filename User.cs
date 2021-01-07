@@ -14,6 +14,32 @@ namespace Asuma
         private string email;
         private Rol rol;
         private int id;
+
+        public User(string username)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT * FROM user WHERE username = '" + username + "'");
+                if (!reader.HasRows)
+                {
+                    throw new Error("Usuario incorrecto");
+                }
+                reader.Read();
+                this.username = (string)reader[0];
+                this.password = (string)reader[1];
+                this.email = (string)reader[2];
+                string rolName = (string)reader[3];
+                this.id = (int)reader[4];
+                this.rol = new Rol(rolName);
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception ex)
+            {
+                throw new Error(ex.Message);
+            }
+        }
         public User(string username, string password)
         {
             try
@@ -94,14 +120,21 @@ namespace Asuma
 
         }
 
+        public User(string username, string email, string rolName)
+        {
+            this.username = username;
+            this.email = email;
+            this.rol = new Rol(rolName);
+        }
+
         public static List<User> listaUsuariosAplicacion()
         {
             List<User> listaUsuarios = new List<User>();
             BD bd = new BD();
-            MySqlDataReader reader = bd.Query("SELECT username FROM user ");
+            MySqlDataReader reader = bd.Query("SELECT username, email, rolName FROM user ");
             while (reader.Read())
             {
-                User aux = new User((string)reader[0]);
+                User aux = new User((string)reader[0], (string)reader[1], (string)reader[2]);
                 listaUsuarios.Add(aux);
             }
             reader.Close();
@@ -149,31 +182,7 @@ namespace Asuma
             return existe;
         }
 
-        public User(string username)
-        {
-            try
-            {
-                BD bd = new BD();
-                MySqlDataReader reader = bd.Query("SELECT * FROM user WHERE username = '" + username + "'");
-                if (!reader.HasRows)
-                {
-                    throw new Error("Usuario incorrecto");
-                }
-                reader.Read();
-                this.username = (string)reader[0];
-                this.password = (string)reader[1];
-                this.email = (string)reader[2];
-                string rolName = (string)reader[3];
-                this.id = (int)reader[4];
-                this.rol = new Rol(rolName);
-                reader.Close();
-                bd.closeBD();
-            }
-            catch (Exception ex)
-            {
-                throw new Error(ex.Message);
-            }
-        }
+       
 
         public string Username
         {

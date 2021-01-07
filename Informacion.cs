@@ -68,11 +68,9 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Inicio init = new Inicio();
-            this.Visible = false;
             init.ShowDialog();
             this.usuario = Inicio.usuario;
             actualizar();
-            this.Visible = true;
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -127,8 +125,8 @@ namespace Asuma
         private void bInicio_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Principal p = new Principal(usuario);
-            p.Show();
+            Principal ini = new Principal(usuario);
+            ini.Show();
             this.Close();
         }
 
@@ -223,5 +221,13 @@ namespace Asuma
             this.Visible = true;
         }
         #endregion
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
     }
 }

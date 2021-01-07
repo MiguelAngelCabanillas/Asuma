@@ -117,6 +117,7 @@ namespace Asuma
             this.Controls.Add(this.lInfo);
             this.MaximizeBox = false;
             this.Name = "ListaUsuariosAplicacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaUsuariosAplicacion";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUsers)).EndInit();
             this.ResumeLayout(false);

@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace Asuma
 {
+    /*
     static class Program
     {
         /// <summary>
@@ -27,10 +28,38 @@ namespace Asuma
             //Application.Run(new Contacto(null));
             //Application.Run(new PruebaWord());
             //Application.Run(new InfoEventoInscrito(new Event(62), s));
-            Application.Run(new Principal(admin));
+            //Application.Run(new Principal(null));
             //Application.Run(new CrearEvento(s));
             //Application.Run(new EditarEvento(new Event(62), s));
             //Application.Run(new CrearNoticia(s));
         }
+    }
+    */
+
+    public class MyApplication : Microsoft.VisualBasic.ApplicationServices.WindowsFormsApplicationBase
+    {
+        public MyApplication()
+            : base(Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
+        {
+            this.IsSingleInstance = false;
+            this.EnableVisualStyles = true;
+
+            //Aqui esta el truco
+            this.ShutdownStyle = Microsoft.VisualBasic.ApplicationServices.
+                ShutdownMode.AfterAllFormsClose;
+        }
+
+        protected override void OnCreateMainForm()
+        {
+
+            this.MainForm = new Principal(null);
+        }
+
+        internal static void Main(string[] Args)
+        {
+            string[] arg; arg = new string[0];
+            new MyApplication().Run(arg);
+        }
+
     }
 }

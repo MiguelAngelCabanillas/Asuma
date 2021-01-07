@@ -59,7 +59,7 @@
             this.bMyEvents.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bMyEvents.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bMyEvents.Location = new System.Drawing.Point(1469, 718);
-            this.bMyEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMyEvents.Margin = new System.Windows.Forms.Padding(4);
             this.bMyEvents.Name = "bMyEvents";
             this.bMyEvents.Size = new System.Drawing.Size(169, 84);
             this.bMyEvents.TabIndex = 1;
@@ -164,6 +164,7 @@
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -218,7 +219,7 @@
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
             this.pPerfil.Location = new System.Drawing.Point(65, 137);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 39;
@@ -228,7 +229,7 @@
             // bMensajes
             // 
             this.bMensajes.Location = new System.Drawing.Point(41, 90);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
@@ -241,7 +242,7 @@
             // bPerfil
             // 
             this.bPerfil.Location = new System.Drawing.Point(41, 18);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
@@ -268,7 +269,7 @@
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Location = new System.Drawing.Point(1589, 693);
-            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(160, 24);
             this.cbFiltro.TabIndex = 41;
@@ -293,7 +294,7 @@
             this.Controls.Add(this.bMyEvents);
             this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Eventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eventos";

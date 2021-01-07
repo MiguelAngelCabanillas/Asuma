@@ -18,7 +18,7 @@ namespace Asuma
         private Timer hideTimer;
         public Boolean isClosed = false;
         List<Event> eventos;
-        List<Event> eventosInscritos;
+        List<int> eventosInscritos;
 
         #region Creacion del form
         public Principal(User user)
@@ -183,8 +183,34 @@ namespace Asuma
             Environment.Exit(Environment.ExitCode);
         }
 
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Inicio init = new Inicio();
+            //this.Visible = false;
+            init.ShowDialog();
+            this.Usuario = Inicio.usuario;
+            actualizar();
+            //this.Visible = true;
+            this.ActiveControl = bInicio;
+        }
+
+        private void linkGesUsers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ListaUsuariosAplicacion usuarios = new ListaUsuariosAplicacion();
+            usuarios.ShowDialog();
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
+        }
+
         private void bEventos_Click(object sender, EventArgs e)
         {
+            /*
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             this.Visible = false;
@@ -192,28 +218,19 @@ namespace Asuma
             this.Visible = false;
             ev.ShowDialog();
             this.Visible = true;
+            */
+            Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
+            this.Close();
         }
 
         private void bContacto_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Contacto contacto = new Contacto(usuario);
-            contacto.Owner = this;
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Visible = true;
-        }
-
-        private void añadirAlPanel()
-        {
-            panel1.Controls.Add(pUser);
-            panel1.Controls.Add(lUsername);
-            panel1.Controls.Add(linitSesion);
-            panel1.Controls.Add(lSignOut);
-            panel1.Controls.Add(pASUMA);
-            panel1.Controls.Add(pASM);
-            panel1.Controls.Add(menuFlowLayoutPanel);
-            panel1.Controls.Add(lNoticias);
+            Contacto con = new Contacto(usuario);
+            con.Show();
+            this.Close();
         }
 
         protected void ltitulo_click(object sender, EventArgs e)
@@ -247,16 +264,8 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             CrearNoticia cNoticia = new CrearNoticia(usuario);
-            cNoticia.Owner = this;
-
-            this.Visible = false;
-            cNoticia.ShowDialog();
-            if (!this.isClosed)
-            {
-                actualizar();
-                actualizarPanelNoticias();
-                this.Visible = true;
-            }
+            cNoticia.Show();
+            this.Close();
         }
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
@@ -279,7 +288,7 @@ namespace Asuma
                         }
                         else
                         {
-                            if (this.eventosInscritos.Contains(evento))
+                        if (this.eventosInscritos.Contains(evento.ID))
                             {
                                 res = res + i + ") " + (evento.EsCurso ? "Curso" : "Actividad") + ": " + evento.EventName + " (INSCRITO)\n";
                             }
@@ -317,7 +326,7 @@ namespace Asuma
             lNoticias.Location = new Point(pNoticias.Location.X+pNoticias.Width/2-lNoticias.Text.Length*6,pNoticias.Location.Y-50);
             lCalendario.Location = new Point(pASM.Location.X + 32, pNoticias.Location.Y - 30);
             this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
-            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
+            this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y + 7);
             this.linkGesUsers.Location = new Point(lUsername.Location.X + lSignOut.Width + 10, lSignOut.Location.Y);
             this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
         }
@@ -342,16 +351,7 @@ namespace Asuma
                 this.pNoticias.Location.Y + mcEventos.Height + 20);
         }
 
-        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Inicio init = new Inicio();
-            //this.Visible = false;
-            init.ShowDialog();
-            this.Usuario = Inicio.usuario;
-            actualizar();
-            //this.Visible = true;
-            this.ActiveControl = bInicio;
-        }
+
 
         public void actualizar()
         {
@@ -368,7 +368,7 @@ namespace Asuma
             }
             else
             {
-                eventosInscritos = Event.listaEventosUsuario(this.usuario);
+                eventosInscritos = Event.listaIdEventosUsuario(this.usuario);
 
                 linitSesion.Visible = false;
                 if (FTPClient.ftpOn)
@@ -419,6 +419,18 @@ namespace Asuma
             {
                 c.Width = pNoticias.Width - 120;
             }
+        }
+
+        private void añadirAlPanel()
+        {
+            panel1.Controls.Add(pUser);
+            panel1.Controls.Add(lUsername);
+            panel1.Controls.Add(linitSesion);
+            panel1.Controls.Add(lSignOut);
+            panel1.Controls.Add(pASUMA);
+            panel1.Controls.Add(pASM);
+            panel1.Controls.Add(menuFlowLayoutPanel);
+            panel1.Controls.Add(lNoticias);
         }
 
         private void pASUMA_Paint(object sender, PaintEventArgs e)
@@ -544,10 +556,6 @@ namespace Asuma
         }
         #endregion
 
-        private void linkGesUsers_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ListaUsuariosAplicacion usuarios = new ListaUsuariosAplicacion();
-            usuarios.ShowDialog();
-        }
+
     }
 }

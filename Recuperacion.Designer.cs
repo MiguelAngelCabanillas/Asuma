@@ -87,9 +87,9 @@
             // 
             // bSend
             // 
-            this.bSend.Location = new System.Drawing.Point(764, 281);
+            this.bSend.Location = new System.Drawing.Point(746, 282);
             this.bSend.Name = "bSend";
-            this.bSend.Size = new System.Drawing.Size(116, 30);
+            this.bSend.Size = new System.Drawing.Size(134, 39);
             this.bSend.TabIndex = 5;
             this.bSend.Text = "Enviar mensaje";
             this.bSend.UseVisualStyleBackColor = true;
@@ -128,8 +128,8 @@
             // 
             // Recuperacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1265, 630);
             this.Controls.Add(this.bRecover);

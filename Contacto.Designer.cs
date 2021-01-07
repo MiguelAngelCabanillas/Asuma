@@ -66,7 +66,7 @@ namespace Asuma
             this.lReason.Location = new System.Drawing.Point(375, 320);
             this.lReason.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lReason.Name = "lReason";
-            this.lReason.Size = new System.Drawing.Size(156, 18);
+            this.lReason.Size = new System.Drawing.Size(195, 23);
             this.lReason.TabIndex = 0;
             this.lReason.Text = "Razón de contacto:";
             // 
@@ -77,7 +77,7 @@ namespace Asuma
             this.lMessage.Location = new System.Drawing.Point(471, 386);
             this.lMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lMessage.Name = "lMessage";
-            this.lMessage.Size = new System.Drawing.Size(77, 18);
+            this.lMessage.Size = new System.Drawing.Size(97, 23);
             this.lMessage.TabIndex = 1;
             this.lMessage.Text = "Mensaje:";
             // 
@@ -92,7 +92,7 @@ namespace Asuma
             this.cReason.Location = new System.Drawing.Point(579, 316);
             this.cReason.Margin = new System.Windows.Forms.Padding(2);
             this.cReason.Name = "cReason";
-            this.cReason.Size = new System.Drawing.Size(130, 25);
+            this.cReason.Size = new System.Drawing.Size(162, 28);
             this.cReason.TabIndex = 2;
             // 
             // tMessage
@@ -105,7 +105,7 @@ namespace Asuma
             this.tMessage.Multiline = true;
             this.tMessage.Name = "tMessage";
             this.tMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tMessage.Size = new System.Drawing.Size(363, 140);
+            this.tMessage.Size = new System.Drawing.Size(453, 174);
             this.tMessage.TabIndex = 11;
             this.tMessage.Text = "\r\n";
             // 
@@ -131,7 +131,7 @@ namespace Asuma
             this.menuFlowLayoutPanel.Location = new System.Drawing.Point(29, 174);
             this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
-            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1073, 43);
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
             this.menuFlowLayoutPanel.TabIndex = 13;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint_1);
             // 
@@ -145,7 +145,7 @@ namespace Asuma
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(128, 46);
             this.bInicio.TabIndex = 0;
-            this.bInicio.Text = "Inicio / Noticias";
+            this.bInicio.Text = "Inicio";
             this.bInicio.UseVisualStyleBackColor = false;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
@@ -191,7 +191,7 @@ namespace Asuma
             this.pASM.Location = new System.Drawing.Point(1359, 18);
             this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
-            this.pASM.Size = new System.Drawing.Size(281, 111);
+            this.pASM.Size = new System.Drawing.Size(351, 139);
             this.pASM.TabIndex = 20;
             this.pASM.TabStop = false;
             this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
@@ -215,7 +215,7 @@ namespace Asuma
             this.lUsername.Location = new System.Drawing.Point(244, 69);
             this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(122, 26);
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
             this.lUsername.TabIndex = 18;
             this.lUsername.Text = "userName";
             // 
@@ -223,7 +223,11 @@ namespace Asuma
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linitSesion.Location = new System.Drawing.Point(429, 79);
             this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linitSesion.Name = "linitSesion";
+            this.linitSesion.Size = new System.Drawing.Size(146, 25);
+            this.linitSesion.TabIndex = 15;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
             this.linitSesion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linitSesion_LinkClicked);
@@ -235,7 +239,7 @@ namespace Asuma
             this.lInfo.Location = new System.Drawing.Point(162, 59);
             this.lInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lInfo.Name = "lInfo";
-            this.lInfo.Size = new System.Drawing.Size(867, 36);
+            this.lInfo.Size = new System.Drawing.Size(1094, 46);
             this.lInfo.TabIndex = 21;
             this.lInfo.Text = "¿Algún problema o duda? Contacta con el administrador";
             // 
@@ -246,7 +250,7 @@ namespace Asuma
             this.lSignOut.Location = new System.Drawing.Point(245, 118);
             this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(102, 17);
+            this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 35;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -258,7 +262,7 @@ namespace Asuma
             this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(105, 111);
+            this.pUser.Size = new System.Drawing.Size(131, 139);
             this.pUser.TabIndex = 36;
             this.pUser.TabStop = false;
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
@@ -270,7 +274,7 @@ namespace Asuma
             this.lName.Location = new System.Drawing.Point(476, 151);
             this.lName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lName.Name = "lName";
-            this.lName.Size = new System.Drawing.Size(75, 18);
+            this.lName.Size = new System.Drawing.Size(94, 23);
             this.lName.TabIndex = 37;
             this.lName.Text = "Nombre:";
             // 
@@ -323,7 +327,7 @@ namespace Asuma
             // 
             // Contacto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);

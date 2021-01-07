@@ -171,9 +171,9 @@ namespace Asuma
 
         private void bContacto_Click(object sender, EventArgs e)
         {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
             this.Close();
         }
 
@@ -306,5 +306,13 @@ namespace Asuma
             this.Visible = true;
         }
         #endregion
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion info = new Informacion(usuario);
+            info.Show();
+            this.Close();
+        }
     }
 }

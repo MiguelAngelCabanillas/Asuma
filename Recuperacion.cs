@@ -118,7 +118,6 @@ namespace Asuma
 
             if (this.token.Equals(token))
             {
-                MessageBox.Show("Token correcto");
                 User user = new User(username);
                 CambiarPassword cp = new CambiarPassword(user);
                 cp.Show();
