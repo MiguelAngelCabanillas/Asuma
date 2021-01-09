@@ -129,6 +129,7 @@
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -200,7 +201,7 @@
             this.checkBox1.Location = new System.Drawing.Point(2, 1096);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(89, 19);
+            this.checkBox1.Size = new System.Drawing.Size(98, 21);
             this.checkBox1.TabIndex = 8;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -480,7 +481,7 @@
             this.cbTipo.Location = new System.Drawing.Point(528, 566);
             this.cbTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(114, 21);
+            this.cbTipo.Size = new System.Drawing.Size(114, 24);
             this.cbTipo.TabIndex = 34;
             this.cbTipo.DropDownClosed += new System.EventHandler(this.cbTipo_DropDownClosed);
             // 

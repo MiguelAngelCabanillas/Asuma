@@ -171,6 +171,7 @@ namespace Asuma
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -320,7 +321,7 @@ namespace Asuma
             this.panel1.Controls.Add(this.lMessage);
             this.panel1.Controls.Add(this.tMessage);
             this.panel1.Location = new System.Drawing.Point(264, 252);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1394, 634);
             this.panel1.TabIndex = 44;

@@ -39,6 +39,7 @@
             this.lRecoverInfo = new System.Windows.Forms.Label();
             this.bRecover = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.bExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lRecuperacion
@@ -126,12 +127,23 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // bExit
+            // 
+            this.bExit.Location = new System.Drawing.Point(1124, 577);
+            this.bExit.Name = "bExit";
+            this.bExit.Size = new System.Drawing.Size(98, 27);
+            this.bExit.TabIndex = 9;
+            this.bExit.Text = "Salir";
+            this.bExit.UseVisualStyleBackColor = true;
+            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            // 
             // Recuperacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1265, 630);
+            this.Controls.Add(this.bExit);
             this.Controls.Add(this.bRecover);
             this.Controls.Add(this.lRecoverInfo);
             this.Controls.Add(this.tRecover);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Label lRecoverInfo;
         private System.Windows.Forms.Button bRecover;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button bExit;
     }
 }

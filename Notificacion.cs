@@ -39,6 +39,7 @@ namespace Asuma
                     string cuerpo = tMessage.Text;
                     email.sendEmailToVarious(listaEmails, asunto, cuerpo, new Event(61).EventName);
                     MessageBox.Show("Notificación enviada con éxito");
+                    this.Close();
                 }
             }
             catch (Exception ex)

@@ -171,7 +171,7 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Principal inicio = new Principal(usuario);
-            inicio.ShowDialog();
+            inicio.Show();
             this.Close();
         }
 
@@ -194,14 +194,8 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             EditarNoticia en = new EditarNoticia(noticia, usuario);
-            en.Owner = this;
-            this.Visible = false;
-            en.ShowDialog();
-            if (!isClosed)
-            {
-                actualizar();
-                this.Visible = true;
-            }
+            en.Show();
+            this.Close();
         }
 
         public User Usuario
@@ -214,12 +208,24 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
-            if (this.Owner != null)
-            {
-                this.Owner.Close();
-            }
             this.Close();
 
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
+            this.Close();
         }
 
         private void bEventos_Click(object sender, EventArgs e)
@@ -227,10 +233,6 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-            if (this.Owner != null)
-            {
-                this.Owner.Close();
-            }
             this.Close();
         }
 
@@ -317,14 +319,9 @@ namespace Asuma
             actualizar();
             this.Visible = true;
         }
+
         #endregion
 
-        private void bContacto_Click(object sender, EventArgs e)
-        {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close();
-        }
+
     }
 }

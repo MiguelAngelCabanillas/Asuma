@@ -101,7 +101,6 @@ namespace Asuma
             if (tiempoRestante == -1)
             {
                 watch.Reset();
-               // timer.Stop();
                 timer.Enabled = false;
                 bSend.Text = "Enviar mensaje";
                 bSend.Enabled = true;
@@ -120,7 +119,9 @@ namespace Asuma
             {
                 User user = new User(username);
                 CambiarPassword cp = new CambiarPassword(user);
-                cp.Show();
+                this.Visible = false;
+                cp.ShowDialog();
+                this.Close();
 
             }
             else
@@ -129,6 +130,12 @@ namespace Asuma
             }
 
 
+        }
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            this.Close();
         }
     }
 }

@@ -45,6 +45,7 @@ namespace Asuma
 
         private void bVisualizar_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             String selected = (String)LB_Surveys.SelectedItem;
             int idS = int.Parse(selected.Replace("Cuestionario ", ""));
             String q1, q7;
@@ -95,6 +96,7 @@ namespace Asuma
 
         private void bSalir_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             this.Close();
         }
     }

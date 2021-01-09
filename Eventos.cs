@@ -369,37 +369,15 @@ namespace Asuma
 
                 Cursor.Current = Cursors.WaitCursor;
                 InfoEvento infoEvento = new InfoEvento(ev, null);
-                this.Visible = false;
-                infoEvento.ShowDialog();
-                usuario = infoEvento.Usuario;
-                mostrarEventos(0);
-                actualizar();
-                actualizarPanelEventos();
-                this.Visible = true;
-
-
-                /*
-                Cursor.Current = Cursors.WaitCursor;
-                InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
                 infoEvento.Show();
-                this.Close();
-                */
+                this.Close(); 
             }
             else if (usuario.Rol.RolName.Equals("Admin"))
             {
                 Cursor.Current = Cursors.WaitCursor;
                 InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
-                infoEvento.Owner = this;
-                this.Visible = false;
-                infoEvento.ShowDialog();
-                if (!isClosed)
-                {
-                    mostrarEventos(0);
-                    actualizar();
-                    actualizarPanelEventos();
-                    this.Visible = true;
-                    
-                }
+                infoEvento.Show();
+                this.Close();
             }
             else
             {
@@ -417,16 +395,8 @@ namespace Asuma
 
                             Cursor.Current = Cursors.WaitCursor;
                             InfoEventoInscrito infoEvento = new InfoEventoInscrito(ev, this.usuario);
-                            infoEvento.Owner = this;
-                            this.Visible = false;
-                            infoEvento.ShowDialog();
-                            if (!isClosed)
-                            {
-                                mostrarEventos(0);
-                                actualizar();
-                                actualizarPanelEventos();
-                                this.Visible = true;
-                            }
+                            infoEvento.Show();
+                            this.Close();
                         }
                     }
                     reader.Close();
@@ -435,33 +405,16 @@ namespace Asuma
                     {
                         Cursor.Current = Cursors.WaitCursor;
                         InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                        infoEvento.Owner = this;
-                        this.Visible = false;
-                        infoEvento.ShowDialog();
-                        if (!isClosed)
-                        {
-                            mostrarEventos(0);
-                            actualizar();
-                            actualizarPanelEventos();
-                            this.Visible = true;
-                        }
-
+                        infoEvento.Show();
+                        this.Close();
                     }
                 }
                 else
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     InfoEvento infoEvento = new InfoEvento(ev, this.usuario);
-                    infoEvento.Owner = this;
-                    this.Visible = false;
-                    infoEvento.ShowDialog();
-                    if (!isClosed)
-                    {
-                        mostrarEventos(0);
-                        actualizar();
-                        actualizarPanelEventos();
-                        this.Visible = true;
-                    }
+                    infoEvento.Show();
+                    this.Close();
                 }
             }
         }
@@ -583,10 +536,10 @@ namespace Asuma
 
         private void bContacto_Click(object sender, EventArgs e)
         {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close(); 
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
+            this.Close();
         }
 
         private void bInfo_Click(object sender, EventArgs e)

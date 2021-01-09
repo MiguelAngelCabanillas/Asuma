@@ -140,10 +140,7 @@ namespace Asuma
 
         private void bInfo_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            Informacion info = new Informacion(usuario);
-            info.Show();
-            this.Close();
+
         }
 
         private void Informacion_FormClosing(object sender, FormClosingEventArgs e)
@@ -226,7 +223,7 @@ namespace Asuma
         {
             Contacto contacto = new Contacto(usuario);
             this.Visible = false;
-            contacto.ShowDialog();
+            contacto.Show();
             this.Close();
         }
     }

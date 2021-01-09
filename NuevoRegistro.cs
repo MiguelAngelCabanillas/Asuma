@@ -11,16 +11,11 @@ using MySqlConnector;
 
 namespace Asuma
 {
-    public partial class Registro : Form
+    public partial class NuevoRegistro : Form
     {
-        public Registro()
+        public NuevoRegistro()
         {
             InitializeComponent();
-        }
-
-        private void lUsername_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cUserType_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,35 +47,36 @@ namespace Asuma
                 if (!terms)
                 {
                     MessageBox.Show("Debe aceptar los términos y condiciones para continuar");
-                }else if (username.Equals(""))
+                }
+                else if (username.Equals(""))
                 {
                     MessageBox.Show("Debe introducir un nombre de usuario");
                 }
                 else if (email.Equals(""))
                 {
                     MessageBox.Show("Debe introducir un email");
-                } 
+                }
                 else if (password.Equals(""))
                 {
                     MessageBox.Show("Debe introducir una contraseña");
-                } 
+                }
                 else if (repeatedPassword.Equals(""))
                 {
                     MessageBox.Show("Debe introducir de nuevo su contraseña");
-                } 
+                }
                 else if (userType.Equals(""))
                 {
                     MessageBox.Show("Debe introducir un tipo de usuario");
-                } 
+                }
                 else if (!userType.Equals("Usuario") && code.Equals(""))
                 {
                     MessageBox.Show("Debe introducir su código");
-                } 
+                }
                 else if (!password.Equals(repeatedPassword))
                 {
                     MessageBox.Show("Las contraseñas introducidas no coinciden");
                 }
-                else if(userType.Equals("Docente") || userType.Equals("ONG"))
+                else if (userType.Equals("Docente") || userType.Equals("ONG"))
                 {
                     BD bd = new BD();
                     MySqlDataReader reader = bd.Query("SELECT * FROM codes WHERE code = '" + code + "'");
@@ -107,12 +103,15 @@ namespace Asuma
                     User user = new User(username, password, email, userType);
                     MessageBox.Show("Registro realizado con exito");
                     this.Close();
-                }                
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Error(ex.Message);
             }
         }
     }
+
+
+    
 }

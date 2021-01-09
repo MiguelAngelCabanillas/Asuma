@@ -155,31 +155,24 @@ namespace Asuma
             this.Close();
         }
 
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
+            this.Close();
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
+        }
+
         private void bCreateEvent_Click(object sender, EventArgs e)
         {
-            /*Cursor.Current = Cursors.WaitCursor;
-            try
-            {
-                string eventName = tTitle.Text;
-                string eventDescription = tDescription.Text;
-                DateTime date = tDatePicker.Value;
-
-                string[] aux = date.ToString().Split(' ');
-                string eventDate = aux[0];
-                string eventOrganiser = tOrganizer.Text;
-                string eventCreator = usuario.Username;
-                string image = tImage.Text;
-                Event evento = new Event(eventName, eventDate, image, eventDescription, eventOrganiser, eventCreator);
-                MessageBox.Show("Evento creado con exito");
-                MisEventos misEventos = new MisEventos(usuario);
-                misEventos.Show();
-                this.Close();
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }*/
             Cursor.Current = Cursors.WaitCursor;
             try
             {
@@ -212,10 +205,6 @@ namespace Asuma
                 MessageBox.Show("Evento creado con exito");
                 MisEventos misEventos = new MisEventos(usuario);
                 misEventos.Show();
-                if (this.Owner != null)
-                {
-                    this.Owner.Close();
-                }
                 this.Close();
 
             }
@@ -300,7 +289,7 @@ namespace Asuma
         {
             if (!usuario.Rol.RolName.Equals("ONG") && cbTipo.SelectedItem == cbTipo.Items[0])
             {
-                MessageBox.Show("Solo las ONG pueden crear actividades");
+                MessageBox.Show("Solo las organizaciones pueden crear actividades");
                 cbTipo.SelectedItem = cbTipo.Items[1];
             }
             else
@@ -398,15 +387,10 @@ namespace Asuma
             this.Visible = true;
         }
 
+
+
         #endregion
 
-        private void bContacto_Click(object sender, EventArgs e)
-        {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close();
-        }
 
     }
 }

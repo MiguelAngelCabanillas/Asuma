@@ -55,6 +55,7 @@ namespace Asuma
             this.MainForm = new Principal(null);
         }
 
+        [STAThread]
         internal static void Main(string[] Args)
         {
             string[] arg; arg = new string[0];
