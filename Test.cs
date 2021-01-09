@@ -85,10 +85,13 @@ namespace Asuma
                     int idP = nombreQ.Key;
                     String nombrePregunta = nombreQ.Value;
 
-                    listaRespuestas.TryGetValue(idP, out String[] respuestas);
+                    String[] respuestas;
+                    List<String> correctas;
+
+                    listaRespuestas.TryGetValue(idP, out respuestas);
                     String nombreRespuestas = seleccionarRespuestas(respuestas);
 
-                    respuestasCorrectas.TryGetValue(idP, out List<string> correctas);
+                    respuestasCorrectas.TryGetValue(idP, out correctas);
                     String resCorrectas = seleccionarRespuestasCorrectas(correctas);
 
                     MySqlDataReader writer3 = bd.Query("INSERT INTO preguntas VALUES(" + idEvento + ", '" + nombrePregunta + "', '" + nombreRespuestas + "', '" + resCorrectas + "', " + idP + ");");
@@ -101,6 +104,7 @@ namespace Asuma
             {
                 throw new Error(e2.Message);
             }
+        }
 
             string seleccionarRespuestas(string[] respuestas)
             {
@@ -121,7 +125,6 @@ namespace Asuma
 
                 return nombreRespuestas;
             }
-        }
 
         public Test(Event Evento, User Usuario, string idsP, string respuestasUsuario)
         {

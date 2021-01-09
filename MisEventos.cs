@@ -295,6 +295,7 @@ namespace Asuma
             if (cbFiltro.Items.Count == 0) {
                 actualizarFiltro();
             }
+            panel1.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarFiltro()
@@ -389,7 +390,7 @@ namespace Asuma
             hideTimer.Stop();
             if (!mouseInPanel)
             {
-                pPerfil.Visible = false;
+                panel1.Visible = false;
                 pUser.BringToFront();
                 pUser.Visible = true;
                 lUsername.Visible = true;
@@ -402,7 +403,7 @@ namespace Asuma
             {
                 mouseInPanel = true;
                 pUser.SendToBack();
-                pPerfil.Visible = true;
+                panel1.Visible = true;
             }
             else
             {
@@ -414,7 +415,7 @@ namespace Asuma
 
         private void bPerfil_MouseEnter(object sender, EventArgs e)
         {
-            pPerfil.Visible = true;
+            panel1.Visible = true;
             mouseInPanel = true;
             hideTimer.Stop();
         }
@@ -428,7 +429,7 @@ namespace Asuma
         {
             if (usuario != null)
             {
-                pPerfil.Visible = false;
+                panel1.Visible = false;
                 pUser.BringToFront();
                 pUser.Visible = true;
                 lUsername.Visible = true;
