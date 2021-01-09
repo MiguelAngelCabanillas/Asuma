@@ -57,6 +57,7 @@ namespace Asuma
             actualizarBotonMisEventos();
             actualizarPanelEventos();
             actualizarFiltro();
+            actualizarPanelPerfil();
         }
 
         public void mostrarEventos(int filtro)
@@ -317,6 +318,11 @@ namespace Asuma
             cbFiltro.SelectedItem = cbFiltro.Items[0];
             cbFiltro.Items.Add("Actividad");
             cbFiltro.Items.Add("Curso");
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarPanelEventos()
