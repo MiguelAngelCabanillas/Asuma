@@ -148,23 +148,7 @@ namespace Asuma
             }
         }
 
-        private void bNotificarGui_Click(object sender, EventArgs e)
-        {
-            Notificacion n = new Notificacion();
-            this.Visible = false;
-            n.Owner = this;
-            n.ShowDialog();
-            this.Visible = true;
-        }
 
-        private void bRecuperacion_Click(object sender, EventArgs e)
-        {
-            Recuperacion r = new Recuperacion();
-            this.Visible = false;
-            r.Owner = this;
-            r.ShowDialog();
-            this.Visible = true;
-        }
 
         private void bInicio_Click(object sender, EventArgs e)
         {
@@ -194,6 +178,14 @@ namespace Asuma
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion info = new Informacion(usuario);
+            info.Show();
+            this.Close();
         }
     }
 }

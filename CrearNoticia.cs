@@ -106,8 +106,8 @@ namespace Asuma
         private void bExit_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            /*Principal inicio = new Principal(usuario);
-            inicio.Show();*/
+            Principal inicio = new Principal(usuario);
+            inicio.Show();
             this.Close();
         }
 
@@ -135,10 +135,6 @@ namespace Asuma
                 MessageBox.Show("Noticia creada con exito");
                 Principal inicio = new Principal(usuario);
                 inicio.Show();
-                if (this.Owner != null)
-                {
-                    this.Owner.Close();
-                }
                 this.Close();
 
             }
@@ -174,6 +170,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Contacto con = new Contacto(usuario);
             con.Show();
+            this.Close();
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion info = new Informacion(usuario);
+            info.Show();
             this.Close();
         }
 
@@ -307,12 +311,6 @@ namespace Asuma
         }
         #endregion
 
-        private void bInfo_Click(object sender, EventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            Informacion info = new Informacion(usuario);
-            info.Show();
-            this.Close();
-        }
+
     }
 }

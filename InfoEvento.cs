@@ -164,6 +164,7 @@ namespace Asuma
             actualizarLabels();
         }
 
+
         public void actualizar()
         {
             if (usuario == null)
@@ -207,11 +208,14 @@ namespace Asuma
         private void bSalir_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            Eventos ev = new Eventos(usuario);
+            ev.Show();
             this.Close();
         }
 
         private void bInscription_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (this.usuario == null)
             {
                 MessageBox.Show("Debe iniciar sesión para inscribirse en un evento");
@@ -227,6 +231,8 @@ namespace Asuma
                     MessageBox.Show("Inscripción realizada con éxito.");
                     Email email = new Email();
                     email.sendEmailToInscripted(usuario.Email, ev);
+                    InfoEventoInscrito iei = new InfoEventoInscrito(ev, usuario);
+                    iei.Show();
                     this.Close();
                 }
                 catch { MessageBox.Show("Error al formular la inscripción"); }
@@ -253,11 +259,6 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
-            //misEventos.Close();
-            if (this.Owner != null)
-            {
-                this.Owner.Close();
-            }
             this.Close();
 
         }
@@ -267,10 +268,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-            if (this.Owner != null)
-            {
-                this.Owner.Close();
-            }
+            this.Close();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
             this.Close();
         }
         #endregion
@@ -368,13 +373,7 @@ namespace Asuma
             }
         }
 
-        private void bContacto_Click(object sender, EventArgs e)
-        {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close();
-        }
+
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -385,6 +384,14 @@ namespace Asuma
             this.usuario = Inicio.usuario;
             actualizar();
             //this.Visible = true;
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
         }
     }
 }

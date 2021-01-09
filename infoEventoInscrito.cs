@@ -195,13 +195,9 @@ namespace Asuma
         #region Logica del formulario
         private void bExit_Click(object sender, EventArgs e)
         {
-
             Cursor.Current = Cursors.WaitCursor;
-            /*
-            Eventos ev = new Eventos(usuario);
-            ev.Show();
-            this.Close();
-            */
+            MisEventos misEventos = new MisEventos(usuario);
+            misEventos.Show();
             this.Close();
         }
 
@@ -214,28 +210,16 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             EditarEvento ed = new EditarEvento(evento, usuario);
-            ed.Owner = this;
-            this.Visible = false;
-            ed.ShowDialog();
-            if (!isClosed)
-            {
-                actualizar();
-                this.Visible = true;
-            }
+            ed.Show();
+            this.Close();
         }
 
         private void bInicio_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Principal p = new Principal(usuario);
-            p.Show();
-            //misEventos.Close();
-            if (this.Owner != null)
-            {
-                this.Owner.Close();
-            }
+            Principal ev = new Principal(usuario);
+            ev.Show();
             this.Close();
-            
         }
 
         private void bEventos_Click(object sender, EventArgs e)
@@ -243,10 +227,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-            if (this.Owner != null)
-            {
-                this.Owner.Close();
-            }
+            this.Close();
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
             this.Close();
         }
 
@@ -372,16 +360,10 @@ namespace Asuma
             }
         }
 
-        private void bContacto_Click(object sender, EventArgs e)
-        {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close();
-        }
 
         private void bTestConocimiento_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (!Test.testCreado(evento))
             {
                 //Si el gestor no ha creado el test muestro un mensaje
@@ -403,19 +385,17 @@ namespace Asuma
 
         private void bNotifyEmail_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Notificacion n = new Notificacion();
-            n.Owner = this;
             n.ShowDialog();
         }
 
         private void bListParticipantes_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            ListaParticipantes lP = new ListaParticipantes(usuario, evento)
-            {
-                Owner = this
-            };
-            lP.ShowDialog();
+            ListaParticipantes lPa = new ListaParticipantes(usuario, evento);
+            lPa.Show();
+            this.Close();
         }
 
         private void linkArchivos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -426,12 +406,14 @@ namespace Asuma
 
         private void bTestsRealizados_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Tests_Curso testRealizados = new Tests_Curso(evento);
             testRealizados.ShowDialog();
         }
 
         private void bRealizarEncSatisfaccion_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (Surveys_Evento.EncuestaRealizada(usuario.Id))
             {
                 MessageBox.Show("La encuesta ya ha sido realizada");
@@ -445,6 +427,7 @@ namespace Asuma
 
         private void bEncuestas_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Surveys_Evento encuestas = new Surveys_Evento(evento);
             encuestas.ShowDialog();
         }

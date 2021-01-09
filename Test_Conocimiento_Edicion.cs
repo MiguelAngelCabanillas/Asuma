@@ -289,6 +289,7 @@ namespace Asuma
 
         private void bSalir_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             this.Close();
         }
     }

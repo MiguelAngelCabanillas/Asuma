@@ -163,21 +163,17 @@ namespace Asuma
         #region Logica del formulario
         private void bExit_Click(object sender, EventArgs e)
         {
-            
             Cursor.Current = Cursors.WaitCursor;
-            /*
             InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
             ei.Show();
-            this.Close();
-            */
             this.Close();
         }
 
         private void bContacto_Click(object sender, EventArgs e)
         {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
             this.Close();
         }
 
@@ -192,6 +188,7 @@ namespace Asuma
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 string title = tTitle.Text;
                 string description = tDescription.Text;
                 string image = tImage.Text;
@@ -202,10 +199,8 @@ namespace Asuma
                 MessageBox.Show("Se ha editado el evento correctamente");
                 writer.Close();
                 bd.closeBD();
-                if (this.Owner != null)
-                {
-                    this.Owner.Close();
-                }
+                InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
+                ei.Show();
                 this.Close();
 
                 if (FTPClient.ftpOn)
@@ -230,6 +225,7 @@ namespace Asuma
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 BD bd = new BD();
                 MySqlDataReader writer = bd.Query("DELETE FROM event WHERE idEvent = " + evento.ID);
                 writer.Close();
@@ -237,10 +233,8 @@ namespace Asuma
                 FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
                 ftp.DeleteFTPDirectory("eventos/" + evento.ID + "/");
                 MessageBox.Show("Evento eliminado con éxito");
-                if (this.Owner != null)
-                {
-                    this.Owner.Close();
-                }
+                MisEventos misEventos = new MisEventos(usuario);
+                misEventos.Show();
                 this.Close();
 
             }catch(Exception ex)
@@ -254,9 +248,16 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
-            this.Owner.Owner.Close();
             this.Close();
 
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
         }
 
         private void bEventos_Click(object sender, EventArgs e)
@@ -264,7 +265,6 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();
-            this.Owner.Owner.Close();
             this.Close();
         }
 
@@ -420,6 +420,7 @@ namespace Asuma
             actualizar();
             this.Visible = true;
         }
+
         #endregion
 
 
