@@ -199,7 +199,7 @@ namespace Asuma
                 MessageBox.Show("Se ha editado el evento correctamente");
                 writer.Close();
                 bd.closeBD();
-                InfoEventoInscrito ei = new InfoEventoInscrito(evento, usuario);
+                InfoEventoInscrito ei = new InfoEventoInscrito(new Event(evento.ID), usuario);
                 ei.Show();
                 this.Close();
 
