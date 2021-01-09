@@ -59,7 +59,8 @@ namespace Asuma
             foreach (var item in Respuestas_Resultado)
             {
                 idP = int.Parse(idPregunta[i]);
-                Respuestas_Resultado.TryGetValue(idP, out CheckedListBox aux);
+                CheckedListBox aux;
+                Respuestas_Resultado.TryGetValue(idP, out aux);
                 //La ultima es la cadena vacia
                 if (i < respuestasAllPreguntas.Length - 1)
                 {
@@ -170,7 +171,8 @@ namespace Asuma
             foreach (var item in Respuestas_Resultado)
             {
                 id_P = item.Key;
-                respuestasCorrectas.TryGetValue(id_P, out List<string> respuestasC);
+                List<string> respuestasC;
+                respuestasCorrectas.TryGetValue(id_P, out respuestasC);
                 int cont = 0;
                 foreach (var aux in respuestasC)
                 {
@@ -179,7 +181,8 @@ namespace Asuma
                         cont++;
                     }
                 }
-                Label_Resultado.TryGetValue(id_P, out Label labelRes);
+                Label labelRes;
+                Label_Resultado.TryGetValue(id_P, out labelRes);
                 //Tienes que acertar la mitad de las respuestas para que sea correcta la pregunta
                 //NO TENGO GANAS DE PENSAR PERO TIENE QUE HABER UNA MANERA MEJOR DE HACER ESTO
                 if (respuestasC.Count % 2 == 0) //Par

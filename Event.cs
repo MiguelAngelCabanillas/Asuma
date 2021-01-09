@@ -77,7 +77,7 @@ namespace Asuma
             this.eventDescription = eventDescription;
             this.organizer = organizer;
             this.eventCreator = eventCreator;
-            this.tipo = tipo;
+            this.esCurso = tipo;
         }
 
 
