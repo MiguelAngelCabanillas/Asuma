@@ -192,7 +192,6 @@ namespace Asuma
                     descripcion.Name = "tDescripcion";
                     descripcion.ReadOnly = true;
                     descripcion.Size = new Size(panel.Width / 2, panel.Height / 2); //685,59
-                    descripcion.TabIndex = 2;
                     descripcion.Visible = true;
 
                     TextBox tTipo = new TextBox();
@@ -285,7 +284,6 @@ namespace Asuma
         
         private void actualizarBotones()
         {
-            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.menuFlowLayoutPanel.Width = this.Width - 25;
             this.bInicio.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
@@ -294,6 +292,7 @@ namespace Asuma
         }
         private void actualizarImagenes()
         {
+            linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
             this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
             this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
             this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);

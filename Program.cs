@@ -52,7 +52,7 @@ namespace Asuma
         protected override void OnCreateMainForm()
         {
 
-            this.MainForm = new Principal(null);
+            this.MainForm = new Informacion(null);
         }
 
         [STAThread]

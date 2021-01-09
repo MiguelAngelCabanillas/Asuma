@@ -329,6 +329,7 @@ namespace Asuma
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
+
         }
 
 
@@ -341,7 +342,7 @@ namespace Asuma
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bCrearNoticia.Location = new Point(this.Width*7/10+mcEventos.Width/2-bCrearNoticia.Width/2,
-                this.pNoticias.Location.Y + mcEventos.Height + 20);
+              this.pNoticias.Location.Y + mcEventos.Height + 20);
         }
 
 

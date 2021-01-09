@@ -25,6 +25,7 @@ namespace Asuma
             InitializeComponent();
             this.usuario = usuario;
             actualizar();
+
         }
         public void actualizar()
         {
@@ -91,16 +92,30 @@ namespace Asuma
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
         }
 
+        private void actualizarTextos()
+        {
+            int tam = this.Width;
+            this.lConoceSN.Location = new Point((tam/2)-lConoceSN.Width/2, lConoceSN.Location.Y);
+            this.lAsuma.Location = new Point((tam * 1 / 10), lAsuma.Location.Y);
+            this.RTB_ASUMA.Location = new Point(lAsuma.Location.X, RTB_ASUMA.Location.Y);
+            this.lOfrece.Location = new Point((int)(tam * 6.2 / 10), lOfrece.Location.Y);
+            this.RTB_Ofrece.Location = new Point((int)(tam * 6.2 / 10), RTB_Ofrece.Location.Y);
+        }
+
         private void actualizarImagenes()
         {
 
             this.lUsername.Location = new Point((int)(this.Width * 1.2) / 10, lUsername.Location.Y);
             this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
             this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
+            this.linitSesion.Location = new Point(lUsername.Location.X, lUsername.Location.Y);
 
             int tamaño = this.Width;
             this.pASUMA.Location = new Point((tamaño * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((tamaño * 7) / 10, pASM.Location.Y);
+            this.pEtsi.Location = new Point((tamaño * 6) / 10, pEtsi.Location.Y);
+
+
         }
 
         private void pUser_Paint(object sender, PaintEventArgs e)
@@ -122,6 +137,7 @@ namespace Asuma
         {
             actualizarBotones();
             actualizarImagenes();
+            actualizarTextos();
         }
         #endregion
 
@@ -225,10 +241,25 @@ namespace Asuma
 
         private void bContacto_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
             contacto.Show();
             this.Close();
+        }
+
+        private void pEtsi_Paint(object sender, PaintEventArgs e)
+        {
+            this.pEtsi.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pUma_Paint(object sender, PaintEventArgs e)
+        {
+            this.pUma.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void pMedicina_Paint(object sender, PaintEventArgs e)
+        {
+            this.pMedicina.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

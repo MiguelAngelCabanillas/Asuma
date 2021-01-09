@@ -418,5 +418,14 @@
   <ItemGroup>
     <None Include="images\asm2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\etsiii.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\uma.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\facultad.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
