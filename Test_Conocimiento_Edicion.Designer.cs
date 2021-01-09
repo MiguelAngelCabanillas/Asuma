@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Test_Conocimiento_Edicion));
             this.checkedListBoxQ1 = new System.Windows.Forms.CheckedListBox();
             this.lQ1 = new System.Windows.Forms.Label();
             this.lNameCurso = new System.Windows.Forms.Label();
@@ -54,9 +55,10 @@ namespace Asuma
             this.checkedListBoxQ1.CheckOnClick = true;
             this.checkedListBoxQ1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxQ1.FormattingEnabled = true;
-            this.checkedListBoxQ1.Location = new System.Drawing.Point(44, 183);
+            this.checkedListBoxQ1.Location = new System.Drawing.Point(59, 225);
+            this.checkedListBoxQ1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkedListBoxQ1.Name = "checkedListBoxQ1";
-            this.checkedListBoxQ1.Size = new System.Drawing.Size(510, 121);
+            this.checkedListBoxQ1.Size = new System.Drawing.Size(679, 128);
             this.checkedListBoxQ1.TabIndex = 13;
             this.checkedListBoxQ1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxQ1_ItemCheck);
             // 
@@ -64,9 +66,10 @@ namespace Asuma
             // 
             this.lQ1.AutoSize = true;
             this.lQ1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ1.Location = new System.Drawing.Point(41, 125);
+            this.lQ1.Location = new System.Drawing.Point(55, 154);
+            this.lQ1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ1.Name = "lQ1";
-            this.lQ1.Size = new System.Drawing.Size(98, 18);
+            this.lQ1.Size = new System.Drawing.Size(125, 25);
             this.lQ1.TabIndex = 12;
             this.lQ1.Text = "Pregunta0:";
             // 
@@ -74,9 +77,10 @@ namespace Asuma
             // 
             this.lNameCurso.AutoSize = true;
             this.lNameCurso.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameCurso.Location = new System.Drawing.Point(287, 25);
+            this.lNameCurso.Location = new System.Drawing.Point(383, 31);
+            this.lNameCurso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNameCurso.Name = "lNameCurso";
-            this.lNameCurso.Size = new System.Drawing.Size(187, 25);
+            this.lNameCurso.Size = new System.Drawing.Size(240, 32);
             this.lNameCurso.TabIndex = 11;
             this.lNameCurso.Text = "Curso de Prueba";
             // 
@@ -84,33 +88,37 @@ namespace Asuma
             // 
             this.lTestName.AutoSize = true;
             this.lTestName.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTestName.Location = new System.Drawing.Point(40, 27);
+            this.lTestName.Location = new System.Drawing.Point(53, 33);
+            this.lTestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTestName.Name = "lTestName";
-            this.lTestName.Size = new System.Drawing.Size(241, 23);
+            this.lTestName.Size = new System.Drawing.Size(297, 29);
             this.lTestName.TabIndex = 10;
             this.lTestName.Text = "Test de conocimiento";
             // 
             // textBoxPregunta
             // 
-            this.textBoxPregunta.Location = new System.Drawing.Point(167, 126);
+            this.textBoxPregunta.Location = new System.Drawing.Point(223, 155);
+            this.textBoxPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPregunta.Name = "textBoxPregunta";
-            this.textBoxPregunta.Size = new System.Drawing.Size(376, 20);
+            this.textBoxPregunta.Size = new System.Drawing.Size(500, 22);
             this.textBoxPregunta.TabIndex = 14;
             this.textBoxPregunta.Text = "Pregunta0";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(612, 30);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(816, 37);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(269, 172);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(359, 212);
             this.flowLayoutPanel1.TabIndex = 15;
             // 
             // bFinalizar_Test
             // 
             this.bFinalizar_Test.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bFinalizar_Test.Location = new System.Drawing.Point(12, 410);
+            this.bFinalizar_Test.Location = new System.Drawing.Point(16, 505);
+            this.bFinalizar_Test.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bFinalizar_Test.Name = "bFinalizar_Test";
-            this.bFinalizar_Test.Size = new System.Drawing.Size(195, 28);
+            this.bFinalizar_Test.Size = new System.Drawing.Size(260, 34);
             this.bFinalizar_Test.TabIndex = 16;
             this.bFinalizar_Test.Text = "Finalizar Test";
             this.bFinalizar_Test.UseVisualStyleBackColor = true;
@@ -119,9 +127,10 @@ namespace Asuma
             // bEliminarPregunta
             // 
             this.bEliminarPregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEliminarPregunta.Location = new System.Drawing.Point(234, 367);
+            this.bEliminarPregunta.Location = new System.Drawing.Point(312, 452);
+            this.bEliminarPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bEliminarPregunta.Name = "bEliminarPregunta";
-            this.bEliminarPregunta.Size = new System.Drawing.Size(195, 28);
+            this.bEliminarPregunta.Size = new System.Drawing.Size(260, 34);
             this.bEliminarPregunta.TabIndex = 17;
             this.bEliminarPregunta.Text = "Eliminar Pregunta";
             this.bEliminarPregunta.UseVisualStyleBackColor = true;
@@ -130,9 +139,10 @@ namespace Asuma
             // bAñadir_Pregunta
             // 
             this.bAñadir_Pregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAñadir_Pregunta.Location = new System.Drawing.Point(456, 367);
+            this.bAñadir_Pregunta.Location = new System.Drawing.Point(608, 452);
+            this.bAñadir_Pregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bAñadir_Pregunta.Name = "bAñadir_Pregunta";
-            this.bAñadir_Pregunta.Size = new System.Drawing.Size(195, 28);
+            this.bAñadir_Pregunta.Size = new System.Drawing.Size(260, 34);
             this.bAñadir_Pregunta.TabIndex = 18;
             this.bAñadir_Pregunta.Text = "Añadir Pregunta";
             this.bAñadir_Pregunta.UseVisualStyleBackColor = true;
@@ -141,9 +151,10 @@ namespace Asuma
             // bAñadir_Respuesta
             // 
             this.bAñadir_Respuesta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAñadir_Respuesta.Location = new System.Drawing.Point(579, 276);
+            this.bAñadir_Respuesta.Location = new System.Drawing.Point(772, 340);
+            this.bAñadir_Respuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bAñadir_Respuesta.Name = "bAñadir_Respuesta";
-            this.bAñadir_Respuesta.Size = new System.Drawing.Size(141, 28);
+            this.bAñadir_Respuesta.Size = new System.Drawing.Size(188, 34);
             this.bAñadir_Respuesta.TabIndex = 19;
             this.bAñadir_Respuesta.Text = "Añadir Respuesta";
             this.bAñadir_Respuesta.UseVisualStyleBackColor = true;
@@ -151,18 +162,20 @@ namespace Asuma
             // 
             // textBoxRespuesta
             // 
-            this.textBoxRespuesta.Location = new System.Drawing.Point(579, 224);
+            this.textBoxRespuesta.Location = new System.Drawing.Point(772, 276);
+            this.textBoxRespuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxRespuesta.Name = "textBoxRespuesta";
-            this.textBoxRespuesta.Size = new System.Drawing.Size(220, 20);
+            this.textBoxRespuesta.Size = new System.Drawing.Size(292, 22);
             this.textBoxRespuesta.TabIndex = 20;
             this.textBoxRespuesta.Text = "Respuesta0";
             // 
             // bEliminar_Respuesta
             // 
             this.bEliminar_Respuesta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEliminar_Respuesta.Location = new System.Drawing.Point(740, 276);
+            this.bEliminar_Respuesta.Location = new System.Drawing.Point(987, 340);
+            this.bEliminar_Respuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bEliminar_Respuesta.Name = "bEliminar_Respuesta";
-            this.bEliminar_Respuesta.Size = new System.Drawing.Size(141, 28);
+            this.bEliminar_Respuesta.Size = new System.Drawing.Size(188, 34);
             this.bEliminar_Respuesta.TabIndex = 22;
             this.bEliminar_Respuesta.Text = "Eliminar Respuesta";
             this.bEliminar_Respuesta.UseVisualStyleBackColor = true;
@@ -171,9 +184,10 @@ namespace Asuma
             // bActualizarPregunta
             // 
             this.bActualizarPregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bActualizarPregunta.Location = new System.Drawing.Point(676, 367);
+            this.bActualizarPregunta.Location = new System.Drawing.Point(901, 452);
+            this.bActualizarPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bActualizarPregunta.Name = "bActualizarPregunta";
-            this.bActualizarPregunta.Size = new System.Drawing.Size(195, 28);
+            this.bActualizarPregunta.Size = new System.Drawing.Size(260, 34);
             this.bActualizarPregunta.TabIndex = 23;
             this.bActualizarPregunta.Text = "Actualizar Pregunta";
             this.bActualizarPregunta.UseVisualStyleBackColor = true;
@@ -183,9 +197,10 @@ namespace Asuma
             // 
             this.checkBoxSelecM.AutoSize = true;
             this.checkBoxSelecM.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxSelecM.Location = new System.Drawing.Point(44, 64);
+            this.checkBoxSelecM.Location = new System.Drawing.Point(59, 79);
+            this.checkBoxSelecM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxSelecM.Name = "checkBoxSelecM";
-            this.checkBoxSelecM.Size = new System.Drawing.Size(136, 18);
+            this.checkBoxSelecM.Size = new System.Drawing.Size(159, 22);
             this.checkBoxSelecM.TabIndex = 25;
             this.checkBoxSelecM.Text = "Selección Múltiple";
             this.checkBoxSelecM.UseVisualStyleBackColor = true;
@@ -194,9 +209,10 @@ namespace Asuma
             // 
             this.checkBoxCorrecta.AutoSize = true;
             this.checkBoxCorrecta.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCorrecta.Location = new System.Drawing.Point(805, 226);
+            this.checkBoxCorrecta.Location = new System.Drawing.Point(1073, 278);
+            this.checkBoxCorrecta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxCorrecta.Name = "checkBoxCorrecta";
-            this.checkBoxCorrecta.Size = new System.Drawing.Size(80, 18);
+            this.checkBoxCorrecta.Size = new System.Drawing.Size(95, 22);
             this.checkBoxCorrecta.TabIndex = 26;
             this.checkBoxCorrecta.Text = "Correcta";
             this.checkBoxCorrecta.UseVisualStyleBackColor = true;
@@ -204,9 +220,10 @@ namespace Asuma
             // bNueva_Pregunta
             // 
             this.bNueva_Pregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bNueva_Pregunta.Location = new System.Drawing.Point(12, 367);
+            this.bNueva_Pregunta.Location = new System.Drawing.Point(16, 452);
+            this.bNueva_Pregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bNueva_Pregunta.Name = "bNueva_Pregunta";
-            this.bNueva_Pregunta.Size = new System.Drawing.Size(195, 28);
+            this.bNueva_Pregunta.Size = new System.Drawing.Size(260, 34);
             this.bNueva_Pregunta.TabIndex = 27;
             this.bNueva_Pregunta.Text = "Limpiar";
             this.bNueva_Pregunta.UseVisualStyleBackColor = true;
@@ -215,9 +232,10 @@ namespace Asuma
             // bSalir
             // 
             this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSalir.Location = new System.Drawing.Point(676, 410);
+            this.bSalir.Location = new System.Drawing.Point(901, 505);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bSalir.Name = "bSalir";
-            this.bSalir.Size = new System.Drawing.Size(195, 28);
+            this.bSalir.Size = new System.Drawing.Size(260, 34);
             this.bSalir.TabIndex = 28;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
@@ -225,9 +243,9 @@ namespace Asuma
             // 
             // Test_Conocimiento_Edicion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 450);
+            this.ClientSize = new System.Drawing.Size(1191, 554);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bNueva_Pregunta);
             this.Controls.Add(this.checkBoxCorrecta);
@@ -245,6 +263,8 @@ namespace Asuma
             this.Controls.Add(this.lQ1);
             this.Controls.Add(this.lNameCurso);
             this.Controls.Add(this.lTestName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Test_Conocimiento_Edicion";
             this.Text = "Test_Conocimiento_Edicion";
             this.ResumeLayout(false);

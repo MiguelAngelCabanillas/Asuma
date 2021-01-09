@@ -52,7 +52,7 @@ namespace Asuma
         protected override void OnCreateMainForm()
         {
 
-            this.MainForm = new Principal(null);
+            this.MainForm = new MisEventos(new User("docente1","d"));
         }
 
         internal static void Main(string[] Args)

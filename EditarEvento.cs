@@ -173,6 +173,14 @@ namespace Asuma
             this.Close();
         }
 
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Close();
+        }
+
         private void bContacto_Click(object sender, EventArgs e)
         {
             Contacto contacto = new Contacto(usuario);
@@ -420,8 +428,7 @@ namespace Asuma
             actualizar();
             this.Visible = true;
         }
+
         #endregion
-
-
     }
 }

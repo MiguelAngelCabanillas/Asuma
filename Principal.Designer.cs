@@ -279,10 +279,10 @@
             // lNoticias
             // 
             this.lNoticias.AutoSize = true;
-            this.lNoticias.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNoticias.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lNoticias.Location = new System.Drawing.Point(-29, 90);
             this.lNoticias.Name = "lNoticias";
-            this.lNoticias.Size = new System.Drawing.Size(247, 42);
+            this.lNoticias.Size = new System.Drawing.Size(285, 36);
             this.lNoticias.TabIndex = 16;
             this.lNoticias.Text = "Últimas noticias";
             // 

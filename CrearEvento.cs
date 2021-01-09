@@ -227,7 +227,11 @@ namespace Asuma
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+            //Environment.Exit(Environment.ExitCode);
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Close();
         }
 
         private void bInicio_Click(object sender, EventArgs e)

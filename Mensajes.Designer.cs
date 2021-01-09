@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mensajes));
             this.bEnviar = new System.Windows.Forms.Button();
             this.tbMensaje = new System.Windows.Forms.TextBox();
             this.lbMensajes = new System.Windows.Forms.ListBox();
@@ -53,7 +54,7 @@
             this.tbMensaje.Location = new System.Drawing.Point(107, 495);
             this.tbMensaje.Margin = new System.Windows.Forms.Padding(4);
             this.tbMensaje.Name = "tbMensaje";
-            this.tbMensaje.Size = new System.Drawing.Size(800, 25);
+            this.tbMensaje.Size = new System.Drawing.Size(800, 29);
             this.tbMensaje.TabIndex = 1;
             this.tbMensaje.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbMensaje_KeyDown);
             // 
@@ -61,12 +62,12 @@
             // 
             this.lbMensajes.FormattingEnabled = true;
             this.lbMensajes.HorizontalScrollbar = true;
-            this.lbMensajes.ItemHeight = 16;
+            this.lbMensajes.ItemHeight = 20;
             this.lbMensajes.Location = new System.Drawing.Point(107, 95);
             this.lbMensajes.Margin = new System.Windows.Forms.Padding(0);
             this.lbMensajes.Name = "lbMensajes";
             this.lbMensajes.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.lbMensajes.Size = new System.Drawing.Size(800, 372);
+            this.lbMensajes.Size = new System.Drawing.Size(800, 364);
             this.lbMensajes.TabIndex = 0;
             // 
             // label1
@@ -75,7 +76,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(102, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 31);
+            this.label1.Size = new System.Drawing.Size(115, 39);
             this.label1.TabIndex = 5;
             this.label1.Text = "label1";
             this.label1.Paint += new System.Windows.Forms.PaintEventHandler(this.label1_Paint);
@@ -93,7 +94,7 @@
             // 
             // Mensajes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1022, 629);
@@ -104,6 +105,7 @@
             this.Controls.Add(this.bEnviar);
             this.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Mensajes";
             this.Text = "Mensajes";

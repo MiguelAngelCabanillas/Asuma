@@ -65,18 +65,20 @@ namespace Asuma
             this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(48, 118);
+            this.pPerfil.Location = new System.Drawing.Point(64, 145);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pPerfil.Name = "pPerfil";
-            this.pPerfil.Size = new System.Drawing.Size(237, 113);
+            this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 58;
             this.pPerfil.Visible = false;
             this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
             // 
             // bMensajes
             // 
-            this.bMensajes.Location = new System.Drawing.Point(31, 73);
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bMensajes.Name = "bMensajes";
-            this.bMensajes.Size = new System.Drawing.Size(184, 23);
+            this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@ namespace Asuma
             // 
             // bPerfil
             // 
-            this.bPerfil.Location = new System.Drawing.Point(31, 15);
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bPerfil.Name = "bPerfil";
-            this.bPerfil.Size = new System.Drawing.Size(184, 23);
+            this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
             this.bPerfil.Text = "Mi perfil";
             this.bPerfil.UseVisualStyleBackColor = true;
@@ -96,10 +99,10 @@ namespace Asuma
             // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(1118, 752);
-            this.bExit.Margin = new System.Windows.Forms.Padding(2);
+            this.bExit.Location = new System.Drawing.Point(1491, 926);
+            this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(127, 68);
+            this.bExit.Size = new System.Drawing.Size(169, 84);
             this.bExit.TabIndex = 56;
             this.bExit.Text = "Salir";
             this.bExit.UseVisualStyleBackColor = true;
@@ -109,10 +112,9 @@ namespace Asuma
             // 
             this.lSignOut.AutoSize = true;
             this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(180, 98);
-            this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lSignOut.Location = new System.Drawing.Point(240, 121);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(102, 17);
+            this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 57;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -121,10 +123,10 @@ namespace Asuma
             // bEditarNoticia
             // 
             this.bEditarNoticia.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEditarNoticia.Location = new System.Drawing.Point(48, 752);
-            this.bEditarNoticia.Margin = new System.Windows.Forms.Padding(2);
+            this.bEditarNoticia.Location = new System.Drawing.Point(64, 926);
+            this.bEditarNoticia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEditarNoticia.Name = "bEditarNoticia";
-            this.bEditarNoticia.Size = new System.Drawing.Size(127, 68);
+            this.bEditarNoticia.Size = new System.Drawing.Size(169, 84);
             this.bEditarNoticia.TabIndex = 55;
             this.bEditarNoticia.Text = "Editar noticia";
             this.bEditarNoticia.UseVisualStyleBackColor = true;
@@ -134,10 +136,9 @@ namespace Asuma
             // 
             this.lFecha.AutoSize = true;
             this.lFecha.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lFecha.Location = new System.Drawing.Point(316, 601);
-            this.lFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lFecha.Location = new System.Drawing.Point(421, 740);
             this.lFecha.Name = "lFecha";
-            this.lFecha.Size = new System.Drawing.Size(102, 18);
+            this.lFecha.Size = new System.Drawing.Size(134, 25);
             this.lFecha.TabIndex = 54;
             this.lFecha.Text = "12/12/2012";
             // 
@@ -145,10 +146,9 @@ namespace Asuma
             // 
             this.lFec.AutoSize = true;
             this.lFec.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lFec.Location = new System.Drawing.Point(44, 596);
-            this.lFec.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lFec.Location = new System.Drawing.Point(59, 734);
             this.lFec.Name = "lFec";
-            this.lFec.Size = new System.Drawing.Size(227, 26);
+            this.lFec.Size = new System.Drawing.Size(296, 34);
             this.lFec.TabIndex = 53;
             this.lFec.Text = "Fecha de la noticia:";
             // 
@@ -156,32 +156,31 @@ namespace Asuma
             // 
             this.tDes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tDes.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tDes.Location = new System.Drawing.Point(405, 278);
-            this.tDes.Margin = new System.Windows.Forms.Padding(2);
+            this.tDes.Location = new System.Drawing.Point(540, 342);
+            this.tDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDes.Multiline = true;
             this.tDes.Name = "tDes";
             this.tDes.ReadOnly = true;
-            this.tDes.Size = new System.Drawing.Size(628, 210);
+            this.tDes.Size = new System.Drawing.Size(837, 258);
             this.tDes.TabIndex = 52;
             // 
             // lTitulo
             // 
             this.lTitulo.AutoSize = true;
             this.lTitulo.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitulo.Location = new System.Drawing.Point(399, 234);
-            this.lTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lTitulo.Location = new System.Drawing.Point(532, 288);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(111, 36);
+            this.lTitulo.Size = new System.Drawing.Size(142, 46);
             this.lTitulo.TabIndex = 51;
             this.lTitulo.Text = "Título";
             // 
             // pNoticia
             // 
             this.pNoticia.BackColor = System.Drawing.SystemColors.Highlight;
-            this.pNoticia.Location = new System.Drawing.Point(48, 234);
-            this.pNoticia.Margin = new System.Windows.Forms.Padding(2);
+            this.pNoticia.Location = new System.Drawing.Point(64, 288);
+            this.pNoticia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pNoticia.Name = "pNoticia";
-            this.pNoticia.Size = new System.Drawing.Size(266, 254);
+            this.pNoticia.Size = new System.Drawing.Size(355, 313);
             this.pNoticia.TabIndex = 50;
             this.pNoticia.TabStop = false;
             // 
@@ -189,10 +188,10 @@ namespace Asuma
             // 
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(1016, 18);
-            this.pASM.Margin = new System.Windows.Forms.Padding(2);
+            this.pASM.Location = new System.Drawing.Point(1355, 22);
+            this.pASM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pASM.Name = "pASM";
-            this.pASM.Size = new System.Drawing.Size(263, 113);
+            this.pASM.Size = new System.Drawing.Size(351, 139);
             this.pASM.TabIndex = 49;
             this.pASM.TabStop = false;
             this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
@@ -201,10 +200,10 @@ namespace Asuma
             // 
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(550, 18);
-            this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
+            this.pASUMA.Location = new System.Drawing.Point(733, 22);
+            this.pASUMA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pASUMA.Name = "pASUMA";
-            this.pASUMA.Size = new System.Drawing.Size(299, 103);
+            this.pASUMA.Size = new System.Drawing.Size(399, 127);
             this.pASUMA.TabIndex = 48;
             this.pASUMA.TabStop = false;
             this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
@@ -216,20 +215,21 @@ namespace Asuma
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(18, 145);
-            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(24, 178);
+            this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
-            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1006, 44);
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
             this.menuFlowLayoutPanel.TabIndex = 47;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint);
             // 
             // bInicio
             // 
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInicio.Location = new System.Drawing.Point(2, 2);
-            this.bInicio.Margin = new System.Windows.Forms.Padding(2);
+            this.bInicio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.bInicio.Location = new System.Drawing.Point(3, 2);
+            this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(95, 37);
+            this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
             this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
@@ -238,10 +238,10 @@ namespace Asuma
             // bEventos
             // 
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEventos.Location = new System.Drawing.Point(101, 2);
-            this.bEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.bEventos.Location = new System.Drawing.Point(136, 2);
+            this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
-            this.bEventos.Size = new System.Drawing.Size(95, 37);
+            this.bEventos.Size = new System.Drawing.Size(127, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
@@ -250,10 +250,10 @@ namespace Asuma
             // bInfo
             // 
             this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInfo.Location = new System.Drawing.Point(200, 2);
-            this.bInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.bInfo.Location = new System.Drawing.Point(269, 2);
+            this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInfo.Name = "bInfo";
-            this.bInfo.Size = new System.Drawing.Size(95, 37);
+            this.bInfo.Size = new System.Drawing.Size(127, 46);
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
@@ -261,10 +261,10 @@ namespace Asuma
             // bContacto
             // 
             this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bContacto.Location = new System.Drawing.Point(299, 2);
-            this.bContacto.Margin = new System.Windows.Forms.Padding(2);
+            this.bContacto.Location = new System.Drawing.Point(402, 2);
+            this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bContacto.Name = "bContacto";
-            this.bContacto.Size = new System.Drawing.Size(95, 37);
+            this.bContacto.Size = new System.Drawing.Size(127, 46);
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
@@ -274,10 +274,9 @@ namespace Asuma
             // 
             this.lUsername.AutoSize = true;
             this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lUsername.Location = new System.Drawing.Point(179, 59);
-            this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lUsername.Location = new System.Drawing.Point(239, 73);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(122, 26);
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
             this.lUsername.TabIndex = 46;
             this.lUsername.Text = "userName";
             // 
@@ -285,10 +284,10 @@ namespace Asuma
             // 
             this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(64, 18);
-            this.pUser.Margin = new System.Windows.Forms.Padding(2);
+            this.pUser.Location = new System.Drawing.Point(85, 22);
+            this.pUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(98, 113);
+            this.pUser.Size = new System.Drawing.Size(131, 139);
             this.pUser.TabIndex = 45;
             this.pUser.TabStop = false;
             this.pUser.Click += new System.EventHandler(this.pUser_MouseClick);
@@ -298,10 +297,9 @@ namespace Asuma
             // 
             this.linitSesion.AutoSize = true;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(316, 64);
-            this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linitSesion.Location = new System.Drawing.Point(421, 79);
             this.linitSesion.Name = "linitSesion";
-            this.linitSesion.Size = new System.Drawing.Size(118, 18);
+            this.linitSesion.Size = new System.Drawing.Size(146, 25);
             this.linitSesion.TabIndex = 59;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
@@ -309,9 +307,9 @@ namespace Asuma
             // 
             // InfoNoticia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1349, 862);
+            this.ClientSize = new System.Drawing.Size(1799, 1055);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.bExit);
@@ -328,7 +326,7 @@ namespace Asuma
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "InfoNoticia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InfoNoticia";

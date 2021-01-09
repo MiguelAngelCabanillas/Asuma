@@ -273,6 +273,34 @@ namespace Asuma
             }
             this.Close();
         }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Contacto contacto = new Contacto(usuario);
+            this.Visible = false;
+            contacto.ShowDialog();
+            this.Close();
+        }
+
+        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Inicio init = new Inicio();
+            //this.Visible = false;
+            init.ShowDialog();
+            this.usuario = Inicio.usuario;
+            actualizar();
+            //this.Visible = true;
+        }
+
+        private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Close();
+        }
+
         #endregion
 
         #region Desplegable de mi perfil
@@ -366,25 +394,6 @@ namespace Asuma
             {
                 lTipoDef.Text = "Actividad";
             }
-        }
-
-        private void bContacto_Click(object sender, EventArgs e)
-        {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
-            this.Close();
-        }
-
-        private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Cursor.Current = Cursors.WaitCursor;
-            Inicio init = new Inicio();
-            //this.Visible = false;
-            init.ShowDialog();
-            this.usuario = Inicio.usuario;
-            actualizar();
-            //this.Visible = true;
         }
     }
 }

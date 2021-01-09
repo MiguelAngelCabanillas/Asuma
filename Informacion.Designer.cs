@@ -75,7 +75,7 @@ namespace Asuma
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
             this.pPerfil.Location = new System.Drawing.Point(43, 153);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 49;
@@ -85,7 +85,7 @@ namespace Asuma
             // bMensajes
             // 
             this.bMensajes.Location = new System.Drawing.Point(41, 90);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
@@ -96,7 +96,7 @@ namespace Asuma
             // bPerfil
             // 
             this.bPerfil.Location = new System.Drawing.Point(41, 18);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
@@ -151,6 +151,7 @@ namespace Asuma
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
+            this.bInicio.TabStop = false;
             this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
@@ -165,6 +166,7 @@ namespace Asuma
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(127, 46);
             this.bEventos.TabIndex = 1;
+            this.bEventos.TabStop = false;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = false;
             this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
@@ -267,7 +269,7 @@ namespace Asuma
             // 
             this.RTB_Quienes_Somos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Quienes_Somos.Location = new System.Drawing.Point(85, 416);
-            this.RTB_Quienes_Somos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RTB_Quienes_Somos.Margin = new System.Windows.Forms.Padding(4);
             this.RTB_Quienes_Somos.Name = "RTB_Quienes_Somos";
             this.RTB_Quienes_Somos.ReadOnly = true;
             this.RTB_Quienes_Somos.Size = new System.Drawing.Size(427, 190);
@@ -289,7 +291,7 @@ namespace Asuma
             // 
             this.RTB_ASUMA.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_ASUMA.Location = new System.Drawing.Point(1003, 674);
-            this.RTB_ASUMA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RTB_ASUMA.Margin = new System.Windows.Forms.Padding(4);
             this.RTB_ASUMA.Name = "RTB_ASUMA";
             this.RTB_ASUMA.ReadOnly = true;
             this.RTB_ASUMA.Size = new System.Drawing.Size(608, 88);
@@ -311,7 +313,7 @@ namespace Asuma
             // 
             this.RTB_Valores.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RTB_Valores.Location = new System.Drawing.Point(85, 676);
-            this.RTB_Valores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RTB_Valores.Margin = new System.Windows.Forms.Padding(4);
             this.RTB_Valores.Name = "RTB_Valores";
             this.RTB_Valores.ReadOnly = true;
             this.RTB_Valores.Size = new System.Drawing.Size(124, 190);
@@ -324,7 +326,7 @@ namespace Asuma
             this.Palomo.Image = ((System.Drawing.Image)(resources.GetObject("Palomo.Image")));
             this.Palomo.InitialImage = null;
             this.Palomo.Location = new System.Drawing.Point(545, 356);
-            this.Palomo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Palomo.Margin = new System.Windows.Forms.Padding(4);
             this.Palomo.Name = "Palomo";
             this.Palomo.Size = new System.Drawing.Size(204, 194);
             this.Palomo.TabIndex = 57;
@@ -335,7 +337,7 @@ namespace Asuma
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(776, 356);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 213);
             this.pictureBox1.TabIndex = 58;
@@ -346,7 +348,7 @@ namespace Asuma
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = null;
             this.pictureBox2.Location = new System.Drawing.Point(1004, 356);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(237, 194);
             this.pictureBox2.TabIndex = 59;
@@ -357,7 +359,7 @@ namespace Asuma
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = null;
             this.pictureBox3.Location = new System.Drawing.Point(1264, 356);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(164, 194);
             this.pictureBox3.TabIndex = 60;
@@ -368,7 +370,7 @@ namespace Asuma
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = null;
             this.pictureBox4.Location = new System.Drawing.Point(1460, 356);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(191, 213);
             this.pictureBox4.TabIndex = 61;
@@ -401,7 +403,7 @@ namespace Asuma
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.pUser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Informacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informacion";

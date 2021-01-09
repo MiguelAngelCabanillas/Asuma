@@ -193,7 +193,10 @@ namespace Asuma
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Close();
         }
     }
 }

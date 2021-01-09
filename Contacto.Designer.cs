@@ -145,7 +145,8 @@ namespace Asuma
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(128, 46);
             this.bInicio.TabIndex = 0;
-            this.bInicio.Text = "Inicio";
+            this.bInicio.TabStop = false;
+            this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = false;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
@@ -157,6 +158,7 @@ namespace Asuma
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(128, 46);
             this.bEventos.TabIndex = 1;
+            this.bEventos.TabStop = false;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
             this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
@@ -169,6 +171,7 @@ namespace Asuma
             this.bInfo.Name = "bInfo";
             this.bInfo.Size = new System.Drawing.Size(128, 46);
             this.bInfo.TabIndex = 2;
+            this.bInfo.TabStop = false;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
             // 
@@ -320,7 +323,7 @@ namespace Asuma
             this.panel1.Controls.Add(this.lMessage);
             this.panel1.Controls.Add(this.tMessage);
             this.panel1.Location = new System.Drawing.Point(264, 252);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1394, 634);
             this.panel1.TabIndex = 44;

@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cuestionario_Satisfaccion));
             this.bEnviar = new System.Windows.Forms.Button();
             this.lNameCurso = new System.Windows.Forms.Label();
             this.lTestName = new System.Windows.Forms.Label();
@@ -51,9 +52,10 @@ namespace Asuma
             // 
             // bEnviar
             // 
-            this.bEnviar.Location = new System.Drawing.Point(12, 928);
+            this.bEnviar.Location = new System.Drawing.Point(16, 1142);
+            this.bEnviar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bEnviar.Name = "bEnviar";
-            this.bEnviar.Size = new System.Drawing.Size(139, 32);
+            this.bEnviar.Size = new System.Drawing.Size(185, 39);
             this.bEnviar.TabIndex = 15;
             this.bEnviar.Text = "Enviar";
             this.bEnviar.UseVisualStyleBackColor = true;
@@ -63,9 +65,10 @@ namespace Asuma
             // 
             this.lNameCurso.AutoSize = true;
             this.lNameCurso.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNameCurso.Location = new System.Drawing.Point(474, 14);
+            this.lNameCurso.Location = new System.Drawing.Point(632, 17);
+            this.lNameCurso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lNameCurso.Name = "lNameCurso";
-            this.lNameCurso.Size = new System.Drawing.Size(187, 25);
+            this.lNameCurso.Size = new System.Drawing.Size(240, 32);
             this.lNameCurso.TabIndex = 14;
             this.lNameCurso.Text = "Curso de Prueba";
             // 
@@ -73,9 +76,10 @@ namespace Asuma
             // 
             this.lTestName.AutoSize = true;
             this.lTestName.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTestName.Location = new System.Drawing.Point(12, 16);
+            this.lTestName.Location = new System.Drawing.Point(16, 20);
+            this.lTestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTestName.Name = "lTestName";
-            this.lTestName.Size = new System.Drawing.Size(318, 23);
+            this.lTestName.Size = new System.Drawing.Size(391, 29);
             this.lTestName.TabIndex = 13;
             this.lTestName.Text = "Cuestionario de Satisfacción";
             // 
@@ -83,9 +87,10 @@ namespace Asuma
             // 
             this.lQ1.AutoSize = true;
             this.lQ1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ1.Location = new System.Drawing.Point(13, 70);
+            this.lQ1.Location = new System.Drawing.Point(17, 86);
+            this.lQ1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ1.Name = "lQ1";
-            this.lQ1.Size = new System.Drawing.Size(357, 18);
+            this.lQ1.Size = new System.Drawing.Size(440, 25);
             this.lQ1.TabIndex = 16;
             this.lQ1.Text = "¿Cómo te enteraste de nuestro programa?";
             // 
@@ -100,18 +105,20 @@ namespace Asuma
             "Facebook",
             "Twitter",
             "Periódico"});
-            this.CLB_Q1.Location = new System.Drawing.Point(16, 106);
+            this.CLB_Q1.Location = new System.Drawing.Point(21, 130);
+            this.CLB_Q1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CLB_Q1.Name = "CLB_Q1";
-            this.CLB_Q1.Size = new System.Drawing.Size(461, 94);
+            this.CLB_Q1.Size = new System.Drawing.Size(613, 106);
             this.CLB_Q1.TabIndex = 17;
             // 
             // lQ2
             // 
             this.lQ2.AutoSize = true;
             this.lQ2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ2.Location = new System.Drawing.Point(13, 224);
+            this.lQ2.Location = new System.Drawing.Point(17, 276);
+            this.lQ2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ2.Name = "lQ2";
-            this.lQ2.Size = new System.Drawing.Size(691, 18);
+            this.lQ2.Size = new System.Drawing.Size(842, 25);
             this.lQ2.TabIndex = 18;
             this.lQ2.Text = "¿Qué tan satisfecho estás con el material didáctico utilizado durante el programa" +
     "?";
@@ -126,9 +133,10 @@ namespace Asuma
             "Neutral",
             "Satisfecho",
             "Muy satisfecho"});
-            this.CLB_Q2.Location = new System.Drawing.Point(16, 256);
+            this.CLB_Q2.Location = new System.Drawing.Point(21, 315);
+            this.CLB_Q2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CLB_Q2.Name = "CLB_Q2";
-            this.CLB_Q2.Size = new System.Drawing.Size(461, 79);
+            this.CLB_Q2.Size = new System.Drawing.Size(613, 89);
             this.CLB_Q2.TabIndex = 19;
             this.CLB_Q2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q2_ItemCheck);
             // 
@@ -140,9 +148,10 @@ namespace Asuma
             "Sí",
             "No",
             "Prefiero no decir"});
-            this.CLB_Q3.Location = new System.Drawing.Point(15, 382);
+            this.CLB_Q3.Location = new System.Drawing.Point(20, 470);
+            this.CLB_Q3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CLB_Q3.Name = "CLB_Q3";
-            this.CLB_Q3.Size = new System.Drawing.Size(461, 49);
+            this.CLB_Q3.Size = new System.Drawing.Size(613, 55);
             this.CLB_Q3.TabIndex = 21;
             this.CLB_Q3.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q3_ItemCheck);
             // 
@@ -150,9 +159,10 @@ namespace Asuma
             // 
             this.lQ3.AutoSize = true;
             this.lQ3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ3.Location = new System.Drawing.Point(12, 350);
+            this.lQ3.Location = new System.Drawing.Point(16, 431);
+            this.lQ3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ3.Name = "lQ3";
-            this.lQ3.Size = new System.Drawing.Size(867, 18);
+            this.lQ3.Size = new System.Drawing.Size(1062, 25);
             this.lQ3.TabIndex = 20;
             this.lQ3.Text = "¿Crees que la duración del programa fue suficiente como para satisfacer tus expec" +
     "tativas de formación?";
@@ -165,9 +175,10 @@ namespace Asuma
             "Sí",
             "No",
             "Prefiero no decir"});
-            this.CLB_Q4.Location = new System.Drawing.Point(16, 491);
+            this.CLB_Q4.Location = new System.Drawing.Point(21, 604);
+            this.CLB_Q4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CLB_Q4.Name = "CLB_Q4";
-            this.CLB_Q4.Size = new System.Drawing.Size(461, 49);
+            this.CLB_Q4.Size = new System.Drawing.Size(613, 55);
             this.CLB_Q4.TabIndex = 23;
             this.CLB_Q4.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q4_ItemCheck);
             // 
@@ -175,9 +186,10 @@ namespace Asuma
             // 
             this.lQ4.AutoSize = true;
             this.lQ4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ4.Location = new System.Drawing.Point(13, 459);
+            this.lQ4.Location = new System.Drawing.Point(17, 565);
+            this.lQ4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ4.Name = "lQ4";
-            this.lQ4.Size = new System.Drawing.Size(605, 18);
+            this.lQ4.Size = new System.Drawing.Size(743, 25);
             this.lQ4.TabIndex = 22;
             this.lQ4.Text = "¿Se explicó claramente el objetivo del programa antes de la inscripción?";
             // 
@@ -189,9 +201,10 @@ namespace Asuma
             "Sí",
             "No",
             "Prefiero no decir"});
-            this.CLB_Q5.Location = new System.Drawing.Point(15, 589);
+            this.CLB_Q5.Location = new System.Drawing.Point(20, 725);
+            this.CLB_Q5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CLB_Q5.Name = "CLB_Q5";
-            this.CLB_Q5.Size = new System.Drawing.Size(461, 49);
+            this.CLB_Q5.Size = new System.Drawing.Size(613, 55);
             this.CLB_Q5.TabIndex = 25;
             this.CLB_Q5.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q5_ItemCheck);
             // 
@@ -199,9 +212,10 @@ namespace Asuma
             // 
             this.lQ5.AutoSize = true;
             this.lQ5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ5.Location = new System.Drawing.Point(12, 557);
+            this.lQ5.Location = new System.Drawing.Point(16, 686);
+            this.lQ5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ5.Name = "lQ5";
-            this.lQ5.Size = new System.Drawing.Size(498, 18);
+            this.lQ5.Size = new System.Drawing.Size(604, 25);
             this.lQ5.TabIndex = 24;
             this.lQ5.Text = "¿Te sentiste satisfecho después de completar el programa?\r\n";
             // 
@@ -212,9 +226,10 @@ namespace Asuma
             this.CLB_Q6.Items.AddRange(new object[] {
             "Sí",
             "No"});
-            this.CLB_Q6.Location = new System.Drawing.Point(16, 687);
+            this.CLB_Q6.Location = new System.Drawing.Point(21, 846);
+            this.CLB_Q6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CLB_Q6.Name = "CLB_Q6";
-            this.CLB_Q6.Size = new System.Drawing.Size(461, 34);
+            this.CLB_Q6.Size = new System.Drawing.Size(613, 38);
             this.CLB_Q6.TabIndex = 27;
             this.CLB_Q6.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q6_ItemCheck);
             // 
@@ -222,9 +237,10 @@ namespace Asuma
             // 
             this.lQ6.AutoSize = true;
             this.lQ6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ6.Location = new System.Drawing.Point(13, 655);
+            this.lQ6.Location = new System.Drawing.Point(17, 806);
+            this.lQ6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ6.Name = "lQ6";
-            this.lQ6.Size = new System.Drawing.Size(523, 18);
+            this.lQ6.Size = new System.Drawing.Size(643, 25);
             this.lQ6.TabIndex = 26;
             this.lQ6.Text = "¿Estarías interesado en inscribirte en otro curso con nosotros?\r\n";
             // 
@@ -232,25 +248,28 @@ namespace Asuma
             // 
             this.lQ7.AutoSize = true;
             this.lQ7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lQ7.Location = new System.Drawing.Point(13, 740);
+            this.lQ7.Location = new System.Drawing.Point(17, 911);
+            this.lQ7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lQ7.Name = "lQ7";
-            this.lQ7.Size = new System.Drawing.Size(663, 18);
+            this.lQ7.Size = new System.Drawing.Size(818, 25);
             this.lQ7.TabIndex = 28;
             this.lQ7.Text = "¿Tienes alguna sugerencia o comentario que nos ayude a mejorar el programa?";
             // 
             // RTB_Q7
             // 
-            this.RTB_Q7.Location = new System.Drawing.Point(16, 777);
+            this.RTB_Q7.Location = new System.Drawing.Point(21, 956);
+            this.RTB_Q7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RTB_Q7.Name = "RTB_Q7";
-            this.RTB_Q7.Size = new System.Drawing.Size(877, 127);
+            this.RTB_Q7.Size = new System.Drawing.Size(1168, 155);
             this.RTB_Q7.TabIndex = 29;
             this.RTB_Q7.Text = "";
             // 
             // bSalir
             // 
-            this.bSalir.Location = new System.Drawing.Point(826, 928);
+            this.bSalir.Location = new System.Drawing.Point(1101, 1142);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bSalir.Name = "bSalir";
-            this.bSalir.Size = new System.Drawing.Size(139, 32);
+            this.bSalir.Size = new System.Drawing.Size(185, 39);
             this.bSalir.TabIndex = 30;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
@@ -258,10 +277,10 @@ namespace Asuma
             // 
             // Cuestionario_Satisfaccion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(977, 972);
+            this.ClientSize = new System.Drawing.Size(1303, 1055);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.RTB_Q7);
             this.Controls.Add(this.lQ7);
@@ -280,6 +299,8 @@ namespace Asuma
             this.Controls.Add(this.bEnviar);
             this.Controls.Add(this.lNameCurso);
             this.Controls.Add(this.lTestName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Cuestionario_Satisfaccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

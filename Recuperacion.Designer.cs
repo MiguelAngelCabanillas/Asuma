@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Recuperacion));
             this.lRecuperacion = new System.Windows.Forms.Label();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.tEmail = new System.Windows.Forms.TextBox();
@@ -141,6 +142,7 @@
             this.Controls.Add(this.tEmail);
             this.Controls.Add(this.tUsername);
             this.Controls.Add(this.lRecuperacion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Recuperacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
