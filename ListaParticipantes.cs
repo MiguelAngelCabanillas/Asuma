@@ -261,6 +261,8 @@ namespace Asuma
         private void bExit_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            InfoEventoInscrito iei = new InfoEventoInscrito(evento, usuario);
+            iei.Show();
             this.Close();
         }
 
@@ -365,6 +367,22 @@ namespace Asuma
         public void setUser(User usuario)
         {
             this.usuario = usuario;
+        }
+
+        private void bContacto_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
+            this.Close();
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
         }
     }
     #endregion

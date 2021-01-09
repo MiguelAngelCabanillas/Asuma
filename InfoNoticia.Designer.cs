@@ -225,7 +225,6 @@ namespace Asuma
             // bInicio
             // 
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInicio.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.bInicio.Location = new System.Drawing.Point(3, 2);
             this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInicio.Name = "bInicio";
@@ -257,6 +256,7 @@ namespace Asuma
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -309,7 +309,7 @@ namespace Asuma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1799, 1055);
+            this.ClientSize = new System.Drawing.Size(1799, 1061);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.bExit);

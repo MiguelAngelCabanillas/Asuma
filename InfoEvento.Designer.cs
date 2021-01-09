@@ -95,7 +95,6 @@ namespace Asuma
             // 
             this.bEventos.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEventos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bEventos.Location = new System.Drawing.Point(136, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
@@ -115,6 +114,7 @@ namespace Asuma
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -253,7 +253,7 @@ namespace Asuma
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 1055);
+            this.splitter1.Size = new System.Drawing.Size(3, 1298);
             this.splitter1.TabIndex = 19;
             this.splitter1.TabStop = false;
             // 
@@ -374,7 +374,7 @@ namespace Asuma
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(2565, 1298);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.lUsername);

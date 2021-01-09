@@ -102,12 +102,14 @@
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
+            this.bInicio.TabStop = false;
             this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos
             // 
+            this.bEventos.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEventos.Location = new System.Drawing.Point(136, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -115,7 +117,7 @@
             this.bEventos.Size = new System.Drawing.Size(127, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
-            this.bEventos.UseVisualStyleBackColor = true;
+            this.bEventos.UseVisualStyleBackColor = false;
             this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
             // 
             // bInfo
@@ -128,6 +130,7 @@
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -216,7 +219,7 @@
             this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Location = new System.Drawing.Point(1571, 460);
-            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFiltro.Margin = new System.Windows.Forms.Padding(4);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(160, 24);
             this.cbFiltro.TabIndex = 41;

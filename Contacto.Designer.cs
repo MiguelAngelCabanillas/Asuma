@@ -174,6 +174,7 @@ namespace Asuma
             this.bInfo.TabStop = false;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 

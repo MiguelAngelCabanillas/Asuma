@@ -145,9 +145,8 @@ namespace Asuma
         private void bExit_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            this.Owner.Visible = true;
-            /*Principal inicio = new Principal(usuario);
-            inicio.Show();*/
+            Principal p = new Principal(usuario);
+            p.Show();
             this.Close();
         }
 
@@ -155,6 +154,7 @@ namespace Asuma
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 string title = tTitle.Text;
                 string description = tDescription.Text;
                 string image = tImage.Text;
@@ -163,14 +163,8 @@ namespace Asuma
                 MessageBox.Show("Se ha editado la noticia correctamente");
                 writer.Close();
                 bd.closeBD();
-                Cursor.Current = Cursors.WaitCursor;
                 Principal inicio = new Principal(usuario);
-                inicio.ShowDialog();
-                if (this.Owner != null)
-                {
-                    this.Owner.Close();
-                    //this.Owner.Owner.Close();
-                }
+                inicio.Show();
                 this.Close();
 
                 if (FTPClient.ftpOn)
@@ -195,6 +189,7 @@ namespace Asuma
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 BD bd = new BD();
                 MySqlDataReader writer = bd.Query("DELETE FROM news WHERE id = " + noticia.ID);
                 writer.Close();
@@ -202,14 +197,10 @@ namespace Asuma
                 FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
                 ftp.DeleteFTPDirectory("noticias/" + noticia.ID + "/");
                 MessageBox.Show("Noticia eliminada con éxito");
-                Principal inicio = new Principal(usuario);
-                inicio.Show();
-                if (this.Owner != null)
-                {
-                    this.Owner.Owner.Close();
-                }
-                this.Close();
 
+                Principal p = new Principal(usuario);
+                p.Show();
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -231,7 +222,6 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Principal p = new Principal(usuario);
             p.Show();
-            this.Owner.Owner.Close();
             this.Close();
         }
 
@@ -245,9 +235,17 @@ namespace Asuma
 
         private void bContacto_Click(object sender, EventArgs e)
         {
-            Contacto contacto = new Contacto(usuario);
-            this.Visible = false;
-            contacto.ShowDialog();
+            Cursor.Current = Cursors.WaitCursor;
+            Contacto con = new Contacto(usuario);
+            con.Show();
+            this.Close();
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
             this.Close();
         }
 
@@ -380,6 +378,7 @@ namespace Asuma
             this.Visible = true;
         }
         #endregion
+
 
     }
 }

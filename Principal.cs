@@ -190,11 +190,9 @@ namespace Asuma
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Inicio init = new Inicio();
-            //this.Visible = false;
             init.ShowDialog();
             this.Usuario = Inicio.usuario;
             actualizar();
-            //this.Visible = true;
             this.ActiveControl = bInicio;
         }
 
@@ -214,15 +212,6 @@ namespace Asuma
 
         private void bEventos_Click(object sender, EventArgs e)
         {
-            /*
-            Cursor.Current = Cursors.WaitCursor;
-            Eventos ev = new Eventos(usuario);
-            this.Visible = false;
-            ev.Owner = this;
-            this.Visible = false;
-            ev.ShowDialog();
-            this.Visible = true;
-            */
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
             ev.Show();

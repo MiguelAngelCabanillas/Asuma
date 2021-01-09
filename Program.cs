@@ -52,9 +52,10 @@ namespace Asuma
         protected override void OnCreateMainForm()
         {
 
-            this.MainForm = new MisEventos(new User("docente1","d"));
+            this.MainForm = new Principal(null);
         }
 
+        [STAThread]
         internal static void Main(string[] Args)
         {
             string[] arg; arg = new string[0];

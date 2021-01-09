@@ -219,6 +219,7 @@ namespace Asuma
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
+            this.bInfo.Click += new System.EventHandler(this.bInfo_Click);
             // 
             // bContacto
             // 
@@ -230,6 +231,7 @@ namespace Asuma
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
+            this.bContacto.Click += new System.EventHandler(this.bContacto_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -324,7 +326,7 @@ namespace Asuma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(2367, 1371);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pASM);

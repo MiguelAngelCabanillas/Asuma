@@ -25,6 +25,7 @@ namespace Asuma
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 string usuario = tUser.Text;
                 string password = tPassword.Text;
                 User user = new User(usuario, password);
@@ -41,10 +42,9 @@ namespace Asuma
 
         private void bRegistrarse_Click(object sender, EventArgs e)
         {
-            Registro reg = new Registro();
-            this.Visible = false;
+            Cursor.Current = Cursors.WaitCursor;
+            NuevoRegistro reg = new NuevoRegistro();
             reg.ShowDialog();
-            this.Visible = true;
         }
 
         private void bExit_Click(object sender, EventArgs e)
@@ -91,11 +91,10 @@ namespace Asuma
 
         private void linkFPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Recuperacion r = new Recuperacion();
             this.Visible = false;
-            r.Owner = this;
             r.ShowDialog();
-            this.Visible = true;
         }
     }
 }

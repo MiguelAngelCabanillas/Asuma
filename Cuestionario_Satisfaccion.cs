@@ -162,6 +162,7 @@ namespace Asuma
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             String q1 = "";
             int q2, q3, q4, q5, q6;
             q2 = q3 = q4 = q5 = q6 = -1;
@@ -228,6 +229,7 @@ namespace Asuma
 
         private void bSalir_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             this.Close();
         }
     }

@@ -318,42 +318,17 @@ namespace Asuma
             var id = Int32.Parse(link.Name);
 
             Event ev = new Event(id);
-            /*
-           InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
-           infoEventoInscrito.Show();
-           this.Close();
-           */
-
             InfoEventoInscrito infoEventoInscrito = new InfoEventoInscrito(ev, usuario);
-            this.Visible = false;
-            infoEventoInscrito.Owner = this;
-            infoEventoInscrito.ShowDialog();
-            if (!this.isClosed)
-            {
-                actualizar();
-                this.Visible = true;
-                panelEventos.Controls.Clear();
-                mostrarEventos(0);
-            }
+            infoEventoInscrito.Show();
+            this.Close();
         }
 
         private void bCreateEvent_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
             CrearEvento crearEvento = new CrearEvento(usuario);
-            crearEvento.Owner = this;
-            /*
             crearEvento.Show();
             this.Close();           
-            */
-
-            this.Visible = false;
-            crearEvento.ShowDialog();
-            if (!this.isClosed)
-            {
-                actualizar();
-                this.Visible = true;
-            }
         }
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -377,8 +352,7 @@ namespace Asuma
         {
             Cursor.Current = Cursors.WaitCursor;
             Eventos ev = new Eventos(usuario);
-            this.Visible = false;
-            ev.ShowDialog();
+            ev.Show();
             this.Close();
         }
 
@@ -398,7 +372,7 @@ namespace Asuma
         {
             Contacto contacto = new Contacto(usuario);
             this.Visible = false;
-            contacto.ShowDialog();
+            contacto.Show();
             this.Close();
         }
         #endregion
@@ -486,6 +460,14 @@ namespace Asuma
         public void setUser(User usuario)
         {
             this.usuario = usuario;
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion inf = new Informacion(usuario);
+            inf.Show();
+            this.Close();
         }
     }
     #endregion

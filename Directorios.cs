@@ -105,6 +105,7 @@ namespace Asuma
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (seleccionado != null)
             {
                 PruebaFTP archivos = new PruebaFTP(this.usuario, this.evento, seleccionado.Replace(' ', '_'));
@@ -124,11 +125,13 @@ namespace Asuma
 
         private void bVolver_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             this.Close();
         }
 
         private void bCrear_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (tCrear.Text != "")
             {
                 FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/files/", "Prueba", "");
@@ -155,6 +158,7 @@ namespace Asuma
 
         private void bBorrar_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (bArchivo.Text != "")
             {
                 FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/eventos/" + evento.ID + "/files/", "Prueba", "");

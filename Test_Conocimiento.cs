@@ -268,6 +268,7 @@ namespace Asuma
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Boolean res = Check(false);
             if (res)
             {
@@ -321,6 +322,7 @@ namespace Asuma
 
         private void bSalir_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             this.Close();
         }
     }
