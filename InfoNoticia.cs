@@ -68,15 +68,22 @@ namespace Asuma
             }
             else
             {
-                try
+                if (FTPClient.ftpOn)
                 {
-                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    try
+                    {
+                        FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                        pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                    }
+                    catch (Exception ex)
+                    {
+                        pUser.Image = null;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
                     pUser.Image = null;
-                }
+                }  
                 pUser.Visible = true;
                 lUsername.Text = "Bienvenido " + usuario.Username;
                 lUsername.Visible = true;
@@ -187,7 +194,11 @@ namespace Asuma
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+            //Environment.Exit(Environment.ExitCode);
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Close();
         }
 
         private void bEditarNoticia_Click(object sender, EventArgs e)

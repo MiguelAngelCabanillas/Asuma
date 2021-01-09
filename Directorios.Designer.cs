@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Directorios));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bArchivo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,25 +42,29 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(88, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(117, 60);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(382, 202);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(509, 249);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // bArchivo
             // 
-            this.bArchivo.Location = new System.Drawing.Point(48, 273);
+            this.bArchivo.Location = new System.Drawing.Point(64, 336);
+            this.bArchivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bArchivo.Name = "bArchivo";
-            this.bArchivo.Size = new System.Drawing.Size(275, 20);
+            this.bArchivo.Size = new System.Drawing.Size(365, 22);
             this.bArchivo.TabIndex = 1;
             this.bArchivo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(332, 273);
+            this.button1.Location = new System.Drawing.Point(443, 336);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
+            this.button1.Size = new System.Drawing.Size(117, 28);
             this.button1.TabIndex = 2;
             this.button1.Text = "Ir a carpeta";
             this.button1.UseVisualStyleBackColor = true;
@@ -67,9 +72,10 @@
             // 
             // bVolver
             // 
-            this.bVolver.Location = new System.Drawing.Point(439, 273);
+            this.bVolver.Location = new System.Drawing.Point(585, 336);
+            this.bVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bVolver.Name = "bVolver";
-            this.bVolver.Size = new System.Drawing.Size(82, 23);
+            this.bVolver.Size = new System.Drawing.Size(109, 28);
             this.bVolver.TabIndex = 3;
             this.bVolver.Text = "Volver";
             this.bVolver.UseVisualStyleBackColor = true;
@@ -77,16 +83,18 @@
             // 
             // tCrear
             // 
-            this.tCrear.Location = new System.Drawing.Point(48, 301);
+            this.tCrear.Location = new System.Drawing.Point(64, 370);
+            this.tCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tCrear.Name = "tCrear";
-            this.tCrear.Size = new System.Drawing.Size(275, 20);
+            this.tCrear.Size = new System.Drawing.Size(365, 22);
             this.tCrear.TabIndex = 4;
             // 
             // bCrear
             // 
-            this.bCrear.Location = new System.Drawing.Point(332, 299);
+            this.bCrear.Location = new System.Drawing.Point(443, 368);
+            this.bCrear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bCrear.Name = "bCrear";
-            this.bCrear.Size = new System.Drawing.Size(88, 23);
+            this.bCrear.Size = new System.Drawing.Size(117, 28);
             this.bCrear.TabIndex = 5;
             this.bCrear.Text = "Crear carpeta";
             this.bCrear.UseVisualStyleBackColor = true;
@@ -94,9 +102,10 @@
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(439, 300);
+            this.bBorrar.Location = new System.Drawing.Point(585, 369);
+            this.bBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(82, 21);
+            this.bBorrar.Size = new System.Drawing.Size(109, 26);
             this.bBorrar.TabIndex = 6;
             this.bBorrar.Text = "Borrar carpeta";
             this.bBorrar.UseVisualStyleBackColor = true;
@@ -104,9 +113,9 @@
             // 
             // Directorios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 328);
+            this.ClientSize = new System.Drawing.Size(755, 404);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.bCrear);
             this.Controls.Add(this.tCrear);
@@ -114,6 +123,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bArchivo);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Directorios";
             this.Text = "PruebaFTP";
             this.Load += new System.EventHandler(this.PruebaFTP_Load);

@@ -63,6 +63,7 @@
             this.bMyEvents.Name = "bMyEvents";
             this.bMyEvents.Size = new System.Drawing.Size(169, 84);
             this.bMyEvents.TabIndex = 1;
+            this.bMyEvents.TabStop = false;
             this.bMyEvents.Text = "Mis eventos";
             this.bMyEvents.UseVisualStyleBackColor = true;
             this.bMyEvents.Click += new System.EventHandler(this.bMyEvents_Click);
@@ -136,6 +137,7 @@
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
+            this.bInicio.TabStop = false;
             this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);

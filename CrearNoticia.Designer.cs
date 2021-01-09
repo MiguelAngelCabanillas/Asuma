@@ -109,7 +109,7 @@ namespace Asuma
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 1061);
+            this.splitter1.Size = new System.Drawing.Size(3, 1055);
             this.splitter1.TabIndex = 40;
             this.splitter1.TabStop = false;
             // 
@@ -284,14 +284,16 @@ namespace Asuma
             // 
             // bInicio
             // 
+            this.bInicio.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInicio.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bInicio.Location = new System.Drawing.Point(3, 2);
             this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
             this.bInicio.Text = "Inicio / Noticias";
-            this.bInicio.UseVisualStyleBackColor = true;
+            this.bInicio.UseVisualStyleBackColor = false;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos
@@ -432,7 +434,7 @@ namespace Asuma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1771, 1061);
+            this.ClientSize = new System.Drawing.Size(1771, 1055);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);

@@ -127,6 +127,7 @@ namespace Asuma
             // 
             // bInicio
             // 
+            this.bInicio.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInicio.Location = new System.Drawing.Point(3, 2);
             this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -134,7 +135,7 @@ namespace Asuma
             this.bInicio.Size = new System.Drawing.Size(127, 46);
             this.bInicio.TabIndex = 0;
             this.bInicio.Text = "Inicio / Noticias";
-            this.bInicio.UseVisualStyleBackColor = true;
+            this.bInicio.UseVisualStyleBackColor = false;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos

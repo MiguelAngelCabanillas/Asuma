@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CambiarPassword));
             this.lPassword = new System.Windows.Forms.Label();
             this.lRepeatedPassword = new System.Windows.Forms.Label();
             this.tPassword = new System.Windows.Forms.TextBox();
@@ -122,6 +123,7 @@ namespace Asuma
             this.Controls.Add(this.tPassword);
             this.Controls.Add(this.lRepeatedPassword);
             this.Controls.Add(this.lPassword);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CambiarPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

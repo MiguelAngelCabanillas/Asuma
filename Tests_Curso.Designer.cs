@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tests_Curso));
             this.lTestConocimiento = new System.Windows.Forms.Label();
             this.bVisualizar = new System.Windows.Forms.Button();
             this.LB_Tests = new System.Windows.Forms.ListBox();
@@ -39,18 +40,20 @@ namespace Asuma
             // 
             this.lTestConocimiento.AutoSize = true;
             this.lTestConocimiento.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTestConocimiento.Location = new System.Drawing.Point(34, 49);
+            this.lTestConocimiento.Location = new System.Drawing.Point(45, 60);
+            this.lTestConocimiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTestConocimiento.Name = "lTestConocimiento";
-            this.lTestConocimiento.Size = new System.Drawing.Size(252, 23);
+            this.lTestConocimiento.Size = new System.Drawing.Size(311, 29);
             this.lTestConocimiento.TabIndex = 5;
             this.lTestConocimiento.Text = "Tests de conocimiento";
             // 
             // bVisualizar
             // 
             this.bVisualizar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bVisualizar.Location = new System.Drawing.Point(38, 508);
+            this.bVisualizar.Location = new System.Drawing.Point(51, 625);
+            this.bVisualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bVisualizar.Name = "bVisualizar";
-            this.bVisualizar.Size = new System.Drawing.Size(138, 36);
+            this.bVisualizar.Size = new System.Drawing.Size(184, 44);
             this.bVisualizar.TabIndex = 4;
             this.bVisualizar.Text = "Visualizar";
             this.bVisualizar.UseVisualStyleBackColor = true;
@@ -60,18 +63,20 @@ namespace Asuma
             // 
             this.LB_Tests.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_Tests.FormattingEnabled = true;
-            this.LB_Tests.ItemHeight = 16;
-            this.LB_Tests.Location = new System.Drawing.Point(38, 90);
+            this.LB_Tests.ItemHeight = 18;
+            this.LB_Tests.Location = new System.Drawing.Point(51, 111);
+            this.LB_Tests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LB_Tests.Name = "LB_Tests";
-            this.LB_Tests.Size = new System.Drawing.Size(295, 388);
+            this.LB_Tests.Size = new System.Drawing.Size(392, 472);
             this.LB_Tests.TabIndex = 3;
             // 
             // bSalir
             // 
             this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSalir.Location = new System.Drawing.Point(195, 508);
+            this.bSalir.Location = new System.Drawing.Point(260, 625);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bSalir.Name = "bSalir";
-            this.bSalir.Size = new System.Drawing.Size(138, 36);
+            this.bSalir.Size = new System.Drawing.Size(184, 44);
             this.bSalir.TabIndex = 6;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
@@ -79,13 +84,15 @@ namespace Asuma
             // 
             // Tests_Curso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 564);
+            this.ClientSize = new System.Drawing.Size(539, 694);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.lTestConocimiento);
             this.Controls.Add(this.bVisualizar);
             this.Controls.Add(this.LB_Tests);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Tests_Curso";
             this.Text = "Tests_Curso";
             this.ResumeLayout(false);

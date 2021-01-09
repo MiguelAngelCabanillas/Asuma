@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notificacion));
             this.tMessage = new System.Windows.Forms.TextBox();
             this.lMessage = new System.Windows.Forms.Label();
             this.lSubject = new System.Windows.Forms.Label();
@@ -110,6 +111,7 @@ namespace Asuma
             this.Controls.Add(this.tMessage);
             this.Controls.Add(this.lMessage);
             this.Controls.Add(this.lSubject);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Notificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -29,6 +29,7 @@ namespace Asuma
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Surveys_Evento));
             this.LB_Surveys = new System.Windows.Forms.ListBox();
             this.bVisualizar = new System.Windows.Forms.Button();
             this.lSurveys = new System.Windows.Forms.Label();
@@ -39,18 +40,20 @@ namespace Asuma
             // 
             this.LB_Surveys.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LB_Surveys.FormattingEnabled = true;
-            this.LB_Surveys.ItemHeight = 16;
-            this.LB_Surveys.Location = new System.Drawing.Point(28, 83);
+            this.LB_Surveys.ItemHeight = 18;
+            this.LB_Surveys.Location = new System.Drawing.Point(37, 102);
+            this.LB_Surveys.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LB_Surveys.Name = "LB_Surveys";
-            this.LB_Surveys.Size = new System.Drawing.Size(295, 388);
+            this.LB_Surveys.Size = new System.Drawing.Size(392, 472);
             this.LB_Surveys.TabIndex = 0;
             // 
             // bVisualizar
             // 
             this.bVisualizar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bVisualizar.Location = new System.Drawing.Point(28, 501);
+            this.bVisualizar.Location = new System.Drawing.Point(37, 617);
+            this.bVisualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bVisualizar.Name = "bVisualizar";
-            this.bVisualizar.Size = new System.Drawing.Size(138, 36);
+            this.bVisualizar.Size = new System.Drawing.Size(184, 44);
             this.bVisualizar.TabIndex = 1;
             this.bVisualizar.Text = "Visualizar";
             this.bVisualizar.UseVisualStyleBackColor = true;
@@ -60,18 +63,20 @@ namespace Asuma
             // 
             this.lSurveys.AutoSize = true;
             this.lSurveys.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSurveys.Location = new System.Drawing.Point(24, 42);
+            this.lSurveys.Location = new System.Drawing.Point(32, 52);
+            this.lSurveys.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lSurveys.Name = "lSurveys";
-            this.lSurveys.Size = new System.Drawing.Size(326, 23);
+            this.lSurveys.Size = new System.Drawing.Size(402, 29);
             this.lSurveys.TabIndex = 2;
             this.lSurveys.Text = "Cuestionarios de satisfacción\r\n";
             // 
             // bSalir
             // 
             this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bSalir.Location = new System.Drawing.Point(185, 501);
+            this.bSalir.Location = new System.Drawing.Point(247, 617);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bSalir.Name = "bSalir";
-            this.bSalir.Size = new System.Drawing.Size(138, 36);
+            this.bSalir.Size = new System.Drawing.Size(184, 44);
             this.bSalir.TabIndex = 7;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
@@ -79,13 +84,15 @@ namespace Asuma
             // 
             // Surveys_Evento
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 564);
+            this.ClientSize = new System.Drawing.Size(539, 694);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.lSurveys);
             this.Controls.Add(this.bVisualizar);
             this.Controls.Add(this.LB_Surveys);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Surveys_Evento";
             this.Text = "Surveys_Evento";
             this.ResumeLayout(false);

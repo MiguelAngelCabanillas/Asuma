@@ -103,20 +103,23 @@
             this.bInicio.Name = "bInicio";
             this.bInicio.Size = new System.Drawing.Size(119, 46);
             this.bInicio.TabIndex = 0;
+            this.bInicio.TabStop = false;
             this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = true;
             this.bInicio.Click += new System.EventHandler(this.bInicio_Click);
             // 
             // bEventos
             // 
+            this.bEventos.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEventos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bEventos.Location = new System.Drawing.Point(125, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
             this.bEventos.Size = new System.Drawing.Size(119, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
-            this.bEventos.UseVisualStyleBackColor = true;
+            this.bEventos.UseVisualStyleBackColor = false;
             this.bEventos.Click += new System.EventHandler(this.bEventos_Click);
             // 
             // bInfo
@@ -584,7 +587,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1924, 1175);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.lSignOut);

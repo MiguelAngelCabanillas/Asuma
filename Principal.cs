@@ -180,7 +180,11 @@ namespace Asuma
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Se puede hacer que cierre solo sesion y siga en la plataforma
-            Environment.Exit(Environment.ExitCode);
+            //Environment.Exit(Environment.ExitCode);
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Close();
         }
 
         private void linitSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
