@@ -30,7 +30,7 @@ namespace Asuma
             this.usuario = u;
 
             InitializeComponent();
-
+            actualizarPanelPerfil();
             actualizar();
         }
         #endregion
@@ -158,11 +158,17 @@ namespace Asuma
             this.bEditarNoticia.Location = new Point(this.menuFlowLayoutPanel.Location.X, bExit.Location.Y);
         }
 
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X,pUser.Location.Y+pUser.Height-10);
+        }
+
         private void InfoNoticia_Resize(object sender, EventArgs e)
         {
             actualizarBotones();
             actualizarImagenes();
             actualizarLabels();
+            actualizarPanelPerfil();
         }
         #endregion
 
