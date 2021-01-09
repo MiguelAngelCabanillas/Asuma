@@ -322,6 +322,7 @@ namespace Asuma
             this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y + 7);
             this.linkGesUsers.Location = new Point(lUsername.Location.X + lSignOut.Width + 10, lSignOut.Location.Y);
             this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
+            actualizarPanelPerfil();
         }
         
         private void actualizarImagenes()
@@ -405,6 +406,11 @@ namespace Asuma
             pNoticias.Width = (this.menuFlowLayoutPanel.Width*3)/5;
             pNoticias.Height = (this.Height * 6) / 10;
             pNoticias.Location = new Point(this.menuFlowLayoutPanel.Location.X+50, this.menuFlowLayoutPanel.Location.Y + 100);
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarNoticias()

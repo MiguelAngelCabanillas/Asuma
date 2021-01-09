@@ -19,7 +19,7 @@ namespace Asuma
         {
             actualizarTemas();
             lTitulo.Text = foro.evento.EventName;
-            if (!usuario.Username.Equals(foro.evento.EventCreator))
+            if (!usuario.Username.Equals(foro.evento.EventCreator) && usuario.Rol.Admin != 1)
             {
                 bEliminar.Enabled = false;
                 bEliminar.Visible = false;
@@ -56,13 +56,17 @@ namespace Asuma
 
         private void bEliminar_Click(object sender, EventArgs e)
         {
-            /*
             object selec = listaTemas.SelectedItem;
+            if(selec != null)
+            {
             listaTemas.Items.Remove(selec);
             string title = (string)selec;
             BD bd = new BD();
-            MySqlDataReader writer = bd.Query("DELETE FROM topic WHERE title = '" + title + "'");
-            */
+            MySqlDataReader writer = bd.Query("DELETE FROM topic WHERE title = '" + title + "';");
+            writer.Close();
+            bd.closeBD();
+            }
+            else { MessageBox.Show("Selecciona un debate a borrar"); }
         }
 
         public void actualizarTemas()
