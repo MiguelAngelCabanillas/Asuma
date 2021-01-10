@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
-//using Microsoft.Office.Interop.Word;
-using Application = Microsoft.Office.Interop.Word.Application;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
+using System.IO;
+using MySqlConnector;
 
 namespace Asuma
 {
@@ -24,12 +24,16 @@ namespace Asuma
 
         private void bDocumento_Click(object sender, EventArgs e)
         {
-            string ruta = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.docx";
+            string path = Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string documentPath = pathBueno + "documents\\" + "certificado.docx";
+
+            //string ruta = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.docx";
             object oMissing = System.Reflection.Missing.Value;
             Word.Application ap = new Word.Application();
             object marcadorNombreUsuario = "nombreUsuario";
             object marcadorNombreCurso = "nombreCurso";
-            Word.Document document = ap.Documents.Open(ruta);
+            Word.Document document = ap.Documents.Open(documentPath);
 
             //INTRODUZCO EL NOMBRE DE USUARIO
             Word.Range nombreUsuario = document.Bookmarks.get_Item(ref marcadorNombreUsuario).Range;
