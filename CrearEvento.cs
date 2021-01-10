@@ -30,6 +30,7 @@ namespace Asuma
             this.usuario = usuario;
             lUsername.Text = "Bienvenido " + usuario.Username;
             actualizarElementos();
+            actualizarPanelPerfil();
             actualizar();
             actualizarFiltro();
             cbTipo.SelectedItem = cbTipo.Items[1];
@@ -119,6 +120,7 @@ namespace Asuma
         {
             actualizarElementos();
             this.CenterToScreen();
+            actualizarPanelPerfil();
         }
 
         private void actualizarElementos()
@@ -136,6 +138,11 @@ namespace Asuma
             this.lSignOut.Location = new Point(lUsername.Location.X, lSignOut.Location.Y);
             this.pUser.Location = new Point(lUsername.Location.X - pUser.Width - 15, pUser.Location.Y);
             this.panel1.Location = new Point(this.Width / 2 - panel1.Width / 2, this.menuFlowLayoutPanel.Location.Y + 70);
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarFiltro()

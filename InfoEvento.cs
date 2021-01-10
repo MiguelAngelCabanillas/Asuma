@@ -29,6 +29,7 @@ namespace Asuma
             InitializeComponent();
             actualizar();
             actualizarElementos();
+            actualizarPanelPerfil();
             
             string imagen = e.Image;
             string path = Path.GetDirectoryName(Application.StartupPath);
@@ -116,6 +117,12 @@ namespace Asuma
             actualizarBotones();
             actualizarImagenes();
             actualizarLabels();
+            actualizarPanelPerfil();
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarBotones()
@@ -162,6 +169,7 @@ namespace Asuma
             actualizarBotones();
             actualizarImagenes();
             actualizarLabels();
+            actualizarPanelPerfil();
         }
 
 

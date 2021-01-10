@@ -48,7 +48,7 @@
             this.pUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pUsuario.Image")));
             this.pUsuario.Location = new System.Drawing.Point(168, 128);
-            this.pUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.pUsuario.Name = "pUsuario";
             this.pUsuario.Size = new System.Drawing.Size(211, 192);
             this.pUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -58,7 +58,7 @@
             // tUsername
             // 
             this.tUsername.Location = new System.Drawing.Point(676, 140);
-            this.tUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(251, 22);
             this.tUsername.TabIndex = 13;
@@ -66,7 +66,7 @@
             // tEmail
             // 
             this.tEmail.Location = new System.Drawing.Point(676, 266);
-            this.tEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tEmail.Name = "tEmail";
             this.tEmail.Size = new System.Drawing.Size(251, 22);
             this.tEmail.TabIndex = 14;
@@ -74,7 +74,7 @@
             // bNombre
             // 
             this.bNombre.Location = new System.Drawing.Point(704, 172);
-            this.bNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bNombre.Margin = new System.Windows.Forms.Padding(4);
             this.bNombre.Name = "bNombre";
             this.bNombre.Size = new System.Drawing.Size(203, 25);
             this.bNombre.TabIndex = 15;
@@ -85,7 +85,7 @@
             // bMail
             // 
             this.bMail.Location = new System.Drawing.Point(704, 298);
-            this.bMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMail.Margin = new System.Windows.Forms.Padding(4);
             this.bMail.Name = "bMail";
             this.bMail.Size = new System.Drawing.Size(203, 25);
             this.bMail.TabIndex = 16;
@@ -96,7 +96,7 @@
             // bBorrarCuenta
             // 
             this.bBorrarCuenta.Location = new System.Drawing.Point(649, 391);
-            this.bBorrarCuenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bBorrarCuenta.Margin = new System.Windows.Forms.Padding(4);
             this.bBorrarCuenta.Name = "bBorrarCuenta";
             this.bBorrarCuenta.Size = new System.Drawing.Size(301, 25);
             this.bBorrarCuenta.TabIndex = 17;
@@ -107,7 +107,7 @@
             // bImagen
             // 
             this.bImagen.Location = new System.Drawing.Point(168, 352);
-            this.bImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bImagen.Margin = new System.Windows.Forms.Padding(4);
             this.bImagen.Name = "bImagen";
             this.bImagen.Size = new System.Drawing.Size(212, 28);
             this.bImagen.TabIndex = 18;
@@ -134,7 +134,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(737, 121);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(737, 119);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 17);
@@ -144,7 +145,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(744, 246);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(744, 245);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 17);
@@ -157,18 +159,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1065, 522);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tEmail);
+            this.Controls.Add(this.tUsername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bImagen);
             this.Controls.Add(this.bBorrarCuenta);
             this.Controls.Add(this.bMail);
             this.Controls.Add(this.bNombre);
-            this.Controls.Add(this.tEmail);
-            this.Controls.Add(this.tUsername);
             this.Controls.Add(this.pUsuario);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MiPerfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MiPerfil";

@@ -51,8 +51,20 @@ namespace Asuma
 
         protected override void OnCreateMainForm()
         {
-
-            this.MainForm = new Informacion(null);
+            User s = new User("franB");
+            Event e = new Event(62);
+            this.MainForm = new Principal(null);
+            //this.MainForm = new Contacto(null);
+            //this.MainForm = new CrearNoticia(new User("franB"));
+            //this.MainForm = new EditarEvento(new Event(62), new User("franB"));
+            //this.MainForm = new EditarNoticia(new News(2), new User("franB"));
+            //this.MainForm = new Eventos(s);
+            //this.MainForm = new InfoEvento(e, s);
+            //this.MainForm = new InfoEventoInscrito(e, s);
+            //this.MainForm = new InfoNoticia(new News(2), s);
+            //this.MainForm = new Informacion(s);
+            //this.MainForm = new ListaParticipantes(s, e);
+            //this.MainForm = new MisEventos(s);
         }
 
         [STAThread]

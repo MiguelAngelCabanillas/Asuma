@@ -30,9 +30,6 @@ namespace Asuma
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Informacion));
-            this.pPerfil = new System.Windows.Forms.Panel();
-            this.bMensajes = new System.Windows.Forms.Button();
-            this.bPerfil = new System.Windows.Forms.Button();
             this.menuFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.bInicio = new System.Windows.Forms.Button();
             this.bEventos = new System.Windows.Forms.Button();
@@ -52,7 +49,9 @@ namespace Asuma
             this.pASM = new System.Windows.Forms.PictureBox();
             this.pASUMA = new System.Windows.Forms.PictureBox();
             this.pUser = new System.Windows.Forms.PictureBox();
-            this.pPerfil.SuspendLayout();
+            this.pPerfil = new System.Windows.Forms.Panel();
+            this.bMensajes = new System.Windows.Forms.Button();
+            this.bPerfil = new System.Windows.Forms.Button();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pMedicina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pEtsi)).BeginInit();
@@ -60,44 +59,8 @@ namespace Asuma
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
+            this.pPerfil.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pPerfil
-            // 
-            this.pPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pPerfil.Controls.Add(this.bMensajes);
-            this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(57, 188);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(5);
-            this.pPerfil.Name = "pPerfil";
-            this.pPerfil.Size = new System.Drawing.Size(315, 139);
-            this.pPerfil.TabIndex = 49;
-            this.pPerfil.Visible = false;
-            this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
-            // 
-            // bMensajes
-            // 
-            this.bMensajes.Location = new System.Drawing.Point(55, 111);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(5);
-            this.bMensajes.Name = "bMensajes";
-            this.bMensajes.Size = new System.Drawing.Size(100, 28);
-            this.bMensajes.TabIndex = 0;
-            this.bMensajes.UseVisualStyleBackColor = true;
-            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
-            // 
-            // bPerfil
-            // 
-            this.bPerfil.Location = new System.Drawing.Point(55, 22);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(5);
-            this.bPerfil.Name = "bPerfil";
-            this.bPerfil.Size = new System.Drawing.Size(245, 28);
-            this.bPerfil.TabIndex = 0;
-            this.bPerfil.Text = "Mi perfil";
-            this.bPerfil.UseVisualStyleBackColor = true;
-            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
-            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
-            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
             // menuFlowLayoutPanel
             // 
@@ -324,12 +287,50 @@ namespace Asuma
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
             this.pUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pUser_MouseClick);
             // 
+            // pPerfil
+            // 
+            this.pPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pPerfil.Controls.Add(this.bMensajes);
+            this.pPerfil.Controls.Add(this.bPerfil);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.pPerfil.Name = "pPerfil";
+            this.pPerfil.Size = new System.Drawing.Size(315, 139);
+            this.pPerfil.TabIndex = 58;
+            this.pPerfil.Visible = false;
+            // 
+            // bMensajes
+            // 
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
+            this.bMensajes.Name = "bMensajes";
+            this.bMensajes.Size = new System.Drawing.Size(245, 28);
+            this.bMensajes.TabIndex = 1;
+            this.bMensajes.Text = "Mensajes Privados";
+            this.bMensajes.UseVisualStyleBackColor = true;
+            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
+            // 
+            // bPerfil
+            // 
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.bPerfil.Name = "bPerfil";
+            this.bPerfil.Size = new System.Drawing.Size(245, 28);
+            this.bPerfil.TabIndex = 0;
+            this.bPerfil.Text = "Mi perfil";
+            this.bPerfil.UseVisualStyleBackColor = true;
+            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
+            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
+            // 
             // Informacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.pMedicina);
             this.Controls.Add(this.pEtsi);
             this.Controls.Add(this.pUma);
@@ -338,7 +339,6 @@ namespace Asuma
             this.Controls.Add(this.RTB_ASUMA);
             this.Controls.Add(this.lAsuma);
             this.Controls.Add(this.lConoceSN);
-            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.menuFlowLayoutPanel);
@@ -354,7 +354,6 @@ namespace Asuma
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Informacion_FormClosing);
             this.Resize += new System.EventHandler(this.Informacion_Resize);
-            this.pPerfil.ResumeLayout(false);
             this.menuFlowLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pMedicina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pEtsi)).EndInit();
@@ -362,16 +361,13 @@ namespace Asuma
             ((System.ComponentModel.ISupportInitialize)(this.pASM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).EndInit();
+            this.pPerfil.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pPerfil;
-        private System.Windows.Forms.Button bMensajes;
-        private System.Windows.Forms.Button bPerfil;
         private System.Windows.Forms.PictureBox pASM;
         private System.Windows.Forms.PictureBox pASUMA;
         private System.Windows.Forms.FlowLayoutPanel menuFlowLayoutPanel;
@@ -391,5 +387,8 @@ namespace Asuma
         private System.Windows.Forms.PictureBox pUma;
         private System.Windows.Forms.PictureBox pEtsi;
         private System.Windows.Forms.PictureBox pMedicina;
+        private System.Windows.Forms.Panel pPerfil;
+        private System.Windows.Forms.Button bMensajes;
+        private System.Windows.Forms.Button bPerfil;
     }
 }

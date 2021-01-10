@@ -46,6 +46,7 @@ namespace Asuma
             }
 
             actualizarElementos();
+            actualizarPanelPerfil();
             actualizar();
         }
         #endregion
@@ -134,6 +135,12 @@ namespace Asuma
             actualizarBotones();
             actualizarImagenes();
             actualizarLabels();
+            actualizarPanelPerfil();
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarBotones()

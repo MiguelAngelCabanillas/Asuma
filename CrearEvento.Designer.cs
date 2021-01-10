@@ -213,7 +213,7 @@
             // 
             this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(68, 16);
+            this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
             this.pUser.Size = new System.Drawing.Size(122, 141);
@@ -472,7 +472,7 @@
             this.panel1.Controls.Add(this.lDescription);
             this.panel1.Controls.Add(this.tDescription);
             this.panel1.Controls.Add(this.bEscogerImg);
-            this.panel1.Location = new System.Drawing.Point(364, 270);
+            this.panel1.Location = new System.Drawing.Point(364, 287);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(984, 741);
@@ -536,20 +536,20 @@
             this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(61, 144);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
             this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
-            this.pPerfil.Size = new System.Drawing.Size(296, 141);
+            this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 37;
             this.pPerfil.Visible = false;
             this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
             // 
             // bMensajes
             // 
-            this.bMensajes.Location = new System.Drawing.Point(39, 91);
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
             this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
-            this.bMensajes.Size = new System.Drawing.Size(230, 29);
+            this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
@@ -559,10 +559,10 @@
             // 
             // bPerfil
             // 
-            this.bPerfil.Location = new System.Drawing.Point(51, 22);
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
             this.bPerfil.Margin = new System.Windows.Forms.Padding(5);
             this.bPerfil.Name = "bPerfil";
-            this.bPerfil.Size = new System.Drawing.Size(230, 29);
+            this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
             this.bPerfil.Text = "Mi perfil";
             this.bPerfil.UseVisualStyleBackColor = true;
