@@ -21,6 +21,7 @@ namespace Asuma
             InitializeComponent();
             this.usuario = usuario;
             cargarDataGrid();
+            MessageBox.Show("No tienes conversaciones abiertas.");
         }
 
         public void cargarDataGrid()
@@ -35,9 +36,10 @@ namespace Asuma
 
             if (!reader2.HasRows)
             {
-                MessageBox.Show("No tienes conversaciones abiertas.");
+                
                 dataGridView1.DataSource = null;
                 return;
+
             }
             
             List<Struct> usuarios = new List<Struct>();

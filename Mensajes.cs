@@ -42,7 +42,7 @@ namespace Asuma
                     string user = (string)reader[0];
                     string mensaje = (string)reader[1];
                     string date = (string)reader[2];
-                    string nuevo = "> " + user + ": " + mensaje + " (" + date + ")";
+                    string nuevo = "> " + date + @"  |  " + user + ": " + mensaje + Environment.NewLine + Environment.NewLine;
                     if (nuevo.Length > this.horizontalExtent)
                     {
                         lbMensajes.HorizontalExtent = nuevo.Length + mensaje.Length * 8;
@@ -75,7 +75,7 @@ namespace Asuma
                     reader.Read();
                     reader.Close();
                     bd.closeBD();
-                    string mensaje = "> " + this.usuario.Username + ": " + tbMensaje.Text + " (" + date + ")";
+                    string mensaje = "> " + date + @"  |  " + usuario.Username + ": " + tbMensaje.Text + Environment.NewLine + Environment.NewLine;
                     if (mensaje.Length > this.horizontalExtent)
                     {
                         lbMensajes.HorizontalExtent = mensaje.Length + mensaje.Length * 8;
