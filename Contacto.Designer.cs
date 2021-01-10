@@ -254,8 +254,9 @@ namespace Asuma
             // lSignOut
             // 
             this.lSignOut.AutoSize = true;
+            this.lSignOut.BackColor = System.Drawing.Color.Transparent;
             this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(245, 118);
+            this.lSignOut.Location = new System.Drawing.Point(245, 117);
             this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSignOut.Name = "lSignOut";
             this.lSignOut.Size = new System.Drawing.Size(122, 20);
@@ -266,6 +267,7 @@ namespace Asuma
             // 
             // pUser
             // 
+            this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
             this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);
@@ -344,6 +346,8 @@ namespace Asuma
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
             this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
+            this.bMensajes.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bMensajes.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
             // bPerfil
             // 
@@ -364,7 +368,7 @@ namespace Asuma
             this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(72, 142);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
             this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
@@ -379,7 +383,6 @@ namespace Asuma
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.pPerfil);
-            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
@@ -387,6 +390,7 @@ namespace Asuma
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lSignOut);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Contacto";

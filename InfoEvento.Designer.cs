@@ -51,11 +51,11 @@ namespace Asuma
             this.bInscription = new System.Windows.Forms.Button();
             this.linitSesion = new System.Windows.Forms.LinkLabel();
             this.lSignOut = new System.Windows.Forms.LinkLabel();
+            this.lTipo = new System.Windows.Forms.Label();
+            this.lTipoDef = new System.Windows.Forms.Label();
             this.pPerfil = new System.Windows.Forms.Panel();
             this.bMensajes = new System.Windows.Forms.Button();
             this.bPerfil = new System.Windows.Forms.Button();
-            this.lTipo = new System.Windows.Forms.Label();
-            this.lTipoDef = new System.Windows.Forms.Label();
             this.menuFlowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pASUMA)).BeginInit();
@@ -305,46 +305,6 @@ namespace Asuma
             this.lSignOut.Text = "Cerrar sesión";
             this.lSignOut.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lSignOut_LinkClicked);
             // 
-            // pPerfil
-            // 
-            this.pPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pPerfil.Controls.Add(this.bMensajes);
-            this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(69, 175);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.pPerfil.Name = "pPerfil";
-            this.pPerfil.Size = new System.Drawing.Size(315, 139);
-            this.pPerfil.TabIndex = 35;
-            this.pPerfil.Visible = false;
-            this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
-            // 
-            // bMensajes
-            // 
-            this.bMensajes.Location = new System.Drawing.Point(55, 111);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bMensajes.Name = "bMensajes";
-            this.bMensajes.Size = new System.Drawing.Size(245, 28);
-            this.bMensajes.TabIndex = 1;
-            this.bMensajes.Text = "Mensajes Privados";
-            this.bMensajes.UseVisualStyleBackColor = true;
-            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
-            this.bMensajes.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
-            this.bMensajes.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
-            // 
-            // bPerfil
-            // 
-            this.bPerfil.Location = new System.Drawing.Point(55, 22);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.bPerfil.Name = "bPerfil";
-            this.bPerfil.Size = new System.Drawing.Size(245, 28);
-            this.bPerfil.TabIndex = 0;
-            this.bPerfil.Text = "Mi perfil";
-            this.bPerfil.UseVisualStyleBackColor = true;
-            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
-            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
-            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
-            // 
             // lTipo
             // 
             this.lTipo.AutoSize = true;
@@ -368,6 +328,46 @@ namespace Asuma
             this.lTipoDef.Text = "Tipo:";
             this.lTipoDef.Paint += new System.Windows.Forms.PaintEventHandler(this.lTipoDef_Paint);
             // 
+            // pPerfil
+            // 
+            this.pPerfil.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pPerfil.Controls.Add(this.bMensajes);
+            this.pPerfil.Controls.Add(this.bPerfil);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.pPerfil.Name = "pPerfil";
+            this.pPerfil.Size = new System.Drawing.Size(315, 139);
+            this.pPerfil.TabIndex = 57;
+            this.pPerfil.Visible = false;
+            this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
+            // 
+            // bMensajes
+            // 
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
+            this.bMensajes.Name = "bMensajes";
+            this.bMensajes.Size = new System.Drawing.Size(245, 28);
+            this.bMensajes.TabIndex = 1;
+            this.bMensajes.Text = "Mensajes Privados";
+            this.bMensajes.UseVisualStyleBackColor = true;
+            this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
+            this.bMensajes.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bMensajes.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
+            // 
+            // bPerfil
+            // 
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
+            this.bPerfil.Name = "bPerfil";
+            this.bPerfil.Size = new System.Drawing.Size(245, 28);
+            this.bPerfil.TabIndex = 0;
+            this.bPerfil.Text = "Mi perfil";
+            this.bPerfil.UseVisualStyleBackColor = true;
+            this.bPerfil.Click += new System.EventHandler(this.bPerfil_Click);
+            this.bPerfil.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bPerfil.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
+            // 
             // InfoEvento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,12 +375,12 @@ namespace Asuma
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(2565, 1298);
+            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.linitSesion);
             this.Controls.Add(this.pUser);
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.lTipoDef);
             this.Controls.Add(this.lTipo);
-            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.bInscription);
             this.Controls.Add(this.bSalir);
@@ -435,10 +435,10 @@ namespace Asuma
         private System.Windows.Forms.Button bInscription;
         private System.Windows.Forms.LinkLabel linitSesion;
         private System.Windows.Forms.LinkLabel lSignOut;
+        private System.Windows.Forms.Label lTipo;
+        private System.Windows.Forms.Label lTipoDef;
         private System.Windows.Forms.Panel pPerfil;
         private System.Windows.Forms.Button bMensajes;
         private System.Windows.Forms.Button bPerfil;
-        private System.Windows.Forms.Label lTipo;
-        private System.Windows.Forms.Label lTipoDef;
     }
 }

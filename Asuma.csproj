@@ -39,9 +39,17 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>packages\MySqlConnector.1.2.0\lib\net471\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\MSOffice.Object.Library.15.0.4420.1018\lib\net20\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -246,6 +254,12 @@
     <Compile Include="PruebaFTP.Designer.cs">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
     </Compile>
+    <Compile Include="PruebaWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaWord.designer.cs">
+      <DependentUpon>PruebaWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recuperacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +391,9 @@
     <EmbeddedResource Include="PruebaFTP.resx">
       <DependentUpon>PruebaFTP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PruebaWord.resx">
+      <DependentUpon>PruebaWord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recuperacion.resx">
       <DependentUpon>Recuperacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +443,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\facultad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

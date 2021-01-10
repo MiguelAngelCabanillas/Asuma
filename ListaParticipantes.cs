@@ -31,6 +31,7 @@ namespace Asuma
             this.evento = e;
             this.nombreGestor = e.EventCreator;
             actualizar();
+            actualizarPanelPerfil();
             panelParticipantes.SendToBack();
             mostrarParticipantes();
         }
@@ -203,6 +204,12 @@ namespace Asuma
             panelParticipantes.Location = new Point(this.Width / 2 - panelParticipantes.Width / 2, this.menuFlowLayoutPanel.Location.Y + 50);
         }
 
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
+        }
+
         private void actualizarParticipantes()
         {
             mostrarParticipantes();
@@ -236,6 +243,7 @@ namespace Asuma
             actualizarBotones();
             actualizarImagenes();
             actualizarPanelParticipantes();
+            actualizarPanelPerfil();
         }
         #endregion
 
