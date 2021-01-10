@@ -179,8 +179,6 @@ namespace Asuma
         #region Logica del Form
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //Se puede hacer que cierre solo sesion y siga en la plataforma
-            //Environment.Exit(Environment.ExitCode);
             Cursor.Current = Cursors.WaitCursor;
             Principal inicio = new Principal(null);
             inicio.Show();
@@ -242,15 +240,11 @@ namespace Asuma
             if (!this.isClosed)
             {
                 actualizar();
-                //this.Visible = true;
+
                 this.Close();
-                /*pNoticias.Controls.Clear();
-                mostrarNoticias();
-                actualizarPanelNoticias();*/
+
             }
             usuario = iNoticia.Usuario;
-            /*actualizar();
-            this.Visible = true;*/
         }
 
         private void bCrearNoticia_Click(object sender, EventArgs e)

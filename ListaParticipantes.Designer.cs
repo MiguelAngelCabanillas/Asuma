@@ -63,21 +63,23 @@ namespace Asuma
             // 
             // bMensajes
             // 
-            this.bMensajes.Location = new System.Drawing.Point(41, 102);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
             this.bMensajes.Click += new System.EventHandler(this.bMensajes_Click);
+            this.bMensajes.MouseEnter += new System.EventHandler(this.bPerfil_MouseEnter);
+            this.bMensajes.MouseLeave += new System.EventHandler(this.bPerfil_MouseLeave);
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 1055);
+            this.splitter1.Size = new System.Drawing.Size(3, 1371);
             this.splitter1.TabIndex = 40;
             this.splitter1.TabStop = false;
             // 
@@ -138,8 +140,8 @@ namespace Asuma
             this.pPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(65, 154);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 46;
@@ -148,8 +150,8 @@ namespace Asuma
             // 
             // bPerfil
             // 
-            this.bPerfil.Location = new System.Drawing.Point(41, 31);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
@@ -327,16 +329,16 @@ namespace Asuma
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2367, 1371);
+            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
-            this.Controls.Add(this.lSignOut);
             this.Controls.Add(this.panelParticipantes);
-            this.Controls.Add(this.pPerfil);
             this.Controls.Add(this.lUsername);
             this.Controls.Add(this.menuFlowLayoutPanel);
             this.Controls.Add(this.pUser);
+            this.Controls.Add(this.lSignOut);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListaParticipantes";

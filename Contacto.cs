@@ -26,8 +26,6 @@ namespace Asuma
             actualizar();
         }
 
-      
-
 
         private void actualizarImagenes()
         {
@@ -58,7 +56,7 @@ namespace Asuma
                 pUser.Visible = false;
                 lUsername.Visible = false;
                 lSignOut.Visible = false;
-                //pPerfil.Visible = false;
+                pPerfil.Visible = false;
             }
             else
             {
@@ -107,12 +105,17 @@ namespace Asuma
             actualizarBotones();
         }
 
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
+        }
 
 
         private void Contacto_Resize(object sender, EventArgs e)
         {
             actualizarBotones();
             actualizarImagenes();
+            actualizarPanelPerfil();
             CentrarPanel();
         }
 

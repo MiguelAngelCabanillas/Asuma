@@ -68,6 +68,7 @@ namespace Asuma
             pImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
             actualizarElementos();
+            actualizarPanelPerfil();
             actualizar();
         }
         #endregion
@@ -128,6 +129,7 @@ namespace Asuma
         private void EditarNoticia_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+            actualizarPanelPerfil();
         }
 
         private void actualizarElementos()
@@ -146,6 +148,11 @@ namespace Asuma
 
             this.panel1.Location = new Point(this.bInicio.Location.X + 100, this.menuFlowLayoutPanel.Location.Y + 80);
             this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width, this.Height - this.menuFlowLayoutPanel.Location.Y - 30);
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
         #endregion
 

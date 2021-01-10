@@ -102,6 +102,11 @@ namespace Asuma
             this.RTB_Ofrece.Location = new Point((int)(tam * 6.2 / 10), RTB_Ofrece.Location.Y);
         }
 
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
+        }
+
         private void actualizarImagenes()
         {
 
@@ -137,6 +142,7 @@ namespace Asuma
         {
             actualizarBotones();
             actualizarImagenes();
+            actualizarPanelPerfil();
             actualizarTextos();
         }
         #endregion

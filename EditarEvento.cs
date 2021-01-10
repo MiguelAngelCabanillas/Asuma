@@ -74,13 +74,8 @@ namespace Asuma
             pImage.SizeMode = PictureBoxSizeMode.StretchImage;
 
             actualizarElementos();
+            actualizarPanelPerfil();
             actualizar();
-            /*
-            this.HorizontalScroll.Maximum = 0;
-            this.AutoScroll = false;
-            this.VerticalScroll.Visible = false;
-            this.AutoScroll = true;
-            */
         }
         #endregion
 
@@ -138,7 +133,13 @@ namespace Asuma
         private void EditarEvento_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+            actualizarPanelPerfil();
             this.CenterToScreen();
+        }
+
+        private void actualizarPanelPerfil()
+        {
+            pPerfil.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarElementos()
@@ -187,7 +188,6 @@ namespace Asuma
 
         private void bCrearTest_Click(object sender, EventArgs e)
         {
-            //if tiene test entonces update
             Test_Conocimiento_Edicion TCEdit = new Test_Conocimiento_Edicion(this.evento);
             TCEdit.ShowDialog();
         }
@@ -223,9 +223,9 @@ namespace Asuma
                 }
 
             }
-            catch(Exception ex)
+            catch(Exception )
             {
-                //MessageBox.Show(ex.Message);
+
             }
         }
 
@@ -245,9 +245,9 @@ namespace Asuma
                 misEventos.Show();
                 this.Close();
 
-            }catch(Exception ex)
+            }catch(Exception )
             {
-               // MessageBox.Show(ex.Message);
+
             }
         }
 
@@ -298,9 +298,9 @@ namespace Asuma
                     bCrearTest.Visible = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-               // MessageBox.Show(ex.Message);
+
             }
         }
 
@@ -341,13 +341,6 @@ namespace Asuma
             
             Directorios pftp = new Directorios(evento, usuario);
             pftp.ShowDialog();
-
-
-            /*
-            PruebaFTP pftp = new PruebaFTP(usuario, evento, "Mi_nombre_es_Groot");
-            pftp.ShowDialog();
-            */
-
         }
         #endregion
 
