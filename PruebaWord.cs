@@ -25,17 +25,17 @@ namespace Asuma
         private void bDocumento_Click(object sender, EventArgs e)
         {
             string ruta = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.docx";
-            dynamic obj1  = System.Reflection.Missing.Value;
-            dynamic ap = new Word.Application();
+            object oMissing = System.Reflection.Missing.Value;
+            Word.Application ap = new Word.Application();
             object marcadorNombreUsuario = "nombreUsuario";
             object marcadorNombreCurso = "nombreCurso";
             Word.Document document = ap.Documents.Open(ruta);
 
             //INTRODUZCO EL NOMBRE DE USUARIO
-            dynamic nombreUsuario = document.Bookmarks.get_Item(ref marcadorNombreUsuario).Range;
+            Word.Range nombreUsuario = document.Bookmarks.get_Item(ref marcadorNombreUsuario).Range;
             nombreUsuario.Text = "Miguel Ángel Cabanillas Silva";
             //INTRODUZCO EL NOMBRE DEL CURSO
-            dynamic nombreCurso  = document.Bookmarks.get_Item(ref marcadorNombreCurso).Range;
+            Word.Range nombreCurso  = document.Bookmarks.get_Item(ref marcadorNombreCurso).Range;
             nombreCurso.Text = "RECREO";
             object rango1 = nombreUsuario;
             object rango2 = nombreCurso;
@@ -44,16 +44,16 @@ namespace Asuma
             object outputFileName = document.FullName.Replace(".docx", ".pdf");
             object fileFormat = Word.WdSaveFormat.wdFormatPDF;
             document.SaveAs2(ref outputFileName,
-            ref fileFormat, ref obj1, ref obj1,
-            ref obj1, ref obj1, ref obj1, ref obj1,
-            ref obj1, ref obj1, ref obj1, ref obj1,
-            ref obj1, ref obj1, ref obj1, ref obj1);
+            ref fileFormat, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing);
 
             
             object saveChanges = WdSaveOptions.wdDoNotSaveChanges;
-            ((_Document)document).Close(ref saveChanges, ref obj1, ref obj1);
+            ((_Document)document).Close(ref saveChanges, ref oMissing, ref oMissing);
             document = null;
-            ((_Application)ap).Quit(ref obj1, ref obj1, ref obj1);
+            ((_Application)ap).Quit(ref oMissing, ref oMissing, ref oMissing);
             ap = null;
             
 
