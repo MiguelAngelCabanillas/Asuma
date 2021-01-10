@@ -53,7 +53,7 @@ namespace Asuma
         {
             User s = new User("franB");
             Event e = new Event(62);
-            this.MainForm = new Principal(null);
+            //this.MainForm = new Principal(null);
             //this.MainForm = new Contacto(null);
             //this.MainForm = new CrearNoticia(new User("franB"));
             //this.MainForm = new EditarEvento(new Event(62), new User("franB"));
@@ -65,6 +65,7 @@ namespace Asuma
             //this.MainForm = new Informacion(s);
             //this.MainForm = new ListaParticipantes(s, e);
             //this.MainForm = new MisEventos(s);
+            this.MainForm = new PruebaWord();
         }
 
         [STAThread]
