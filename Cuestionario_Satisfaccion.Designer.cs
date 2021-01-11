@@ -53,10 +53,11 @@ namespace Asuma
             // bEnviar
             // 
             this.bEnviar.Location = new System.Drawing.Point(16, 1142);
-            this.bEnviar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEnviar.Margin = new System.Windows.Forms.Padding(4);
             this.bEnviar.Name = "bEnviar";
             this.bEnviar.Size = new System.Drawing.Size(185, 39);
             this.bEnviar.TabIndex = 15;
+            this.bEnviar.TabStop = false;
             this.bEnviar.Text = "Enviar";
             this.bEnviar.UseVisualStyleBackColor = true;
             this.bEnviar.Click += new System.EventHandler(this.bEnviar_Click);
@@ -80,7 +81,7 @@ namespace Asuma
             this.lTestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTestName.Name = "lTestName";
             this.lTestName.Size = new System.Drawing.Size(391, 29);
-            this.lTestName.TabIndex = 13;
+            this.lTestName.TabIndex = 0;
             this.lTestName.Text = "Cuestionario de Satisfacción";
             // 
             // lQ1
@@ -106,9 +107,9 @@ namespace Asuma
             "Twitter",
             "Periódico"});
             this.CLB_Q1.Location = new System.Drawing.Point(21, 130);
-            this.CLB_Q1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Q1.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Q1.Name = "CLB_Q1";
-            this.CLB_Q1.Size = new System.Drawing.Size(613, 106);
+            this.CLB_Q1.Size = new System.Drawing.Size(613, 123);
             this.CLB_Q1.TabIndex = 17;
             // 
             // lQ2
@@ -134,9 +135,9 @@ namespace Asuma
             "Satisfecho",
             "Muy satisfecho"});
             this.CLB_Q2.Location = new System.Drawing.Point(21, 315);
-            this.CLB_Q2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Q2.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Q2.Name = "CLB_Q2";
-            this.CLB_Q2.Size = new System.Drawing.Size(613, 89);
+            this.CLB_Q2.Size = new System.Drawing.Size(613, 106);
             this.CLB_Q2.TabIndex = 19;
             this.CLB_Q2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q2_ItemCheck);
             // 
@@ -149,9 +150,9 @@ namespace Asuma
             "No",
             "Prefiero no decir"});
             this.CLB_Q3.Location = new System.Drawing.Point(20, 470);
-            this.CLB_Q3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Q3.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Q3.Name = "CLB_Q3";
-            this.CLB_Q3.Size = new System.Drawing.Size(613, 55);
+            this.CLB_Q3.Size = new System.Drawing.Size(613, 72);
             this.CLB_Q3.TabIndex = 21;
             this.CLB_Q3.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q3_ItemCheck);
             // 
@@ -176,9 +177,9 @@ namespace Asuma
             "No",
             "Prefiero no decir"});
             this.CLB_Q4.Location = new System.Drawing.Point(21, 604);
-            this.CLB_Q4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Q4.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Q4.Name = "CLB_Q4";
-            this.CLB_Q4.Size = new System.Drawing.Size(613, 55);
+            this.CLB_Q4.Size = new System.Drawing.Size(613, 72);
             this.CLB_Q4.TabIndex = 23;
             this.CLB_Q4.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q4_ItemCheck);
             // 
@@ -202,9 +203,9 @@ namespace Asuma
             "No",
             "Prefiero no decir"});
             this.CLB_Q5.Location = new System.Drawing.Point(20, 725);
-            this.CLB_Q5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Q5.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Q5.Name = "CLB_Q5";
-            this.CLB_Q5.Size = new System.Drawing.Size(613, 55);
+            this.CLB_Q5.Size = new System.Drawing.Size(613, 72);
             this.CLB_Q5.TabIndex = 25;
             this.CLB_Q5.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q5_ItemCheck);
             // 
@@ -227,9 +228,9 @@ namespace Asuma
             "Sí",
             "No"});
             this.CLB_Q6.Location = new System.Drawing.Point(21, 846);
-            this.CLB_Q6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CLB_Q6.Margin = new System.Windows.Forms.Padding(4);
             this.CLB_Q6.Name = "CLB_Q6";
-            this.CLB_Q6.Size = new System.Drawing.Size(613, 38);
+            this.CLB_Q6.Size = new System.Drawing.Size(613, 55);
             this.CLB_Q6.TabIndex = 27;
             this.CLB_Q6.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLB_Q6_ItemCheck);
             // 
@@ -258,19 +259,21 @@ namespace Asuma
             // RTB_Q7
             // 
             this.RTB_Q7.Location = new System.Drawing.Point(21, 956);
-            this.RTB_Q7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RTB_Q7.Margin = new System.Windows.Forms.Padding(4);
             this.RTB_Q7.Name = "RTB_Q7";
             this.RTB_Q7.Size = new System.Drawing.Size(1168, 155);
             this.RTB_Q7.TabIndex = 29;
+            this.RTB_Q7.TabStop = false;
             this.RTB_Q7.Text = "";
             // 
             // bSalir
             // 
             this.bSalir.Location = new System.Drawing.Point(1101, 1142);
-            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(185, 39);
             this.bSalir.TabIndex = 30;
+            this.bSalir.TabStop = false;
             this.bSalir.Text = "Salir";
             this.bSalir.UseVisualStyleBackColor = true;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);
@@ -280,7 +283,7 @@ namespace Asuma
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1303, 1055);
+            this.ClientSize = new System.Drawing.Size(1313, 925);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.RTB_Q7);
             this.Controls.Add(this.lQ7);
@@ -300,7 +303,7 @@ namespace Asuma
             this.Controls.Add(this.lNameCurso);
             this.Controls.Add(this.lTestName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Cuestionario_Satisfaccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
