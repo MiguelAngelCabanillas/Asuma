@@ -15,13 +15,13 @@ namespace Asuma
     {
         private User usuario;
         private string seleccionado = "";
+        private System.Timers.Timer timer;
 
         public Mensajeria(User usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
-            cargarDataGrid();
-            MessageBox.Show("No tienes conversaciones abiertas.");
+            cargarDataGrid();            
         }
 
         public void cargarDataGrid()
@@ -36,7 +36,7 @@ namespace Asuma
 
             if (!reader2.HasRows)
             {
-                
+        
                 dataGridView1.DataSource = null;
                 return;
 
@@ -135,6 +135,24 @@ namespace Asuma
             lUs.ShowDialog();
             cargarDataGrid();
             this.Visible = true;
+        }
+
+        private void Mensajeria_Shown(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource == null)
+            {
+                timer = new System.Timers.Timer(200);
+                timer.Elapsed += timer_Tick;
+                timer.AutoReset = false;
+                timer.Enabled = true;
+                
+            }
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            this.BeginInvoke((Action)(() => MessageBox.Show("No tienes conversaciones abiertas")));
+            timer.Enabled = false;
         }
     }
 

@@ -94,6 +94,7 @@ namespace Asuma
         public float GetFileDownloadSize(string filename)
         {
             FtpWebRequest request = (FtpWebRequest)FtpWebRequest.Create(_remoteHost + filename);
+            request.Timeout = 4000;
             request.Credentials = new NetworkCredential(_remoteUser, _remotePass);
             request.Method = WebRequestMethods.Ftp.GetFileSize;
 
@@ -271,7 +272,7 @@ namespace Asuma
             protected override WebRequest GetWebRequest(Uri uri)
             {
                 WebRequest w = base.GetWebRequest(uri);
-                w.Timeout = 10000;
+                w.Timeout = 5000;
                 return w;
             }
         }
