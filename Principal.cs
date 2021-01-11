@@ -267,7 +267,8 @@ namespace Asuma
                 int i = 1;
                 foreach (Event evento in this.eventos)
                 {
-                    if (dia.Equals(evento.Date))
+                    string date = evento.Date.Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
+                    if (dia.Equals(date))
                     {
                         if (this.usuario == null)
                         {
@@ -284,12 +285,12 @@ namespace Asuma
                                 res = res + i +  ") " + (evento.EsCurso ? "Curso" : "Actividad") + ": " + evento.EventName + " (NO INSCRITO)\n";
                             }
                         }
+                        i++;
                     }
-                    i++;
                 }
                 if (res == "")
                 {
-                    MessageBox.Show("No tiene ningún evento programado para este día.");
+                    MessageBox.Show("No existe ningún evento programado para este día.");
                 }
                 else
                 {
