@@ -36,6 +36,7 @@ namespace Asuma
             this.panelPregyRes = new System.Windows.Forms.Panel();
             this.bSalir = new System.Windows.Forms.Button();
             this.lAprobadoRO = new System.Windows.Forms.Label();
+            this.pProgreso = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // lTestName
@@ -64,7 +65,7 @@ namespace Asuma
             // 
             this.bEnviar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEnviar.Location = new System.Drawing.Point(21, 613);
-            this.bEnviar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEnviar.Margin = new System.Windows.Forms.Padding(4);
             this.bEnviar.Name = "bEnviar";
             this.bEnviar.Size = new System.Drawing.Size(185, 39);
             this.bEnviar.TabIndex = 8;
@@ -78,7 +79,7 @@ namespace Asuma
             this.panelPregyRes.AutoScrollMargin = new System.Drawing.Size(50, 50);
             this.panelPregyRes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelPregyRes.Location = new System.Drawing.Point(16, 70);
-            this.panelPregyRes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPregyRes.Margin = new System.Windows.Forms.Padding(4);
             this.panelPregyRes.Name = "panelPregyRes";
             this.panelPregyRes.Size = new System.Drawing.Size(1172, 534);
             this.panelPregyRes.TabIndex = 12;
@@ -87,7 +88,7 @@ namespace Asuma
             // 
             this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSalir.Location = new System.Drawing.Point(1004, 613);
-            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(185, 39);
             this.bSalir.TabIndex = 13;
@@ -106,11 +107,20 @@ namespace Asuma
             this.lAprobadoRO.TabIndex = 14;
             this.lAprobadoRO.Text = "Aprobado";
             // 
+            // pProgreso
+            // 
+            this.pProgreso.Location = new System.Drawing.Point(321, 618);
+            this.pProgreso.Name = "pProgreso";
+            this.pProgreso.Size = new System.Drawing.Size(565, 34);
+            this.pProgreso.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pProgreso.TabIndex = 15;
+            // 
             // Test_Conocimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 667);
+            this.Controls.Add(this.pProgreso);
             this.Controls.Add(this.lAprobadoRO);
             this.Controls.Add(this.bSalir);
             this.Controls.Add(this.bEnviar);
@@ -118,7 +128,7 @@ namespace Asuma
             this.Controls.Add(this.lTestName);
             this.Controls.Add(this.panelPregyRes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Test_Conocimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Test_Conocimiento";
@@ -135,5 +145,6 @@ namespace Asuma
         private System.Windows.Forms.Panel panelPregyRes;
         private System.Windows.Forms.Button bSalir;
         private System.Windows.Forms.Label lAprobadoRO;
+        private System.Windows.Forms.ProgressBar pProgreso;
     }
 }

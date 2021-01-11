@@ -207,7 +207,7 @@ namespace Asuma
         {
             string path = Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
             string pathBueno = path.Substring(0, path.Length - 3);
-            string documentPath = pathBueno + "documents\\" + "certificado.docx";
+            string documentPath = pathBueno + "documents\\" + "certificado.pdf";
             Attachment data = new Attachment(documentPath, MediaTypeNames.Application.Octet);
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");

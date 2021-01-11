@@ -28,7 +28,6 @@ namespace Asuma
             string pathBueno = path.Substring(0, path.Length - 3);
             string documentPath = pathBueno + "documents\\" + "certificado.docx";
 
-            //string ruta = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.docx";
             object oMissing = System.Reflection.Missing.Value;
             Word.Application ap = new Word.Application();
             object marcadorNombreUsuario = "nombreUsuario";

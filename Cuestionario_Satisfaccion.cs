@@ -27,7 +27,6 @@ namespace Asuma
         {
             InitializeComponent();
             evento = e;
-
             String[] respuestasQ1 = resQ1.Split('_');
             for (int i = 0; i < respuestasQ1.Length; i++)
             {
@@ -225,6 +224,7 @@ namespace Asuma
         private void Cuestionario_Satisfaccion_Load(object sender, EventArgs e)
         {
             lNameCurso.Text = evento.EventName;
+            lTestName.Focus();
         }
 
         private void bSalir_Click(object sender, EventArgs e)

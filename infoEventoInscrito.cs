@@ -179,17 +179,21 @@ namespace Asuma
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
             this.bEditEvent.Location = new Point((anchura * 2) / 10, bEditEvent.Location.Y);
-            this.linkForum.Location = new Point((anchura * 3) / 10, linkForum.Location.Y);
+            this.linkForum.Location = new Point((anchura * 2) / 10, linkForum.Location.Y);
+            this.linkArchivos.Location = new Point((anchura *3) / 10, linkForum.Location.Y);
             this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
-            lTipo.Location = new Point(tDes.Location.X + tDes.Width / 2, lOrganizadores.Location.Y);
-            lTipoDef.Location = new Point(lTipo.Location.X + 100, lOrganizadores.Location.Y + 5);
-            this.bTestConocimiento.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7) / 10);
-            this.bNotifyEmail.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 7.5) / 10);
-            this.bListParticipantes.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 6.5) / 10);
-            this.linkArchivos.Location = new Point((anchura * 4) / 10, linkForum.Location.Y);
-            this.bTestsRealizados.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7) / 10);
-            this.bRealizarEncSatisfaccion.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7) / 10);
-            this.bEncuestas.Location = new Point((int)(anchura * 7.5) / 10, (int)(altura * 7.5) / 10);
+            lTipo.Location = new Point((anchura * 2) / 10, lTipo.Location.Y);
+            lTipoDef.Location = new Point(lTipo.Location.X + lTipo.Width + 10, lTipo.Location.Y + 5);
+
+            this.bListParticipantes.Location = new Point((int)(anchura * 4.9) / 10, lFecha.Location.Y);
+            this.bNotifyEmail.Location = new Point((int)((anchura * 5.3) / 10)+ bListParticipantes.Width , lFecha.Location.Y);
+
+            this.bRealizarEncSatisfaccion.Location = new Point((int)(anchura * 4.9) / 10, lTipo.Location.Y);
+            this.bEncuestas.Location = new Point((int)((anchura * 5.3) / 10) + bListParticipantes.Width, lTipo.Location.Y);
+
+            this.bTestConocimiento.Location = new Point((int)(anchura * 4.9) / 10, linkForum.Location.Y);
+            this.bTestsRealizados.Location = new Point((int)((anchura * 5.3) / 10) + bListParticipantes.Width, linkForum.Location.Y);
+           
         }
 
         private void InfoEventoInscrito_Resize(object sender, EventArgs e)
