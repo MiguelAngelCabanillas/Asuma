@@ -223,7 +223,7 @@
             // 
             this.tDes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tDes.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tDes.Location = new System.Drawing.Point(409, 274);
+            this.tDes.Location = new System.Drawing.Point(453, 300);
             this.tDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDes.Multiline = true;
             this.tDes.Name = "tDes";
@@ -234,10 +234,10 @@
             // lTitulo
             // 
             this.lTitulo.AutoSize = true;
-            this.lTitulo.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitulo.Location = new System.Drawing.Point(537, 284);
+            this.lTitulo.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitulo.Location = new System.Drawing.Point(447, 262);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(142, 46);
+            this.lTitulo.Size = new System.Drawing.Size(111, 36);
             this.lTitulo.TabIndex = 20;
             this.lTitulo.Text = "Título";
             // 
