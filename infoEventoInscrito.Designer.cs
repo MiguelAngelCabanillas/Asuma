@@ -223,7 +223,7 @@
             // 
             this.tDes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tDes.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tDes.Location = new System.Drawing.Point(409, 274);
+            this.tDes.Location = new System.Drawing.Point(453, 300);
             this.tDes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tDes.Multiline = true;
             this.tDes.Name = "tDes";
@@ -234,10 +234,10 @@
             // lTitulo
             // 
             this.lTitulo.AutoSize = true;
-            this.lTitulo.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitulo.Location = new System.Drawing.Point(537, 284);
+            this.lTitulo.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitulo.Location = new System.Drawing.Point(447, 262);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(142, 46);
+            this.lTitulo.Size = new System.Drawing.Size(111, 36);
             this.lTitulo.TabIndex = 20;
             this.lTitulo.Text = "Título";
             // 
@@ -265,7 +265,7 @@
             // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(1121, 748);
+            this.bExit.Location = new System.Drawing.Point(1174, 871);
             this.bExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(169, 84);
@@ -291,7 +291,7 @@
             this.linkForum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.linkForum.AutoSize = true;
             this.linkForum.Font = new System.Drawing.Font("Verdana", 13.8F);
-            this.linkForum.Location = new System.Drawing.Point(245, 804);
+            this.linkForum.Location = new System.Drawing.Point(64, 860);
             this.linkForum.Name = "linkForum";
             this.linkForum.Size = new System.Drawing.Size(66, 29);
             this.linkForum.TabIndex = 43;
@@ -306,7 +306,7 @@
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
             this.pPerfil.Location = new System.Drawing.Point(69, 142);
-            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.pPerfil.Name = "pPerfil";
             this.pPerfil.Size = new System.Drawing.Size(315, 139);
             this.pPerfil.TabIndex = 44;
@@ -316,7 +316,7 @@
             // bMensajes
             // 
             this.bMensajes.Location = new System.Drawing.Point(41, 90);
-            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
             this.bMensajes.Size = new System.Drawing.Size(245, 28);
             this.bMensajes.TabIndex = 1;
@@ -329,7 +329,7 @@
             // bPerfil
             // 
             this.bPerfil.Location = new System.Drawing.Point(41, 18);
-            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
             this.bPerfil.Size = new System.Drawing.Size(245, 28);
             this.bPerfil.TabIndex = 0;
@@ -343,7 +343,7 @@
             // 
             this.lTipo.AutoSize = true;
             this.lTipo.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTipo.Location = new System.Drawing.Point(971, 540);
+            this.lTipo.Location = new System.Drawing.Point(63, 800);
             this.lTipo.Name = "lTipo";
             this.lTipo.Size = new System.Drawing.Size(84, 32);
             this.lTipo.TabIndex = 45;
@@ -353,7 +353,7 @@
             // 
             this.lTipoDef.AutoSize = true;
             this.lTipoDef.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTipoDef.Location = new System.Drawing.Point(1043, 545);
+            this.lTipoDef.Location = new System.Drawing.Point(153, 806);
             this.lTipoDef.Name = "lTipoDef";
             this.lTipoDef.Size = new System.Drawing.Size(63, 25);
             this.lTipoDef.TabIndex = 46;
@@ -362,8 +362,8 @@
             // 
             // bTestConocimiento
             // 
-            this.bTestConocimiento.Location = new System.Drawing.Point(1047, 655);
-            this.bTestConocimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bTestConocimiento.Location = new System.Drawing.Point(549, 839);
+            this.bTestConocimiento.Margin = new System.Windows.Forms.Padding(4);
             this.bTestConocimiento.Name = "bTestConocimiento";
             this.bTestConocimiento.Size = new System.Drawing.Size(252, 28);
             this.bTestConocimiento.TabIndex = 47;
@@ -373,10 +373,10 @@
             // 
             // bNotifyEmail
             // 
-            this.bNotifyEmail.Location = new System.Drawing.Point(1077, 703);
-            this.bNotifyEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bNotifyEmail.Location = new System.Drawing.Point(834, 739);
+            this.bNotifyEmail.Margin = new System.Windows.Forms.Padding(4);
             this.bNotifyEmail.Name = "bNotifyEmail";
-            this.bNotifyEmail.Size = new System.Drawing.Size(213, 28);
+            this.bNotifyEmail.Size = new System.Drawing.Size(252, 28);
             this.bNotifyEmail.TabIndex = 48;
             this.bNotifyEmail.Text = "Notificar por correo";
             this.bNotifyEmail.UseVisualStyleBackColor = true;
@@ -384,8 +384,8 @@
             // 
             // bListParticipantes
             // 
-            this.bListParticipantes.Location = new System.Drawing.Point(1047, 603);
-            this.bListParticipantes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bListParticipantes.Location = new System.Drawing.Point(549, 739);
+            this.bListParticipantes.Margin = new System.Windows.Forms.Padding(4);
             this.bListParticipantes.Name = "bListParticipantes";
             this.bListParticipantes.Size = new System.Drawing.Size(252, 28);
             this.bListParticipantes.TabIndex = 49;
@@ -397,7 +397,7 @@
             // 
             this.linkArchivos.AutoSize = true;
             this.linkArchivos.Font = new System.Drawing.Font("Verdana", 13.8F);
-            this.linkArchivos.Location = new System.Drawing.Point(843, 785);
+            this.linkArchivos.Location = new System.Drawing.Point(241, 860);
             this.linkArchivos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkArchivos.Name = "linkArchivos";
             this.linkArchivos.Size = new System.Drawing.Size(115, 29);
@@ -408,8 +408,8 @@
             // 
             // bTestsRealizados
             // 
-            this.bTestsRealizados.Location = new System.Drawing.Point(756, 603);
-            this.bTestsRealizados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bTestsRealizados.Location = new System.Drawing.Point(834, 839);
+            this.bTestsRealizados.Margin = new System.Windows.Forms.Padding(4);
             this.bTestsRealizados.Name = "bTestsRealizados";
             this.bTestsRealizados.Size = new System.Drawing.Size(252, 28);
             this.bTestsRealizados.TabIndex = 51;
@@ -419,8 +419,8 @@
             // 
             // bRealizarEncSatisfaccion
             // 
-            this.bRealizarEncSatisfaccion.Location = new System.Drawing.Point(756, 655);
-            this.bRealizarEncSatisfaccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bRealizarEncSatisfaccion.Location = new System.Drawing.Point(549, 787);
+            this.bRealizarEncSatisfaccion.Margin = new System.Windows.Forms.Padding(4);
             this.bRealizarEncSatisfaccion.Name = "bRealizarEncSatisfaccion";
             this.bRealizarEncSatisfaccion.Size = new System.Drawing.Size(252, 28);
             this.bRealizarEncSatisfaccion.TabIndex = 52;
@@ -430,8 +430,8 @@
             // 
             // bEncuestas
             // 
-            this.bEncuestas.Location = new System.Drawing.Point(756, 703);
-            this.bEncuestas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEncuestas.Location = new System.Drawing.Point(834, 787);
+            this.bEncuestas.Margin = new System.Windows.Forms.Padding(4);
             this.bEncuestas.Name = "bEncuestas";
             this.bEncuestas.Size = new System.Drawing.Size(252, 28);
             this.bEncuestas.TabIndex = 53;

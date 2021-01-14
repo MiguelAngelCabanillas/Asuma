@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop.Word;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace Asuma
 {
@@ -112,8 +115,8 @@ namespace Asuma
                 Pregunta.Name = "P" + id_Pregunta;
                 Pregunta.Text = nombrePregunta;
                 Pregunta.AutoSize = true;
-                Pregunta.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-                Pregunta.Location = new Point(13, 13);
+                Pregunta.Font = new System.Drawing.Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                Pregunta.Location = new System.Drawing.Point(13, 13);
                 Pregunta.Size = new Size(98, 18);
                 Pregunta.TabIndex = 2;
 
@@ -123,9 +126,9 @@ namespace Asuma
                 respuestasPregunta.Items.AddRange(respuestas);
                 respuestasPregunta.BorderStyle = BorderStyle.FixedSingle;
                 respuestasPregunta.CheckOnClick = true;
-                respuestasPregunta.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                respuestasPregunta.Font = new System.Drawing.Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 respuestasPregunta.FormattingEnabled = true;
-                respuestasPregunta.Location = new Point(16, 40);
+                respuestasPregunta.Location = new System.Drawing.Point(16, 40);
                 respuestasPregunta.Size = new Size(510, 87);
                 respuestasPregunta.TabIndex = 3;
                 if (!seleccionMultiple)
@@ -138,8 +141,8 @@ namespace Asuma
                 Label ResPregunta = new Label();
                 ResPregunta.Name = "Res" + id_Pregunta;
                 ResPregunta.AutoSize = true;
-                ResPregunta.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-                ResPregunta.Location = new Point(578, 60);
+                ResPregunta.Font = new System.Drawing.Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+                ResPregunta.Location = new System.Drawing.Point(578, 60);
                 ResPregunta.Size = new Size(84, 25);
                 ResPregunta.TabIndex = 9;
                 ResPregunta.Text = "";
@@ -147,7 +150,7 @@ namespace Asuma
                 //------------------
 
                 panel.Size = new Size(790, 161); //1142 186
-                panel.Location = new Point(16, separacion);
+                panel.Location = new System.Drawing.Point(16, separacion);
                 panel.Visible = true;
                 panel.BorderStyle = BorderStyle.FixedSingle;
 
@@ -271,6 +274,12 @@ namespace Asuma
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
+            pProgreso.Value = 1;
+            pProgreso.Step = 1;
+            for (int i = 0; i < 10; i++)
+            {
+                pProgreso.PerformStep();
+            }
             Cursor.Current = Cursors.WaitCursor;
             Boolean res = Check(false);
             if (res)
@@ -295,9 +304,91 @@ namespace Asuma
                     }
                     respuestasUsuario += "_";
                 }
+                for (int i = 10 ; i < 20; i++)
+                {
+                    pProgreso.PerformStep();
+                }
+                expedirCertificado();
+
                 //Inserto sus respuestas en la base de datos si ha aprobado
                 Test.SubmitAprobado(evento, usuario, idsP, respuestasUsuario);
             }
+        }
+
+        private void expedirCertificado()
+        {
+            string path = Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string documentPath = pathBueno + "documents\\" + "certificado.docx";
+            
+            for (int i = 20; i < 40; i++)
+            {
+                pProgreso.PerformStep();
+            }
+            object oMissing = System.Reflection.Missing.Value;
+            Word.Application ap = new Word.Application();
+            object marcadorNombreUsuario = "nombreUsuario";
+            object marcadorNombreCurso = "nombreCurso";
+            Word.Document document = ap.Documents.Open(documentPath);
+
+            /*Progress Bar */
+            for (int i = 40; i < 60; i++)
+            {
+                pProgreso.PerformStep();
+            }
+
+            //INTRODUZCO EL NOMBRE DE USUARIO
+            Word.Range nombreUsuario = document.Bookmarks.get_Item(ref marcadorNombreUsuario).Range;
+            nombreUsuario.Text = this.usuario.Username;
+            //INTRODUZCO EL NOMBRE DEL CURSO
+            Word.Range nombreCurso = document.Bookmarks.get_Item(ref marcadorNombreCurso).Range;
+            nombreCurso.Text = this.evento.EventName;
+            object rango1 = nombreUsuario;
+            object rango2 = nombreCurso;
+            document.Bookmarks.Add("nombreUsuario", ref rango1);
+            document.Bookmarks.Add("nombreCurso", ref rango2);
+
+            /*Progress Bar */
+            for (int i = 60; i < 70; i++)
+            {
+                pProgreso.PerformStep();
+            }
+
+            object outputFileName = document.FullName.Replace(".docx", ".pdf");
+            object fileFormat = Word.WdSaveFormat.wdFormatPDF;
+            document.SaveAs2(ref outputFileName,
+            ref fileFormat, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing);
+
+            /*Progress Bar */
+            for (int i = 70; i < 80; i++)
+            {
+                pProgreso.PerformStep();
+            }
+
+            object saveChanges = WdSaveOptions.wdDoNotSaveChanges;
+            ((_Document)document).Close(ref saveChanges, ref oMissing, ref oMissing);
+            document = null;
+            ((_Application)ap).Quit(ref oMissing, ref oMissing, ref oMissing);
+            ap = null;
+
+            Email email = new Email();
+
+            /*Progress Bar */
+            for (int i = 80; i < 90; i++)
+            {
+                pProgreso.PerformStep();
+            }
+            email.sendEmailCertificate(usuario.Email, evento, new User(evento.EventCreator));
+
+            /*Progress Bar */
+            for (int i = 90; i < 100; i++)
+            {
+                pProgreso.PerformStep();
+            }
+            MessageBox.Show("Certificado expedido, revise su correo electrónico");
         }
 
         protected void checkedListBox_ItemCheck(object sender, ItemCheckEventArgs e)

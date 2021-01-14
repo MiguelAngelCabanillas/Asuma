@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
-//using Microsoft.Office.Interop.Word;
-using Application = Microsoft.Office.Interop.Word.Application;
 using Word = Microsoft.Office.Interop.Word;
 using Microsoft.Office.Interop.Word;
+using System.IO;
+using MySqlConnector;
 
 namespace Asuma
 {
@@ -24,18 +24,21 @@ namespace Asuma
 
         private void bDocumento_Click(object sender, EventArgs e)
         {
-            string ruta = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.docx";
-            dynamic obj1  = System.Reflection.Missing.Value;
-            dynamic ap = new Word.Application();
+            string path = Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string documentPath = pathBueno + "documents\\" + "certificado.docx";
+
+            object oMissing = System.Reflection.Missing.Value;
+            Word.Application ap = new Word.Application();
             object marcadorNombreUsuario = "nombreUsuario";
             object marcadorNombreCurso = "nombreCurso";
-            Word.Document document = ap.Documents.Open(ruta);
+            Word.Document document = ap.Documents.Open(documentPath);
 
             //INTRODUZCO EL NOMBRE DE USUARIO
-            dynamic nombreUsuario = document.Bookmarks.get_Item(ref marcadorNombreUsuario).Range;
+            Word.Range nombreUsuario = document.Bookmarks.get_Item(ref marcadorNombreUsuario).Range;
             nombreUsuario.Text = "Miguel Ángel Cabanillas Silva";
             //INTRODUZCO EL NOMBRE DEL CURSO
-            dynamic nombreCurso  = document.Bookmarks.get_Item(ref marcadorNombreCurso).Range;
+            Word.Range nombreCurso  = document.Bookmarks.get_Item(ref marcadorNombreCurso).Range;
             nombreCurso.Text = "RECREO";
             object rango1 = nombreUsuario;
             object rango2 = nombreCurso;
@@ -44,16 +47,16 @@ namespace Asuma
             object outputFileName = document.FullName.Replace(".docx", ".pdf");
             object fileFormat = Word.WdSaveFormat.wdFormatPDF;
             document.SaveAs2(ref outputFileName,
-            ref fileFormat, ref obj1, ref obj1,
-            ref obj1, ref obj1, ref obj1, ref obj1,
-            ref obj1, ref obj1, ref obj1, ref obj1,
-            ref obj1, ref obj1, ref obj1, ref obj1);
+            ref fileFormat, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing,
+            ref oMissing, ref oMissing, ref oMissing, ref oMissing);
 
             
             object saveChanges = WdSaveOptions.wdDoNotSaveChanges;
-            ((_Document)document).Close(ref saveChanges, ref obj1, ref obj1);
+            ((_Document)document).Close(ref saveChanges, ref oMissing, ref oMissing);
             document = null;
-            ((_Application)ap).Quit(ref obj1, ref obj1, ref obj1);
+            ((_Application)ap).Quit(ref oMissing, ref oMissing, ref oMissing);
             ap = null;
             
 

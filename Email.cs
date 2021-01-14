@@ -205,8 +205,10 @@ namespace Asuma
 
         public void sendEmailCertificate(string destinatario, Event evento, User organizador)
         {
-            string rutaCertificado = @"C:\Users\Miguel Angel\Desktop\Certificado\certificado.pdf";
-            Attachment data = new Attachment(rutaCertificado, MediaTypeNames.Application.Octet);
+            string path = Path.GetDirectoryName(System.Windows.Forms.Application.StartupPath);
+            string pathBueno = path.Substring(0, path.Length - 3);
+            string documentPath = pathBueno + "documents\\" + "certificado.pdf";
+            Attachment data = new Attachment(documentPath, MediaTypeNames.Application.Octet);
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("noreply.asuma@gmail.com", "ASUMA");
             mail.To.Add(new MailAddress(destinatario));
@@ -218,9 +220,9 @@ namespace Asuma
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString(mensaje, Encoding.UTF8, MediaTypeNames.Text.Html);
 
             mail.Attachments.Add(data);
-            string path = Path.GetDirectoryName(Application.StartupPath);
-            string pathBueno = path.Substring(0, path.Length - 3);
-            string imagePath = pathBueno + "images\\" + "asuma2correo1.png";
+            string path2 = Path.GetDirectoryName(Application.StartupPath);
+            string pathBueno2 = path2.Substring(0, path.Length - 3);
+            string imagePath = pathBueno2 + "images\\" + "asuma2correo1.png";
             LinkedResource img = new LinkedResource(imagePath, MediaTypeNames.Image.Jpeg);
             img.ContentId = "imagen";
 
