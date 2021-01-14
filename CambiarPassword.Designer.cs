@@ -43,9 +43,10 @@ namespace Asuma
             // 
             this.lPassword.AutoSize = true;
             this.lPassword.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lPassword.Location = new System.Drawing.Point(248, 189);
+            this.lPassword.Location = new System.Drawing.Point(186, 154);
+            this.lPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lPassword.Name = "lPassword";
-            this.lPassword.Size = new System.Drawing.Size(296, 23);
+            this.lPassword.Size = new System.Drawing.Size(233, 18);
             this.lPassword.TabIndex = 0;
             this.lPassword.Text = "Introduzca nueva contraseña:";
             // 
@@ -53,37 +54,41 @@ namespace Asuma
             // 
             this.lRepeatedPassword.AutoSize = true;
             this.lRepeatedPassword.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lRepeatedPassword.Location = new System.Drawing.Point(290, 279);
+            this.lRepeatedPassword.Location = new System.Drawing.Point(218, 227);
+            this.lRepeatedPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lRepeatedPassword.Name = "lRepeatedPassword";
-            this.lRepeatedPassword.Size = new System.Drawing.Size(254, 23);
+            this.lRepeatedPassword.Size = new System.Drawing.Size(199, 18);
             this.lRepeatedPassword.TabIndex = 1;
             this.lRepeatedPassword.Text = "Repita nueva contraseña:";
             // 
             // tPassword
             // 
             this.tPassword.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tPassword.Location = new System.Drawing.Point(561, 191);
+            this.tPassword.Location = new System.Drawing.Point(421, 155);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(221, 23);
+            this.tPassword.Size = new System.Drawing.Size(167, 20);
             this.tPassword.TabIndex = 2;
             // 
             // tRepeatedPassword
             // 
             this.tRepeatedPassword.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tRepeatedPassword.Location = new System.Drawing.Point(561, 281);
+            this.tRepeatedPassword.Location = new System.Drawing.Point(421, 228);
+            this.tRepeatedPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tRepeatedPassword.Name = "tRepeatedPassword";
             this.tRepeatedPassword.PasswordChar = '*';
-            this.tRepeatedPassword.Size = new System.Drawing.Size(221, 23);
+            this.tRepeatedPassword.Size = new System.Drawing.Size(167, 20);
             this.tRepeatedPassword.TabIndex = 3;
             // 
             // cShow
             // 
             this.cShow.AutoSize = true;
             this.cShow.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cShow.Location = new System.Drawing.Point(792, 242);
+            this.cShow.Location = new System.Drawing.Point(594, 197);
+            this.cShow.Margin = new System.Windows.Forms.Padding(2);
             this.cShow.Name = "cShow";
-            this.cShow.Size = new System.Drawing.Size(167, 21);
+            this.cShow.Size = new System.Drawing.Size(136, 17);
             this.cShow.TabIndex = 4;
             this.cShow.Text = "Mostrar contraseña";
             this.cShow.UseVisualStyleBackColor = true;
@@ -91,10 +96,12 @@ namespace Asuma
             // 
             // bChange
             // 
-            this.bChange.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bChange.Location = new System.Drawing.Point(658, 360);
+            this.bChange.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bChange.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bChange.Location = new System.Drawing.Point(494, 292);
+            this.bChange.Margin = new System.Windows.Forms.Padding(2);
             this.bChange.Name = "bChange";
-            this.bChange.Size = new System.Drawing.Size(107, 46);
+            this.bChange.Size = new System.Drawing.Size(150, 26);
             this.bChange.TabIndex = 5;
             this.bChange.Text = "Cambiar contraseña";
             this.bChange.UseVisualStyleBackColor = true;
@@ -104,18 +111,19 @@ namespace Asuma
             // 
             this.lRecuperacion.AutoSize = true;
             this.lRecuperacion.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lRecuperacion.Location = new System.Drawing.Point(366, 53);
+            this.lRecuperacion.Location = new System.Drawing.Point(274, 43);
+            this.lRecuperacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lRecuperacion.Name = "lRecuperacion";
-            this.lRecuperacion.Size = new System.Drawing.Size(404, 46);
+            this.lRecuperacion.Size = new System.Drawing.Size(319, 36);
             this.lRecuperacion.TabIndex = 7;
             this.lRecuperacion.Text = "Cambiar contraseña";
             // 
             // CambiarPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1143, 588);
+            this.ClientSize = new System.Drawing.Size(857, 478);
             this.Controls.Add(this.lRecuperacion);
             this.Controls.Add(this.bChange);
             this.Controls.Add(this.cShow);
@@ -124,6 +132,7 @@ namespace Asuma
             this.Controls.Add(this.lRepeatedPassword);
             this.Controls.Add(this.lPassword);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "CambiarPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -49,9 +49,11 @@
             // 
             // bAcceder
             // 
-            this.bAcceder.Location = new System.Drawing.Point(228, 384);
+            this.bAcceder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bAcceder.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bAcceder.Location = new System.Drawing.Point(102, 384);
             this.bAcceder.Name = "bAcceder";
-            this.bAcceder.Size = new System.Drawing.Size(93, 23);
+            this.bAcceder.Size = new System.Drawing.Size(137, 26);
             this.bAcceder.TabIndex = 1;
             this.bAcceder.Text = "Ir al Chat";
             this.bAcceder.UseVisualStyleBackColor = true;
@@ -60,9 +62,11 @@
             // button1
             // 
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Location = new System.Drawing.Point(470, 384);
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(541, 384);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 23);
+            this.button1.Size = new System.Drawing.Size(137, 26);
             this.button1.TabIndex = 2;
             this.button1.Text = "Crear nuevo Chat";
             this.button1.UseVisualStyleBackColor = true;
@@ -72,18 +76,20 @@
             // 
             this.lConversaciones.AutoSize = true;
             this.lConversaciones.BackColor = System.Drawing.Color.Transparent;
-            this.lConversaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lConversaciones.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lConversaciones.Location = new System.Drawing.Point(221, 31);
             this.lConversaciones.Name = "lConversaciones";
-            this.lConversaciones.Size = new System.Drawing.Size(357, 37);
+            this.lConversaciones.Size = new System.Drawing.Size(393, 38);
             this.lConversaciones.TabIndex = 3;
             this.lConversaciones.Text = "Conversaciones Activas";
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(360, 384);
+            this.bBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bBorrar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bBorrar.Location = new System.Drawing.Point(326, 384);
             this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(75, 23);
+            this.bBorrar.Size = new System.Drawing.Size(137, 26);
             this.bBorrar.TabIndex = 4;
             this.bBorrar.Text = "Borrar Chat";
             this.bBorrar.UseVisualStyleBackColor = true;

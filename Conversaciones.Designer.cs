@@ -56,9 +56,11 @@
             // 
             // bEnviar
             // 
-            this.bEnviar.Location = new System.Drawing.Point(576, 385);
+            this.bEnviar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bEnviar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEnviar.Location = new System.Drawing.Point(560, 385);
             this.bEnviar.Name = "bEnviar";
-            this.bEnviar.Size = new System.Drawing.Size(75, 20);
+            this.bEnviar.Size = new System.Drawing.Size(102, 22);
             this.bEnviar.TabIndex = 2;
             this.bEnviar.Text = "Enviar";
             this.bEnviar.UseVisualStyleBackColor = true;
@@ -67,10 +69,10 @@
             // lNombre
             // 
             this.lNombre.AutoSize = true;
-            this.lNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNombre.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lNombre.Location = new System.Drawing.Point(90, 9);
             this.lNombre.Name = "lNombre";
-            this.lNombre.Size = new System.Drawing.Size(86, 31);
+            this.lNombre.Size = new System.Drawing.Size(95, 32);
             this.lNombre.TabIndex = 3;
             this.lNombre.Text = "label1";
             // 

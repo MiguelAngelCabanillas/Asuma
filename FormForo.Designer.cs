@@ -40,11 +40,11 @@ namespace Asuma
             // lTitulo
             // 
             this.lTitulo.AutoSize = true;
-            this.lTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitulo.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitulo.Location = new System.Drawing.Point(72, 47);
             this.lTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(279, 29);
+            this.lTitulo.Size = new System.Drawing.Size(323, 29);
             this.lTitulo.TabIndex = 0;
             this.lTitulo.Text = "Titulo/Nombre del foro";
             // 
@@ -74,9 +74,10 @@ namespace Asuma
             // 
             // tituloTema
             // 
+            this.tituloTema.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloTema.Location = new System.Drawing.Point(521, 107);
             this.tituloTema.Name = "tituloTema";
-            this.tituloTema.Size = new System.Drawing.Size(359, 20);
+            this.tituloTema.Size = new System.Drawing.Size(359, 21);
             this.tituloTema.TabIndex = 4;
             // 
             // bEliminar

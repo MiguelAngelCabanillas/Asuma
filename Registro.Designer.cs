@@ -48,48 +48,49 @@
             // tUsername
             // 
             this.tUsername.Location = new System.Drawing.Point(430, 26);
-            this.tUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tUsername.Name = "tUsername";
-            this.tUsername.Size = new System.Drawing.Size(379, 29);
+            this.tUsername.Size = new System.Drawing.Size(379, 25);
             this.tUsername.TabIndex = 0;
             // 
             // tEmail
             // 
             this.tEmail.Location = new System.Drawing.Point(430, 104);
-            this.tEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tEmail.Name = "tEmail";
-            this.tEmail.Size = new System.Drawing.Size(379, 29);
+            this.tEmail.Size = new System.Drawing.Size(379, 25);
             this.tEmail.TabIndex = 1;
             // 
             // tPassword
             // 
             this.tPassword.Location = new System.Drawing.Point(430, 192);
-            this.tPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
-            this.tPassword.Size = new System.Drawing.Size(234, 29);
+            this.tPassword.Size = new System.Drawing.Size(234, 25);
             this.tPassword.TabIndex = 2;
             // 
             // tRepeatPassword
             // 
             this.tRepeatPassword.Location = new System.Drawing.Point(430, 258);
-            this.tRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tRepeatPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tRepeatPassword.Name = "tRepeatPassword";
             this.tRepeatPassword.PasswordChar = '*';
-            this.tRepeatPassword.Size = new System.Drawing.Size(234, 29);
+            this.tRepeatPassword.Size = new System.Drawing.Size(234, 25);
             this.tRepeatPassword.TabIndex = 3;
             // 
             // cUserType
             // 
+            this.cUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cUserType.FormattingEnabled = true;
             this.cUserType.Items.AddRange(new object[] {
             "Usuario",
             "Docente",
             "ONG"});
             this.cUserType.Location = new System.Drawing.Point(430, 336);
-            this.cUserType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cUserType.Margin = new System.Windows.Forms.Padding(4);
             this.cUserType.Name = "cUserType";
-            this.cUserType.Size = new System.Drawing.Size(165, 30);
+            this.cUserType.Size = new System.Drawing.Size(165, 25);
             this.cUserType.TabIndex = 5;
             this.cUserType.SelectedIndexChanged += new System.EventHandler(this.cUserType_SelectedIndexChanged);
             // 
@@ -100,7 +101,7 @@
             this.lUsername.Location = new System.Drawing.Point(175, 26);
             this.lUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(193, 23);
+            this.lUsername.Size = new System.Drawing.Size(150, 18);
             this.lUsername.TabIndex = 6;
             this.lUsername.Text = "Nombre de usuario";
             this.lUsername.Click += new System.EventHandler(this.lUsername_Click);
@@ -112,7 +113,7 @@
             this.lEmail.Location = new System.Drawing.Point(305, 104);
             this.lEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lEmail.Name = "lEmail";
-            this.lEmail.Size = new System.Drawing.Size(63, 23);
+            this.lEmail.Size = new System.Drawing.Size(47, 18);
             this.lEmail.TabIndex = 7;
             this.lEmail.Text = "Email";
             // 
@@ -123,7 +124,7 @@
             this.lPassword.Location = new System.Drawing.Point(249, 192);
             this.lPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lPassword.Name = "lPassword";
-            this.lPassword.Size = new System.Drawing.Size(117, 23);
+            this.lPassword.Size = new System.Drawing.Size(94, 18);
             this.lPassword.TabIndex = 8;
             this.lPassword.Text = "Contraseña";
             // 
@@ -134,7 +135,7 @@
             this.lRepeatPassword.Location = new System.Drawing.Point(164, 266);
             this.lRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lRepeatPassword.Name = "lRepeatPassword";
-            this.lRepeatPassword.Size = new System.Drawing.Size(205, 23);
+            this.lRepeatPassword.Size = new System.Drawing.Size(159, 18);
             this.lRepeatPassword.TabIndex = 9;
             this.lRepeatPassword.Text = "Repita la contraseña";
             // 
@@ -145,7 +146,7 @@
             this.lUserType.Location = new System.Drawing.Point(211, 346);
             this.lUserType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lUserType.Name = "lUserType";
-            this.lUserType.Size = new System.Drawing.Size(160, 23);
+            this.lUserType.Size = new System.Drawing.Size(121, 18);
             this.lUserType.TabIndex = 10;
             this.lUserType.Text = "Tipo de usuario";
             // 
@@ -153,9 +154,9 @@
             // 
             this.cTerms.AutoSize = true;
             this.cTerms.Location = new System.Drawing.Point(253, 502);
-            this.cTerms.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cTerms.Margin = new System.Windows.Forms.Padding(4);
             this.cTerms.Name = "cTerms";
-            this.cTerms.Size = new System.Drawing.Size(687, 27);
+            this.cTerms.Size = new System.Drawing.Size(525, 22);
             this.cTerms.TabIndex = 11;
             this.cTerms.Text = "Acepto los términos y condiciones de uso y la política de privacidad";
             this.cTerms.UseVisualStyleBackColor = true;
@@ -163,9 +164,9 @@
             // bRegister
             // 
             this.bRegister.Location = new System.Drawing.Point(476, 592);
-            this.bRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bRegister.Margin = new System.Windows.Forms.Padding(4);
             this.bRegister.Name = "bRegister";
-            this.bRegister.Size = new System.Drawing.Size(188, 40);
+            this.bRegister.Size = new System.Drawing.Size(137, 26);
             this.bRegister.TabIndex = 12;
             this.bRegister.Text = "Registrarse";
             this.bRegister.UseVisualStyleBackColor = true;
@@ -174,9 +175,9 @@
             // tCode
             // 
             this.tCode.Location = new System.Drawing.Point(430, 420);
-            this.tCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tCode.Margin = new System.Windows.Forms.Padding(4);
             this.tCode.Name = "tCode";
-            this.tCode.Size = new System.Drawing.Size(234, 29);
+            this.tCode.Size = new System.Drawing.Size(234, 25);
             this.tCode.TabIndex = 13;
             this.tCode.Visible = false;
             // 
@@ -187,14 +188,14 @@
             this.lCode.Location = new System.Drawing.Point(156, 426);
             this.lCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lCode.Name = "lCode";
-            this.lCode.Size = new System.Drawing.Size(212, 23);
+            this.lCode.Size = new System.Drawing.Size(164, 18);
             this.lCode.TabIndex = 14;
             this.lCode.Text = "Introduzca su código";
             this.lCode.Visible = false;
             // 
             // Registro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1119, 645);
@@ -214,7 +215,7 @@
             this.Controls.Add(this.tUsername);
             this.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Registro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
