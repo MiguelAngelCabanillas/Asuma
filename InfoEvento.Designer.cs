@@ -189,10 +189,10 @@ namespace Asuma
             // lTitulo
             // 
             this.lTitulo.AutoSize = true;
-            this.lTitulo.Font = new System.Drawing.Font("Verdana", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lTitulo.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lTitulo.Location = new System.Drawing.Point(648, 327);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(142, 46);
+            this.lTitulo.Size = new System.Drawing.Size(111, 36);
             this.lTitulo.TabIndex = 11;
             this.lTitulo.Text = "Título";
             // 

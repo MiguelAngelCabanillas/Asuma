@@ -42,10 +42,6 @@
             this.tImage = new System.Windows.Forms.TextBox();
             this.tTitle = new System.Windows.Forms.TextBox();
             this.bExit = new System.Windows.Forms.Button();
-            this.linkVideochat = new System.Windows.Forms.LinkLabel();
-            this.lVideochat = new System.Windows.Forms.Label();
-            this.linkEntries = new System.Windows.Forms.LinkLabel();
-            this.lEntries = new System.Windows.Forms.Label();
             this.tDatePicker = new System.Windows.Forms.DateTimePicker();
             this.lDate = new System.Windows.Forms.Label();
             this.tOrganizer = new System.Windows.Forms.TextBox();
@@ -232,57 +228,6 @@
             this.bExit.UseVisualStyleBackColor = true;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
-            // linkVideochat
-            // 
-            this.linkVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.linkVideochat.AutoSize = true;
-            this.linkVideochat.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkVideochat.Location = new System.Drawing.Point(388, 566);
-            this.linkVideochat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkVideochat.Name = "linkVideochat";
-            this.linkVideochat.Size = new System.Drawing.Size(137, 17);
-            this.linkVideochat.TabIndex = 46;
-            this.linkVideochat.TabStop = true;
-            this.linkVideochat.Text = "Enlace a videochat";
-            this.linkVideochat.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkVideochat_LinkClicked);
-            // 
-            // lVideochat
-            // 
-            this.lVideochat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lVideochat.AutoSize = true;
-            this.lVideochat.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lVideochat.Location = new System.Drawing.Point(252, 556);
-            this.lVideochat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lVideochat.Name = "lVideochat";
-            this.lVideochat.Size = new System.Drawing.Size(141, 29);
-            this.lVideochat.TabIndex = 45;
-            this.lVideochat.Text = "Videochat:";
-            // 
-            // linkEntries
-            // 
-            this.linkEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.linkEntries.AutoSize = true;
-            this.linkEntries.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkEntries.Location = new System.Drawing.Point(388, 516);
-            this.linkEntries.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkEntries.Name = "linkEntries";
-            this.linkEntries.Size = new System.Drawing.Size(112, 17);
-            this.linkEntries.TabIndex = 44;
-            this.linkEntries.TabStop = true;
-            this.linkEntries.Text = "Añadir entrada";
-            // 
-            // lEntries
-            // 
-            this.lEntries.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lEntries.AutoSize = true;
-            this.lEntries.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lEntries.Location = new System.Drawing.Point(261, 508);
-            this.lEntries.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lEntries.Name = "lEntries";
-            this.lEntries.Size = new System.Drawing.Size(129, 29);
-            this.lEntries.TabIndex = 43;
-            this.lEntries.Text = "Entradas:";
-            // 
             // tDatePicker
             // 
             this.tDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -414,13 +359,9 @@
             this.panel1.Controls.Add(this.bConfirmEvent);
             this.panel1.Controls.Add(this.tTitle);
             this.panel1.Controls.Add(this.tImage);
-            this.panel1.Controls.Add(this.linkVideochat);
             this.panel1.Controls.Add(this.lDescription);
-            this.panel1.Controls.Add(this.lVideochat);
             this.panel1.Controls.Add(this.tDescription);
-            this.panel1.Controls.Add(this.linkEntries);
             this.panel1.Controls.Add(this.lOrganizador);
-            this.panel1.Controls.Add(this.lEntries);
             this.panel1.Controls.Add(this.tOrganizer);
             this.panel1.Controls.Add(this.lDate);
             this.panel1.Controls.Add(this.tDatePicker);
@@ -547,10 +488,6 @@
         private System.Windows.Forms.TextBox tImage;
         private System.Windows.Forms.TextBox tTitle;
         private System.Windows.Forms.Button bExit;
-        private System.Windows.Forms.LinkLabel linkVideochat;
-        private System.Windows.Forms.Label lVideochat;
-        private System.Windows.Forms.LinkLabel linkEntries;
-        private System.Windows.Forms.Label lEntries;
         private System.Windows.Forms.DateTimePicker tDatePicker;
         private System.Windows.Forms.Label lDate;
         private System.Windows.Forms.TextBox tOrganizer;
