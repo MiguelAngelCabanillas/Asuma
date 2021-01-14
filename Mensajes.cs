@@ -31,7 +31,7 @@ namespace Asuma
 
         public void actualizarMensajes()
         {
-            try
+           try
             {
                 BD bd = new BD();
                 MySqlDataReader reader = bd.Query("SELECT m.username, m.text, m.date FROM message m WHERE m.topicID = " + this.temaID + ";");
@@ -40,10 +40,10 @@ namespace Asuma
                     string user = (string)reader[0];
                     string mensaje = (string)reader[1];
                     string date = (string)reader[2];
-                    string autor = user.ToUpper() + " dice:";
-                    string nuevo = mensaje /*+ " (" + date + ")"*/;
+                    string autor = user.ToUpper();
+                    string nuevo = autor + ": " + mensaje;
                     string fecha = "(" + date + ")";
-                    lbMensajes.Items.Add(autor);
+                    lbMensajes.Items.Add(fecha);
                     if (nuevo.Length > 70)
                     {
                         for (int i = 0; i < nuevo.Length; i += 70)
@@ -66,7 +66,6 @@ namespace Asuma
                     {
                         lbMensajes.Items.Add(nuevo);
                     }
-                    lbMensajes.Items.Add(fecha);
                     lbMensajes.Items.Add(" ");
                 }
                 reader.Close();
