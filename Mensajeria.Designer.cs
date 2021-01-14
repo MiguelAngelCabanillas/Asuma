@@ -40,20 +40,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(136, 87);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(102, 71);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(768, 347);
+            this.dataGridView1.Size = new System.Drawing.Size(576, 282);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // bAcceder
             // 
-            this.bAcceder.Location = new System.Drawing.Point(304, 473);
-            this.bAcceder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bAcceder.Location = new System.Drawing.Point(228, 384);
             this.bAcceder.Name = "bAcceder";
-            this.bAcceder.Size = new System.Drawing.Size(124, 28);
+            this.bAcceder.Size = new System.Drawing.Size(93, 23);
             this.bAcceder.TabIndex = 1;
             this.bAcceder.Text = "Ir al Chat";
             this.bAcceder.UseVisualStyleBackColor = true;
@@ -62,10 +60,9 @@
             // button1
             // 
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Location = new System.Drawing.Point(627, 473);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(470, 384);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 28);
+            this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Crear nuevo Chat";
             this.button1.UseVisualStyleBackColor = true;
@@ -76,19 +73,17 @@
             this.lConversaciones.AutoSize = true;
             this.lConversaciones.BackColor = System.Drawing.Color.Transparent;
             this.lConversaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lConversaciones.Location = new System.Drawing.Point(295, 38);
-            this.lConversaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lConversaciones.Location = new System.Drawing.Point(221, 31);
             this.lConversaciones.Name = "lConversaciones";
-            this.lConversaciones.Size = new System.Drawing.Size(447, 46);
+            this.lConversaciones.Size = new System.Drawing.Size(357, 37);
             this.lConversaciones.TabIndex = 3;
             this.lConversaciones.Text = "Conversaciones Activas";
             // 
             // bBorrar
             // 
-            this.bBorrar.Location = new System.Drawing.Point(480, 473);
-            this.bBorrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bBorrar.Location = new System.Drawing.Point(360, 384);
             this.bBorrar.Name = "bBorrar";
-            this.bBorrar.Size = new System.Drawing.Size(100, 28);
+            this.bBorrar.Size = new System.Drawing.Size(75, 23);
             this.bBorrar.TabIndex = 4;
             this.bBorrar.Text = "Borrar Chat";
             this.bBorrar.UseVisualStyleBackColor = true;
@@ -96,10 +91,10 @@
             // 
             // Mensajeria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1036, 534);
+            this.ClientSize = new System.Drawing.Size(777, 434);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bBorrar);
             this.Controls.Add(this.button1);
@@ -107,11 +102,11 @@
             this.Controls.Add(this.lConversaciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Mensajeria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mensajeria";
+            this.Shown += new System.EventHandler(this.Mensajeria_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

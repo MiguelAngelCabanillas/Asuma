@@ -71,8 +71,11 @@ namespace Asuma
             }
             MessageBox.Show("Cuenta eliminada con exito");
             
-            Inicio.usuario = null;
-            this.Close();
+            Cursor.Current = Cursors.WaitCursor;
+            Principal inicio = new Principal(null);
+            inicio.Show();
+            this.Owner.Dispose();
+            //this.Owner.Close();
         }
 
         private void bImagen_Click(object sender, EventArgs e)

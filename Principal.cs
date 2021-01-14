@@ -23,6 +23,16 @@ namespace Asuma
         #region Creacion del form
         public Principal(User user)
         {
+            try
+            {
+                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                ftp.GetFileDownloadSize("pruebaConexion");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Iniciando en modo sin conexión");
+                FTPClient.ftpOn = false;
+            }
             eventos = Event.listaEventos();
             hideTimer = new Timer { Interval = 100 };
             hideTimer.Tick += hidePanel;
@@ -34,6 +44,7 @@ namespace Asuma
             this.ActiveControl = bInicio;
             pNoticias.SendToBack();
             mostrarNoticias();
+            
         }
 
         public User Usuario
@@ -524,7 +535,12 @@ namespace Asuma
             frame.ShowDialog();
             usuario = frame.Usuario;
             actualizar();
-            this.Visible = true;
+
+            if (!this.IsDisposed)
+            {
+                this.Visible = true;
+            }
+            
         }
 
         private void pintarCalendario()
