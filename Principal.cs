@@ -23,15 +23,18 @@ namespace Asuma
         #region Creacion del form
         public Principal(User user)
         {
-            try
+            if (FTPClient.ftpOn == true)
             {
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                ftp.GetFileDownloadSize("pruebaConexion");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Iniciando en modo sin conexión");
-                FTPClient.ftpOn = false;
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                    ftp.GetFileDownloadSize("pruebaConexion");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Iniciando en modo sin conexión");
+                    FTPClient.ftpOn = false;
+                }
             }
             eventos = Event.listaEventos();
             hideTimer = new Timer { Interval = 100 };
@@ -78,7 +81,7 @@ namespace Asuma
                 ltitulo.Text = newsName;
                 ltitulo.Size = new Size(200, 30);
                 ltitulo.AutoSize = true;
-                ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                ltitulo.Font = new Font("Verdana", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 ltitulo.LinkColor = Color.Black;
                 ltitulo.Location = new Point(230, 15);
                 ltitulo.Name = newsId.ToString();
@@ -131,7 +134,7 @@ namespace Asuma
                 TextBox tFecha = new TextBox();
                 tFecha.Text = "Fecha de la noticia: " + newsDate;
                 tFecha.BorderStyle = BorderStyle.None;
-                tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                tFecha.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 tFecha.Location = new Point(240, 145);//900,130
                 tFecha.Multiline = true;
                 tFecha.Name = "tFecha";
@@ -154,7 +157,7 @@ namespace Asuma
                 TextBox descripcion = new TextBox();
                 descripcion.Text = newsDescription;
                 descripcion.BorderStyle = BorderStyle.None;
-                descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                descripcion.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 descripcion.Location = new Point(240, 60);
                 descripcion.Multiline = true;
                 descripcion.Name = "tDescripcion";
@@ -278,7 +281,7 @@ namespace Asuma
                 int i = 1;
                 foreach (Event evento in this.eventos)
                 {
-                    string date = evento.Date.Substring(0, mcEventos.SelectionStart.ToString().Count() - 8);
+                string date = evento.Date;
                     if (dia.Equals(date))
                     {
                         if (this.usuario == null)

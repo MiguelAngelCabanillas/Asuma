@@ -158,7 +158,7 @@ namespace Asuma
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);  
-            this.bSalir.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            this.bSalir.Location = new Point(tDes.Location.X + tDes.Width - bSalir.Width, (int)(altura * 8.5) / 10);
             this.bInscription.Location = new Point((anchura * 2) / 10, bSalir.Location.Y);
             lTipo.Location = new Point(tDes.Location.X+tDes.Width/2,lOrganizadores.Location.Y);
             lTipoDef.Location = new Point(lTipo.Location.X+100, lOrganizadores.Location.Y+5);

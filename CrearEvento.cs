@@ -33,13 +33,16 @@ namespace Asuma
             actualizarPanelPerfil();
             actualizar();
             actualizarFiltro();
-            cbTipo.SelectedItem = cbTipo.Items[1];
-            /*Desactivar SCROLL HORIZONTAL 
-            this.HorizontalScroll.Maximum = 0;
-            this.AutoScroll = false;
-            this.VerticalScroll.Visible = false;
-            this.AutoScroll = true;
-            */
+            if (usuario.Rol.RolName.Equals("ONG"))
+            {
+                cbTipo.SelectedItem = cbTipo.Items[0];
+                tipo = false;
+            }
+            else
+            {
+                cbTipo.SelectedItem = cbTipo.Items[1];
+                tipo = true;
+            }
         }
         #endregion
 
@@ -303,16 +306,10 @@ namespace Asuma
                 MessageBox.Show("Solo las organizaciones pueden crear actividades");
                 cbTipo.SelectedItem = cbTipo.Items[1];
             }
-            else
+            else if (!usuario.Rol.RolName.Equals("Docente") && cbTipo.SelectedItem == cbTipo.Items[1])
             {
-                if (cbTipo.SelectedItem == cbTipo.Items[0] && usuario.Rol.RolName.Equals("ONG"))
-                {
-                    this.tipo = false;
-                }
-                else
-                {
-                    this.tipo = true;
-                }
+                MessageBox.Show("Solo los docentes pueden crear cursos");
+                cbTipo.SelectedItem = cbTipo.Items[0];
             }
         }
 
@@ -400,8 +397,12 @@ namespace Asuma
 
 
 
+
         #endregion
 
+        private void CrearEvento_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

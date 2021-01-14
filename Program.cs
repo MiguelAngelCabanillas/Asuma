@@ -51,9 +51,8 @@ namespace Asuma
 
         protected override void OnCreateMainForm()
         {
-            User s = new User("docente1");
-            Event e = new Event(64);
-            this.MainForm = new InfoEventoInscrito(e,s);
+            User d = new User("docente1");
+            this.MainForm = new Principal(d);
             //this.MainForm = new Contacto(null);
             //this.MainForm = new CrearNoticia(new User("franB"));
             //this.MainForm = new EditarEvento(new Event(62), new User("franB"));

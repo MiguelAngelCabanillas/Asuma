@@ -150,9 +150,6 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            bEditEvent.Location = new Point(20,bExit.Location.Y);
-            
-            bEditEvent.Size = bExit.Size;
         }
 
         private void actualizarImagenes()
@@ -178,10 +175,10 @@ namespace Asuma
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
             this.lOrganizadores.Location = new Point(lOrg.Location.X + lOrg.Width + 20, lOrganizadores.Location.Y);
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
-            this.bEditEvent.Location = new Point((anchura * 2) / 10, bEditEvent.Location.Y);
             this.linkForum.Location = new Point((anchura * 2) / 10, linkForum.Location.Y);
             this.linkArchivos.Location = new Point((anchura *3) / 10, linkForum.Location.Y);
-            this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
+            this.bExit.Location = new Point(tDes.Location.X + tDes.Width - bExit.Width, (int)(altura * 8.8) / 10);
+            this.bEditEvent.Location = new Point(lFec.Location.X, bExit.Location.Y);
             lTipo.Location = new Point((anchura * 2) / 10, lTipo.Location.Y);
             lTipoDef.Location = new Point(lTipo.Location.X + lTipo.Width + 10, lTipo.Location.Y + 5);
 

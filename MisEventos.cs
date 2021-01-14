@@ -128,7 +128,7 @@ namespace Asuma
                     ltitulo.Text = eventName;
                     ltitulo.Size = new Size(292, 38);
                     ltitulo.AutoSize = true;
-                    ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    ltitulo.Font = new Font("Verdana", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     if (listaCreados.Contains(aux.ID))
                     {
                         ltitulo.LinkColor = Color.Red;
@@ -189,7 +189,7 @@ namespace Asuma
                     TextBox tFecha = new TextBox();
                     tFecha.Text = "Fecha del evento: " + eventDate;
                     tFecha.BorderStyle = BorderStyle.None;
-                    tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tFecha.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     tFecha.Location = new Point(900, 145);
                     tFecha.Multiline = true;
                     tFecha.Name = "tFecha";
@@ -210,7 +210,7 @@ namespace Asuma
                     TextBox descripcion = new TextBox();
                     descripcion.Text = eventDescription;
                     descripcion.BorderStyle = BorderStyle.None;
-                    descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    descripcion.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     descripcion.Location = new Point(233, 68);
                     descripcion.Multiline = true;
                     descripcion.Name = "tDescripcion";
@@ -229,7 +229,7 @@ namespace Asuma
                         tTipo.Text = "Tipo de evento: Actividad";
                     }
                     tTipo.BorderStyle = BorderStyle.None;
-                    tTipo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tTipo.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     tTipo.Location = new Point(900, 100);
                     tTipo.Name = "tTipo";
                     tTipo.ReadOnly = true;
@@ -266,6 +266,7 @@ namespace Asuma
         private void MisEventos_Resize(object sender, EventArgs e)
         {
             actualizarElementos();
+            actualizarFiltro();
         }
 
         private void actualizarElementos()
@@ -292,16 +293,13 @@ namespace Asuma
             }
 
             bCreateEvent.Location = new Point(((this.Width * 5) / 10)-bCreateEvent.Width/2, (int)((this.Height * 8.5) / 10));
-            if (cbFiltro.Items.Count == 0) {
-                actualizarFiltro();
-            }
             panel1.Location = new Point(pUser.Location.X, pUser.Location.Y + pUser.Height - 10);
         }
 
         private void actualizarFiltro()
         {
-            lFiltro.Location = new Point(((this.Width * 9) / 10) - bCreateEvent.Width / 2, (int)((this.Height * 9) / 10));
-            cbFiltro.Location = new Point((int)((this.Width * 9.35) / 10) - bCreateEvent.Width / 2, (int)((this.Height * 8.98) / 10));
+            lFiltro.Location = new Point(((this.Width * 8) / 10) - bCreateEvent.Width / 2, bCreateEvent.Location.Y + 20);
+            cbFiltro.Location = new Point(lFiltro.Location.X + 100, lFiltro.Location.Y);
             cbFiltro.Items.Clear();
             cbFiltro.Items.Add("-");
             cbFiltro.SelectedItem = cbFiltro.Items[0];

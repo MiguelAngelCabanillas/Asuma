@@ -161,8 +161,8 @@ namespace Asuma
             this.tDes.Location = new Point((int)((anchura * 4.5) / 10), tDes.Location.Y);
             this.lFec.Location = new Point((anchura * 2) / 10, lFec.Location.Y);
             this.lFecha.Location = new Point(lFec.Location.X + lFec.Width + 20, lFecha.Location.Y);
-            this.bExit.Location = new Point((int)(anchura * 8.8) / 10, (int)(altura * 8.5) / 10);
-            this.bEditarNoticia.Location = new Point(this.menuFlowLayoutPanel.Location.X, bExit.Location.Y);
+            this.bExit.Location = new Point(tDes.Location.X + tDes.Width - bExit.Width, (int)(altura * 8.5) / 10);
+            this.bEditarNoticia.Location = new Point(lFec.Location.X, bExit.Location.Y);
         }
 
         private void actualizarPanelPerfil()

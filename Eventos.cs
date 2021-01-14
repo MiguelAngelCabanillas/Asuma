@@ -101,7 +101,7 @@ namespace Asuma
                     ltitulo.Text = eventName;
                     ltitulo.Size = new Size(292, 38);
                     ltitulo.AutoSize = true;
-                    ltitulo.Font = new Font("Microsoft Sans Serif", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    ltitulo.Font = new Font("Verdana", 19.8F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     ltitulo.LinkColor = Color.Black;
                     ltitulo.Location = new Point(230, 18);
                     ltitulo.Name = id.ToString();
@@ -166,7 +166,7 @@ namespace Asuma
                     TextBox tFecha = new TextBox();
                     tFecha.Text = "Fecha del evento: " + eventDate;
                     tFecha.BorderStyle = BorderStyle.None;
-                    tFecha.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tFecha.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     tFecha.Location = new Point(900, 145);
                     tFecha.Multiline = true;
                     tFecha.Name = "tFecha";
@@ -187,7 +187,7 @@ namespace Asuma
                     TextBox descripcion = new TextBox();
                     descripcion.Text = eventDescription;
                     descripcion.BorderStyle = BorderStyle.None;
-                    descripcion.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    descripcion.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     descripcion.Location = new Point(233, 68);
                     descripcion.Multiline = true;
                     descripcion.Name = "tDescripcion";
@@ -205,7 +205,7 @@ namespace Asuma
                         tTipo.Text = "Tipo de evento: Actividad";
                     }
                     tTipo.BorderStyle = BorderStyle.None;
-                    tTipo.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                    tTipo.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                     tTipo.Location = new Point(900, 100);
                     tTipo.Name = "tTipo";
                     tTipo.ReadOnly = true;
