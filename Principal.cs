@@ -534,7 +534,12 @@ namespace Asuma
             frame.ShowDialog();
             usuario = frame.Usuario;
             actualizar();
-            this.Visible = true;
+
+            if (!this.IsDisposed)
+            {
+                this.Visible = true;
+            }
+            
         }
 
         private void pintarCalendario()
