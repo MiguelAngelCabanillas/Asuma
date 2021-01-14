@@ -16,13 +16,11 @@ namespace Asuma
         private User usuario;
         private int temaID;
         private string titulo;
-        private int horizontalExtent;
         public Mensajes(User usuario, int temaID, string titulo)
         {
             this.usuario = usuario;
             this.temaID = temaID;
             this.titulo = titulo.ToUpper();
-            this.horizontalExtent = 0;
             InitializeComponent();
         }
 
@@ -42,13 +40,34 @@ namespace Asuma
                     string user = (string)reader[0];
                     string mensaje = (string)reader[1];
                     string date = (string)reader[2];
-                    string nuevo = "> " + user + ": " + mensaje + " (" + date + ")";
-                    if (nuevo.Length > this.horizontalExtent)
+                    string autor = user.ToUpper() + " dice:";
+                    string nuevo = mensaje /*+ " (" + date + ")"*/;
+                    string fecha = "(" + date + ")";
+                    lbMensajes.Items.Add(autor);
+                    if (nuevo.Length > 70)
                     {
-                        lbMensajes.HorizontalExtent = nuevo.Length + mensaje.Length * 8;
-                        this.horizontalExtent = nuevo.Length + mensaje.Length * 8;
+                        for (int i = 0; i < nuevo.Length; i += 70)
+                        {
+                            nuevo = nuevo.Insert(i, "º");
+                            i++;
+                        }
+                        string[] split = nuevo.Split('º');
+                        int j = 0;
+                        foreach (string s in split)
+                        {
+                            if (j != 0)
+                            {
+                                lbMensajes.Items.Add(s);
+                            }
+                            j++;
+                        }
                     }
-                    lbMensajes.Items.Add(nuevo);
+                    else
+                    {
+                        lbMensajes.Items.Add(nuevo);
+                    }
+                    lbMensajes.Items.Add(fecha);
+                    lbMensajes.Items.Add(" ");
                 }
                 reader.Close();
                 bd.closeBD();
@@ -75,13 +94,8 @@ namespace Asuma
                     reader.Read();
                     reader.Close();
                     bd.closeBD();
-                    string mensaje = "> " + this.usuario.Username + ": " + tbMensaje.Text + " (" + date + ")";
-                    if (mensaje.Length > this.horizontalExtent)
-                    {
-                        lbMensajes.HorizontalExtent = mensaje.Length + mensaje.Length * 8;
-                        this.horizontalExtent = mensaje.Length + mensaje.Length * 8;
-                    }
-                    lbMensajes.Items.Add(mensaje);
+                    lbMensajes.Items.Clear();
+                    actualizarMensajes();
                     tbMensaje.Clear();
                 }
             }
