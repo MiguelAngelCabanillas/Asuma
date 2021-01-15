@@ -43,7 +43,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(117, 60);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(509, 249);
@@ -52,21 +52,23 @@
             // 
             // bArchivo
             // 
+            this.bArchivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bArchivo.Location = new System.Drawing.Point(64, 336);
-            this.bArchivo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bArchivo.Margin = new System.Windows.Forms.Padding(4);
             this.bArchivo.Name = "bArchivo";
-            this.bArchivo.Size = new System.Drawing.Size(380, 22);
+            this.bArchivo.Size = new System.Drawing.Size(380, 24);
             this.bArchivo.TabIndex = 1;
             this.bArchivo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(453, 334);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 28);
+            this.button1.Size = new System.Drawing.Size(107, 28);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Descargar archivo";
+            this.button1.Text = "Descargar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -77,8 +79,9 @@
             // 
             // bSubir
             // 
+            this.bSubir.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSubir.Location = new System.Drawing.Point(64, 370);
-            this.bSubir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bSubir.Margin = new System.Windows.Forms.Padding(4);
             this.bSubir.Name = "bSubir";
             this.bSubir.Size = new System.Drawing.Size(496, 28);
             this.bSubir.TabIndex = 3;
@@ -88,8 +91,9 @@
             // 
             // bVolver
             // 
+            this.bVolver.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bVolver.Location = new System.Drawing.Point(576, 332);
-            this.bVolver.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bVolver.Margin = new System.Windows.Forms.Padding(4);
             this.bVolver.Name = "bVolver";
             this.bVolver.Size = new System.Drawing.Size(109, 28);
             this.bVolver.TabIndex = 4;
@@ -99,8 +103,9 @@
             // 
             // bEliminar
             // 
+            this.bEliminar.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEliminar.Location = new System.Drawing.Point(576, 370);
-            this.bEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(109, 28);
             this.bEliminar.TabIndex = 5;
@@ -120,9 +125,10 @@
             this.Controls.Add(this.bArchivo);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PruebaFTP";
-            this.Text = "PruebaFTP";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Archivos";
             this.Load += new System.EventHandler(this.PruebaFTP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

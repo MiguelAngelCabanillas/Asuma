@@ -533,17 +533,9 @@ namespace Asuma
         private void bPerfil_Click(object sender, EventArgs e)
         {
             MiPerfil frame = new MiPerfil(usuario);
-            frame.Owner = this;
-            this.Visible = false;
             frame.ShowDialog();
             usuario = frame.Usuario;
             actualizar();
-
-            if (!this.IsDisposed)
-            {
-                this.Visible = true;
-            }
-            
         }
 
         private void pintarCalendario()

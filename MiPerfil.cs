@@ -59,15 +59,11 @@ namespace Asuma
 
         private void bBorrarCuenta_Click(object sender, EventArgs e)
         {
-            usuario.borrarUsuario(usuario);
-            
-            MessageBox.Show("Cuenta eliminada con exito");
-            
             Cursor.Current = Cursors.WaitCursor;
-            Principal inicio = new Principal(null);
-            inicio.Show();
-            this.Owner.Dispose();
-            //this.Owner.Close();
+            usuario.borrarUsuario(usuario);
+            MessageBox.Show("Cuenta eliminada con exito");
+            usuario = null;
+            this.Close();
         }
 
         private void bImagen_Click(object sender, EventArgs e)

@@ -47,7 +47,7 @@
             // 
             this.pUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pUsuario.Image")));
-            this.pUsuario.Location = new System.Drawing.Point(168, 128);
+            this.pUsuario.Location = new System.Drawing.Point(117, 101);
             this.pUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.pUsuario.Name = "pUsuario";
             this.pUsuario.Size = new System.Drawing.Size(211, 192);
@@ -57,44 +57,46 @@
             // 
             // tUsername
             // 
-            this.tUsername.Location = new System.Drawing.Point(676, 140);
+            this.tUsername.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tUsername.Location = new System.Drawing.Point(649, 157);
             this.tUsername.Margin = new System.Windows.Forms.Padding(4);
             this.tUsername.Name = "tUsername";
-            this.tUsername.Size = new System.Drawing.Size(251, 22);
+            this.tUsername.Size = new System.Drawing.Size(324, 26);
             this.tUsername.TabIndex = 13;
             this.tUsername.TabStop = false;
             // 
             // tEmail
             // 
-            this.tEmail.Location = new System.Drawing.Point(676, 266);
+            this.tEmail.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tEmail.Location = new System.Drawing.Point(649, 267);
             this.tEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tEmail.Name = "tEmail";
-            this.tEmail.Size = new System.Drawing.Size(251, 22);
+            this.tEmail.Size = new System.Drawing.Size(324, 26);
             this.tEmail.TabIndex = 14;
             this.tEmail.TabStop = false;
             // 
             // bNombre
             // 
             this.bNombre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bNombre.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bNombre.Location = new System.Drawing.Point(694, 170);
+            this.bNombre.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bNombre.Location = new System.Drawing.Point(671, 201);
             this.bNombre.Margin = new System.Windows.Forms.Padding(4);
             this.bNombre.Name = "bNombre";
-            this.bNombre.Size = new System.Drawing.Size(213, 25);
+            this.bNombre.Size = new System.Drawing.Size(288, 32);
             this.bNombre.TabIndex = 15;
             this.bNombre.TabStop = false;
-            this.bNombre.Text = "Cambiar Nombre de usuario";
+            this.bNombre.Text = "Cambiar nombre de usuario";
             this.bNombre.UseVisualStyleBackColor = true;
             this.bNombre.Click += new System.EventHandler(this.bNombre_Click);
             // 
             // bMail
             // 
             this.bMail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bMail.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bMail.Location = new System.Drawing.Point(694, 296);
+            this.bMail.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bMail.Location = new System.Drawing.Point(714, 308);
             this.bMail.Margin = new System.Windows.Forms.Padding(4);
             this.bMail.Name = "bMail";
-            this.bMail.Size = new System.Drawing.Size(213, 25);
+            this.bMail.Size = new System.Drawing.Size(183, 32);
             this.bMail.TabIndex = 16;
             this.bMail.TabStop = false;
             this.bMail.Text = "Cambiar correo";
@@ -104,22 +106,22 @@
             // bBorrarCuenta
             // 
             this.bBorrarCuenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bBorrarCuenta.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bBorrarCuenta.Location = new System.Drawing.Point(649, 391);
+            this.bBorrarCuenta.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bBorrarCuenta.Location = new System.Drawing.Point(116, 470);
             this.bBorrarCuenta.Margin = new System.Windows.Forms.Padding(4);
             this.bBorrarCuenta.Name = "bBorrarCuenta";
-            this.bBorrarCuenta.Size = new System.Drawing.Size(301, 25);
+            this.bBorrarCuenta.Size = new System.Drawing.Size(212, 28);
             this.bBorrarCuenta.TabIndex = 17;
             this.bBorrarCuenta.TabStop = false;
-            this.bBorrarCuenta.Text = "Darse de baja en la aplicación";
+            this.bBorrarCuenta.Text = "Eliminar cuenta";
             this.bBorrarCuenta.UseVisualStyleBackColor = true;
             this.bBorrarCuenta.Click += new System.EventHandler(this.bBorrarCuenta_Click);
             // 
             // bImagen
             // 
             this.bImagen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bImagen.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bImagen.Location = new System.Drawing.Point(168, 352);
+            this.bImagen.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bImagen.Location = new System.Drawing.Point(117, 318);
             this.bImagen.Margin = new System.Windows.Forms.Padding(4);
             this.bImagen.Name = "bImagen";
             this.bImagen.Size = new System.Drawing.Size(212, 28);
@@ -138,10 +140,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(108, 69);
+            this.label1.Location = new System.Drawing.Point(57, 42);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 41);
+            this.label1.Size = new System.Drawing.Size(325, 40);
             this.label1.TabIndex = 19;
             this.label1.Text = "Imagen de perfil";
             // 
@@ -150,7 +152,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(691, 113);
+            this.label2.Location = new System.Drawing.Point(405, 155);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(216, 23);
@@ -162,7 +164,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(700, 239);
+            this.label3.Location = new System.Drawing.Point(413, 266);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(208, 23);

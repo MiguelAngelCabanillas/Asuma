@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="RutaDescarga" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\\Universidad\\Descargas\\</Value>
+      <Value Profile="(Default)">C:\\Users\\Descargas\\</Value>
     </Setting>
   </Settings>
 </SettingsFile>

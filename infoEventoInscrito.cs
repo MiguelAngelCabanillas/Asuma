@@ -398,7 +398,7 @@ namespace Asuma
         private void bNotifyEmail_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            Notificacion n = new Notificacion();
+            Notificacion n = new Notificacion(evento);
             n.ShowDialog();
         }
 

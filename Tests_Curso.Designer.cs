@@ -49,9 +49,10 @@ namespace Asuma
             // 
             // bVisualizar
             // 
+            this.bVisualizar.Enabled = false;
             this.bVisualizar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bVisualizar.Location = new System.Drawing.Point(51, 625);
-            this.bVisualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bVisualizar.Margin = new System.Windows.Forms.Padding(4);
             this.bVisualizar.Name = "bVisualizar";
             this.bVisualizar.Size = new System.Drawing.Size(184, 44);
             this.bVisualizar.TabIndex = 4;
@@ -65,7 +66,7 @@ namespace Asuma
             this.LB_Tests.FormattingEnabled = true;
             this.LB_Tests.ItemHeight = 18;
             this.LB_Tests.Location = new System.Drawing.Point(51, 111);
-            this.LB_Tests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LB_Tests.Margin = new System.Windows.Forms.Padding(4);
             this.LB_Tests.Name = "LB_Tests";
             this.LB_Tests.Size = new System.Drawing.Size(392, 472);
             this.LB_Tests.TabIndex = 3;
@@ -74,7 +75,7 @@ namespace Asuma
             // 
             this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSalir.Location = new System.Drawing.Point(260, 625);
-            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(184, 44);
             this.bSalir.TabIndex = 6;
@@ -92,9 +93,10 @@ namespace Asuma
             this.Controls.Add(this.bVisualizar);
             this.Controls.Add(this.LB_Tests);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Tests_Curso";
             this.Text = "Tests_Curso";
+            this.Load += new System.EventHandler(this.Tests_Curso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

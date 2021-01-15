@@ -30,27 +30,13 @@ namespace Asuma
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notificacion));
-            this.tMessage = new System.Windows.Forms.TextBox();
             this.lMessage = new System.Windows.Forms.Label();
             this.lSubject = new System.Windows.Forms.Label();
             this.tSubject = new System.Windows.Forms.TextBox();
             this.lInfo = new System.Windows.Forms.Label();
             this.tSend = new System.Windows.Forms.Button();
+            this.tMessage = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // tMessage
-            // 
-            this.tMessage.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tMessage.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tMessage.Location = new System.Drawing.Point(512, 227);
-            this.tMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tMessage.MaxLength = 0;
-            this.tMessage.Multiline = true;
-            this.tMessage.Name = "tMessage";
-            this.tMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tMessage.Size = new System.Drawing.Size(453, 174);
-            this.tMessage.TabIndex = 15;
-            this.tMessage.Text = "\r\n";
             // 
             // lMessage
             // 
@@ -101,15 +87,24 @@ namespace Asuma
             this.tSend.UseVisualStyleBackColor = true;
             this.tSend.Click += new System.EventHandler(this.tSend_Click);
             // 
+            // tMessage
+            // 
+            this.tMessage.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tMessage.Location = new System.Drawing.Point(512, 227);
+            this.tMessage.Multiline = true;
+            this.tMessage.Name = "tMessage";
+            this.tMessage.Size = new System.Drawing.Size(453, 174);
+            this.tMessage.TabIndex = 24;
+            // 
             // Notificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1265, 527);
+            this.Controls.Add(this.tMessage);
             this.Controls.Add(this.tSend);
             this.Controls.Add(this.lInfo);
             this.Controls.Add(this.tSubject);
-            this.Controls.Add(this.tMessage);
             this.Controls.Add(this.lMessage);
             this.Controls.Add(this.lSubject);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -124,12 +119,11 @@ namespace Asuma
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tMessage;
         private System.Windows.Forms.Label lMessage;
         private System.Windows.Forms.Label lSubject;
         private System.Windows.Forms.TextBox tSubject;
         private System.Windows.Forms.Label lInfo;
         private System.Windows.Forms.Button tSend;
+        private System.Windows.Forms.TextBox tMessage;
     }
 }

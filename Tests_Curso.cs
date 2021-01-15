@@ -71,5 +71,24 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             this.Close();
         }
+
+        private void Tests_Curso_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                BD bd = new BD();
+                MySqlDataReader reader = bd.Query("SELECT nombre FROM resultsTest WHERE evento = " + evento.ID + ";");
+                if (reader.HasRows)
+                {
+                    bVisualizar.Enabled = true;
+                }
+                reader.Close();
+                bd.closeBD();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }

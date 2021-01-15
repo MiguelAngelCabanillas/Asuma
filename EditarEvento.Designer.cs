@@ -207,22 +207,22 @@
             // tTitle
             // 
             this.tTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tTitle.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tTitle.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tTitle.Location = new System.Drawing.Point(498, 38);
             this.tTitle.Margin = new System.Windows.Forms.Padding(2);
             this.tTitle.MaxLength = 40;
             this.tTitle.Name = "tTitle";
-            this.tTitle.Size = new System.Drawing.Size(170, 23);
+            this.tTitle.Size = new System.Drawing.Size(170, 26);
             this.tTitle.TabIndex = 32;
             // 
             // bExit
             // 
             this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bExit.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bExit.Location = new System.Drawing.Point(550, 631);
+            this.bExit.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Location = new System.Drawing.Point(530, 625);
             this.bExit.Margin = new System.Windows.Forms.Padding(2);
             this.bExit.Name = "bExit";
-            this.bExit.Size = new System.Drawing.Size(137, 26);
+            this.bExit.Size = new System.Drawing.Size(171, 32);
             this.bExit.TabIndex = 47;
             this.bExit.Text = "Salir";
             this.bExit.UseVisualStyleBackColor = true;
@@ -232,11 +232,11 @@
             // 
             this.tDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tDatePicker.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tDatePicker.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tDatePicker.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tDatePicker.Location = new System.Drawing.Point(364, 405);
             this.tDatePicker.Margin = new System.Windows.Forms.Padding(2);
             this.tDatePicker.Name = "tDatePicker";
-            this.tDatePicker.Size = new System.Drawing.Size(308, 23);
+            this.tDatePicker.Size = new System.Drawing.Size(308, 26);
             this.tDatePicker.TabIndex = 40;
             this.tDatePicker.Value = new System.DateTime(2020, 12, 9, 0, 0, 0, 0);
             // 
@@ -255,12 +255,12 @@
             // tOrganizer
             // 
             this.tOrganizer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tOrganizer.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tOrganizer.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tOrganizer.Location = new System.Drawing.Point(364, 341);
             this.tOrganizer.Margin = new System.Windows.Forms.Padding(2);
             this.tOrganizer.MaxLength = 40;
             this.tOrganizer.Name = "tOrganizer";
-            this.tOrganizer.Size = new System.Drawing.Size(308, 23);
+            this.tOrganizer.Size = new System.Drawing.Size(308, 26);
             this.tOrganizer.TabIndex = 38;
             // 
             // lOrganizador
@@ -301,7 +301,7 @@
             // tDescription
             // 
             this.tDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tDescription.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tDescription.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tDescription.Location = new System.Drawing.Point(407, 170);
             this.tDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tDescription.MaxLength = 300;
@@ -325,11 +325,11 @@
             // bConfirmEvent
             // 
             this.bConfirmEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bConfirmEvent.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bConfirmEvent.Location = new System.Drawing.Point(73, 631);
+            this.bConfirmEvent.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bConfirmEvent.Location = new System.Drawing.Point(76, 625);
             this.bConfirmEvent.Margin = new System.Windows.Forms.Padding(2);
             this.bConfirmEvent.Name = "bConfirmEvent";
-            this.bConfirmEvent.Size = new System.Drawing.Size(137, 26);
+            this.bConfirmEvent.Size = new System.Drawing.Size(171, 32);
             this.bConfirmEvent.TabIndex = 50;
             this.bConfirmEvent.Text = "Confirmar cambios";
             this.bConfirmEvent.UseVisualStyleBackColor = true;
@@ -338,11 +338,11 @@
             // bDeleteEvent
             // 
             this.bDeleteEvent.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bDeleteEvent.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bDeleteEvent.Location = new System.Drawing.Point(312, 631);
+            this.bDeleteEvent.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bDeleteEvent.Location = new System.Drawing.Point(296, 625);
             this.bDeleteEvent.Margin = new System.Windows.Forms.Padding(2);
             this.bDeleteEvent.Name = "bDeleteEvent";
-            this.bDeleteEvent.Size = new System.Drawing.Size(137, 26);
+            this.bDeleteEvent.Size = new System.Drawing.Size(171, 32);
             this.bDeleteEvent.TabIndex = 51;
             this.bDeleteEvent.Text = "Eliminar evento";
             this.bDeleteEvent.UseVisualStyleBackColor = true;
@@ -373,9 +373,10 @@
             // 
             // bCrearTest
             // 
-            this.bCrearTest.Location = new System.Drawing.Point(279, 457);
+            this.bCrearTest.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bCrearTest.Location = new System.Drawing.Point(276, 457);
             this.bCrearTest.Name = "bCrearTest";
-            this.bCrearTest.Size = new System.Drawing.Size(214, 30);
+            this.bCrearTest.Size = new System.Drawing.Size(238, 30);
             this.bCrearTest.TabIndex = 54;
             this.bCrearTest.Text = "Crear test de conocimiento";
             this.bCrearTest.UseVisualStyleBackColor = true;
@@ -384,6 +385,7 @@
             // bEscogerImg
             // 
             this.bEscogerImg.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bEscogerImg.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEscogerImg.Location = new System.Drawing.Point(78, 247);
             this.bEscogerImg.Margin = new System.Windows.Forms.Padding(2);
             this.bEscogerImg.Name = "bEscogerImg";

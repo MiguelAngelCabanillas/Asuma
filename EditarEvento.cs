@@ -201,7 +201,9 @@ namespace Asuma
                 string description = tDescription.Text;
                 string image = tImage.Text;
                 string organizer = tOrganizer.Text;
-                string date = tDatePicker.Value.ToString();
+                DateTime eventDate = tDatePicker.Value;
+                string[] aux = eventDate.ToString().Split(' ');
+                string date = aux[0];
                 BD bd = new BD();
                 MySqlDataReader writer = bd.Query("UPDATE event SET eventName = '" + title + "', date = '" + date + "', image = '" + image + "', eventDescription = '" + description + "', organizer = '" + organizer + "' WHERE idEvent = " + evento.ID);
                 MessageBox.Show("Se ha editado el evento correctamente");

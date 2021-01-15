@@ -274,6 +274,7 @@ namespace Asuma
 
         private void bEnviar_Click(object sender, EventArgs e)
         {
+            pProgreso.Visible = true;
             pProgreso.Value = 1;
             pProgreso.Step = 1;
             for (int i = 0; i < 10; i++)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,8 +120,12 @@ namespace Asuma
         {
             if (seleccionado != null)
             {
-                ftp.Download(seleccionado, Properties.Settings.Default.RutaDescarga/*"C:\\Universidad\\Descargas\\"*/ + seleccionado);
-                MessageBox.Show("El programa ha terminado de descargar " + seleccionado + " correctamente.");
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "asuma\\"));
+                string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "asuma\\");
+                var di = new DirectoryInfo(filePath);
+                di.Attributes &= ~FileAttributes.ReadOnly;
+                ftp.Download(seleccionado, filePath + seleccionado);
+                MessageBox.Show("Descarga completada. Su archivo se encuentra en su carpeta de documentos");
                 MostrarSeleccionado();
             }
             else

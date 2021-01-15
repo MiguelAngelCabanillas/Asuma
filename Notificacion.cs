@@ -12,9 +12,11 @@ namespace Asuma
 {
     public partial class Notificacion : Form
     {
-        public Notificacion()
+        private Event evento;
+        public Notificacion(Event evento)
         {
             InitializeComponent();
+            this.evento = evento;
         }
 
         private void Notificacion_Resize(object sender, EventArgs e)
@@ -33,11 +35,11 @@ namespace Asuma
                 }
                 else
                 {
-                    List<string> listaEmails = User.listaEmailsUsuariosEnEvento(new Event(61));
+                    List<string> listaEmails = User.listaEmailsUsuariosEnEvento(evento);
                     Email email = new Email();
                     string asunto = tSubject.Text;
                     string cuerpo = tMessage.Text;
-                    email.sendEmailToVarious(listaEmails, asunto, cuerpo, new Event(61).EventName);
+                    email.sendEmailToVarious(listaEmails, asunto, cuerpo, this.evento.EventName);
                     MessageBox.Show("Notificación enviada con éxito");
                     this.Close();
                 }

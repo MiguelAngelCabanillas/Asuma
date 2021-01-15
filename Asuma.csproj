@@ -444,5 +444,11 @@
   <ItemGroup>
     <None Include="images\facultad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\pordefecto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\pordefecto.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
