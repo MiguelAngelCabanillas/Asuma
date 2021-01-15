@@ -61,7 +61,7 @@ namespace Asuma
                 lUsuario.Text = name;
                 lUsuario.Size = new Size(120, 30);
                 lUsuario.AutoSize = true;
-                lUsuario.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+                lUsuario.Font = new Font("Verdana", 14F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
                 lUsuario.Location = new Point(panel.Width / 2 - lUsuario.Text.Length * 5, 130);
                 lUsuario.Visible = true;
 
@@ -186,7 +186,7 @@ namespace Asuma
             this.bEventos.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bInfo.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
             this.bContacto.Width = this.menuFlowLayoutPanel.Width / 4 - 10;
-            this.bExit.Location = new Point(this.pASM.Location.X+50,this.Height-100);
+            this.bExit.Location = new Point((int)(this.Width * 8.54) / 10, (int)(this.Height * 9) / 10);
         }
         private void actualizarImagenes()
         {

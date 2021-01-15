@@ -74,9 +74,10 @@ namespace Asuma
             // 
             // tSubject
             // 
+            this.tSubject.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tSubject.Location = new System.Drawing.Point(512, 150);
             this.tSubject.Name = "tSubject";
-            this.tSubject.Size = new System.Drawing.Size(225, 22);
+            this.tSubject.Size = new System.Drawing.Size(225, 28);
             this.tSubject.TabIndex = 16;
             // 
             // lInfo

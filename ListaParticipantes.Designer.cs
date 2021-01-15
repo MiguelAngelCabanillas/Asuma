@@ -63,6 +63,7 @@ namespace Asuma
             // 
             // bMensajes
             // 
+            this.bMensajes.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.bMensajes.Location = new System.Drawing.Point(41, 90);
             this.bMensajes.Margin = new System.Windows.Forms.Padding(4);
             this.bMensajes.Name = "bMensajes";
@@ -150,6 +151,7 @@ namespace Asuma
             // 
             // bPerfil
             // 
+            this.bPerfil.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.bPerfil.Location = new System.Drawing.Point(41, 18);
             this.bPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.bPerfil.Name = "bPerfil";
@@ -187,11 +189,11 @@ namespace Asuma
             // 
             // bInicio
             // 
-            this.bInicio.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInicio.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bInicio.Location = new System.Drawing.Point(3, 2);
             this.bInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(127, 46);
+            this.bInicio.Size = new System.Drawing.Size(128, 46);
             this.bInicio.TabIndex = 0;
             this.bInicio.TabStop = false;
             this.bInicio.Text = "Inicio / Noticias";
@@ -201,11 +203,11 @@ namespace Asuma
             // bEventos
             // 
             this.bEventos.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.bEventos.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEventos.Location = new System.Drawing.Point(136, 2);
+            this.bEventos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bEventos.Location = new System.Drawing.Point(137, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bEventos.Name = "bEventos";
-            this.bEventos.Size = new System.Drawing.Size(127, 46);
+            this.bEventos.Size = new System.Drawing.Size(128, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = false;
@@ -213,11 +215,11 @@ namespace Asuma
             // 
             // bInfo
             // 
-            this.bInfo.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInfo.Location = new System.Drawing.Point(269, 2);
+            this.bInfo.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bInfo.Location = new System.Drawing.Point(271, 2);
             this.bInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bInfo.Name = "bInfo";
-            this.bInfo.Size = new System.Drawing.Size(127, 46);
+            this.bInfo.Size = new System.Drawing.Size(128, 46);
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
@@ -225,11 +227,11 @@ namespace Asuma
             // 
             // bContacto
             // 
-            this.bContacto.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bContacto.Location = new System.Drawing.Point(402, 2);
+            this.bContacto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bContacto.Location = new System.Drawing.Point(405, 2);
             this.bContacto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bContacto.Name = "bContacto";
-            this.bContacto.Size = new System.Drawing.Size(127, 46);
+            this.bContacto.Size = new System.Drawing.Size(128, 46);
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
@@ -314,7 +316,7 @@ namespace Asuma
             // bExit
             // 
             this.bExit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bExit.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bExit.Font = new System.Drawing.Font("Verdana", 9.75F);
             this.bExit.Location = new System.Drawing.Point(2023, 1284);
             this.bExit.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.bExit.Name = "bExit";

@@ -39,7 +39,7 @@ namespace Asuma
             }
             catch (Exception e)
             {
-                throw new Error(e.Message);
+                MessageBox.Show(e.Message);
             }
         }
 

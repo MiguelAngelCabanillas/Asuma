@@ -16,6 +16,7 @@ namespace Asuma
         {
             InitializeComponent();
             crearDataGridView();
+            dataGridUsers.Font = new Font("Verdana", 10);
         }
 
         private void crearDataGridView()
