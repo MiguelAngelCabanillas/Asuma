@@ -41,6 +41,7 @@ namespace Asuma
                     string cmd = cad;
                     listaTemas.Items.Add(cmd);
                     Tema tema = new Tema(foro, cad, foro.evento.EventCreator);
+                    tituloTema.Text = "";
                 }
                 else
                 {
