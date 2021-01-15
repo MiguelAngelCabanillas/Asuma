@@ -121,9 +121,6 @@
   <data name="facultad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\facultad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pordefecto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\pordefecto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="uma" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\uma.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,9 +135,6 @@
   </data>
   <data name="asm2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\asm2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pordefecto1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\pordefecto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pordefecto2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\pordefecto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -113,26 +113,6 @@ namespace Asuma.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pordefecto {
-            get {
-                object obj = ResourceManager.GetObject("pordefecto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pordefecto1 {
-            get {
-                object obj = ResourceManager.GetObject("pordefecto1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap pordefecto2 {
             get {
                 object obj = ResourceManager.GetObject("pordefecto2", resourceCulture);
