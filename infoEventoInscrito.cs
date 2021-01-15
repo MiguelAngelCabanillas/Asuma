@@ -211,7 +211,6 @@ namespace Asuma
 
         private void lSignOut_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //Environment.Exit(Environment.ExitCode);
             Cursor.Current = Cursors.WaitCursor;
             Principal inicio = new Principal(null);
             inicio.Show();
@@ -442,6 +441,14 @@ namespace Asuma
             Cursor.Current = Cursors.WaitCursor;
             Surveys_Evento encuestas = new Surveys_Evento(evento);
             encuestas.ShowDialog();
+        }
+
+        private void bInfo_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            Informacion info = new Informacion(usuario);
+            info.Show();
+            this.Close();
         }
     }
 }

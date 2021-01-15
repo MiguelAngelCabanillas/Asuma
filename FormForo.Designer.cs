@@ -41,20 +41,20 @@ namespace Asuma
             // 
             this.lTitulo.AutoSize = true;
             this.lTitulo.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lTitulo.Location = new System.Drawing.Point(72, 47);
-            this.lTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lTitulo.Location = new System.Drawing.Point(96, 58);
+            this.lTitulo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lTitulo.Name = "lTitulo";
-            this.lTitulo.Size = new System.Drawing.Size(323, 29);
+            this.lTitulo.Size = new System.Drawing.Size(407, 36);
             this.lTitulo.TabIndex = 0;
             this.lTitulo.Text = "Titulo/Nombre del foro";
             // 
             // bAñadirTema
             // 
             this.bAñadirTema.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bAñadirTema.Location = new System.Drawing.Point(77, 101);
-            this.bAñadirTema.Margin = new System.Windows.Forms.Padding(4);
+            this.bAñadirTema.Location = new System.Drawing.Point(103, 124);
+            this.bAñadirTema.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.bAñadirTema.Name = "bAñadirTema";
-            this.bAñadirTema.Size = new System.Drawing.Size(413, 28);
+            this.bAñadirTema.Size = new System.Drawing.Size(551, 34);
             this.bAñadirTema.TabIndex = 1;
             this.bAñadirTema.Text = "Añadir un nuevo debate al foro\r\n";
             this.bAñadirTema.UseVisualStyleBackColor = true;
@@ -64,28 +64,30 @@ namespace Asuma
             // 
             this.listaTemas.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listaTemas.FormattingEnabled = true;
-            this.listaTemas.ItemHeight = 23;
-            this.listaTemas.Location = new System.Drawing.Point(79, 211);
-            this.listaTemas.Margin = new System.Windows.Forms.Padding(4);
+            this.listaTemas.ItemHeight = 29;
+            this.listaTemas.Location = new System.Drawing.Point(105, 260);
+            this.listaTemas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.listaTemas.Name = "listaTemas";
-            this.listaTemas.Size = new System.Drawing.Size(928, 395);
+            this.listaTemas.Size = new System.Drawing.Size(1236, 468);
             this.listaTemas.TabIndex = 3;
             this.listaTemas.DoubleClick += new System.EventHandler(this.listaTemas_DoubleClick);
             // 
             // tituloTema
             // 
             this.tituloTema.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloTema.Location = new System.Drawing.Point(521, 107);
+            this.tituloTema.Location = new System.Drawing.Point(695, 132);
+            this.tituloTema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tituloTema.Name = "tituloTema";
-            this.tituloTema.Size = new System.Drawing.Size(359, 21);
+            this.tituloTema.Size = new System.Drawing.Size(477, 24);
             this.tituloTema.TabIndex = 4;
             // 
             // bEliminar
             // 
             this.bEliminar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEliminar.Location = new System.Drawing.Point(79, 147);
+            this.bEliminar.Location = new System.Drawing.Point(105, 181);
+            this.bEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bEliminar.Name = "bEliminar";
-            this.bEliminar.Size = new System.Drawing.Size(413, 28);
+            this.bEliminar.Size = new System.Drawing.Size(551, 34);
             this.bEliminar.TabIndex = 5;
             this.bEliminar.Text = "Eliminar debate seleccionado";
             this.bEliminar.UseVisualStyleBackColor = true;
@@ -93,17 +95,18 @@ namespace Asuma
             // 
             // FormForo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 660);
+            this.ClientSize = new System.Drawing.Size(1685, 812);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.tituloTema);
             this.Controls.Add(this.listaTemas);
             this.Controls.Add(this.bAñadirTema);
             this.Controls.Add(this.lTitulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "FormForo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Foro";
             this.Load += new System.EventHandler(this.Foro_Load);
             this.ResumeLayout(false);
