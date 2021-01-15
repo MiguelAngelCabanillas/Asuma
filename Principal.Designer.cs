@@ -63,10 +63,10 @@
             this.linitSesion.AutoSize = true;
             this.linitSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linitSesion.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linitSesion.Location = new System.Drawing.Point(343, 63);
+            this.linitSesion.Location = new System.Drawing.Point(429, 79);
             this.linitSesion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linitSesion.Name = "linitSesion";
-            this.linitSesion.Size = new System.Drawing.Size(152, 25);
+            this.linitSesion.Size = new System.Drawing.Size(193, 32);
             this.linitSesion.TabIndex = 0;
             this.linitSesion.TabStop = true;
             this.linitSesion.Text = "Iniciar sesion";
@@ -77,10 +77,10 @@
             this.lSignOut.AutoSize = true;
             this.lSignOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lSignOut.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lSignOut.Location = new System.Drawing.Point(196, 94);
+            this.lSignOut.Location = new System.Drawing.Point(245, 118);
             this.lSignOut.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lSignOut.Name = "lSignOut";
-            this.lSignOut.Size = new System.Drawing.Size(102, 17);
+            this.lSignOut.Size = new System.Drawing.Size(122, 20);
             this.lSignOut.TabIndex = 8;
             this.lSignOut.TabStop = true;
             this.lSignOut.Text = "Cerrar sesión";
@@ -90,10 +90,10 @@
             // 
             this.pASM.Image = ((System.Drawing.Image)(resources.GetObject("pASM.Image")));
             this.pASM.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASM.InitialImage")));
-            this.pASM.Location = new System.Drawing.Point(1087, 14);
+            this.pASM.Location = new System.Drawing.Point(1359, 18);
             this.pASM.Margin = new System.Windows.Forms.Padding(2);
             this.pASM.Name = "pASM";
-            this.pASM.Size = new System.Drawing.Size(281, 111);
+            this.pASM.Size = new System.Drawing.Size(351, 139);
             this.pASM.TabIndex = 14;
             this.pASM.TabStop = false;
             this.pASM.Paint += new System.Windows.Forms.PaintEventHandler(this.pASM_Paint);
@@ -102,10 +102,10 @@
             // 
             this.pASUMA.Image = ((System.Drawing.Image)(resources.GetObject("pASUMA.Image")));
             this.pASUMA.InitialImage = ((System.Drawing.Image)(resources.GetObject("pASUMA.InitialImage")));
-            this.pASUMA.Location = new System.Drawing.Point(591, 14);
+            this.pASUMA.Location = new System.Drawing.Point(739, 18);
             this.pASUMA.Margin = new System.Windows.Forms.Padding(2);
             this.pASUMA.Name = "pASUMA";
-            this.pASUMA.Size = new System.Drawing.Size(319, 102);
+            this.pASUMA.Size = new System.Drawing.Size(399, 128);
             this.pASUMA.TabIndex = 13;
             this.pASUMA.TabStop = false;
             this.pASUMA.Paint += new System.Windows.Forms.PaintEventHandler(this.pASUMA_Paint);
@@ -117,10 +117,10 @@
             this.menuFlowLayoutPanel.Controls.Add(this.bEventos);
             this.menuFlowLayoutPanel.Controls.Add(this.bInfo);
             this.menuFlowLayoutPanel.Controls.Add(this.bContacto);
-            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(23, 139);
+            this.menuFlowLayoutPanel.Location = new System.Drawing.Point(29, 174);
             this.menuFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.menuFlowLayoutPanel.Name = "menuFlowLayoutPanel";
-            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1073, 43);
+            this.menuFlowLayoutPanel.Size = new System.Drawing.Size(1341, 54);
             this.menuFlowLayoutPanel.TabIndex = 12;
             this.menuFlowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuFlowLayoutPanel_Paint_1);
             // 
@@ -132,7 +132,7 @@
             this.bInicio.Location = new System.Drawing.Point(2, 2);
             this.bInicio.Margin = new System.Windows.Forms.Padding(2);
             this.bInicio.Name = "bInicio";
-            this.bInicio.Size = new System.Drawing.Size(102, 37);
+            this.bInicio.Size = new System.Drawing.Size(128, 46);
             this.bInicio.TabIndex = 0;
             this.bInicio.Text = "Inicio / Noticias";
             this.bInicio.UseVisualStyleBackColor = false;
@@ -141,10 +141,10 @@
             // 
             this.bEventos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bEventos.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bEventos.Location = new System.Drawing.Point(108, 2);
+            this.bEventos.Location = new System.Drawing.Point(134, 2);
             this.bEventos.Margin = new System.Windows.Forms.Padding(2);
             this.bEventos.Name = "bEventos";
-            this.bEventos.Size = new System.Drawing.Size(102, 37);
+            this.bEventos.Size = new System.Drawing.Size(128, 46);
             this.bEventos.TabIndex = 1;
             this.bEventos.Text = "Eventos";
             this.bEventos.UseVisualStyleBackColor = true;
@@ -154,10 +154,10 @@
             // 
             this.bInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bInfo.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bInfo.Location = new System.Drawing.Point(214, 2);
+            this.bInfo.Location = new System.Drawing.Point(266, 2);
             this.bInfo.Margin = new System.Windows.Forms.Padding(2);
             this.bInfo.Name = "bInfo";
-            this.bInfo.Size = new System.Drawing.Size(102, 37);
+            this.bInfo.Size = new System.Drawing.Size(128, 46);
             this.bInfo.TabIndex = 2;
             this.bInfo.Text = "Información";
             this.bInfo.UseVisualStyleBackColor = true;
@@ -167,10 +167,10 @@
             // 
             this.bContacto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bContacto.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bContacto.Location = new System.Drawing.Point(320, 2);
+            this.bContacto.Location = new System.Drawing.Point(398, 2);
             this.bContacto.Margin = new System.Windows.Forms.Padding(2);
             this.bContacto.Name = "bContacto";
-            this.bContacto.Size = new System.Drawing.Size(102, 37);
+            this.bContacto.Size = new System.Drawing.Size(128, 46);
             this.bContacto.TabIndex = 3;
             this.bContacto.Text = "Contacto";
             this.bContacto.UseVisualStyleBackColor = true;
@@ -180,10 +180,10 @@
             // 
             this.lUsername.AutoSize = true;
             this.lUsername.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lUsername.Location = new System.Drawing.Point(195, 55);
+            this.lUsername.Location = new System.Drawing.Point(244, 69);
             this.lUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(122, 26);
+            this.lUsername.Size = new System.Drawing.Size(159, 34);
             this.lUsername.TabIndex = 11;
             this.lUsername.Text = "userName";
             // 
@@ -191,10 +191,10 @@
             // 
             this.pUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pUser.Image = ((System.Drawing.Image)(resources.GetObject("pUser.Image")));
-            this.pUser.Location = new System.Drawing.Point(58, 13);
+            this.pUser.Location = new System.Drawing.Point(72, 16);
             this.pUser.Margin = new System.Windows.Forms.Padding(2);
             this.pUser.Name = "pUser";
-            this.pUser.Size = new System.Drawing.Size(105, 111);
+            this.pUser.Size = new System.Drawing.Size(131, 139);
             this.pUser.TabIndex = 10;
             this.pUser.TabStop = false;
             this.pUser.Paint += new System.Windows.Forms.PaintEventHandler(this.pUser_Paint);
@@ -202,17 +202,18 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pPerfil);
             this.panel1.Controls.Add(this.lCalendario);
-            this.panel1.Controls.Add(this.linkGesUsers);
             this.panel1.Controls.Add(this.mcEventos);
             this.panel1.Controls.Add(this.bCrearNoticia);
             this.panel1.Controls.Add(this.pNoticias);
-            this.panel1.Controls.Add(this.pPerfil);
             this.panel1.Controls.Add(this.lSignOut);
             this.panel1.Controls.Add(this.pUser);
-            this.panel1.Location = new System.Drawing.Point(3, 2);
+            this.panel1.Controls.Add(this.linkGesUsers);
+            this.panel1.Location = new System.Drawing.Point(4, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1530, 876);
+            this.panel1.Size = new System.Drawing.Size(1912, 1095);
             this.panel1.TabIndex = 15;
             this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
@@ -220,9 +221,10 @@
             // 
             this.lCalendario.AutoSize = true;
             this.lCalendario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lCalendario.Location = new System.Drawing.Point(943, 246);
+            this.lCalendario.Location = new System.Drawing.Point(1179, 308);
+            this.lCalendario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lCalendario.Name = "lCalendario";
-            this.lCalendario.Size = new System.Drawing.Size(126, 25);
+            this.lCalendario.Size = new System.Drawing.Size(155, 31);
             this.lCalendario.TabIndex = 16;
             this.lCalendario.Text = "Calendario";
             // 
@@ -231,10 +233,10 @@
             this.linkGesUsers.AutoSize = true;
             this.linkGesUsers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkGesUsers.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkGesUsers.Location = new System.Drawing.Point(340, 94);
+            this.linkGesUsers.Location = new System.Drawing.Point(425, 118);
             this.linkGesUsers.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkGesUsers.Name = "linkGesUsers";
-            this.linkGesUsers.Size = new System.Drawing.Size(149, 17);
+            this.linkGesUsers.Size = new System.Drawing.Size(179, 20);
             this.linkGesUsers.TabIndex = 15;
             this.linkGesUsers.TabStop = true;
             this.linkGesUsers.Text = "Gestión de usuarios";
@@ -243,8 +245,8 @@
             // mcEventos
             // 
             this.mcEventos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mcEventos.Location = new System.Drawing.Point(1546, 394);
-            this.mcEventos.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.mcEventos.Location = new System.Drawing.Point(1932, 492);
+            this.mcEventos.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.mcEventos.Name = "mcEventos";
             this.mcEventos.TabIndex = 14;
             this.mcEventos.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.mcEventos_DateSelected);
@@ -253,10 +255,10 @@
             // 
             this.bCrearNoticia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bCrearNoticia.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bCrearNoticia.Location = new System.Drawing.Point(721, 373);
+            this.bCrearNoticia.Location = new System.Drawing.Point(901, 466);
             this.bCrearNoticia.Margin = new System.Windows.Forms.Padding(2);
             this.bCrearNoticia.Name = "bCrearNoticia";
-            this.bCrearNoticia.Size = new System.Drawing.Size(96, 48);
+            this.bCrearNoticia.Size = new System.Drawing.Size(120, 60);
             this.bCrearNoticia.TabIndex = 13;
             this.bCrearNoticia.Text = "Crear Noticia";
             this.bCrearNoticia.UseVisualStyleBackColor = true;
@@ -266,10 +268,10 @@
             // 
             this.pNoticias.AutoScroll = true;
             this.pNoticias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pNoticias.Location = new System.Drawing.Point(20, 230);
+            this.pNoticias.Location = new System.Drawing.Point(25, 288);
             this.pNoticias.Margin = new System.Windows.Forms.Padding(2);
             this.pNoticias.Name = "pNoticias";
-            this.pNoticias.Size = new System.Drawing.Size(640, 416);
+            this.pNoticias.Size = new System.Drawing.Size(800, 520);
             this.pNoticias.TabIndex = 12;
             this.pNoticias.Resize += new System.EventHandler(this.pNoticias_Resize);
             // 
@@ -280,9 +282,10 @@
             this.pPerfil.Controls.Add(this.lNoticias);
             this.pPerfil.Controls.Add(this.bMensajes);
             this.pPerfil.Controls.Add(this.bPerfil);
-            this.pPerfil.Location = new System.Drawing.Point(41, 114);
+            this.pPerfil.Location = new System.Drawing.Point(51, 142);
+            this.pPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pPerfil.Name = "pPerfil";
-            this.pPerfil.Size = new System.Drawing.Size(252, 112);
+            this.pPerfil.Size = new System.Drawing.Size(314, 140);
             this.pPerfil.TabIndex = 11;
             this.pPerfil.Visible = false;
             this.pPerfil.MouseLeave += new System.EventHandler(this.pPerfil_MouseLeave);
@@ -291,10 +294,10 @@
             // 
             this.lNoticias.AutoSize = true;
             this.lNoticias.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lNoticias.Location = new System.Drawing.Point(-23, 72);
+            this.lNoticias.Location = new System.Drawing.Point(-29, 90);
             this.lNoticias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lNoticias.Name = "lNoticias";
-            this.lNoticias.Size = new System.Drawing.Size(226, 29);
+            this.lNoticias.Size = new System.Drawing.Size(285, 36);
             this.lNoticias.TabIndex = 16;
             this.lNoticias.Text = "Últimas noticias";
             // 
@@ -302,9 +305,10 @@
             // 
             this.bMensajes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bMensajes.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bMensajes.Location = new System.Drawing.Point(33, 72);
+            this.bMensajes.Location = new System.Drawing.Point(41, 90);
+            this.bMensajes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bMensajes.Name = "bMensajes";
-            this.bMensajes.Size = new System.Drawing.Size(196, 31);
+            this.bMensajes.Size = new System.Drawing.Size(245, 39);
             this.bMensajes.TabIndex = 1;
             this.bMensajes.Text = "Mensajes Privados";
             this.bMensajes.UseVisualStyleBackColor = true;
@@ -316,9 +320,10 @@
             // 
             this.bPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bPerfil.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bPerfil.Location = new System.Drawing.Point(33, 14);
+            this.bPerfil.Location = new System.Drawing.Point(41, 18);
+            this.bPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bPerfil.Name = "bPerfil";
-            this.bPerfil.Size = new System.Drawing.Size(196, 31);
+            this.bPerfil.Size = new System.Drawing.Size(245, 39);
             this.bPerfil.TabIndex = 0;
             this.bPerfil.Text = "Mi perfil";
             this.bPerfil.UseVisualStyleBackColor = true;
@@ -328,10 +333,10 @@
             // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1539, 844);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.pASM);
             this.Controls.Add(this.pASUMA);
             this.Controls.Add(this.lUsername);

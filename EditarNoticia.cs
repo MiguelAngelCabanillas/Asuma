@@ -146,8 +146,7 @@ namespace Asuma
             this.pASUMA.Location = new Point((this.Width * 4) / 10, pASUMA.Location.Y);
             this.pASM.Location = new Point((this.Width * 7) / 10, pASM.Location.Y);
 
-            this.panel1.Location = new Point(this.bInicio.Location.X + 100, this.menuFlowLayoutPanel.Location.Y + 80);
-            this.panel1.Size = new Size(this.menuFlowLayoutPanel.Width, this.Height - this.menuFlowLayoutPanel.Location.Y - 30);
+            this.panel1.Location = new Point((this.Width/2)- (panel1.Width /2), (int)(this.Height * 3) / 10);
         }
 
         private void actualizarPanelPerfil()
