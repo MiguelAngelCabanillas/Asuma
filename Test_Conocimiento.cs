@@ -39,6 +39,7 @@ namespace Asuma
 
             InitializeComponent();
             mostrarPreguntasyRespuestas();
+            pProgreso.Value = 0;
         }
 
         public Test_Conocimiento(SortedDictionary<int, string> nombrePreguntas,
@@ -223,6 +224,7 @@ namespace Asuma
                 }
                 else
                 {
+                    pProgreso.Visible = false;
                     MessageBox.Show("Intentalo de nuevo");
                 }
             }
@@ -235,6 +237,7 @@ namespace Asuma
                 }
                 else
                 {
+                    pProgreso.Visible = false;
                     MessageBox.Show("Intentalo de nuevo");
                 }
             }

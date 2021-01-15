@@ -125,7 +125,7 @@ namespace Asuma
                 var di = new DirectoryInfo(filePath);
                 di.Attributes &= ~FileAttributes.ReadOnly;
                 ftp.Download(seleccionado, filePath + seleccionado);
-                MessageBox.Show("Descarga completada. Su archivo se encuentra en su carpeta de documentos");
+                MessageBox.Show("Descarga completada. El archivo se encuentra en su carpeta de documentos");
                 MostrarSeleccionado();
             }
             else
