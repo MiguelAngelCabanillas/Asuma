@@ -60,15 +60,7 @@ namespace Asuma
         private void bBorrarCuenta_Click(object sender, EventArgs e)
         {
             usuario.borrarUsuario(usuario);
-            try
-            {
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
-                ftp.DeleteFTPDirectory("" + usuario.Id);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: MiPerfil.cs bBorrarCuenta_Click");
-            }
+            
             MessageBox.Show("Cuenta eliminada con exito");
             
             Cursor.Current = Cursors.WaitCursor;

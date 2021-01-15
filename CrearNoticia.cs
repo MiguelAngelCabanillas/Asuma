@@ -54,15 +54,19 @@ namespace Asuma
 
         public void actualizar()
         {
-            try
+            if (FTPClient.ftpOn == true)
             {
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
-                pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + usuario.Id + "/", "Prueba", "");
+                    pUser.Image = ftp.DownloadPngAsImage("image.png", pUser.Size);
+                }
+                catch (Exception ex)
+                {
+                    pUser.Image = null;
+                }
             }
-            catch (Exception ex)
-            {
-                pUser.Image = null;
-            }
+            
             pUser.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             lUsername.Visible = true;

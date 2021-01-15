@@ -241,6 +241,16 @@ namespace Asuma
                 MySqlDataReader writer = bd.Query("DELETE FROM user WHERE id = " + this.id + ";");
                 writer.Close();
                 bd.closeBD();
+
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/", "Prueba", "");
+                    ftp.DeleteFTPDirectory("" + usuario.Id);
+                }
+                catch(Exception)
+                {
+
+                }
             }
         }
 

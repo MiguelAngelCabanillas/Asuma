@@ -23,15 +23,18 @@ namespace Asuma
         #region Creacion del form
         public Principal(User user)
         {
-            try
+            if (FTPClient.ftpOn == true)
             {
-                FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
-                ftp.GetFileDownloadSize("pruebaConexion");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Iniciando en modo sin conexión");
-                FTPClient.ftpOn = false;
+                try
+                {
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/", "Prueba", "");
+                    ftp.GetFileDownloadSize("pruebaConexion");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Iniciando en modo sin conexión");
+                    FTPClient.ftpOn = false;
+                }
             }
             eventos = Event.listaEventos();
             hideTimer = new Timer { Interval = 100 };
