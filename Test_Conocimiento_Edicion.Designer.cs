@@ -56,7 +56,7 @@ namespace Asuma
             this.checkedListBoxQ1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkedListBoxQ1.FormattingEnabled = true;
             this.checkedListBoxQ1.Location = new System.Drawing.Point(59, 225);
-            this.checkedListBoxQ1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkedListBoxQ1.Margin = new System.Windows.Forms.Padding(4);
             this.checkedListBoxQ1.Name = "checkedListBoxQ1";
             this.checkedListBoxQ1.Size = new System.Drawing.Size(679, 128);
             this.checkedListBoxQ1.TabIndex = 13;
@@ -97,17 +97,18 @@ namespace Asuma
             // 
             // textBoxPregunta
             // 
+            this.textBoxPregunta.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPregunta.Location = new System.Drawing.Point(223, 155);
-            this.textBoxPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPregunta.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPregunta.Name = "textBoxPregunta";
-            this.textBoxPregunta.Size = new System.Drawing.Size(500, 22);
+            this.textBoxPregunta.Size = new System.Drawing.Size(500, 23);
             this.textBoxPregunta.TabIndex = 14;
             this.textBoxPregunta.Text = "Pregunta0";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Location = new System.Drawing.Point(816, 37);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(359, 212);
             this.flowLayoutPanel1.TabIndex = 15;
@@ -116,7 +117,7 @@ namespace Asuma
             // 
             this.bFinalizar_Test.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bFinalizar_Test.Location = new System.Drawing.Point(16, 505);
-            this.bFinalizar_Test.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bFinalizar_Test.Margin = new System.Windows.Forms.Padding(4);
             this.bFinalizar_Test.Name = "bFinalizar_Test";
             this.bFinalizar_Test.Size = new System.Drawing.Size(260, 34);
             this.bFinalizar_Test.TabIndex = 16;
@@ -128,7 +129,7 @@ namespace Asuma
             // 
             this.bEliminarPregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEliminarPregunta.Location = new System.Drawing.Point(312, 452);
-            this.bEliminarPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEliminarPregunta.Margin = new System.Windows.Forms.Padding(4);
             this.bEliminarPregunta.Name = "bEliminarPregunta";
             this.bEliminarPregunta.Size = new System.Drawing.Size(260, 34);
             this.bEliminarPregunta.TabIndex = 17;
@@ -140,7 +141,7 @@ namespace Asuma
             // 
             this.bAñadir_Pregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAñadir_Pregunta.Location = new System.Drawing.Point(608, 452);
-            this.bAñadir_Pregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bAñadir_Pregunta.Margin = new System.Windows.Forms.Padding(4);
             this.bAñadir_Pregunta.Name = "bAñadir_Pregunta";
             this.bAñadir_Pregunta.Size = new System.Drawing.Size(260, 34);
             this.bAñadir_Pregunta.TabIndex = 18;
@@ -152,7 +153,7 @@ namespace Asuma
             // 
             this.bAñadir_Respuesta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bAñadir_Respuesta.Location = new System.Drawing.Point(772, 340);
-            this.bAñadir_Respuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bAñadir_Respuesta.Margin = new System.Windows.Forms.Padding(4);
             this.bAñadir_Respuesta.Name = "bAñadir_Respuesta";
             this.bAñadir_Respuesta.Size = new System.Drawing.Size(188, 34);
             this.bAñadir_Respuesta.TabIndex = 19;
@@ -162,10 +163,11 @@ namespace Asuma
             // 
             // textBoxRespuesta
             // 
+            this.textBoxRespuesta.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRespuesta.Location = new System.Drawing.Point(772, 276);
-            this.textBoxRespuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRespuesta.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRespuesta.Name = "textBoxRespuesta";
-            this.textBoxRespuesta.Size = new System.Drawing.Size(292, 22);
+            this.textBoxRespuesta.Size = new System.Drawing.Size(292, 23);
             this.textBoxRespuesta.TabIndex = 20;
             this.textBoxRespuesta.Text = "Respuesta0";
             // 
@@ -173,7 +175,7 @@ namespace Asuma
             // 
             this.bEliminar_Respuesta.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bEliminar_Respuesta.Location = new System.Drawing.Point(987, 340);
-            this.bEliminar_Respuesta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEliminar_Respuesta.Margin = new System.Windows.Forms.Padding(4);
             this.bEliminar_Respuesta.Name = "bEliminar_Respuesta";
             this.bEliminar_Respuesta.Size = new System.Drawing.Size(188, 34);
             this.bEliminar_Respuesta.TabIndex = 22;
@@ -185,7 +187,7 @@ namespace Asuma
             // 
             this.bActualizarPregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bActualizarPregunta.Location = new System.Drawing.Point(901, 452);
-            this.bActualizarPregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bActualizarPregunta.Margin = new System.Windows.Forms.Padding(4);
             this.bActualizarPregunta.Name = "bActualizarPregunta";
             this.bActualizarPregunta.Size = new System.Drawing.Size(260, 34);
             this.bActualizarPregunta.TabIndex = 23;
@@ -198,7 +200,7 @@ namespace Asuma
             this.checkBoxSelecM.AutoSize = true;
             this.checkBoxSelecM.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxSelecM.Location = new System.Drawing.Point(59, 79);
-            this.checkBoxSelecM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxSelecM.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxSelecM.Name = "checkBoxSelecM";
             this.checkBoxSelecM.Size = new System.Drawing.Size(159, 22);
             this.checkBoxSelecM.TabIndex = 25;
@@ -210,7 +212,7 @@ namespace Asuma
             this.checkBoxCorrecta.AutoSize = true;
             this.checkBoxCorrecta.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxCorrecta.Location = new System.Drawing.Point(1073, 278);
-            this.checkBoxCorrecta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxCorrecta.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxCorrecta.Name = "checkBoxCorrecta";
             this.checkBoxCorrecta.Size = new System.Drawing.Size(95, 22);
             this.checkBoxCorrecta.TabIndex = 26;
@@ -221,7 +223,7 @@ namespace Asuma
             // 
             this.bNueva_Pregunta.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bNueva_Pregunta.Location = new System.Drawing.Point(16, 452);
-            this.bNueva_Pregunta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bNueva_Pregunta.Margin = new System.Windows.Forms.Padding(4);
             this.bNueva_Pregunta.Name = "bNueva_Pregunta";
             this.bNueva_Pregunta.Size = new System.Drawing.Size(260, 34);
             this.bNueva_Pregunta.TabIndex = 27;
@@ -233,7 +235,7 @@ namespace Asuma
             // 
             this.bSalir.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bSalir.Location = new System.Drawing.Point(901, 505);
-            this.bSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bSalir.Margin = new System.Windows.Forms.Padding(4);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(260, 34);
             this.bSalir.TabIndex = 28;
@@ -264,7 +266,7 @@ namespace Asuma
             this.Controls.Add(this.lNameCurso);
             this.Controls.Add(this.lTestName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Test_Conocimiento_Edicion";
             this.Text = "Test_Conocimiento_Edicion";
             this.ResumeLayout(false);
