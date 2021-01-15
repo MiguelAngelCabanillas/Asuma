@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySqlConnector;
+using System.IO;
 
 namespace Asuma
 {
@@ -89,6 +90,16 @@ namespace Asuma
                         if (userType.Equals(roleName))
                         {
                             User user = new User(username, password, email, userType);
+
+                            string path = Path.GetDirectoryName(Application.StartupPath);
+                            string pathBueno = path.Substring(0, path.Length - 3);
+                            string imagePath = pathBueno + "images\\user-icon.jpg";
+
+                            FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + user.Id + "/", "Prueba", "");
+                            ftp.UploadFile(imagePath, "image.png");
+
+                            
+
                             MessageBox.Show("Registro realizado con exito");
                             this.Close();
                         }
@@ -101,6 +112,14 @@ namespace Asuma
                 else
                 {
                     User user = new User(username, password, email, userType);
+
+                    string path = Path.GetDirectoryName(Application.StartupPath);
+                    string pathBueno = path.Substring(0, path.Length - 3);
+                    string imagePath = pathBueno + "images\\user-icon.jpg";
+
+                    FTPClient ftp = new FTPClient("ftp://25.35.182.85:12975/usuarios/" + user.Id + "/", "Prueba", "");
+                    ftp.UploadFile(imagePath, "image.png");
+
                     MessageBox.Show("Registro realizado con exito");
                     this.Close();
                 }

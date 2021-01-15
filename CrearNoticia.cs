@@ -66,6 +66,7 @@ namespace Asuma
                     pUser.Image = null;
                 }
             }
+            
             pUser.Visible = true;
             lUsername.Text = "Bienvenido " + usuario.Username;
             lUsername.Visible = true;
